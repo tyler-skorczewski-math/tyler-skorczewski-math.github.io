@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Inverse functions</h1>
+
+<hr>
+
+<h2>Basic examples</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+ <div id="ex1" class="collapse">
+<P>Find the inverses of the following functions:
+<ol type='1'>
+<li>\( f(x) = 2x -3 \)
+<li>\( g(x) = e^{4x}\)
+<li>\( h(x) = \ln (5x) \)
+<li>\( j(x) = (x-3)^3 \)
+<li>\( l(x) = x^2 -1 \)
+</ol>
+<P>Recall that to find the inverse of a function \( y = f(x) \), we swap \(x\) and \(y\) and solve for \(y\).
+<P>Let's take a closer look at \(l(x)\). Sketch it and its inverse on one set of axes. What do you notice?
+</div>
+
+<h2>1-1 functions</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#onetoone">Definition</button>
+ <div id="onetoone" class="collapse">
+<P><B>Definition:</B>A function, \(f\), is <u>one-to-one</u> iff \(x_1 \neq x_2 \Rightarrow f(x_1) \neq f(x_2)\), i.e. different inputs give different outputs.
+<P>The graph of a function must pass the vertical line test if it is truly a function. For a function to be 1-1, it must pass a horizontal line test. Explain why this must be true.
+</div>
+
+<h2>Example 2</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+
+<P> Consider \(f(x) = 2x + 3\). Find its inverse and graph both on the same set of axes.
+<P> What do you notice about the derivatives of these functions?<br>
+
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#invthm">Theorem</button>
+
+<div id="invthm" class="collapse">
+<P><b>Theorem</b> Let \(f\) and \(g\) be inverses of each other. Let \(f(a) = b\). If \(f'(a)\) exists and \(f'(a) \neq 0\). Then \(g'(b)\) exists and \(g'(b) = \frac{1}{f'(a)}\).
+</div>
+<P> Consider \(j(x) = (x-3)^3\). What is \(\frac{d}{dx}j^{-1}\) at \(x=8\)?
+</div>
+
+<h2>Inverse trig functions</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#invtrig">Inverse trig fcns</button>
+  <div id="invtrig" class="collapse">
+<P>Question: Sketch a plot of the cosine function. Does this function have an inverse? Why or why not?
+  <div class="compute">
+    <script type="text/x-sage">
+p1 = plot(cos,-2*pi,2*pi,color='blue')
+pt = text(r"$y = \cos(x)$",(2.9,0.5),fontsize=20)
+p2 = plot(cos,0,pi,color='red',thickness=5)
+
+@interact
+
+def _(winv = checkbox(False,label='Show domain restriction?')):
+  if winv:
+      show(p2+p1+pt)
+  else:
+      show(p1+pt)
+
+
+p3 = plot(acos,-1,1,color='black',thickness=3)
+pti = text(r"$y = \cos^{-1}(x)$",(0.5,2),fontsize=20,color='black')
+show(p3+pti)
+
+    </script>
+  </div>
+<P>Task: use the picture below along with the theorem above derivatives of inverses to show \(\frac{d}{dx}\cos^{-1}x = \frac{-1}{\sqrt{1-x^2}}\).<br>
+<img src="images/invcos.png" width=300><br>
+<P>Can you repeat this styl of analysis to derive the derivative of inverse sine?
+<P>What about the derivative of inverse tangent?
+</div>
+</body>
+</html>
