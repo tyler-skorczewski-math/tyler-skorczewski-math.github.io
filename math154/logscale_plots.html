@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+<body style="width: 1000px;">
+
+<h1>Logscale plotting lab</h1>
+
+<h2>Ragin River</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#river">Raging River</button>
+<div id="river" class="collapse">
+
+The Raging River is a modest tributary to the much larger Snoqualmie River in western Washington State, draining the western Cascades. The Raging drains an area of about 35 square miles (90 square kilometers) and is fed predominantly by groundwater from rainfall and a little snowmelt at the upper end of the drainage basin. The Raging River's drainage basin has been impacted by a number of human activities, including logging, roadbuilding, and construction of artificial levees along the lower stretch of the river.
+
+The size of a river can be measured by discharge, the volume of water passing by a fixed point along the river in a given amount of time. Discharge is typically expressed in either cubic feet per second (cfs) or cubic meters per second (cms). For example, at the mouth of the Amazon River, the mean discharge is approximately 200,000 cms or 6 million cfs. Discharge is typically calculated by measuring the width and mean depth of the river channel, as well as the mean velocity. Multiplying these three variables together gives the discharge.
+
+Discharge varies depending upon the amount of precipitation in the drainage basin. Rainfall saturating the ground flows into thousands of tiny rivulets in the drainage basin, and then into ever bigger tributaries that make up the intricate branching stream network. At the end of the summer drought, in September, the discharge on the Raging River at the lone USGS gaging station (about 2 miles from the mouth of the Raging) can be less than 10 cfs. The record discharge at this same gaging station is over 4000 cfs, obviously related to some serious storms on top of already saturated ground.
+
+The data show discharge as a function of time at gaging station \# 12145500 on the Raging River in late November 1998, a typically rainy period in western Washington when the ground is mostly saturated. The data begin at peak discharge of about 2500 cfs following an intense rainstorm and illustrate the decrease in discharge as water is flushed out of the system. The rainstorm that generated these data dumped a lot of water in the basin, then passed on quickly. Thus the hydrograph is showing the Raging River's response to a very discrete rainstorm event.
+
+<P>To Do:<ol type='1'>
+<li>Describe the graph of the data shown in the sage applet.
+<li>We will try to fit this data to an exponential function in the form \(D = Ae^{at}\) where \(D\) is discharge and \(t\) is time. What kinds of parameters are \(A\) and \(a\)? What are their units and what do they represent?
+<li>Take the log of this equation. What do you notice?
+<li>Plot the data using a log scale on the y-axis (dischage).  Is this new graph consistent with your equation above?
+<li>Fit a line to the \(\log(D)\) vs. \(t\) data. What do the slope and intercept represent?
+<li>Plot the data and your fit curve on one graph. Does the fit look good?
+<li>Modeling these discrete storm events is important for quantifying the response characteristics for different drainage basins. For example, the Raging River has a steep sided basin with a lot of near-surface bedrock, which is very impervious. Water falling on the basin is quickly transferred to the Raging River; the river has a very short response time. How will the parameters of an exponential model differ between a short response basin like the Raging and a long response basin? How will the parameters of an exponential model differ between a small versus large storm event?
+<li>The USGS provides near real-time discharge data for thousands of streams around the US. Go to <a href="http://water.usgs.gov/realtime.html">http://water.usgs.gov/realtime.html</a> and see if you can find similar data for a river near your hometown or the <a href="https://waterdata.usgs.gov/wi/nwis/uv?cb_00060=on&cb_00065=on&format=gif_default&site_no=05369000&period=&begin_date=2017-08-29&end_date=2017-09-05">Red Cedar River</a> here in Menomonie.
+</ol>
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+
+import numpy
+import numpy.linalg
+
+var('x')
+def fit_line(x_data,y_data) :
+ n=len(x_data); a=0.; b=0.
+ if n==len(y_data) :
+  A=numpy.array([[x_data[j],1] for j in range(n)])
+  B=numpy.array(y_data)
+  X=numpy.linalg.lstsq(A,B)[0]
+  a=X[0]; b=X[1]
+  return a, b
+
+time=numpy.array([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83])
+cfs=numpy.array([2410,2390,2270,2190,2020,2010,1890,1890,1880,1690,1600,1550,1430,1380,1290,1210,1190,1130,1100,1030,965,965,909,868,842,810,779,754,724,707,684,661,645,629,608,592,582,566,552,537,518,513,499,485,472,459,446,433,425,417,404,392,389,377,373,366,358,351,344,336,329,322,315,312,309,302,299,292,289,283,276,276,270,267,261,258,255,252,249,246,240,238,235])
+cms=numpy.array([5.43,5.41,5.32,5.25,5.11,5.1,5,5,4.99,4.81,4.72,4.67,4.54,4.49,4.39,4.29,4.27,4.19,4.15,4.06,3.97,3.97,3.89,3.83,3.79,3.74,3.69,3.65,3.6,3.57,3.53,3.49,3.46,3.43,3.39,3.36,3.34,3.31,3.28,3.25,3.21,3.2,3.17,3.14,3.11,3.08,3.05,3.02,3,2.98,2.95,2.92,2.91,2.88,2.87,2.85,2.83,2.81,2.79,2.77,2.75,2.73,2.71,2.7,2.69,2.67,2.66,2.64,2.63,2.61,2.59,2.59,2.57,2.56,2.54,2.53,2.52,2.51,2.5,2.49,2.47,2.46,2.45])
+lcfs = log(cfs,base=exp(1))
+ltime = log(time,base=exp(1))
+
+@interact
+
+def _(wfit = checkbox(False,label='show fit?'),
+ptype = selector(['plot','semilog x','semilog y','log log'],buttons=True,label='plot type'),
+auto_update=False):
+
+    if ptype=='plot':
+      p=list_plot(zip(time,cfs),axes_labels=['time','discharge'])
+      if wfit:
+            a,b = fit_line(time,cfs)
+            p+=plot(a*x+b,1,83,color='red',thickness=3)
+            txt = "y = " + str(a) + "x + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    elif ptype =='semilog x':
+      p=list_plot(zip(ltime,cfs),axes_labels=['ln time','discharge'])
+      if wfit:
+            a,b = fit_line(ltime,cfs)
+            p+=plot(a*x+b,1,4.2,color='red',thickness=3)
+            txt = "y = " + str(a) + "x + " + str(b)
+            p+=text(txt,(4,2000),color='red')
+    elif ptype =='semilog y':
+      p=list_plot(zip(time,lcfs),axes_labels=['time','ln discharge'])
+      if wfit:
+            a,b = fit_line(time,lcfs)
+            p+=plot(a*x+b,1,83,color='red',thickness=3)
+            txt = "y = " + str(a) + "x + " + str(b)
+            p+=text(txt,(40,7),color='red')
+    elif ptype =='log log':
+      p=list_plot(zip(ltime,lcfs),axes_labels=['ln time','ln discharge'])
+      if wfit:
+            a,b = fit_line(ltime,lcfs)
+            p+=plot(a*x+b,1,4.2,color='red',thickness=3)
+            txt = "y = " + str(a) + "x + " + str(b)
+            p+=text(txt,(1,6.5),color='red')
+    show(p)
+
+</script>
+</div>
+
+
+</div>
+
+
+<h2>Bodies and brains of mammals</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#bb">Body & Brains</button>
+<div id="bb" class="collapse">
+
+<P>Biometrics is the quantitative analysis of ontogenetic (``of or relating to life cycle or development") parameters such as height, weight, shape, morphology, age, etc. Biometrics is one key to understanding growth of individuals with time. Biometrics can also be applied to groups of organisms (such as a population of Douglas fir trees, or all butterflies, or all mammals) to gain insights into fundamental principles of growth or behavior in those groups.
+
+<P>Allison and Cicchetti provide data on body mass (in kilograms) and corresponding brain mass (in grams) for 62 different terrestrial mammals (no whales). What are the meaning of these pairs of numbers? For example, there is only one pair of numbers for humans. Is this a single datum of a single human? Is this the mean of many measurements? Old or young, male or female, well fed or malnourished? The ``human" in the table weighs 62 kilograms or 136 pounds; is this representative? In addition, these data were not collected by a single investigator, nor were they collected in the same manner, perhaps adding complexity.
+
+<P>Reference: Allison T, Cicchetti DV. Sleep in mammals: ecological and constitutional correlates. Science. 1976;194:732-734.
+<P>To Do:<ol type='1'>
+  <li>Describe the graph of the data shown in the sage applet.
+  <li>We will try to fit this data to a function in the form \(b= CB^p\) where \(b\) is brain mass and \(B\) is body mass. What kinds of parameters are \(C\) and \(p\)?
+  <li>Plot the log of brain mass against the log of body mass. What does this graph look like?
+  <li>Fit a line to the log-log plot. What do the slope and intercept represent? How are the slope and intercept related to \(C\) and \(p\)?
+</ol>
+
+  <div class="compute">
+  <script type="text/x-sage">
+  # everything following hash symbol is comment
+
+import numpy
+import numpy.linalg
+
+var('x')
+def fit_line(x_data,y_data) :
+ n=len(x_data); a=0.; b=0.
+ if n==len(y_data) :
+  A=numpy.array([[x_data[j],1] for j in range(n)])
+  B=numpy.array(y_data)
+  X=numpy.linalg.lstsq(A,B)[0]
+  a=X[0]; b=X[1]
+  return a, b
+
+body = numpy.array([6654,1,3.385,0.92,2547,10.55,0.023,160,3.3,52.16,0.425,465,187.1,0.075,3,0.785,0.2,529,27.66,0.12,207,85,36.33,0.101,1.04,521,100,35,0.005,0.01,62,0.122,1.35,0.023,0.048,1.7,3.5,250,0.48,10,1.62,192,2.5,4.288,0.28,4.235,6.8,0.75,3.6,14.83,55.5,1.4,0.9,2,0.104,4.19,3.5,4.05])
+brain = numpy.array([5712,6.6,44.5,5.7,4603,179.5,0.3,169,25.6,440,6.4,423,419,1.2,25,3.5,5,680,115,1,406,325,119.5,4,5.5,655,157,56,0.14,0.25,1320,3,8.1,0.4,0.33,6.3,10.8,490,15.5,115,11.4,180,12.1,39.2,1.9,50.4,179,12.3,21,98.2,175,12.5,2.6,12.3,2.5,58,3.9,17])
+gest = numpy.array([645,42,60,25,624,180,35,392,63,230,112,281,365,42,28,42,120,400,148,16,252,310,63,28,68,336,100,33,21.5,50,267,30,45,19,30,12,120,440,140,170,17,115,31,63,21,52,164,225,225,150,151,90,60,200,46,210,14,38])
+
+
+@interact
+
+def _(wfit = checkbox(False,label='show fit?'),
+ptype = selector(['plot','semilog x','semilog y','log log'],buttons=True,label='plot type'),
+auto_update=False):
+
+    if ptype=='plot':
+      p=list_plot(zip(body,brain),axes_labels=['body','brain'])
+      if wfit:
+            a,b = fit_line(body,brain)
+            p+=plot(a*x+b,0.01,6000,color='red',thickness=3)
+            txt = "y = " + str(a) + "x + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    elif ptype =='semilog x':
+      p=list_plot_semilogx(zip(body,brain),axes_labels=['body','brain'])
+      if wfit:
+            a,b = fit_line(log(body),brain)
+            p+=plot(a*log(x)+b,0.01,6000,color='red',thickness=3)
+            txt = "y = " + str(a) + "x + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    elif ptype =='semilog y':
+      p=list_plot_semilogy(zip(body,brain),axes_labels=['body','brain'])
+      if wfit:
+            a,b = fit_line(body,log(brain))
+            p+=plot_semilogy(exp(a*x+b),0.01,6000,color='red',thickness=3)
+            txt = "y = " + str(a) + "x + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    elif ptype =='log log':
+      p=list_plot_loglog(zip(body,brain),axes_labels=['body','brain'])
+      if wfit:
+            a,b = fit_line(log(body),log(brain))
+            p+=plot_loglog(exp(b)*x^a,0.01,6000,color='red',thickness=3)
+            txt = "y = " + str(a) + "x + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    show(p)
+
+  </script>
+  </div>
+
+</div>
+
+<h2>Gestation times mammals</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gest">Gestation</button>
+<div id="gest" class="collapse">
+
+<P>Allison and Cicchetti also provide data on the gestation times of mammals. Below in the sage applet you can view plots of body masses against gestation times. Use the techniques you have learned above to propose a model that describes the relationship between body mass and gestation times. Be sure to provide reasoning for the model form you choose, any parameter values and descriptions of those parameters.
+
+<P>Reference: Allison T, Cicchetti DV. Sleep in mammals: ecological and constitutional correlates. Science. 1976;194:732-734.
+
+  <div class="compute">
+  <script type="text/x-sage">
+# everything following hash symbol is comment
+
+import numpy
+import numpy.linalg
+
+var('x')
+def fit_line(x_data,y_data) :
+ n=len(x_data); a=0.; b=0.
+ if n==len(y_data) :
+  A=numpy.array([[x_data[j],1] for j in range(n)])
+  B=numpy.array(y_data)
+  X=numpy.linalg.lstsq(A,B)[0]
+  a=X[0]; b=X[1]
+  return a, b
+
+body = numpy.array([6654,1,3.385,0.92,2547,10.55,0.023,160,3.3,52.16,0.425,465,187.1,0.075,3,0.785,0.2,529,27.66,0.12,207,85,36.33,0.101,1.04,521,100,35,0.005,0.01,62,0.122,1.35,0.023,0.048,1.7,3.5,250,0.48,10,1.62,192,2.5,4.288,0.28,4.235,6.8,0.75,3.6,14.83,55.5,1.4,0.9,2,0.104,4.19,3.5,4.05])
+brain = numpy.array([5712,6.6,44.5,5.7,4603,179.5,0.3,169,25.6,440,6.4,423,419,1.2,25,3.5,5,680,115,1,406,325,119.5,4,5.5,655,157,56,0.14,0.25,1320,3,8.1,0.4,0.33,6.3,10.8,490,15.5,115,11.4,180,12.1,39.2,1.9,50.4,179,12.3,21,98.2,175,12.5,2.6,12.3,2.5,58,3.9,17])
+gest = numpy.array([645,42,60,25,624,180,35,392,63,230,112,281,365,42,28,42,120,400,148,16,252,310,63,28,68,336,100,33,21.5,50,267,30,45,19,30,12,120,440,140,170,17,115,31,63,21,52,164,225,225,150,151,90,60,200,46,210,14,38])
+
+
+@interact
+
+def _(wfit = checkbox(False,label='show fit?'),
+ptype = selector(['plot','semilog x','semilog y','log log'],buttons=True,label='plot type'),
+auto_update=False):
+
+    if ptype=='plot':
+      p=list_plot(zip(body,gest),axes_labels=['body','gestation'])
+      if wfit:
+            a,b = fit_line(body,gest)
+            p+=plot(a*x+b,0.01,6000,color='red',thickness=3)
+            txt = "y = " + str(a) + "x + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    elif ptype =='semilog x':
+      p=list_plot_semilogx(zip(body,gest),axes_labels=['body','gestation'])
+      if wfit:
+            a,b = fit_line(log(body),gest)
+            p+=plot(a*log(x)+b,0.01,6000,color='red',thickness=3)
+            txt = "y = " + str(a) + "x + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    elif ptype =='semilog y':
+      p=list_plot_semilogy(zip(body,gest),axes_labels=['body','gestation'])
+      if wfit:
+            a,b = fit_line(body,log(gest))
+            p+=plot_semilogy(exp(a*x+b),0.01,6000,color='red',thickness=3)
+            txt = "y = " + str(a) + "x + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    elif ptype =='log log':
+      p=list_plot_loglog(zip(body,gest),axes_labels=['body','gestation'])
+      if wfit:
+            a,b = fit_line(log(body),log(gest))
+            p+=plot_loglog(exp(b)*x^a,0.01,6000,color='red',thickness=3)
+            txt = "y = " + str(a) + "x + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    show(p)
+
+  </script>
+  </div>
+
+</div>
+</body>
+</html>
