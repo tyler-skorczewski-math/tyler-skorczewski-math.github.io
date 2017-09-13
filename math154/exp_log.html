@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Natural logs and exponential functions</h1>
+
+<hr>
+
+<h2>Natural logarithm definition</h2>
+You may have seen the natural logarithm function defined as the inverse to the exponential function \(e^x\).
+This way to defining things sweeps some concepts under the rug - like what the heck does \(e^x\) mean if \(x\) is irrational? It can be better to work in the other direction and start with the definition for the natural log.
+\begin{equation*}
+\ln x = \int_1^x \frac{1}{t} dt
+\end{equation*}
+<div class="compute">
+<script type="text/x-sage">
+
+
+@interact
+def _( b = slider(0, 5, 0.01, 2,label='x') ):
+    epsilon = 10^-12
+
+    # this takes care of several different drawing issues
+    # whenever b < a, or in other words, the bounds are backwards.
+    left_bound = min( 1, b )
+    right_bound = max( 1, b )
+
+    # the 10^-12 in the next line might surprise you, but it is because the
+    # program reacted badly when both a=1 and b=1.
+    P1 = plot( 1/x, x, left_bound, right_bound + epsilon, fill=True )
+    P2 = plot( 1/x, x, 0, max(5,b), ymin=0, ymax=2)
+    P3 = text(r"$\ln(x) = \int_1^x \frac{1}{t} \; dt =$", (2, 1), fontsize=18 )
+    val = ln(b)
+    P5 = text(val,(4,1), fontsize=18 )
+
+    # this colored arrow avoids student confusion when bounds are backwards
+    if (1 < b):
+        P4 = arrow( (1.0, 0.25), (1.4, .25), color='green' )
+        P = P4 + P1 + P2 + P3 + P5
+    elif (b < 1):
+        P4 = arrow( (1., .25), (0.6, 0.25), color='red' )
+        P = P4 + P1 + P2 + P3 + P5
+    else:
+        # note, this is for the a=b case
+        P = P1 + P2 + P3 + P5
+
+
+    P.show()
+
+</script>
+</div>
+</div>
+<h2>Properties of logarithms</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#logproperties">Log properties</button>
+  <div id="logproperties" class="collapse">
+<ol type='1'>
+<li>\( \ln 1 = 0 \)
+<li>\( \ln ab = \ln a + \ln b \)   for \(a,b >0 \)
+<li>\( \ln a/b = \ln a - \ln b \)
+<li>\( \ln x^r = r \ln x \)   for \(x >0 \)
+</ol>
+
+<P>We have the tools in our toolbelts to prove these properties.<br>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ycdigif">Let's do it!</button>
+  <div id="ycdigif" class="collapse">
+<img src="./images/youcandoit.gif"></div><br>
+
+<ol type='a'>
+<li>Prove 1) above using the integral definition of the natural logarithm function.
+<li>Prove 2) above using the integral definition of the natural logarithm function.
+<li>Prove 3) above using the results of 2) and 4).
+<li>Prove 4) above using concepts of the derivative.
+</ol>
+</div>
+
+
+<h2>Exponential functions</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#expfcns">Exponential functions</button>
+  <div id="expfcns" class="collapse">
+  <P><b>Definition</b>: we will define the natural exponential function to be the inverse of the natural logarithm function,
+    \begin{equation*}e^x = \ln^{-1}(x),\end{equation*}
+    where \(e\) is defined to be \(\ln^{-1}(1) \approx 2.718\).
+    <div class="compute">
+    <script type="text/x-sage">
+P1 = plot(exp(x),-3,2,color='green',thickness=3)
+P2 = plot(log(x),0.02,7,color='blue',thickness=3)
+P1t = text(r"$y=e^x$",(-1,1),color='green',fontsize=20)
+P2t = text(r"$y=\lnx$",(1,-1),color='blue',fontsize=20)
+Pl = plot(x,-3,5,color='black',linestyle='dashed')
+Plt = text(r"$y=x$",(5.5,5),color='black',fontsize=20)
+(P1+P2+P1t+P2t+Pl+Plt).show()
+
+    </script>
+    </div>
+ <P>Task: prove \(\frac{d}{dx} e^x = e^x\). (hint: if \(y = e^x\) then \(x = \ln y\).)
+ <P>Task: show \(\frac{d}{dx} \log_{10}x = \frac{1}{x}\frac{1}{\ln 10}\).
+   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#expex">Example</button>
+     <div id="expex" class="collapse">
+       <P>Let \(f(x) = xe^{-x}\). Find the domain of \(f\), where it is increasing and decreasing, and where it is concave up and concave down. Then sketch a graph of \(y = f(x)\).
+     </div>
+  </div>
+
+<h2>Functions in the form \(a^x\)</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#atox">\(a^x\)</button>
+    <div id="atox" class="collapse">
+    <P>We may have learned in grade school that \(a^x\) meant repeatedly multiplying \(a\) \(x\) times, i.e. \(\underbrace{a \cdot a \cdot a \cdot ... \cdot a}_{x \text{ times}}\)
+    <P>What does \(a^{\pi}\) or \(a^{\sqrt{2}}\) mean then?
+    <P>Definition: Let \(a^x = e^{\ln a^x} = e^{x \ln a} \). This allows us to extend the idea of exponents. Question: Does it still encompass the old idea?
+    <P>Properties<ol type='1'>
+      <li>\(a^xa^y = a^{x+y}\)
+      <li>\(\frac{a^x}{a^y} = a^{x-y}\)
+      <li>\((a^x)^y = a^{xy}\)
+      <li>\((ab)^x = a^xb^x\)
+      <li>\( \left(\frac{a}{b}\right)^x = \frac{a^x}{b^x}\)
+      </ol>
+    <P>Task: Prove property 1. (hint: first prove the lemma \(e^ae^b = e^{a+b}\) )
+
+    <P>Proposition: \( \frac{d}{dx}a^x = a^x \ln a\).
+    <P>Note that this also means \( \int a^x dx = \frac{1}{\ln a}a^x + C\).
+
+    </div>
+
+  <h2>Logarithmic differentiation</h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#logdiff">Logarithmic differentiation</button>
+      <div id="logdiff" class="collapse">
+      <P>As we may have seen in other examples, we can exploit the properties of logarithms to simplify the process of finding derivatives of functions that are the product of more simple functions.
+      <P>We call the technique logarithmic differentiation when we first take the log of an equation defining a function, exploit properties of logarithms, and then implicitly differentiate.
+      <P>Example: \(y = x^x\). What does this look like? Find \(\frac{dy}{dx} \).
+      <P>Example: find \(\frac{dy}{dx}\) if \(y = \left(x^2 + 1\right)^{\sin(x)}\).
+      </div>
+
+
+    <h2>Logscale plots</h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#logscale">Logscale plots</button>
+      <div id="logscale" class="collapse">
+
+    <P> The following sage applet can be used to plot functions on normal(linear) and log scales.<br>
+
+    	<div class="compute">
+    	<script type="text/x-sage">
+    	# everything following hash symbol is comment
+
+var('x')
+f = x^2 -4
+a = -2
+b = 4
+
+@interact
+
+def _(f = input_box(f,label='f(x) = '),
+      a=input_box(a,label='x min',width=5),
+      b=input_box(b,label='x max',width=5),
+      ptype = selector(['plot','semilog x','semilog y','log log'],buttons=True,label='plot type'),
+      auto_update=False):
+
+    if ptype=='plot':
+        p=plot(f,a,b)
+    elif ptype =='semilog x':
+        p=plot_semilogx(f,a,b)
+    elif ptype =='semilog y':
+        p=plot_semilogy(f,a,b)
+    elif ptype =='log log':
+        p=plot_loglog(f,a,b)
+    show(p)
+    	</script>
+    	</div>
+
+
+      </div>
+
+
+</body>
+</html>
