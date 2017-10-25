@@ -89,7 +89,7 @@ $(function () {
           <li>After two months the value of your investment is \(A = 3500(1+0.1(2/12)) = 3558.33\).
           <li>This is more than the $3550 you sold the loan for so the 3rd party is getting a better deal.
           <li>To find the 3rd party's rate note that at the end of the loan your friend will owe \(A = 3500(1+0.1(9/12)) = 3762.50\).
-          <li>The third party paid $3550 and is getting $3762.50 after 7 months, so we have \(3762.50 = 3550(1+r(712))\).
+          <li>The third party paid $3550 and is getting $3762.50 after 7 months, so we have \(3762.50 = 3550(1+r(7/12))\).
           <li>Solving for \(r\) we have \(r = \frac{(3762.50-3550)}{3550(7/12)} = .10262 = 10.262\%\).
           </ul>
       </div>
@@ -172,7 +172,21 @@ $(function () {
       source - <a href="http://www.businessinsider.com/tax-brackets-trump-tax-plan-chart-2017-9">http://www.businessinsider.com/tax-brackets-trump-tax-plan-chart-2017-9</a>
       <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5ans">Solution</button>
         <div id="ex5ans" class="collapse">
-
+        <ul>
+          <li>In order to calculate the tax we first need to find the taxable income and then calculate income tax.
+          <li>Taxable income = gross income - adjustments - exemptions - deductions
+          <li>For the current system we have
+            <ul>
+              <li>\(TI = 40000 - 2000 - 4050 - 6350 = 27600\)
+              <li>tax \(= 0.1(9325) + 0.15(27600 - 9325) = 3673.75\)
+              </ul>
+          <li>For the proposed system we have
+              <ul>
+                <li>\(TI = 40000 - 2000 - 12000 = 26000\)
+                <li>tax \(= 0.12(26000) = 3120.00\)
+              </ul>
+          <li>A single filer with no dependents, $2000 in adjustments, taking the standard deduction would pay $553.75 less tax in the proposed system.
+          </ul>
         </div>
 
         </div>
