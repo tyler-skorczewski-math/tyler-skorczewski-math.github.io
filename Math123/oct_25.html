@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>October 25</h1>
+
+<hr>
+
+
+
+<h2>Example 1 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+<p>  Consider invested $1000 in a savings account with a nominal 8% interest rate. Find the accumulated amount after 3 years if the interest is compounded
+<ol>
+<li>annually
+<li>semiannually
+<li>quarterly
+<li>monthly
+<li>daily (365 day year)
+</ol>
+</div>
+
+<h2>Example 2 - Doubling up</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+<p> Suppose I am putting my money in an investment product that compounds monthly, and I want to double my money in 10 years. What interest rate do I need to accomplish this?
+</div>
+
+<h2>Example 3 - APY </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+  <div id="ex3" class="collapse">
+  <P> Consider investing $1 at 8% nominal interest compounded annually.
+  <ol>
+  <li>How much do you have after one year?
+  <li>What if it is compounded quarterly?
+  <li>What about monthly?
+  </ol>
+  <ol type='a'>
+  <li>What is the effective simple interest rate, \(R\), that yields the same amount as above when the interest is compounded annually?
+  <li>quarterly?
+  <li>monthly?
+  </ol>
+  <P>The effective rate here is also called the Annual Percentage Yield or APY.
+
+  </div>
+
+  <h2>Example 4 - APY number 2 </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+    <div id="ex4" class="collapse">
+    <P> What is the APY on a savings account with a 5% nominal rate compounded monthly?
+    </div>
+
+    <h2>Example 5 - Christmas club</h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+      <div id="ex5" class="collapse">
+      <P> Consider saving for Christmas shopping by putting money in a savings account earning 3% compounded monthly.
+      How much do you need to put in at the beginning of the year to have $500 on December 1 (11 months later) available for shopping?
+      </div>
+
+      <h2>Example 6 - Present value </h2>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+        <div id="ex6" class="collapse">
+        <P> Find the present value of $49,158.60 in 5 years compounded quarterly with nominal interest rate of 10%.
+        </div>
+
+        <h2>Example 7 </h2>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
+          <div id="ex7" class="collapse">
+          <P> The bookstore charges 1% per month on your unpaid balance. You charge $232.75 for books and don't pay until the end of the semester 4 months later. How much do you owe?
+          </div>
+
+
+</body>
+</html>

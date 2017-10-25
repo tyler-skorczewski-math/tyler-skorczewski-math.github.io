@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>October 26 review day</h1>
+
+<hr>
+
+
+
+<h2>Example 1 - Home prices</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+<p>  The National Association of Realtors estimates that the average home price in Omaha, Nebraska was $75,600 in 1990 and $135,200 in 2008. Determine approximately the average annual rate of inflation of home prices in that 18-year period.
+
+</div>
+
+<h2>Example 2 - Loan choices</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+<p>  A jeweler wants to obtain a $3000 loan for 4 months. She has the choice of a simple interest loan at 10.3% or a discount loan at 10.1%. (The discount rate is a percentage of the maturity value - not the proceeds.) Which one will result in the lower fee for the use of the money?
+</div>
+
+<h2>Example 3 - Investment choices</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+  <div id="ex3" class="collapse">
+<p> Which is the better investment, one with 5.0% compounded annually or 4.92% compounded monthly?
+</div>
+
+<h2>Example 4 - Selling your car to a friend </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+  <div id="ex4" class="collapse">
+  <P> Suppose after buying a new car you sell your old car to a friend. You accept a 9-month note (loan) for $3500 at 10% simple interest per year as payment.
+    2 months later you find that you need cash and sell the note to a third party for $3550. Is this person getting a better deal? By how much is it better or worse in terms of interest rates?
+  </div>
+
+  <h2>Example 5 - New tax rates? </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+    <div id="ex5" class="collapse">
+    <P> Currently congress is considering a restructuring of the tax system with fewer tax brackets than the current system. The proposed brackets for single filers are shown in the table below.
+      The proposed brackets have not been announced, although there has been talk of making the highest bracket for millionaires, but let's assume they are otherwise close to current brackets.
+      In addition the personal exemption of $4050 in the current plan is removed in the proposed plan, but the standard deduction has been increased from $6350 to $12,000.<br>
+      Calculate the difference in tax for a single filer with an income of $40,000, $2000 in adjustments, and taking the standard deduction. How does this change for a person making $60,000? (Assume the same adjustments and standard deduction.)<br>
+
+      <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-uhkr{background-color:#ffce93}
+.tg .tg-a080{background-color:#9aff99;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-uhkr">current rate</th>
+    <th class="tg-uhkr">current bracket</th>
+    <th class="tg-031e">_________</th>
+    <th class="tg-a080">proposed rate</th>
+    <th class="tg-a080">proposed bracket</th>
+  </tr>
+  <tr>
+    <td class="tg-uhkr">10%</td>
+    <td class="tg-uhkr">0-9,325</td>
+    <td class="tg-031e"></td>
+    <td class="tg-a080"></td>
+    <td class="tg-a080"></td>
+  </tr>
+  <tr>
+    <td class="tg-uhkr">15%</td>
+    <td class="tg-uhkr">9,325-37,950</td>
+    <td class="tg-031e"></td>
+    <td class="tg-a080">12%</td>
+    <td class="tg-a080">0-37,950</td>
+  </tr>
+  <tr>
+    <td class="tg-uhkr">25%</td>
+    <td class="tg-uhkr">37,950-91,900</td>
+    <td class="tg-031e"></td>
+    <td class="tg-a080"></td>
+    <td class="tg-a080"></td>
+  </tr>
+  <tr>
+    <td class="tg-uhkr">28%</td>
+    <td class="tg-uhkr">91,900-191,650</td>
+    <td class="tg-031e"></td>
+    <td class="tg-a080">25%</td>
+    <td class="tg-a080">37,950-416,700</td>
+  </tr>
+  <tr>
+    <td class="tg-uhkr">33%</td>
+    <td class="tg-uhkr">191,650-416,700</td>
+    <td class="tg-031e"></td>
+    <td class="tg-a080"></td>
+    <td class="tg-a080"></td>
+  </tr>
+  <tr>
+    <td class="tg-uhkr">35%</td>
+    <td class="tg-uhkr">416,700-418,400</td>
+    <td class="tg-031e"></td>
+    <td class="tg-a080">35%</td>
+    <td class="tg-a080">416,700-1,000,000</td>
+  </tr>
+  <tr>
+    <td class="tg-uhkr">39.6%</td>
+    <td class="tg-uhkr">418,400 +</td>
+    <td class="tg-031e"></td>
+    <td class="tg-a080">39.6%</td>
+    <td class="tg-a080">1,000,000+</td>
+  </tr>
+</table><br>
+
+      source - <a href="http://www.businessinsider.com/tax-brackets-trump-tax-plan-chart-2017-9">http://www.businessinsider.com/tax-brackets-trump-tax-plan-chart-2017-9</a>
+        </div>
+
+        <h2>Example 6 - Saving for college</h2>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+          <div id="ex6" class="collapse">
+        <p> The parents of a child have just come into a large inheritance and wish to establish a trust fund for her college education.
+          If they estimate that they will need $100,000 in 13 years, how much should they set aside in the trust now if they can invest the money at 8.5% per year compounded quarterly?
+        </div>
+
+</body>
+</html>
