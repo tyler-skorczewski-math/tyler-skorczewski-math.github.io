@@ -39,17 +39,14 @@ $(function () {
             <li>None of the above
           </ol>
         <li>Find the third order Taylor polynomial of \(f(x) = \frac{1}{1-x}\) about \(x=0\).
+        <li>Find the third order Taylor polynomial of \(\ln x\) about \(x=1\).
     </ol>
   </div>
 
-<h2>Example 1 - Approximation</h2>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
-  <div id="ex1" class="collapse">
-    <P> Approximate \(\sqrt{4.2}\) using a second order Taylor polynomial. What is the error bound?
-  </div>
 
-<h2>Example 2 - Wire resistivity</h2>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+
+<h2>Example 1 - Wire resistivity</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 1</button>
   <div id="ex2" class="collapse">
 
 
@@ -63,25 +60,15 @@ at \(20^o\)C) for various metals. Except at very low temperatures, the resistivi
  expression
 for \(\rho(t)\) by its first- or second-degree Taylor polynomial at \(t=20\). Find expressions for these linear and quadratic approximations.
 
-For copper, \(\alpha=0.0039/^o\)C and \(\rho_{20}=1.7\times 10^{-8}\) \(\Omega\)-m. Calculate the error in your linear and quadratic approximations when the temperatures are (a) \(-250^o\)C, (b) \(420^o\)C.
+For copper, \(\alpha=0.0039/^o\)C and \(\rho_{20}=1.7\times 10^{-8}\) \(\Omega\)-m. Calculate the error in your linear and quadratic approximations when the temperatures are (a) \(-250^o\)C, (b) \(420^o\)C, (c) \(80^o\)C .
 
 
 </div>
 
-<h2>Example 3 - Revisiting the bell curve </h2>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
-<div id="ex3" class="collapse">
-  <P> Consider calculating the area under the Gaussian
-    $$\int_0^1 e^{-x^2}dx.$$
-    <ol>
-      <li>First calculate the integral by finding a 4th order Taylor polynomial about \(x=0\) to approximate \(e^{-x^2}\) and integrating the result.
-      <li>Next try to calculate the integral by letting \(g(t)=\int_0^t e^{-x^2} dx\). Expand \(g(t)\) in a 4th order Taylor polynomial and evaluate the result at \(t=1\).
-      <li>Which is better? Why?
-    </ol>
-</div>
 
-<h2>Example 4 - Special relativity </h2>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+
+<h2>Example 2 - Special relativity </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 2</button>
 <div id="ex4" class="collapse">
 <P> Einstein's special relativity is used for particles that are moving at speeds which are close to the speed of light. In special relativity, the energy of the particle is given by
 
@@ -102,8 +89,8 @@ Note: The quantity \(mc^2\) is called the rest energy, since we are only interes
 so the classical energy is given by \(E =\frac{1}{2}mv^2\) (which gives the same value for \(E_1-E_2\)).
 </div>
 
-<h2>Example 5  - Electric dipoles </h2>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<h2>Example 3  - Electric dipoles </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 3</button>
 <div id="ex5" class="collapse">
   <img src="./images/dipole.png" width=300><br>
 <P> Consider the electric dipole shown above with charges of opposite sign a distance \(d\) apart. The electric field at point \(p\) is given by \(E = \frac{q}{D^2} - \frac{q}{(D+d)^2}\).
@@ -113,6 +100,24 @@ so the classical energy is given by \(E =\frac{1}{2}mv^2\) (which gives the same
     <li>Show that \(E \sim \frac{1}{D^3}\), i.e. \(E\) behaves like \(\frac{1}{D^3}\), if \(D \gg d\). <!--as \(\frac{d}{D} \rightarrow 0\)-->
   </ol>
 </div>
+
+<h2>Example 4 - Approximation</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 4</button>
+  <div id="ex1" class="collapse">
+    <P> Approximate \(\sqrt{4.2}\) using a second order Taylor polynomial. What is the error bound?
+  </div>
+
+  <h2>Example 5 - Revisiting the bell curve </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 5</button>
+  <div id="ex3" class="collapse">
+    <P> Consider calculating the area under the Gaussian
+      $$\int_0^1 e^{-x^2}dx.$$
+      <ol>
+        <li>First calculate the integral by finding a 4th order Taylor polynomial about \(x=0\) to approximate \(e^{-x^2}\) and integrating the result.
+        <li>Next try to calculate the integral by letting \(g(t)=\int_0^t e^{-x^2} dx\). Expand \(g(t)\) in a 4th order Taylor polynomial and evaluate the result at \(t=1\). At what value of \(t\) should we expand \(g\)? Why?
+        <li>Which is better? Why?
+      </ol>
+  </div>
 
 <h2>Example 6  </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
@@ -132,9 +137,12 @@ Your friend tells you that the formula}
 
 \[\ln x=(x-1)-\frac{(x-1)^2}{2}\]
 
-is "definitely accurate to three decimal places provided \(x\) is close enough to 1." How close? (Hint: Use Alternating Series Estimation Theorem)
+is "definitely accurate to three decimal places provided \(x\) is close enough to 1." How close? <!--(Hint: Use Alternating Series Estimation Theorem)-->
 </div>
 
+<!--
+<hr>
+<P>(here there be dragons - but no Taylor polynomials)
 <h2>Example 7 - Koch snowflake  </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
 <div id="ex7" class="collapse">
@@ -142,5 +150,6 @@ is "definitely accurate to three decimal places provided \(x\) is close enough t
 <P>(No Taylor polynomials here.)
 <P>The Koch snowflake is created through the following process:
 </div>
+-->
 </body>
 </html>
