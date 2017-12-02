@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Math 154 Exam 4 Review</h1>
+
+<hr>
+
+<h2>Example 1 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <img width="200" src="./images/methane_molecule.png"><br>
+  <P> Methane, \(CH_4\), is a molecule with one carbon and four hydrogen atoms. Assume the hydrogen atoms are located at the corners of a regular tetrahedron with coordinates (0,0,0), (1,0,1), (0,1,1), and (1,1,0).
+    The carbon atom is at the centroid of this tetrahedron at (1/2, 1/2, 1/2). The <i>bond angle</i> for the molecule is the angle between the line segments joining the carbon atom to two of the hydrogen atoms.
+    Show this angle is approximately 109.5\(^\circ\).
+  </div>
+
+<h2>Example 2 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+    <P> Consider the triangle with vertices at (0,1,2), (4,3,3) and (3,4,5). Which statement below is most accurate?<br>
+      <ol type='A'>
+        <li>The triangle is an isosceles triangle.
+        <li>The triangle is a right triangle.
+        <li>Both A and B.
+        <li> Neither A nor B.
+        </ol>
+  </div>
+
+
+<h2>Example 3  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+<P> Show that \(x = a \cos(t) + h\) and \( y = b \sin(t) + k\) are parametric equations for an ellipse with center at \(h,k\) and axes lengths \(2a\) and \(2b\).
+</div>
+
+<h2>Example 4 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+  <div id="ex4" class="collapse">
+   <P> Find the equation for the tangent to the curve
+     $$ x = \sec t \hspace{1cm} y = \tan t \hspace{1cm} -\pi/2 < t < \pi/2$$
+     at the point \(t = \pi/4\).
+  </div>
+
+  <h2>Example 5 </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+    <div id="ex5" class="collapse">
+      <P>Find the area of one leaf of the three leaf rose \(r = 2 \cos (3\theta)\).
+
+        <div class="compute">
+        <script type="text/x-sage">
+# everything following hash symbol is comment
+theta = var('theta')
+r = 2*cos(3*theta)
+tstart = 0
+tend = 2*pi
+print("Enter the radius,r, as a function of angle, theta")
+@interact
+
+def _(r=input_box(r,label="r(theta) =  "),tstart=input_box(tstart,label="theta start = "),tend=input_box(tend,label="theta end = ")):
+  pp = polar_plot(r, (theta,tstart,tend) )
+  ppf = polar_plot(r, (theta,-pi/6,pi/6), fill=true)
+  (pp+ppf).show()
+
+        </script>
+        </div>
+    </div>
+
+  <h2>Example 6 </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+      <div id="ex6" class="collapse">
+        <P>Sketch the graph of the curve \(r \cos \theta = 2 r \sin \theta \).
+      </div>
+
+<!--  <h2>Example 7 - Koch snowflake  </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
+  <div id="ex7" class="collapse">
+  <img src="./images/Koch_snowflake.gif" width=300><br>
+  <P>The Koch snowflake is created through the following process:
+    <ol>
+      <li>Start with an equilateral triangle with each side having length 1.
+      <li>For each step in the creation replace each segment with 4 new segments of 1/3 of the previous segment's length a la the picture above.
+      <li>Repeat this step infinitely many times.
+      </ol><br>
+    <P>What is the total length of the perimeter of the Koch snowflake?
+    <P>What is its total area?
+  </div>
+-->
+</body>
+</html>
