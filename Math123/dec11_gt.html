@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Graph Theory</h1>
+
+<hr>
+
+
+
+<h2>Example 1 - Fish Tanks</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+<p> You have been hired to work at a pet store opening at a new shopping mall.
+  The store sells fish, but they cannot all be placed in a single tank because some species of fish attack other species.
+  You are concerned with the eight species (A-H) with conflicts shown in the table below.
+  What is the smallest number of tanks that can be used to display the fish, so that different species occupying the same tank will not attack each other?
+  Be sure to include your reasoning with your answer.<br>
+  <img src="./fish_table.png" width="400"><br>
+
+
+</div>
+
+<h2>Example 2 - South America</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+<p> How many colors do you need to color a map of South America?<br>
+  <img src="./map_SA.gif" width="400"><br>
+
+</div>
+
+<h2>Example 3 - Final Exams</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+  <div id="ex3" class="collapse">
+  <P> The math department at a small college plans to schedule final exams.
+    The class rosters for all the upper level math courses are listed below.
+    Find an exam schedule that minimizes the number of time periods used.<br>
+    <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-2e9h{font-weight:bold;text-decoration:underline}
+.tg .tg-43nb{font-weight:bold;text-decoration:underline;text-align:center}
+.tg .tg-e3zv{font-weight:bold}
+.tg .tg-yw4l{vertical-align:top}
+.tg .tg-9hbo{font-weight:bold;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 370px">
+<colgroup>
+<col style="width: 84px">
+<col style="width: 66px">
+<col style="width: 82px">
+<col style="width: 77px">
+<col style="width: 61px">
+</colgroup>
+  <tr>
+    <th class="tg-2e9h">Course</th>
+    <th class="tg-43nb" colspan="4">Students</th>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">math 350</td>
+    <td class="tg-031e">Jimi</td>
+    <td class="tg-031e">BB</td>
+    <td class="tg-yw4l">Eric</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">math 365</td>
+    <td class="tg-031e">Ry</td>
+    <td class="tg-031e">Jimmy P.</td>
+    <td class="tg-yw4l">Carlos</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">math 385</td>
+    <td class="tg-031e">Jimi</td>
+    <td class="tg-031e">Chrissie</td>
+    <td class="tg-yw4l">Bonnie</td>
+    <td class="tg-yw4l">Brian</td>
+  </tr>
+  <tr>
+    <td class="tg-e3zv">math 420</td>
+    <td class="tg-031e">Bonnie</td>
+    <td class="tg-031e">Robin</td>
+    <td class="tg-yw4l">Carlos</td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-9hbo">math 430</td>
+    <td class="tg-yw4l">Ry</td>
+    <td class="tg-yw4l">BB</td>
+    <td class="tg-yw4l">Buddy</td>
+    <td class="tg-yw4l">Robin</td>
+  </tr>
+  <tr>
+    <td class="tg-9hbo">math 445</td>
+    <td class="tg-yw4l">Brian</td>
+    <td class="tg-yw4l">Buddy</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-9hbo">math 460</td>
+    <td class="tg-yw4l">Jimi</td>
+    <td class="tg-yw4l">Ry</td>
+    <td class="tg-yw4l">Brian</td>
+    <td class="tg-yw4l">Mark</td>
+  </tr>
+</table>
+
+  </div>
+
+  <h2>Example 4 - Petersen graph </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+    <div id="ex4" class="collapse">
+    <P> What is the chromatic number of the Petersen graph below.
+      The chromatic number of a graph is the minimum number of colors required to color each vertex so that incident vertices do not share a color.<br>
+      <img src="./Petersen.png" width="400">
+    </div>
+
+    <h2>Example 5 - Doodling</h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+      <div id="ex5" class="collapse">
+      <P> Try doodling a simple curve that crosses itself a few times.
+        Can you determine a relationship between the number of intersection points, (V), the number of edges or segements connecting points, E, and the number of regions created (including the outside), F?
+        <br>
+        <img src="./doodle.png" width="400">
+      </div>
+
+      <h2>Example 6 - Seating charts</h2>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+        <div id="ex6" class="collapse">
+        <P>Sometimes people just don’t get along, and you are caught in the middle. Imagine
+that you are a wedding planner organizing the rehearsal dinner before a big wedding.
+There are a total of 16 people attending the rehearsal dinner: A, B, C, ..., H
+are relatives of the bride and groom; I, J, K, Á P are members of the wedding party. If things weren’t stressful enough, you are told that some of these people
+have serious issues:
+<ul>
+<li>A doesn’t get along with F,G, or H,
+<li>B doesn’t get along with C,D, or H,
+<li>C doesn’t get along with B,D, E, G, or H,
+<li>D doesn’t get along with B, C, or E,
+<li>E doesn’t get along with C,D, F, or G,
+<li>F doesn’t get along with A, E, or G,
+<li>G doesn’t get along with A, C, E, or F,
+<li>H doesn’t get along with A, B, or C.
+</ul>
+To make the rehearsal dinner go smoothly you are instructed to find a way to
+seat these people so that people that don’t get along must be seated at different
+tables. (I through P get along with everyone, so they are not a concern.) How are
+you going to set up the seating arrangements with so many incompatibility issues
+to worry about? What is the minimum number of tables you will need?
+        </div>
+
+
+</body>
+</html>
