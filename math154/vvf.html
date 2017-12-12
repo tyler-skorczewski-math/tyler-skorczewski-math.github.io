@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154 integral examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Vector valued functions</h1>
+
+<hr>
+
+<!--<h2>Warmup </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warm ups</button>
+  <div id="ex0" class="collapse">
+    <P>
+ </div>
+-->
+
+<h2>Example 1 - circular motion</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P>An object moves on a circular path given by
+      $$\vec{r}(t) = a \cos (\omega t) \hat{x} + a \sin (\omega t) \hat{y},$$
+      where \(\omega = \frac{d\theta}{dt}\) is angular velocity.
+      <ol type='a'>
+        <li>Show the velocity is orthogonal to position.
+        <li>Show the acceleration always points inward.
+        <li>True or False. The speed of the object is constant.
+        </ol>
+</div>
+
+<h2>Example 2 - spacecraft </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+  <P>A spacecraft is flying along a path described by \(\vec{r}(t) = <t^2 - t, 2 + t, -3/t>\) where \(t\) is in hours.
+    When \(t=3\) the engines are shut down and the ship continues to move. Where is the spacecraft two hours later?
+</div>
+
+<h2>Example 3 - ski park </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+  <img src="./images/skijump1.png" width="500"><br>
+<P> Ski resorts like to provide interesting courses for their guests. Often these courses include jumps and other obstacles.
+  These jumps must be designed safely or the resort can be held liable for injuries to skiers.
+  <ul>
+    <li><a href="https://www.parkrecord.com/news/park-city/hedge-fund-manager-injured-skiing-sues-deer-valley-for-60-million/">https://www.parkrecord.com/news/park-city/hedge-fund-manager-injured-skiing-sues-deer-valley-for-60-million/</a>
+    <li><a href="http://www.seattlepi.com/local/article/Are-some-ski-park-jumps-too-risky-1267313.php">http://www.seattlepi.com/local/article/Are-some-ski-park-jumps-too-risky-1267313.php</a>
+  </ul>
+  <P>Consider a ski jump where the skier takes off with an initial speed of 10 m/s at an angle of \(\theta = \pi/6\).
+    Assume the jump will be designed so that the skier travels 20 meters horizontally and only gravity is acting on the skier while in flight.
+    <ol>
+      <li>What should the drop in elevation be?
+      <li>At what angle should the slope be to provide a smooth landing?
+      <li>Now assume the take off angle is still \(\pi/6\), the gap is 20 meters, and the drop in elevation is 4 meters.
+        What should the initial speed be to clear the gap and what should the angle of the slope be at the other end of the gap?
+      </ol>
+      <br><img src="./images/skijump2.png" width="600"><br>
+      <br>
+</div>
+
+</body>
+</html>
