@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Graph Theory</h1>
+
+<hr>
+
+
+
+<h2>Example 1 - Seervada</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+<p> Seervada Park has recently been set aside for a limited amount of sightseeing and backpack
+hiking. Cars are not allowed into the park, but there is a narrow, winding road system for
+trams and for jeeps driven by the park rangers. This road system is shown in Figure 1,
+where location O is the entrance to the park, T is a fantastic scenic overlook, and the other
+letters denote ranger stations. The numbers denote the distance in miles between locations.
+A small number of trams are available to transport visitors from the entrance to the scenic
+overlook and back.
+<h3>Problem 1</h3>
+Determine which route from the park entrance O to the scenic overlook T has the shortest distance for the tram operations.
+<h3>Problem 2</h3>
+Telephone lines must be installed under the roads to establish communication among all the stations (including O and
+T). Because the installation is expensive and disrupts the natural environment, lines will be installed under just enough
+roads to provide some connection between every pair of stations. Where should the lines be laid to accomplish this with
+a minimum total number of miles of telephone line?<br>
+  <img src="./seervada1.png" width="500"><br>
+
+
+</div>
+
+<h2>Example 2 - Sprinklers</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+<p> Consider installing a system of underground sprinklers to water the lawn. A sprinkler needs to be placed
+at each node in the gure below. The cost to install a pipe connecting any two nodes is also shown in the
+gure. Every sprinkler needs to be connected to the rest of the sprinklers. What pipes should be installed
+in order to minimize the cost?<br>
+  <img src="./sprinklers.png" width="600"><br>
+
+</div>
+
+<h2>Example 3 - Primm vs Kruskal</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+  <div id="ex3" class="collapse">
+  <img src="primm_v_kruskal.png" width="500">
+  <br>
+  <img src="edge_graph_1.PNG" width="400">
+  <br>
+  <P>More information on building minimal spanning trees can be found on this <a href="http://optlab-server.sce.carleton.ca/POAnimations2007/MinSpanTree.html">Carleton University webpage</a>.
+  </div>
+
+  <h2>Example 4 </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+    <div id="ex4" class="collapse">
+    <P>Imagine points A through I are nine important locations in a town, e.g. police station, hospital, city hall, etc., and that a very heavy snow storm has hit the city.
+      The distances between locations are shown in the graph below.
+      What roads should be plowed first to ensure the major city locations are connected via plowed roads?<br>
+    <img src="edge_graph_2.png" width="400">
+    </div>
+
+    <h2>Example 5 - Doodling</h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+      <div id="ex5" class="collapse">
+      <P> Try doodling a simple curve that crosses itself a few times.
+        Can you determine a relationship between the number of intersection points, (V), the number of edges or segements connecting points, E, and the number of regions created (including the outside), F?
+        <br>
+        <img src="./doodle.png" width="400">
+      </div>
+
+
+</body>
+</html>
