@@ -73,6 +73,33 @@ $(function () {
       </ol>
       <br><img src="./images/skijump2.png" width="600"><br>
       <br>
+      <div class="compute">
+      <script type="text/x-sage">
+from sage.plot.line import Line
+
+t = var('t')
+
+v0 = 10
+
+parrow = arrow((0,0),(2,sqrt(3)))
+pline1 = line([(0,0),(0,-10)])
+pline2 = line([(0,-10),(20,-10)])
+pline3 = line([(20,-10),(20,-4)])
+pline4 = line([(0,0),(-4,-2*sqrt(3))])
+pline5 = line([(20,-4),(25,-6)])
+pta = text(r"$\theta = \pi/6$",(1.8,0.25))
+ptg = text('gap = 20 m', (10,-9))
+
+@interact
+
+def _(v0=slider(1.,50.0,0.1,10.)):
+    #x = v0*sqrt(3)*t/2.
+    #y = 0.5*v0*t - 0.5*9.8*t*t
+    pp = parametric_plot((v0*sqrt(3)*t/2.,0.5*v0*t - 0.5*9.8*t*t),(t,0,40./v0/sqrt(3)),color='red',linestyle='dashed')
+
+    show(parrow+pline1+pline2+pline3+pline4+pline5+pp+pta+ptg)
+      </script>
+    </div>
 </div>
 
 </body>
