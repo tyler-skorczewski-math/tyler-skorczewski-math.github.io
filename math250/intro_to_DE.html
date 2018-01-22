@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Introduction to Differential Equations</h1>
+
+<hr>
+
+<h2>Example 1 - Rumors</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example1">Example 1</button>
+  <div id="example1" class="collapse">
+
+<P> Consider a rumor spreading throughout a school with \(P\) people. Let \(N(t) \) be the number of people who have heard the rumor at time \(t \).
+Consider the models for the dynamics of the rumor below. Assume \(k > 0 \).
+<ol type='a'>
+<li>$$\frac{dN}{dt} = k N$$
+<li>$$\frac{dN}{dt} = k (P - N)$$
+<li>$$\frac{dN}{dt} = k (N - P)$$
+<li>$$\frac{dN}{dt} = k N (N-P)$$
+<li>$$\frac{dN}{dt} = k N (P-N)$$
+<li>$$\frac{dN}{dt} = k N^2 (P-N)$$
+</ol>
+<br>
+<ol type='1'>
+<li> Which models above plausibly describe the situation? Why? (There is at least one.)
+<li> Pick one of the models you think is plausible and translate the differential equation to a sentence with words.
+<li> What assumptions do we make when building these models?
+<li> What are the units of \(k\) in your plausible models? Are they the same for each?
+<li> Let \(C\) be a constant number. For which of the first three models is \(N(t) = P - Ce^{-kt}\) a solution?
+  What does it mean for something to solve a differential equation?
+  Is this different from algebraic equations?
+<li> Assume \(N(t)\) has the form immediately above and that \(N(0) = N_0\). Find \(C\). What are the units of \(C\)? Does it represent anything?
+</ol>
+</div>
+
+</body>
+</html>

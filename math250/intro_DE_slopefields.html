@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Math 250</h1>
+
+<hr>
+
+<h2>Warmup </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warm ups</button>
+  <div id="ex0" class="collapse">
+    <P> Consider \( \frac{dy}{dt} = y^2 - 1 \).
+      <ol>
+      <li> Equilibrium solutions are constant functions, \(y = C\), such that \(\frac{dy}{dt} = 0\). What are the equilibrium solutions of the DE above?
+      <li> Use dfield (<a href="./dfield.jar">dfield.jar</a>) to create a slope field for the DE.
+      <li> Add a few solution curves to the figure by clicking on the graph.
+      <li> What is the relationship between the solution curves and the slope field?
+      </ol>
+ </div>
+
+<h2>Example 1 - Lake Eutrophication</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+  <img src="./lakemenomin.jpg" width=350><br>
+
+<P>If you visit a lot of lakes of different sizes in different parts of the world, you will see
+that there are two common physical states. Some lakes are relatively clean and fresh-smelling—
+these are called oligotrophic. In contrast, eutrophic lakes are overgrown with algae and have a
+rank smell. Eutrophic lakes have a phosphorus content that is many times higher than that of
+oligotrophic lakes. Biologists have long known that there does not appear to be a gradation
+of intermediate states; indeed, rapid eutrophication of formerly oligotrophic lakes is an environmental
+problem that can be caused by runoff of fertilizer from farms. Why there are no
+intermediate states, how eutrophication occurs, and the possibility of restoring a eutrophic lake
+are all questions that can be explored with a simple mathematical model due to a <a href="./lakeeutro_paper.pdf">1999 paper by
+Carpenter et al.</a>
+
+<!--$$\frac{dP}{dT} = B - SP + R\frac{P^q}{M^q + P^q}$$-->
+$$\frac{dp}{dt} = b - p + r\frac{p^q}{1 + p^q}$$
+
+<P>This nondimensionalized model incorporates three mechanisms for change in phosphorus content in a lake on the LHS of the DE. The
+first term, \(b\) represents the influx of phosphorus from the environment; this can include artificial
+sources such as farm runoff as well as natural sources such as decomposition of plants. The standard use of phosphates in laundry and dishwashing detergents was linked to lake eutrophication in the
+late 1960s and spawned one of the early conflicts between the environmental movement and industry. Phosphates
+are still used in some detergents, but smaller amounts and better treatment of wastewater have significantly
+reduced their contribution to eutrophication. The
+second term represents the combined processes of sedimentation, outflow, and absorption by
+plants, all of which remove phosphorus from the water. The last term represents the recycling
+of phosphorus from sediments. This term plays a significant role in the physical system, because
+the large values typical of \(q\) (from 2 for a cold deep lake to as much as 20 for a warm shallow
+lake) mean that the recycling rate is roughly \(r\) when \(p > 1\) and very small when \(p < 1\).
+Thus, eutrophic lakes, which are high in phosphorus, have large recycling rates that keep the
+phosphorus concentration high; oligotrophic lakes, in contrast, have very little recycling of
+sedimentary phosphorus.
+
+<ol type='1'>
+<!--<li>Obtain a dimensionless form of the model in terms of the variables p = P/M and t = ST
+and the parameters b = B/SM and r = R/SM in addition to q. We will generally consider q,
+r, and a minimum value b = b0 to be fixed by environmental factors. Nondimensionalization
+reduces the number of parameters by two, making it easier to analyze the model and
+reducing the number of uncertain parameters that must be estimated for simulations.-->
+<li> Let \(b=0.25, q = 8, r=5\). Using Wolfram alpha, or some other numerical tool, calculate any equilibrium solutions. What if \(b=1\)?
+<li> Use dfield (<a href="./dfield.jar">dfield.jar</a>) to create slope fields for the cases above. Clicking in the graph will produce solution curves. Create a few. What are equilibrium solutions associated with in the graphs? Which equilibrium solutions do you think are stable and unstable?
+<li> Interpret each of the two pictures in the context of the problem described above.
+  Write a short paragraph in your notes includes rough sketches of your figures that describes how the value of \(b\) affects the dynamics of this system.
+<li> If you are interested in this problem UW Stout has a <a href="http://www.uwstout.edu/lakes/">LAKES REU</a> related to this problem. These equations come from this <a href="./lakeeutro_paper.pdf">paper studying Lake Mendota in Madison</a>.
+</ol>
+</div>
+
+<h2>Example 2 - Raindrops </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+
+<P> When a raindrop falls various forces act upon it.
+  Here we will explore several models that show why it is important to adjust models to match physical conditions.
+  Consider a raindrop that falls from rest from an elevation of 3000 ft.
+  Let \(y(t)\) be the elevation at time \(t\) and further assume \(y=0\) is the ground.
+
+  <ol type='A'>
+    <li> Let us first assume that the only force acting on the raindrop is gravity. Assume \(g=-32\)ft/sec\(^2\).
+      <ol type='i'>
+        <li> Write an initial value problem, IVP, for \(y(t)\) that describes this situation.
+        <li> Solve this problem analytically.
+        <li> How long does it take the raindrop to fall to earth?
+        <li> What is its velocity when it hits the ground?
+        <li> Why is this model unrealistic?
+      </ol>
+
+     <li> Now let's assume the raindrop is small and air resistance, or drag forces, also act upon the raindrop.
+       For approximately spherical raindrops that have small diameters, \( d \le 0.00025\) ft, we may use Stoke's Law to model drag.
+       This model states that acceleration due to drag is directly proportional to the velocity of the raindrop at that instant.
+       Suppose this constant of proportionality is \(c/d^2\), where \(c\approx 3.2 \times 10^{-6}\) ft\(^2\)/sec, is an experimentally determined constant.
+       <ol type='i'>
+         <li> Write a new IVP for \(y(t)\) describing this situation. Let \(d = 0.00012\) ft.
+         <li> Let \(v = y'\) and convert your IVP for \(y(t)\) to a new IVP for \(v(t)\).
+         <li> Create a slope field for this DE along with some solution curves.
+           Describe the behavior of the raindrop's velocity using the information from your figure.
+           What is the long term behavior of this system?
+         <li> Solve this IVP analytically for \(v(t)\). Does your analytical solution agree with your qualitative solution?
+         <li> Recall \(y' = v\). How long does it take for a raindrop to reach the ground if starting at rest from 3000 ft?
+       </ol>
+
+       <li> When the diameter of a raindrop becomes too large, Stoke's Law no longer applies. We will assume that when \(d \ge 0.004\) <fieldset>
+         the acceleration due to air resistance has the form \( (k/d)v^2\), where \(k \approx 0.00046\).
+         <ol type='i'>
+           <li> Write a new IVP for \(y(t)\) describing this situation. Let \(d = 0.00012\) ft.
+           <li> Let \(v = y'\) and convert your IVP for \(y(t)\) to a new IVP for \(v(t)\).
+           <li> Create a slope field for this DE along with some solution curves.
+             Describe the behavior of the raindrop's velocity using the information from your figure.
+             What is the long term behavior of this system?
+           <li> Solve this IVP analytically for \(v(t)\). Does your analytical solution agree with your qualitative solution?
+           </ol>
+
+
+  </ol>
+
+
+</div>
+
+<!--<h2>Example 3 -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+
+
+</div>
+
+<h2>Example 4 -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<div id="ex4" class="collapse">
+
+
+</div>
+-->
+
+</body>
+</html>
