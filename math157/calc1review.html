@@ -88,6 +88,16 @@ C = 0.036B^{1.356}.
 <ol type='a'>
 <li> Find a formula to relate the growth rates of the claw mass and body mass.
 <li> Plot the ratio of the claw mass growth rate to the body mass growth rate, as a function of body mass size in grams. Assume the body mass can be as large as 40 g.
+<div class="compute">
+<script type="text/x-sage">
+x = var('x')
+f = sin(x)
+@interact
+
+def _(f = input_box(f,label='f(x) = ')):  
+    p = plot(f,0,40)
+    show(p)</script>
+</div>
 <li> For what body mass size in grams is the growth rate of the claw as large as the growth rate of the body mass?
 <li> At what body mass size in grams is the mass of the claw equal to the mass of the body?
 <li> Assume that the density of body tissues is roughly 1 mg per mm\(^3\) of volume, that the largest dimension of the claw is about 44 mm, and that the body mass is 30 g. Use this information to estimate the shape parameter \(c\) in the length-volume relationship \(V=cl^3\).
