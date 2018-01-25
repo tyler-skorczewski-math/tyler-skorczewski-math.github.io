@@ -131,6 +131,52 @@ def _(f = input_box(f,label='f(x) = ')):
 
 </div>
 
+<h2>Inverse trig functions</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#invtrig">Inverse trig fcns</button>
+  <div id="invtrig" class="collapse">
+<P>Question: Sketch a plot of the cosine function. Does this function have an inverse? Why or why not?
+  <div class="compute">
+    <script type="text/x-sage">
+p1 = plot(cos,-2*pi,2*pi,color='blue')
+pt = text(r"$y = \cos(x)$",(2.9,0.5),fontsize=20)
+p2 = plot(cos,0,pi,color='red',thickness=5)
+
+@interact
+
+def _(winv = checkbox(False,label='Show domain restriction?')):
+  if winv:
+      show(p2+p1+pt)
+  else:
+      show(p1+pt)
+
+
+p3 = plot(acos,-1,1,color='black',thickness=3)
+pti = text(r"$y = \cos^{-1}(x)$",(0.5,2),fontsize=20,color='black')
+show(p3+pti)
+
+    </script>
+  </div>
+<P>Task: use the picture below along with the implicit differentiation of \(cos(y) = x\) to show \(\frac{d}{dx}\cos^{-1}x = \frac{-1}{\sqrt{1-x^2}}\).<br>
+<img src="images/invcos.png" width=300><br>
+<P>Can you repeat this style of analysis to derive the derivative of inverse sine?
+<P>What about the derivative of inverse tangent?
+</div>
+
+<h2>Blood flow</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#invtrig">Inverse trig fcns</button>
+  <div id="invtrig" class="collapse">
+    <img src="./images/blood_flow.png" width=400><br><br>
+    <P>The flow of blood in a blood vessel is not the same everywhere. It flows faster in the middle of the vessel and slower near the vessel walls.
+      We can use Poiseuille's law to model the flow in the longitudinal direction,\(u\), as a function of the radial coordinate, \(r\). 
+      $$u(r) = \frac{P}{4\mu L}\left( R^2 - r^2 \right)$$
+      Here, \(P,\mu,L\), are related to blood pressure, viscosity and length of the vessel. \(R\) is the radius of the vessel.
+      <ol type='1'>
+        <li>What is the average velocity across the vessel? (hint: need an integral)
+        <li>What is the maximum velocity? Where does this occur?
+        <li>What is the relationship between the average and maximum velocities?
+      </ol>
+  
+  </div>
 
 <h2>Derivative review</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#derivatives">Derivative Review</button>
