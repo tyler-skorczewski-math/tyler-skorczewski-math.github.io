@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Math 250</h1>
+
+<hr>
+
+<h2>Warmups </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
+  <div id="ex0" class="collapse">
+    <ol type='A'>
+    <li> Identify any separable DEs below and find their solutions.
+      <ol type='a'>
+        <li> \( \frac{dy}{dt} = ty + t\) <br> <br>
+        <li> \( \frac{dx}{dt} = y^2 + t^2\) <br> <br>
+        <li> \( \frac{dy}{dt} = \sin(ty) \) <br> <br>
+        <li> \( \frac{dx}{dt} = rx(1+x) \) <br> <br>
+      </ol>
+      <br>
+    <li> Use the integrating factor method to solve \( \frac{dx}{dt} + \frac{1}{t} x = 4 \). <br> <br>
+    <li> Use the integrating factor method to solve \( (x^2 + 1)\frac{dy}{dx} + 3xy = 6x\) with initial condition \(y(0)=5\). <br> <br>
+    <li> A population of bacteria grow according to the IVP \( \frac{dP}{dt} = kP, P(0)=P_0\). How long does it take the population to double in size? triple?
+    </ol>
+ </div>
+
+<h2>Example 1 - Fish populations</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+  <!--<img src="./lakemenomin.jpg" width=350><br>-->
+
+<P> Consider a population of fish in a lake. One of the most common starting points biologists use to model a population in a closed environment is the logistic equation:
+  $$ \frac{dP}{dt} = kP \left( 1 - \frac{P}{N}\right). $$
+  Here, \(P(t)\) is the population at time \(t\), and \(k,N > 0 \) are the intrinsic growth rate and population carrying capacity, respectively.
+
+
+<ol type='1'>
+<li> Explain why \(N\) is called the carrying capacity. Use both mathematical and biological reasoning.
+<li> Make a slope field using dfield (<a href="./dfield.jar">dfield.jar</a>). Plot a few solutions and explain what is happening.
+<li> Label this equation using vocabulary from the course.
+<li> Use the fact that this equation is separable and find a general solution for the DE. You can assume \( 0 < P < N\) when solving.
+<li> Let \(P(0) = P_0\) and find a particular solution.
+<li> Now assume that we introduce some harvesting, in the form of fishing. Let the harvesting occur at a constant rate, \(h\). How should we modify our DE?
+<li> Find any equilibrium solutions to the new DE.
+<li> Make new slope fields with some values of \(h\). How does increasing \(h\) affect the population?
+</ol>
+</div>
+
+<h2>Example 2 - Tanks </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+
+<ol type='A'>
+  <li> Consider a 100 gallon tank filled with saltwater. We want to flush out the salt and replace it with fresh water.
+    We will accomplish this by pouring in pure water at a rate of 5 gal/min and letting the mixture flow out at 5 gal/min.
+    Assume the mixture in the tank is always perfectly mixed.
+    <ol type='1'>
+      <li> If there is initially 10 lbs of salt in the tank how much is there at time \(t\)?
+      <li> How long until there is less than 0.1 lbs of salt in the tank?
+    </ol>
+
+  <li> Now consider a 50 gallon tank of pure water. Saltwater with concentration 2 lbs/gal is pumped in at a rate of 3 gal/min, is continuously mixed, and flows out at 3 gal/min.
+    <ol type='1'>
+      <li> Set up an IVP describing this situation.
+      <li> Describe the DE using vocubulary we have learned thus far.
+      <li> Solve this system. Is there a particular method that is aimed at this type of problem?
+    </ol>
+
+</ol>
+
+
+</div>
+
+<h2>Example 3 - Drugs in the bloodstream </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+  <img src="./pills.jpg" width=300><br>
+  Consider taking a pill. The pill dissolves and enters the bloodstream at a rate proportional to the amount left in the pill.
+  The body metabolizes the drug in the bloodstream at a rate proportional to the amount in the bloodstream.
+  <ol type='1'>
+  <li> Come up with a system of differential equations that describe this system. Let \(A\) be the amount of drug in the pill and \(C\) be the amount in the bloodstream.
+  <li> Let \(A(0) = A_0\) be the initial amount in the pill. Solve your IVP for \(A(t)\).
+  <li> Use your solution above to find \(C(t)\).
+  <li> Perform some sanity checks on your solution for \(C(t)\). Do the units work? Is \(C(t) \ge 0\)? Should it be?
+  <li> Sketch a graph of \(C(t)\).
+  <li> When is the amount of drug in the bloodstream at a maximum?
+  <li> How is this related to the tank problems in the text or above?
+  </ol>
+
+</div>
+
+<h2>Example 4 - Pies </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<div id="ex4" class="collapse">
+<img src="./applepie.jpg" width=300><br>
+Imagine an apple pie just coming out of a 375 degree oven and resting on the counter in a kitchen at 75 degrees.
+We can't eat it until it has cooled down to 100 degrees. Let's use Newton's Law of Cooling with insulation constant 4/min to find the time it takes for the pie to cool.
+<ol type='1'>
+<li> Explain Newton's Law of Cooling in your own words.
+<li> Write down the IVP that applies to this situation?
+<li> Solve the IVP.
+<li> Use your solution to determine the time it takes for the pie to have cooled to 100 degrees.
+</ol>
+
+</div>
+
+<h2>Example 5 - More populations </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<div id="ex5" class="collapse">
+
+<P> Consider a population, \(P\), that grows with dynamics \(\frac{dP}{dt} = k P\).
+  If the population is 790 in the year 1750, and 1260 in the year 1850, how big is it in 1950?
+
+</div>
+
+<h2>Example 6 - Lake Erie </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+<div id="ex6" class="collapse">
+<a href="https://clevelandhistorical.org/items/show/58"><img src="./phactcuyahoga5.jpg" width=400><br>Lake Erie/Cuyahoga River on fire in 1969  </a><br>
+<P> Lake Erie has a total volume of 458 cubic kilometers. Assume the inflow/outflow rate are equal and 175 km\(^3\)/yr.
+  Suppose at \(t=0\) the pollutant concentration is 0.05% and for \(t > 0\) pollutant concentration inflow is 0.01%.
+  If we assume the lake is perfectly mixed (it is not), how long will it take until the lake has a pollutant concentration of 0.02\%?
+
+</div>
+
+
+</body>
+</html>
