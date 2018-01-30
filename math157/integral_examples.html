@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154 integral examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Integral examples</h1>
+
+<hr>
+
+<h2>Warmups</h2>
+
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
+  <div id="ex0" class="collapse">
+    <ol type='A'>
+      <li> Find the area between the curves \(y = x^2 + x\) and \(x = y^{1/3}\). There is a sage plotting script below if needed.
+      <li> Find the area between the curves \(y = 5\) and \(y = x + 4/x\).
+      <li> Find the area between the curves \(x = y^3 + 2y^2 + 1\) and \(x = -y^2 +1\).
+      <li> Find the area between the curves \(y = \cos^{-1}x\), \(y = \sin^{-1} x\), and \(x = \pm 1\).
+    </ol>
+
+  </div>
+
+<div class="compute">
+<script type="text/x-sage">
+var('x y')
+f = x^2 + y^2 ==1
+g = x^2 - y^2 ==1
+
+xmin = -2
+xmax = 2
+ymin = -2
+ymax = 2
+
+print "Enter equations below. Use == for an equals sign"
+
+@interact
+
+def _(f=input_box(f,label="Equation 1 (blue)"),g=input_box(g,"Equation 2 (red)"),
+     xmin = input_box(xmin,label="xmin "),
+     xmax = input_box(xmax,label="xmax "),
+     ymin = input_box(ymin,label="ymin "),
+     ymax = input_box(ymax,label="ymax ")):
+    p1 = implicit_plot(f, (x,xmin,xmax),(y,ymin,ymax))
+    p2 = implicit_plot(g, (x,xmin,xmax),(y,ymin,ymax),color='red')
+    px = implicit_plot(y==0, (x,xmin,xmax),(y,ymin,ymax),color='black')
+    py = implicit_plot(x==0, (x,xmin,xmax),(y,ymin,ymax),color='black')
+
+    show(p1+p2+px+py)
+
+</script>
+</div>
+
+
+
+<h2>Example 1 - Corn growing degree days</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+
+<img src="./images/corn.jpg" width=400>
+
+<P>The development rate of many organisms shows an approximately linear dependence on
+temperature. Biologists measure the development of such organisms in terms of "degree-days."
+These accumulate over time at a rate equal to the difference between the current temperature and
+a threshold temperature \(T_m\). This temperature varies among species, as does the total number of
+degree-days required for full development.
+
+<P>Corn is a plant species where development is measured in degree-days. The threshold temperature for most varieties of corn grown in the US is 50 degrees F.
+The yield and number of degree-days varies greatly for different varieties of corn and often leads to colloquial names for different varieties, e.g. 85-day corn, 110-day corn, etc.
+You can see a running total of the accumulated degree-days for the year at the <a href="http://wicorn.ncgapremium.com/index.cfm?show=1&mapID=35"> Wisconsin Corn Growers Association page</a>. More information about growing degree-days (GDD) for corn can be found <a href="https://www.agry.purdue.edu/Ext/corn/news/articles.02/Hybrid_Maturity-0506.pdf">here</a> and <a href="./ES019.pdf">here</a>.
+
+<ol type="a">
+<li>Construct an integral to represent the total number of degree-days in \(t_1\) days. This integral
+represents a function \(F(t_1)\) that contains the parameter \(T_m\) and the temperature function \(T(t)\) in addition
+to the independent variable \(t_1\).
+<li>Assume a variety of corn requires 2500 GDD to mature and has a threshold temperature of 50 degrees F. Calculate the total amount of time needed for development if the temperature is a constant 70 degrees F.
+<li>Suppose the temperature is a constant \(T\) degrees. Calculate the corresponding development time. Sketch a plot of the development time as a function of \(T\).
+<li>Assume that corn accumulates GDD if the temperature is above 50 degrees F and this accumulation is limited by moisture stress if the tempurature rises above 86 degrees F. Thus if the temperature rises to 90 degrees F, we treat all degrees above 86 as equivalent to 86. Consider two new functions max and min. max(a,b) = a if a > b and b otherwise. min(c,d) = c if c < d and d otherwise. Use these two new functions and write a new integral describing the development of corn.
+<li>Suppose the temperature for 10 days in June is \( 60 + 10\sin 2 \pi t \), where \(t\) is measured in days. How many GDD has the corn accumulated? What if the temperature is \( 60 + 15\sin 2 \pi t \)?
+<li>The formula for the number of GDD accumulated in a day used by many is
+\begin{equation*}
+GDD = \frac{T_{max} + T_{min}}{2} - T_m.
+\end{equation*}
+In this equation if the max temperature is above 86, it is replaced with 86.  If the min temperature is below 50, we replace it with 50.
+Describe what is going on with this equation. How does your calculation in part (e) compare?
+<li><del>Is this related to any numerical integration formulas we have encounterd thus far? Why or why not?</del>
+
+
+</div>
+
+<h2>Example 2 - Table legs </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+  <P>Imagine you are working for the Mathematical Furniture Factory Company, who design mathematically inspired furniture.
+
+  <P>Today you are making table legs on a lathe from 3 foot long dowels of pine with a 2 inch radius.
+  The table legs are made by cutting a function, \(r(x)\), that represents the radius along the length of the dowel.
+
+<ol type='a'>
+<li> Draw a diagram of the scenario.
+<li> What is the restriction on the function \(r(x)\) that needs to be in place to ensure the leg is not cut into several pieces?
+<li> It is important for shipping purposes to know the weight of each individual table leg.
+Let \(x\) and \(f(x),g(x)\) be in units of inches. Assume pine wood has a uniform density of 30 lb/ft\(^3\). Set up an integral that measures how much a table leg weighs when it is cut into the function
+\begin{equation*}f(x) = e^{0.01x}.\end{equation*} What is the shipping weight?
+<li> What about one cut into the function
+\begin{equation*}g(x) = 1 + 0.5\cos \left( \frac{2\pi x}{36} \right)?\end{equation*}
+</ol>
+</div>
+
+<h2>Example 3 - Furniture feet </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+<P> Imagine you are working for the Mathematical Furniture Factory Company, who design mathematically inspired furniture.
+
+<P>You are designing decorative feet for a dresser from a hemisphere with radius 1 cm made out of some alloy metal.
+  Suppose they wish to have a volume of exactly 1.5cm\(^3\) of this metal.
+Set up an integral equation that can be used to determine how big of a hole would they have to bore through the center of the hemisphere to achieve this volume?
+</div>
+
+<h2>Example 4  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<div id="ex4" class="collapse">
+<P> Consider the region bounded by the curves \(y = 0.5 x^2 + 2, y = x^2\) and the \(y\)-axis.
+  What is the volume of the solid created by rotating this region around the line \(x=4\)?<br>
+  <img src="./images/int_ex_4_try2.png", height=300>
+</div>
+
+<h2>Example 5 - Rocket  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<div id="ex5" class="collapse">
+  <img src="./rocket.png" width=150><br><br>
+<P> A rocket initially at rest relative to a spacestation is undergoing a docking manuver.
+  The rockets main engines provide a thrust (acceleration) of \(a(t) = \frac{t}{1 + t^2}\) over time \(t\) (in seconds).
+  The retrorockets provide a thrust in the opposite direction of \(a(t) = t/2\).
+  How long should the manuver last if the rocket is to be at rest again when the manuver is finished?
+  Set up an equation that can be used to determine this time. It will not be solvable algebraically. Use a numerical method or graph and visually estimate a time.
+</div>
