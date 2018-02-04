@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Math 250</h1>
+
+<hr>
+
+<h2>Warmups </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
+  <div id="ex0" class="collapse">
+    <ol type='A'>
+    <li> Euler's method for the IVP \(\frac{dy}{dx} = f(x,y), y(0)=y_0\) with stepsize \(h\) is
+      $$x_n = $$
+      $$y_n = $$
+    <li> Let \(M,\delta\) be constants. Find the value of \(h\) that minimizes \(E(h) = \frac{Mh}{2} + \frac{\delta}{h}\).
+    <li> The Runge-Kutta method is \(\mathcal(O) ( ??? ) \) which means reducing the stepsize, \(h\), by a factor of 10 reduces the error by a factor of what?
+    </ol>
+ </div>
+
+<h2>Example 1 - A closer look at  \( \frac{dy}{dx} = y-x\)</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+  <P>Consider
+    $$ \frac{dy}{dx} = y-x. $$
+<ol type='1'>
+<li> Label this equation using vocabulary from the course.
+<li> Find particular solutions to the DE \( \frac{dy}{dx} = x - y\) with initial conditions:
+  <ol type='a'>
+    <li> \( y(0) = 2 \) <br> <br>
+    <li> \( y(0.1) = 2.2\) (you'll need a calculator/computer - find C to 3 digits) <br> <br>
+  </ol>
+<li> Make a slope field using dfield (<a href="./dfield.jar">dfield.jar</a>). Plot a few solutions and explain what is happening.
+<li> Let \(y(0) = 2\) so \(x_0 = 0\) and \(y_0=2\). Calculate the first step of Euler's method by hand with a stepsize \(h=0.1\).
+  What observations/comparisons can you make about your work/answers here and in task 2 above?
+<li> Use Euler's method and the sage applet below to find an approximate value for \(y(1)\) using stepsizes \(h=0.1,0.05,0.01,0.001\).<br>
+  <div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+import numpy;
+x= var('x') #independent variable
+y = var('y')  #dependent variable
+
+#how to plot numerical methods for dy/dx = f(x,y) using sage
+
+#change arguments as needed for hws
+
+### function and parameters ###
+def f(x,y): return 0.1*(10.-y)*y
+h=0.5
+x0 = 0
+x1 = 15
+y0 = .1
+
+########################
+N = floor((x1-x0)/h)
+EM = numpy.zeros(shape=(N+1,2))
+
+x = x0
+y = y0
+EM[0] = [x0,y0]
+
+for i in range(N):  #euler method loop
+  y = y + h*f(x,y)
+  x = x + h
+  EM[i+1] = [x,y]
+
+##comment 3 lines below to stop plotting output
+Pem1 = list_plot(EM) #blue is default color
+Pem2 = line(EM)
+(Pem1+Pem2).show()
+
+#display pts for euler method
+EM
+
+</script></div>
+
+</ol>
+</div>
+
+<h2>Example 2 - Lakes </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+
+<P> Recall the lake eutrophication example from week 1.
+
+$$\frac{dp}{dt} = b - p + r\frac{p^q}{1 + p^q}$$
+
+<P> Let \(b=0.25, r=5, q=8\), and \(p(0) = 0.75\). Use Euler method with stepsizes \(h=0.1,0.05,0.025,0.0125\) to estimate \(p(1)\). What if \(p(0) = 0.78\)?<br>
+<div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+import numpy;
+x= var('x') #independent variable
+y = var('y')  #dependent variable
+
+#how to plot numerical methods for dy/dx = f(x,y) using sage
+
+#change arguments as needed for hws
+
+### function and parameters ###
+def f(x,y): return 0.1*(10.-y)*y
+h=0.5
+x0 = 0
+x1 = 15
+y0 = .1
+
+########################
+N = floor((x1-x0)/h)
+EM = numpy.zeros(shape=(N+1,2))
+
+x = x0
+y = y0
+EM[0] = [x0,y0]
+
+for i in range(N):  #euler method loop
+  y = y + h*f(x,y)
+  x = x + h
+  EM[i+1] = [x,y]
+
+##comment 3 lines below to stop plotting output
+Pem1 = list_plot(EM) #blue is default color
+Pem2 = line(EM)
+(Pem1+Pem2).show()
+
+#display pts for euler method
+EM
+
+</script></div>
+
+
+
+</div>
+
+<h2>Example 3 - Drugs in the bloodstream - Euler method for systems </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+<P> Recall the drugs in the bloodstream example from week 2.
+$$\frac{dA}{dt} = -kA $$
+$$\frac{dC}{dt} = kA - mC$$
+Let \(k=0.1, m=0.05, A(0) = 1, C(0) = 0\). Modify the Euler method code below to work for a system of two differential equations and
+approximate the amount of drug in the bloodstream when \(t=25\) using a stepsize of \(h=0.1\).<br>
+<div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+import numpy;
+x= var('x') #independent variable
+y = var('y')  #dependent variable
+z = var('z')  #dependent variable
+
+##euler method for system dy/dx = f(x,y,z) and dz/dx = g(x,y,z) using sage
+
+#change arguments as needed for hws/exercises
+
+### function and parameters ###
+def f(x,y,z): return -0.1*y
+def g(x,y,z): return  0.05*z
+
+h=0.01
+x0 = 0  #begin x value
+x1 = 30  #end x value
+y0 = 1.
+z0 = 1.
+
+########################
+N = floor((x1-x0)/h)
+EMy = numpy.zeros(shape=(N+1,2))
+EMz = numpy.zeros(shape=(N+1,2))
+
+x = x0
+y = y0
+z = z0
+EMy[0] = [x0,y0]
+EMz[0] = [x0,z0]
+
+for i in range(N):  #euler method loop
+  y = y + h*f(x,y,z)
+  z = z + h*g(x,y,z)
+  x = x + h
+  EMy[i+1] = [x,y]
+  EMz[i+1] = [x,z]
+
+##comment 5 lines below to stop plotting output
+
+Pem1 = list_plot(EMz) #blue is default color
+Pem2 = line(EMz)
+
+Pem3 = list_plot(EMy,color='red')
+Pem4 = line(EMy,color='red')
+(Pem1+Pem2 + Pem3 + Pem4).show()
+
+#display pts for euler method
+print "at t = ",x1,",  A = ",EMy[N,1], " and C = ",EMz[N,1]
+
+</script></div>
+
+
+</div>
+
+
+<h2>Example 4 - Higher order methods </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<div id="ex4" class="collapse">
+
+<ol type='A'>
+<li> Using the Euler method code as a template, implement the Improved Euler method and use it to approximate \(p(1)\) from the lakes example above.<br>
+<div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+import numpy;
+x= var('x') #independent variable
+y = var('y')  #dependent variable
+
+#how to plot numerical methods for dy/dx = f(x,y) using sage
+
+#change arguments as needed for hws
+
+### function and parameters ###
+def f(x,y): return 0.1*(10.-y)*y
+h=0.5
+x0 = 0
+x1 = 15
+y0 = .1
+
+########################
+N = floor((x1-x0)/h)
+EM = numpy.zeros(shape=(N+1,2))
+
+x = x0
+y = y0
+EM[0] = [x0,y0]
+
+for i in range(N):  #euler method loop
+  y = y + h*f(x,y)
+  x = x + h
+  EM[i+1] = [x,y]
+
+##comment 3 lines below to stop plotting output
+Pem1 = list_plot(EM) #blue is default color
+Pem2 = line(EM)
+(Pem1+Pem2).show()
+
+#display pts for euler method
+EM
+
+</script></div>
+
+<li> Using the Euler method code as a template, implement the Runge Kutta method and use it to approximate \(p(1)\) from the lakes example above.<br>
+<div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+import numpy;
+x= var('x') #independent variable
+y = var('y')  #dependent variable
+
+#how to plot numerical methods for dy/dx = f(x,y) using sage
+
+#change arguments as needed for hws
+
+### function and parameters ###
+def f(x,y): return 0.1*(10.-y)*y
+h=0.5
+x0 = 0
+x1 = 15
+y0 = .1
+
+########################
+N = floor((x1-x0)/h)
+EM = numpy.zeros(shape=(N+1,2))
+
+x = x0
+y = y0
+EM[0] = [x0,y0]
+
+for i in range(N):  #euler method loop
+  y = y + h*f(x,y)
+  x = x + h
+  EM[i+1] = [x,y]
+
+##comment 3 lines below to stop plotting output
+Pem1 = list_plot(EM) #blue is default color
+Pem2 = line(EM)
+(Pem1+Pem2).show()
+
+#display pts for euler method
+EM
+
+</script></div>
+
+<li> Write a paragraph or two in your notebook that explains the relationship between the Improved Euler and Runge-Kutta Methods for IVPs and the trapezoidal rule and Simpson's rule for numerical integration.
+</ol>
+
+</div>
+
+<h2>Example 5 - Warning Example </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<div id="ex5" class="collapse">
+
+<P> Consider the IVP
+$$\frac{dy}{dx} = 5y - 6e^{-x},  y(0) = 1 $$
+
+<ol type='1'>
+  <li>Solve this IVP analytically. Describe the long term behavior of your solution.
+  <li>Use Euler method and Runge-Kutta to numerically solve this IVP using stepsizes \(h=0.1,0.01\) for the interval \(0 \le x \le 5\).
+  How do the numerical solutions compare to your analytical solution above?
+</ol>
+
+</div>
+
+<!--
+<h2>Example 6 - Lake Erie </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+<div id="ex6" class="collapse">
+<a href="https://clevelandhistorical.org/items/show/58"><img src="./phactcuyahoga5.jpg" width=400><br>Lake Erie/Cuyahoga River on fire in 1969  </a><br>
+<P> Lake Erie has a total volume of 458 cubic kilometers. Assume the inflow/outflow rate are equal and 175 km\(^3\)/yr.
+  Suppose at \(t=0\) the pollutant concentration is 0.05% and for \(t > 0\) pollutant concentration inflow is 0.01%.
+  If we assume the lake is perfectly mixed (it is not), how long will it take until the lake has a pollutant concentration of 0.02\%?
+
+</div>
+-->
+
+
+</body>
+</html>
