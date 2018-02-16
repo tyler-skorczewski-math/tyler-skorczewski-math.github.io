@@ -43,7 +43,28 @@ $(function () {
     </ol>
   </div>
 
-
+  <h2>Demonstration</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Demonstration</button>
+    <div id="demo" class="collapse">
+<div class="compute"><script type="text/x-sage">
+var('x')
+x0  = 0
+f   = sin(x)*e^(-x)
+p   = plot(f,-1,5, thickness=2)
+dot = point((x0,f(x=x0)),pointsize=80,rgbcolor=(1,0,0))
+@interact
+def _(f = input_box(f,label='f(x) = '),x0 = input_box(x0,label='center = '),order=[1..12]):
+    ft = f.taylor(x,x0,order)
+    p   = plot(f,-1,5, thickness=2)
+    pt = plot(ft,-1, 5, color='green', thickness=2)
+    dot = point((x0,f(x=x0)),pointsize=80,rgbcolor=(1,0,0))
+    pretty_print(html('$f(x)\;=\;%s$'%latex(f)))
+    pretty_print(html('$T_{%s}(x)\;=\;%s$'%(order,latex(ft))))
+    ymn = f(x=x0) - 5
+    ymx = f(x=x0) + 5
+    show(dot + p + pt, ymin = ymn, ymax = ymx )
+</script></div>
+</div>
 
 <h2>Example 1 - Wire resistivity</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 1</button>
@@ -151,5 +172,6 @@ is "definitely accurate to three decimal places provided \(x\) is close enough t
 <P>The Koch snowflake is created through the following process:
 </div>
 -->
+
 </body>
 </html>
