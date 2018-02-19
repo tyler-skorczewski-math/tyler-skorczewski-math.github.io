@@ -32,13 +32,15 @@
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
   <div id="ex0" class="collapse">
     <ol type='A'>
-    <li> matrix multipication
-      $$ A = \begin{bmatrix} 1 & 0 & 1 & 4 \\
-                             1 & 1 & 0 & -1  \end{bmatrix} \hspace{1cm}
-         B = \begin{bmatrix} 1 & 0 & 0 & 4 \\
-                               0 & 1 & 1 & 10  \end{bmatrix} \hspace{1cm}
-         C = \begin{bmatrix} 1 & 1 & 1 & 0 \\
-                               0 & 1 & 0 & 0 \end{bmatrix} $$
+    <li> Calculate the matrix products \(AB, AC, BC, CB, A^2\) if possible.
+      $$ A = \begin{bmatrix} 1 & 0 & 1  \\
+                             1 & 1 & 0   \end{bmatrix} \hspace{1cm}
+         B = \begin{bmatrix} 1 & 0 & 0  \\
+                               0 & 1 & 1 \\
+                               4 & 3& 2  \end{bmatrix} \hspace{1cm}
+         C = \begin{bmatrix} 1 & 1  \\
+                               0 & 1 \\
+                               5 & 3 \end{bmatrix} $$
 
     <li> What is the relationship between \(v\) and \( Av\), where
       $$v = \begin{bmatrix}1\\-1\end{bmatrix} \hspace{1cm} A = \begin{bmatrix}0 & 1\\-2 & -3\end{bmatrix}?$$
@@ -64,6 +66,8 @@
 <li> Write the system in matrix-vector form. \(Ax=b\)
 <li> Calculate the inverse of \(A\).
 <li> Calculate the solution as \(x = A^{-1}b\). Does it agree with your solution above?
+<li> Solve \(Ax = \begin{bmatrix} 1 & 2 \end{bmatrix}^T\).
+<li> Solve \(Ax = \begin{bmatrix} 3 & 5 \end{bmatrix}^T\).
 </ol>
 </div>
 
@@ -98,7 +102,7 @@ In <a href="./Crouse_etal_1987_ecology.pdf">Crouse et al.</a> they break up the 
 They are eggs & hatchlings (together), small juveniles, large juveniles, subadults, novice breeders, 1st year remigrants, and mature breeders.
 We can then keep track of the population in year \(n\) with the vector \(x_n = [x_1, x_2, ..., x_7]^T\) where \(x_1\) are eggs & hatchlings, \(x_2\) are small juveniles, up through \(x_7\) as the mature breeders.
 
-<P> The matrix,\(L\), below is called a Leslie matrix. It can be used to model the dynamics of the population.
+<P> The matrix,\(L\), below is called a <a href="https://en.wikipedia.org/wiki/Leslie_matrix">Leslie matrix</a>. It can be used to model the dynamics of the population.
   We say the population behaves so that \(x_{n+1} = Lx_n\).
 $$L = \begin{bmatrix}
 0& 0& 0& 0& 127& 4& 80\\
@@ -116,6 +120,7 @@ $$L = \begin{bmatrix}
   <li> What does the number 0.0486 represent in the entry (3,2)?
   <li> What does the number 0.8089 represent in entry (7,7)?
   <li> Write and explain the equation for mature breeders.
+  <li> Why do rows 5 and 6 only have one nonzero entry when the others have more than one?
   <li> If there are 10,4,7,5,1,1,3 turtles in stages 1-7 respectively (in thousands) this year, how many will there be next year? Is the population growing?
 </ol>
 
