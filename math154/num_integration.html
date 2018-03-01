@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus II</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Numerical Integration</h1>
+
+<h2>Left, Right, Midpoint</h2>
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+
+var('x')
+@interact
+def midpoint(f = input_box(default = sin(x), type = SR),
+  a = input_box(1.,width=6, label='left endpoint', type=SR),
+  b = input_box(2.,width=6, label='right endpoint', type=SR),
+  #interval= range_slider(0, 10, 1, default=(0, 1), label="Interval"),
+  number_of_subdivisions = slider(1, 20, 1, default=4, label="Number of boxes"),
+  endpoint_rule = selector(['Midpoint', 'Left', 'Right', 'Upper', 'Lower'], nrows=1, label="Endpoint rule")):
+
+  #a, b = map(QQ, interval)
+  t = var('t')
+  func = fast_callable(f(x=t), RDF, vars=[t])
+  dx = ZZ(b-a)/ZZ(number_of_subdivisions)
+
+  xs = []
+  ys = []
+  for q in range(number_of_subdivisions):
+      if endpoint_rule == 'Left':
+          xs.append(q*dx + a)
+      elif endpoint_rule == 'Midpoint':
+          xs.append(q*dx + a + dx/2)
+      elif endpoint_rule == 'Right':
+          xs.append(q*dx + a + dx)
+      elif endpoint_rule == 'Upper':
+          x = find_local_maximum(func, q*dx + a, q*dx + dx + a)[1]
+          xs.append(x)
+      elif endpoint_rule == 'Lower':
+          x = find_local_minimum(func, q*dx + a, q*dx + dx + a)[1]
+          xs.append(x)
+  ys = [ func(x) for x in xs ]
+
+  rects = Graphics()
+  for q in range(number_of_subdivisions):
+      xm = q*dx + dx/2 + a
+      x = xs[q]
+      y = ys[q]
+      rects += line([[xm-dx/2,0],[xm-dx/2,y],[xm+dx/2,y],[xm+dx/2,0]], rgbcolor = (1,0,0))
+      rects += point((x, y), rgbcolor = (1,0,0))
+  min_y = min(0, find_local_minimum(func,a,b)[0])
+  max_y = max(0, find_local_maximum(func,a,b)[0])
+
+  # html('<h3>Numerical integrals with the midpoint rule</h3>')
+  show(plot(func,a,b) + rects, xmin = a, xmax = b, ymin = min_y, ymax = max_y)
+
+  def cap(x):
+      # print only a few digits of precision
+      if x < 1e-4:
+          return 0
+      return RealField(20)(x)
+  sum_html = "%s \cdot \\left[ %s \\right]" % (dx, ' + '.join([ "f(%s)" % cap(i) for i in xs ]))
+  num_html = "%s \cdot \\left[ %s \\right]" % (dx, ' + '.join([ str(cap(i)) for i in ys ]))
+
+  numerical_answer = integral_numerical(func,a,b,max_points = 200)[0]
+  estimated_answer = dx * sum([ ys[q] for q in range(number_of_subdivisions)])
+
+  print "\n\nSage numerical answer: " + str(numerical_answer)
+  print "Our estimated answer: " + str(estimated_answer)
+
+
+</script>
+</div>
+
+<h2>Midpoint</h2>
+  <div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+var('x')
+@interact
+def midpoint(n = slider(1,100,1,4), f = input_box(default = "x^2", type = str), start = input_box(default = "0", type = str), end = input_box(default = "1", type = str)):
+  a = N(start)
+  b = N(end)
+  func = sage_eval(f, locals={'x':x})
+  dx = (b-a)/n
+  midxs = [q*dx+dx/2 + a for q in range(n)]
+  midys = [func(x=x_val) for x_val in midxs]
+  rects = Graphics()
+  for q in range(n):
+      xm = midxs[q]
+
+      ym = midys[q]
+      rects = rects + line([[xm-dx/2,0],[xm-dx/2,ym],[xm+dx/2,ym],[xm+dx/2,0]], rgbcolor = (1,0,0)) + point((xm,ym), rgbcolor = (1,0,0))
+  min_y = min(0, find_local_minimum(func,a,b)[0])
+  max_y = max(0, find_local_maximum(func,a,b)[0])
+  pretty_print(html('<h3>Numerical integrals with the midpoint rule</h3>'))
+  pretty_print(html('$\int_{a}^{b}{f(x) dx} {\\approx} \sum_i{f(x_i) \Delta x}$'))
+  print "\n\nSage numerical answer: " + str(integral_numerical(func,a,b,max_points = 200)[0])
+  print "Midpoint estimated answer: " + str(RDF(dx*sum([midys[q] for q in range(n)])))
+  show(plot(func,a,b) + rects, xmin = a, xmax = b, ymin = min_y, ymax = max_y)
+
+  </script></div>
+
+<h2>Trapezoid Rule</h2>
+<div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+var('x')
+@interact
+def trap(n = slider(1,100,1,4), f = input_box(default = "x^2", type = str), start = input_box(default = "0", type = str), end = input_box(default = "1", type = str)):
+  a = N(start)
+  b = N(end)
+  func = sage_eval(f, locals={'x':x})
+  dx = (b-a)/n
+  trap_app = 0.5*func(x=a)
+  for q in range(n-1):
+    trap_app = trap_app + func(x = a + dx*q)
+  trap_app = trap_app + 0.5*func(x=b)
+  trap_app = dx*trap_app
+
+  pretty_print(html('<h3>Numerical integrals with the trapezoidal rule</h3>'))
+
+  print "\n\nSage numerical answer: " + str(integral_numerical(func,a,b,max_points = 200)[0])
+  print "Trapezoidal estimated answer: " + str(trap_app)
+
+
+</script></div>
+
+
+
+</body>
+</hmtl>
