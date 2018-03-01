@@ -133,7 +133,7 @@ def trap(n = slider(1,100,1,4), f = input_box(default = "x^2", type = str), star
   dx = (b-a)/n
   trap_app = 0.5*func(x=a)
   for q in range(n-1):
-    trap_app = trap_app + func(x = a + dx*q)
+    trap_app = trap_app + func(x = a + dx*(q+1))
   trap_app = trap_app + 0.5*func(x=b)
   trap_app = dx*trap_app
 
