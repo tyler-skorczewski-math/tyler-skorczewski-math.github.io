@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 700px; padding-left: 1cm; font-size: 175%;">
+
+  <h1>Math 250 - Vector Spaces</h1>
+
+<hr>
+
+<h2>Warmups </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
+  <div id="ex0" class="collapse">
+    <ol type='A'>
+    <li> Write the vector \(\vec{t}\) as a linear combination of \(\vec{u},\vec{v},\vec{w}\).
+      $$\vec{t} = \begin{bmatrix}2\\-7\\9\end{bmatrix}, \vec{u} = \begin{bmatrix}1\\-2\\2\end{bmatrix},\vec{v} = \begin{bmatrix}3\\0\\1\end{bmatrix},\vec{w} = \begin{bmatrix}1\\-1\\2\end{bmatrix}$$
+    <li> True or False. If three vectors \(\vec{a},\vec{b},\vec{c}\) are coplanar then they <i>must</i> be linearly dependent. Justify your answer.
+    <li> Are the following vectors linearly independent? What is the span of the set of these three vectors?
+        $$\left\{ \begin{bmatrix}1\\1\\1\end{bmatrix},\begin{bmatrix}1\\2\\-1\end{bmatrix},\begin{bmatrix}1\\3\\2\end{bmatrix} \right\}$$
+    <li> What is the nullspace of the matrix below?
+      $$A = \begin{bmatrix} 1 & 1 & 1 & 1& 12 \\ 1 & 2 & 0 & 5 & 17 \\ 3 & 2 & 4 & -1 & 31\end{bmatrix}$$
+    <li> What is the definition for the <u>basis</u> of a vector space \(V\)? How is the basis of a vector space related to the dimension of the space?
+    <li> Describe the span of the set of vectors below.
+      $$\left\{ \begin{bmatrix}2\\1\end{bmatrix},\begin{bmatrix}-1\\-1/2\end{bmatrix} \right\}$$
+    </ol>
+ </div>
+
+<!--$$begin{bmatrix} a & b\\ c & d \end{bmatrix}-->
+
+<h2>Example 1 - Solution subspaces </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P>Solve the set of equations below and show that the solutions are a subspace of \(\mathbb{R}^4\).
+      $$x_1 + 3x_2 - 3x_3 + 7x_4 =0$$
+      $$x_2 - 4x_3 + 5x_4 =0 $$.
+</div>
+
+<h2>Example 2 - Nullspaces or kernels </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+ <P> Consider the matrix \(A\) below.
+   $$A = \begin{bmatrix} 1 & 1 & 1 & -1 \\ 2 & 4 & 5 & 6 \\ 3 & 9 & 5 & 4\end{bmatrix}$$
+
+   <ol type='1'>
+     <li> What equation do we solve to find the nullspace, or kernel, of \(A\)?
+     <li> What kinds of objects are in null\( (A)\) = ker\( (A) \)?
+     <li> Find RREF of \(A\).
+     <li> How many free variables are there?
+     <li> Write your solutions as a linear combination of vectors.
+   </ol>
+
+</div>
+
+<h2>Example 3 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+<br>
+<P> Consider the ODE \(dy/dx + P(x) y = 0\).
+  <ol type='1'>
+    <li> Label this DE.
+    <li> Is \(y = 0\) a solution to this DE?
+    <li> If \(y_1\) is a solution, is \(a y_1\) also a solution? (\(a \in \mathbb{R}\)
+    <li> If \(y_1\) and \(y_2\) are solutions, is \(y = a y_1 + by_2\) also a solution?
+    <li> Are solutions to this ODE a vector space?
+  </ol>
+
+</div>
+
+
+<h2>Example 4 -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<div id="ex4" class="collapse">
+
+<P> Consider the set of all parabolas
+  $$ \mathcal{P}_2 = \left\{ y(x) | y(x) = ax^2 + bx + c \mbox{,  where } a,b,c \in \mathbb{R} \right\}.$$
+
+  <ol type='1'>
+    <li> Show \(\mathcal{P}_2\) is a vector space. Assume normal rules for function addition and scalar multiplication.
+    <li> Is the set \( \{1,x,x^2\} \) a basis for \(\mathcal{P}_2\)?
+    <li> Is the set \( \{ 1+ x, x^2 + 1, 3x^2 + 2x \} \) linearly independent?
+  </ol>
+</div>
+
+<h2>Example 5 - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<div id="ex5" class="collapse">
+  <P> Consider the vector space of all 2x2 symmetric matrices.
+    $$V = \left\{ A_{2\times 2} \mid A = \begin{bmatrix}a & b \\b & d \end{bmatrix}, a,b,d \in \mathbb{R} \right\}$$
+    <ol type='a'>
+      <li> Assuming normal rules for scalar multiplication and matrix addition show \(V\) is a vector space.
+      <li> What is the dimension of the space?
+    </ol>
+</div>
+
+<h2>Example 6 - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+<div id="ex6" class="collapse">
+
+<P> Let \( A = \begin{bmatrix} 1 & -3 & 2 \\-4 & 1 & 3\end{bmatrix}\).
+
+  <ol>
+    <li> Find null\( (A) \).
+    <li> Find a solution to \( A\vec{x} = \begin{bmatrix}-5\\9\end{bmatrix}\).
+    <li> Choose two vectors, \(\vec{x}_1\) and \(\vec{x}_2\), in the nullspace of \(A\). Does \(\vec{x}_1\) plus your solution above also solve the equation above? What about \(\vec{x}_2\) plus your solution above?
+    <li> Are solutions to \(A\vec{x} = \vec{b}\) a vector space?
+  </ol>
+
+
+
+</div>
+<!--
+<h2>Example 7 - More determinants </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
+<div id="ex7" class="collapse">
+
+<P> Consider the two matrices below.
+  $$ A = \begin{bmatrix}1&2&3\\1&0&1\\3&4&7\end{bmatrix}  \hspace{1cm} B = \begin{bmatrix}2& -2& 5\\0 & 4& -2\\0 & 0 & 1\end{bmatrix}$$
+
+<ol type='1'>
+<li> Show \(x_1 = \begin{bmatrix} 1\\1\\-1 \end{bmatrix}\) and \(x_2 = \begin{bmatrix} -2\\-2 \\2 \end{bmatrix}\) solve \(Ax=0\).
+<li> Show \(c_1 x_1 + c_2 x_2 \) also solves \(Ax = 0\).
+<li> Solve the system \(A x = 0\) generally, using substitution, row operations, or technology.
+<li> What is the determinant of \(A\)?
+<li> What is the solution to \(A x = \begin{bmatrix}1& 1& 1\end{bmatrix}^T\)?
+<li> Solve \(Bx = 0\) generally,  using substitution, row operations, or technology.
+<li> What is the determinant of \(B\)?
+<li> What is the solution to \(B x = \begin{bmatrix}1& 1& 1\end{bmatrix}^T\)?
+<li> Calculate \(A^{-1}\) and \(B^{-1}\) if possible.
+<li> How do these results relate to any theorems from your reading this week?
+</ol>
+
+</div>
+
+<h2>Example 8 - Even more determinants</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example 8</button>
+<div id="ex8" class="collapse">
+
+<P> Consider the matrices
+  $$A = \begin{bmatrix}1 & 4 & 0\\1 & 0 & 2\\0 & 1 & 0\end{bmatrix} \hspace{1cm} B =  \begin{bmatrix}1 & 2 & 0\\0 & 1 & 1\\1 & 3 & 0\end{bmatrix}.$$
+
+  <ol type='1'>
+  <li> Find \(|A|\) and \(|B|\).
+  <li> Calculate \(AB\).
+  <li> Calculate \(|AB|\). What do you notice from your results above?
+  <li> Write down \(A^T\) and calculate \(|A^T|\). How is it related to \(|A|\)? Explain why this makes sense.
+  </ol>
+</div>
+
+
+<h2>Example 9 - Law of Cosines </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example 9</button>
+<div id="ex9" class="collapse">
+
+Consider the figure below.<br>
+<img src="./lawofcosines.jpg" width=350><br>
+By dropping a perpendicular from each vertex to the opposite side, derive the equations below.
+$$c \cos B + b \cos C = a$$
+$$c \cos A + a \cos C = b$$
+$$a \cos B + b \cos A = c$$
+<P>Rewrite these as three linear equations for the unknowns \(\cos A, \cos B\), and \(\cos C\). Row reduce this system to derive the <a href="https://en.wikipedia.org/wiki/Law_of_cosines">Law of Cosines</a>.
+
+</div>
+
+<h2>Example 10 - Wheatstone Bridge </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example 10</button>
+<div id="ex10" class="collapse">
+
+The circuit diagram below is called a <a href="https://en.wikipedia.org/wiki/Wheatstone_bridge">Wheatsone bridge</a>. It is useful for determining an unknown resistance of an object.
+When using the bridge to find resistance \(R_x\), resistances \(R_1\) and \(R_3\) are known, while \(R_2\) is adjustable.
+\(R_2\) is adjusted until the current through the middle branch (from junctions B to D) is equal to zero. Then the resistance \(R_x\) can be found from
+$$R_x  = \frac{R_2 R_3}{R_1}.$$
+We will derive this formula.<br>
+<img src="./wheatstonebridge.png" width=350><br>
+
+<ol type='1'>
+<li> Use Kirchoff's current law to write equations for the currents \(I_1, I_2, I_3, I_x, I_G\) in junctions B and D.
+<li> Use Kirchoff's voltage law to write equations for the currents in loops ABD and BCD.
+<li> When the bridge is balanced so \(I_G = 0\) we have 4 linear equations in the unknowns \(I_1, I_2, I_3, I_x\). Use these to derive the formula above.
+</ol>
+</div>
+-->
+
+</body>
+</html>
