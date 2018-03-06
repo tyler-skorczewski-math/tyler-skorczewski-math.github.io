@@ -40,6 +40,7 @@
     <li> What is the nullspace of the matrix below?
       $$A = \begin{bmatrix} 1 & 1 & 1 & 1& 12 \\ 1 & 2 & 0 & 5 & 17 \\ 3 & 2 & 4 & -1 & 31\end{bmatrix}$$
     <li> What is the definition for the <u>basis</u> of a vector space \(V\)? How is the basis of a vector space related to the dimension of the space?
+    <li> Find the basis for the subspace of \(\mathbb{R}^4\) that describes all vectors of the form \( (a,b,c,d) \) for which \(a=3c\) and \(b=4d\). 
     <li> Describe the span of the set of vectors below.
       $$\left\{ \begin{bmatrix}2\\1\end{bmatrix},\begin{bmatrix}-1\\-1/2\end{bmatrix} \right\}$$
     </ol>
@@ -79,7 +80,7 @@
   <ol type='1'>
     <li> Label this DE.
     <li> Is \(y = 0\) a solution to this DE?
-    <li> If \(y_1\) is a solution, is \(a y_1\) also a solution? (\(a \in \mathbb{R}\)
+    <li> If \(y_1\) is a solution, is \(a y_1\) also a solution? (\(a \in \mathbb{R}\) )
     <li> If \(y_1\) and \(y_2\) are solutions, is \(y = a y_1 + by_2\) also a solution?
     <li> Are solutions to this ODE a vector space?
   </ol>
@@ -97,7 +98,8 @@
   <ol type='1'>
     <li> Show \(\mathcal{P}_2\) is a vector space. Assume normal rules for function addition and scalar multiplication.
     <li> Is the set \( \{1,x,x^2\} \) a basis for \(\mathcal{P}_2\)?
-    <li> Is the set \( \{ 1+ x, x^2 + 1, 3x^2 + 2x \} \) linearly independent?
+    <li> What is the dimension of \(\mathcal{P}_2\)?
+    <li> Is the set \( \{ 1+ x, x^2 + 1, 3x^2 + 2x \} \) linearly independent? Could it be a basis?
   </ol>
 </div>
 
@@ -106,8 +108,11 @@
 <div id="ex5" class="collapse">
   <P> Consider the vector space of all 2x2 symmetric matrices.
     $$V = \left\{ A_{2\times 2} \mid A = \begin{bmatrix}a & b \\b & d \end{bmatrix}, a,b,d \in \mathbb{R} \right\}$$
+  <P>Note that in this situation matrices are the objects in the vector space, so a matrix is a "vector" here when thinking about definitions and theorems regarding vector spaces.
     <ol type='a'>
       <li> Assuming normal rules for scalar multiplication and matrix addition show \(V\) is a vector space.
+      <li> Show that the set of "vectors" below are a basis for \(V\), i.e. show they span \(V\) and are linearly independent.
+        $$ \mathcal{B} = \left\{ \begin{bmatrix}1 & 0 \\ 0 & 0 \end{bmatrix}, \begin{bmatrix}0 & 1 \\ 1 & 0 \end{bmatrix}, \begin{bmatrix}0 & 0 \\ 0 & 1 \end{bmatrix} \right\}$$
       <li> What is the dimension of the space?
     </ol>
 </div>
@@ -119,7 +124,8 @@
 <P> Let \( A = \begin{bmatrix} 1 & -3 & 2 \\-4 & 1 & 3\end{bmatrix}\).
 
   <ol>
-    <li> Find null\( (A) \).
+    <li> Find null\( (A) \), i.e. find the solution set to \(A \vec{x} = \vec{0}\).
+    <li> What is the basis for null\( (A) \)?
     <li> Find a solution to \( A\vec{x} = \begin{bmatrix}-5\\9\end{bmatrix}\).
     <li> Choose two vectors, \(\vec{x}_1\) and \(\vec{x}_2\), in the nullspace of \(A\). Does \(\vec{x}_1\) plus your solution above also solve the equation above? What about \(\vec{x}_2\) plus your solution above?
     <li> Are solutions to \(A\vec{x} = \vec{b}\) a vector space?
@@ -128,29 +134,16 @@
 
 
 </div>
-<!--
-<h2>Example 7 - More determinants </h2>
+
+<h2>Example 7 - in the span? </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
 <div id="ex7" class="collapse">
 
-<P> Consider the two matrices below.
-  $$ A = \begin{bmatrix}1&2&3\\1&0&1\\3&4&7\end{bmatrix}  \hspace{1cm} B = \begin{bmatrix}2& -2& 5\\0 & 4& -2\\0 & 0 & 1\end{bmatrix}$$
-
-<ol type='1'>
-<li> Show \(x_1 = \begin{bmatrix} 1\\1\\-1 \end{bmatrix}\) and \(x_2 = \begin{bmatrix} -2\\-2 \\2 \end{bmatrix}\) solve \(Ax=0\).
-<li> Show \(c_1 x_1 + c_2 x_2 \) also solves \(Ax = 0\).
-<li> Solve the system \(A x = 0\) generally, using substitution, row operations, or technology.
-<li> What is the determinant of \(A\)?
-<li> What is the solution to \(A x = \begin{bmatrix}1& 1& 1\end{bmatrix}^T\)?
-<li> Solve \(Bx = 0\) generally,  using substitution, row operations, or technology.
-<li> What is the determinant of \(B\)?
-<li> What is the solution to \(B x = \begin{bmatrix}1& 1& 1\end{bmatrix}^T\)?
-<li> Calculate \(A^{-1}\) and \(B^{-1}\) if possible.
-<li> How do these results relate to any theorems from your reading this week?
-</ol>
-
+<P> Find the value of \(h\) so that \(\vec{b}\) is in span\(\{\vec{u}_1, \vec{u}_2\}\) where
+  $$\vec{u}_1 = \begin{bmatrix}1\\3\\1\end{bmatrix}, \hspace{1cm} \vec{u}_2 = \begin{bmatrix}-5\\-8\\2\end{bmatrix}, \hspace{1cm} \vec{b} = \begin{bmatrix}3\\-5\\h\end{bmatrix}.$$
 </div>
 
+<!--
 <h2>Example 8 - Even more determinants</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example 8</button>
 <div id="ex8" class="collapse">
