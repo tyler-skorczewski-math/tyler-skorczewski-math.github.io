@@ -1,0 +1,30 @@
+<html>
+
+<head>
+<title>Nora Quest</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='star')
+window.location = 'grub.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+</head>
+
+<body>
+
+<h2>Good job finding Wub!</h2>
+
+<P>To continue your quest you must unscramble the following letters to reveal where the next clue will be.<br><br>
+  <h3>MAEG      LCSOTE</h3>
+<br>
+Once there follow the instructions you find.
+<br><br>
+
+<form name="answerForm" onSubmit="solve(this); return false;">
+<h2>Enter the next code : <input name="answer" type="text" size="10" maxlength="20"/>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>
