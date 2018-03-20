@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus </title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 750px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Newton's Method for Finding Roots of Functions</h1>
+
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+def newton_method(f, c, eps, maxiter=100):
+    x = f.variables()[0]
+    fprime = f.derivative(x)
+    try:
+        g = f._fast_float_(x)
+        gprime = fprime._fast_float_(x)
+    except AttributeError:
+        g = f; gprime = fprime
+    iterates = [c]
+    for i in xrange(maxiter):
+       fc = g(c)
+       if abs(fc) < eps: return c, iterates
+       c = c - fc/gprime(c)
+       iterates.append(c)
+    return c, iterates
+
+var('x')
+@interact
+def _(f = e^x - 2, c = float(0.5), eps=(-3,(-16, -1)), interval=float(0.5)):
+     eps = 10^(eps)
+     print "eps = %s"%float(eps)
+     z, iterates = newton_method(f, c, eps)
+     print "root =", z
+     print "f(c) = %r"%f(x=z)
+     n = len(iterates)
+     print "iterations =", n
+     pretty_print(html(iterates))
+     P = plot(f, (x,z-interval, z+interval), rgbcolor='blue')
+     h = P.ymax(); j = P.ymin()
+     L = sum(point((w,(n-1-float(i))/n*h), rgbcolor=(float(i)/n,0.2,0.3), pointsize=10) + \
+             line([(w,h),(w,j)],rgbcolor='black',thickness=0.2) for i,w in enumerate(iterates))
+     show(P + L, xmin=z-interval, xmax=z+interval)
+
+</script></div>
+
+
+
+</body>
+</hmtl>
