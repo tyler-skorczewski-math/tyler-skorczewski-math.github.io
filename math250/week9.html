@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 700px; padding-left: 1cm; font-size: 175%;">
+
+  <h1>Math 250 - Higher Order Linear Differential Equations</h1>
+
+<hr>
+
+<h2>Warmups </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
+  <div id="ex0" class="collapse">
+    <ol type='A'>
+    <li> What is the general solution to \(x'' + 25x =0, x(0)=1,x'(0)=0\)?
+    <li> Find \(C\) and \(\alpha\) such that \(A \cos(\omega t) + B \sin(\omega t) = C \cos(\omega t - \alpha) \).
+    <li> What are the three families of terms we can consider when using the Method of Undetermined Coefficients? Why?
+    <li> TBD
+    <li> TBD
+    </ol>
+ </div>
+
+<!--$$begin{bmatrix} a & b\\ c & d \end{bmatrix}-->
+
+<h2>Example 1 - Higher order vs 1st order </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P> Consider the DE \(y'' - 2y' + 5y =0\).
+      <ol type='1'>
+      <li> Label this DE.
+      <li> Let \(y' = w\). Write the DE above as a system of first order differential equations for \(y\) and \(w\).
+      <li> Label your system created above.
+      <li> Can you write the system \(y''' + 3y'' + 4y' + 12 y = 0\) as a system of first order DEs? How many equations would you need?
+      <li> Think about why this idea might be important and write some thoughts in your notebook.
+      </ol>
+</div>
+
+<h2>Example 2 - Mass spring systems </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+ <img src="./massspring.png" width=300><br>
+ <P>Consider the mass-spring system above (moving on a frictionless table). A DE governing the displacement from equilibrium, \(x(t)\) is
+   $$m x'' + b x' + k x = 0.$$
+
+     <ol type='1'>
+     <li>Explain where this DE comes from. What does each term mean?
+     <li>Label this DE.
+     <li>Consider the <i>undamped</i> system, i.e. \(b=0\). Let \(m=1\) kg and  \(k=16\) N/m. Assume the spring is stretched 0.5 meters and released from rest. What is the displacement \(x(t)\)?
+     <li>Now consider the system above but with damping. At what values of \(b\) do any oscillations disappear?
+     <li>Consider the system above with arbitrary parameter values \(m,b,k\). What is the relationship between \(m,b\), and \(k\) that gives rise to oscillations? What is this phenomena called?
+     <li>When do we say the system is critically damped? What does this mean?
+     <li>Many systems display behavior that can be described with a DE very similar to the mass-spring system, including the RLC circuits we have seen already. We call the DE the simple harmonic oscillator.
+        Fill in the chart below showing the comparisons between the mechanical mass-spring and electrical RLC circuit systems.<br>
+        <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:13px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:13px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-i7rb{border-color:#343434;vertical-align:top}
+.tg .tg-tva8{border-color:#343434}
+.tg .tg-gcw3{border-color:#000000}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-tva8" colspan="3">mass- spring sytem</th>
+    <th class="tg-tva8" colspan="3">Circuit</th>
+  </tr>
+  <tr>
+    <td class="tg-i7rb">Equation</td>
+    <td class="tg-i7rb" colspan="2"></td>
+    <td class="tg-i7rb">Equation</td>
+    <td class="tg-i7rb" colspan="2"></td>
+  </tr>
+  <tr>
+    <td class="tg-tva8">Element</td>
+    <td class="tg-tva8">Symbol</td>
+    <td class="tg-tva8">Force/term</td>
+    <td class="tg-tva8">Element</td>
+    <td class="tg-tva8">Symbol</td>
+    <td class="tg-tva8">Voltage Drop/term</td>
+  </tr>
+  <tr>
+    <td class="tg-tva8"></td>
+    <td class="tg-tva8"></td>
+    <td class="tg-tva8"></td>
+    <td class="tg-tva8"></td>
+    <td class="tg-tva8"></td>
+    <td class="tg-tva8"></td>
+  </tr>
+  <tr>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+  </tr>
+  <tr>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+  </tr>
+  <tr>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+    <td class="tg-gcw3"></td>
+  </tr>
+</table>
+
+   </ol>
+
+</div>
+
+<h2>Example 3 - Undetermined Coefficients </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+<br>
+<P> Consider the DE for \(y(x)\)
+  $$y'' - y' - 2y = f(x)$$
+  for various functions \(f(x)\.
+  <ol type='A'>
+    <li> What is the general solution to the associated homogeneous equation?
+    <li> Let \(f(x) = 3x^2 - 1\). To find a particular solution to the nonhomogeneous equation we will use the method of undetermined coefficients with the form \(y_p = Ax^2 + Bx + C\).
+      Explain why we chose this form. Plug \(y_p\) into the DE and determine \(A,B,\) and \(C\).
+    <li> Now let \(f(x) = 2e^{-3x}\). Find \(y_p\) using the method of undetermined coefficients. What form of \(y_p\) should we choose?
+    <li> Repeat if \(f(x) = 2 \cos(3x)\).
+    <li> What if \(f(x) = x^2 e^{x}\)?
+  </ol>
+
+</div>
+
+
+<h2>Example 4 - Undamped example (rembering trigonometry)</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<div id="ex4" class="collapse">
+<P>Consider an undamped mass spring example with \(m=1,k=9,x(0)=1,x'(0)=2\). What is the amplitude and period of the resulting motion/displacement?
+
+</div>
+
+<h2>Example 5 - Forced mechanical system</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<div id="ex5" class="collapse">
+  <P> Consider a damped mass spring system \(m=1, b=2, k = 3\) suspended from a ceiling. Let the acceleration due to gravity \(g=9.8\), i.e. the in the postive direction of displacement.
+    <ol type='a'>
+      <li> What is the DE that governs this system?
+      <li> Label this DE.
+      <li> What is the general solution to the associated homogeneous equation?
+      <li> What is a particular solution?
+      <li> What is the general solution?
+      <li> What is the long term behavior, i.e. as \(t \to \infty\)?
+    </ol>
+</div>
+
+<h2>Example 6 -More undertermined coefficients </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+<div id="ex6" class="collapse">
+<P> Consider the DE \(y'' - y' - 2y = 5e^{2x}\).
+  <ol type='a'>
+    <li> What is the general solution to the associated homogeneous equation, \(y_h\)?
+    <li> What do you notice about the RHS of the DE and \(y_h\)?
+    <li> What form should we choose for \(y_p\) when using the method of undertermined coefficients?
+    <li> Find \(y_p\).
+    <li> Where did the form for \(y_p\) come from? Try to explain using operator ideas from last week.
+  </ol>
+
+</div>
+
+<h2>Example 7 -</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
+<div id="ex7" class="collapse">
+
+<P> Find the general solution to the DE below.
+  $$ y''' + y'' = 3e^x + 4x^2$$
+</div>
+
+<!--
+<h2>Example 8 - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example 8</button>
+<div id="ex8" class="collapse">
+
+
+</div>
+
+
+<h2>Example 9 - Law of Cosines </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example 9</button>
+<div id="ex9" class="collapse">
+
+Consider the figure below.<br>
+<img src="./lawofcosines.jpg" width=350><br>
+By dropping a perpendicular from each vertex to the opposite side, derive the equations below.
+$$c \cos B + b \cos C = a$$
+$$c \cos A + a \cos C = b$$
+$$a \cos B + b \cos A = c$$
+<P>Rewrite these as three linear equations for the unknowns \(\cos A, \cos B\), and \(\cos C\). Row reduce this system to derive the <a href="https://en.wikipedia.org/wiki/Law_of_cosines">Law of Cosines</a>.
+
+</div>
+
+<h2>Example 10 - Wheatstone Bridge </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example 10</button>
+<div id="ex10" class="collapse">
+
+The circuit diagram below is called a <a href="https://en.wikipedia.org/wiki/Wheatstone_bridge">Wheatsone bridge</a>. It is useful for determining an unknown resistance of an object.
+When using the bridge to find resistance \(R_x\), resistances \(R_1\) and \(R_3\) are known, while \(R_2\) is adjustable.
+\(R_2\) is adjusted until the current through the middle branch (from junctions B to D) is equal to zero. Then the resistance \(R_x\) can be found from
+$$R_x  = \frac{R_2 R_3}{R_1}.$$
+We will derive this formula.<br>
+<img src="./wheatstonebridge.png" width=350><br>
+
+<ol type='1'>
+<li> Use Kirchoff's current law to write equations for the currents \(I_1, I_2, I_3, I_x, I_G\) in junctions B and D.
+<li> Use Kirchoff's voltage law to write equations for the currents in loops ABD and BCD.
+<li> When the bridge is balanced so \(I_G = 0\) we have 4 linear equations in the unknowns \(I_1, I_2, I_3, I_x\). Use these to derive the formula above.
+</ol>
+</div>
+-->
+
+</body>
+</html>
