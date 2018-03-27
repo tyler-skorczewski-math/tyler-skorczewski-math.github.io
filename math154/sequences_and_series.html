@@ -39,10 +39,10 @@ var('n')
 @interact
 def _(N = slider(1,100,1), f = input_box(default = "1/(n^2)", type = str)):
   func = sage_eval(f, locals={'n':n})
-  sum = 0
+  ssum = 0
   for q in [1..N]:
-    sum = sum + f(n)
-  print "Series Approximation: " + str(sum)
+    ssum = ssum + func(n)
+  print "Series Approximation: " + str(ssum)
 </script></div>
 
 
