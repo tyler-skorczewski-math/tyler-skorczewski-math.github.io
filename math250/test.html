@@ -103,7 +103,7 @@ $$\frac{dx}{dt} = y $$
 $$\frac{dy}{dt} = \gamma yz$$
 $$\frac{dz}{dt} = -\beta xw $$
 $$\frac{dw}{dt} = yzw$$
-Let \(\gamma = 1, \beta = 1\).<br>
+Let \(\gamma = 1, \beta = 1, x(0)=1, y(0)=0.5, z(0)=1, w(0)=0.01\).<br>
 <div class="compute"><script type="text/x-sage">
 # everything following hash symbol is comment
 from sage.calculus.desolvers import desolve_odeint
@@ -115,7 +115,7 @@ beta = 1
 
 f=[y , gamma*y*z,-1.*beta*x*w,y*z*w]  #note f is a vector here 
 x0 = 1.0 #x init
-y0 = 0.0 #y init
+y0 = 0.5 #y init
 z0 = 1.0 #z init
 w0 = 0.01 #w init
 
