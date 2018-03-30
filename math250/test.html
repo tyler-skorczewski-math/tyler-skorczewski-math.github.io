@@ -25,103 +25,74 @@
 <body style="width: 1000px;">
 
   <h1>Math 250</h1>
+<hr>
   
+<P>The system below is a set of 3 equations in 3 unknowns known as the SIR equations. They are used to model disease outbreaks.
+  $$\frac{dS}{dt} = -a S I$$
+  $$\frac{dI}{dt} = a S I - b I $$
+  $$\frac{dR}{dt} = bI $$
+The code below simulates this system with \(a=0.25, b=0.1\) and a stepsize of \(h=0.01\).<br>
 <div class="compute"><script type="text/x-sage">
 
 # everything following hash symbol is comment
-import numpy;
-t= var('t') #independent variable
-x = var('x')  #dependent variable
-y = var('y')  #dependent variable
-z = var('z')  #dependent variable
-w = var('w')  #dependent variable
+from sage.calculus.desolvers import desolve_odeint
+S,I,R=var('S I R')
 
-##euler method for system dy/dx = f(x,y,z) and dz/dx = g(x,y,z) using sage
+a=0.25
+b=0.1
 
-#change arguments as needed for hws/exercises
-m = 0.0046
-g = 9.8
-rho = 1.204
-CD = 0.25
-A = pi*(0.04267/2)^2
 
-### function and parameters ###
-def fx(t,x,y,z,w): return y
-def fy(t,x,y,z,w): return -CD*rho*A*y*sqrt(y^2+w^2)/(m*2.)
-def fz(t,x,y,z,w): return w
-def fw(t,x,y,z,w): return -g - CD*rho*A*w*sqrt(y^2+w^2)/(m*2.)
+f=[-a*S*I , a*S*I - b*I,b*I]  #note f is a vector here 
+S0 = 0.99 #S init
+I0 = 0.01 #I init
+R0 = 0
+t0 = 0 #t init
+t1 = 100 #t end
+h = 0.01 # step size
+sol=desolve_odeint(f,[S0,I0,R0],srange(t0,t1,h),[S,I,R])
+#p=line(zip(sol[:,0],sol[:,1])) #plot S versus I
+#p.show()
+pS=line(zip(srange(t0,t1,h),sol[:,0])) #plot S vs t
+#px.show()
+pI=line(zip(srange(t0,t1,h),sol[:,1]),color='red') #plot I vs t
+#py.show()
+pR=line(zip(srange(t0,t1,h),sol[:,2]),color='green') #plot R vs t
+(pS+pR+pI).show()
 
-h=0.01
-t0 = 0  #begin t value
-t1 = 5  #end t value
-x0 = 1.
-y0 = 1.
-z0 = 1.
-w0 = 1.
+</script>
+</div>
+ 
+<hr>
+  
+<P> Recall the drugs in the bloodstream example from week 2.
+$$\frac{dA}{dt} = -kA $$
+$$\frac{dC}{dt} = kA - mC$$
+Let \(k=0.1 \mbox{ min}^{-1}, m=0.05 \mbox{ min}^{-1}, A(0) = 1, C(0) = 0\). The code below simulates this system
+approximate the amount of drug in the bloodstream for \(0 \le t \le 40\) using a stepsize of \(h=0.01\).<br>
+<div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+from sage.calculus.desolvers import desolve_odeint
+A, C=var('A C')
 
-########################
-N = floor((t1-t0)/h)
-RKx = numpy.zeros(shape=(N+1,2))
-RKy = numpy.zeros(shape=(N+1,2))
-RKz = numpy.zeros(shape=(N+1,2))
-RKw = numpy.zeros(shape=(N+1,2))
-RKxz = numpy.zeros(shape=(N+1,2))
+k = 0.1
+m = 0.05
 
-t = t0
-x = x0
-y = y0
-z = z0
-w = w0
 
-RKx[0] = [t0,x0]
-RKy[0] = [t0,y0]
-RKz[0] = [t0,z0]
-RKw[0] = [t0,w0]
+f=[-k*A , k*A - m*C]  #note f is a vector here 
+A0 = 1.0 #A init
+C0 = 0.0 #C init
 
-RKxz[0] = [x0,z0]
-
-for i in range(N):  #RK method loop
-    kx1 = fx(t,x,y,z,w)
-    ky1 = fy(t,x,y,z,w)
-    kz1 = fz(t,x,y,z,w)
-    kw1 = fw(t,x,y,z,w)
-    
-    kx2 = fx(t+h/2.,x+h*kx1/2,y+h*ky1/2.,z+h*kz1/2.,w+h*kw1/2.)
-    ky2 = fy(t+h/2.,x+h*kx1/2,y+h*ky1/2.,z+h*kz1/2.,w+h*kw1/2.)
-    kz2 = fz(t+h/2.,x+h*kx1/2,y+h*ky1/2.,z+h*kz1/2.,w+h*kw1/2.)
-    kw2 = fw(t+h/2.,x+h*kx1/2,y+h*ky1/2.,z+h*kz1/2.,w+h*kw1/2.)
-    
-    kx3 = fx(t+h/2.,x+h*kx2/2,y+h*ky2/2.,z+h*kz2/2.,w+h*kw2/2.)
-    ky3 = fy(t+h/2.,x+h*kx2/2,y+h*ky2/2.,z+h*kz2/2.,w+h*kw2/2.)
-    kz3 = fz(t+h/2.,x+h*kx2/2,y+h*ky2/2.,z+h*kz2/2.,w+h*kw2/2.)
-    kw3 = fw(t+h/2.,x+h*kx2/2,y+h*ky2/2.,z+h*kz2/2.,w+h*kw2/2.)
-    
-    kx4 = fx(t+h,x+h*kx3,y+h*ky3,z+h*kz3,w+h*kw3)
-    ky4 = fy(t+h,x+h*kx3,y+h*ky3,z+h*kz3,w+h*kw3)
-    kz4 = fz(t+h,x+h*kx3,y+h*ky3,z+h*kz3,w+h*kw3)
-    kw4 = fw(t+h,x+h*kx3,y+h*ky3,z+h*kz3,w+h*kw3)
-
-    x = x + h*(kx1+2*kx2+2*kx3+kx4)/6.
-    y = y + h*(ky1+2*ky2+2*ky3+ky4)/6.
-    z = z + h*(kz1+2*kz2+2*kz3+kz4)/6.
-    w = w + h*(kw1+2*kw2+2*kw3+kw4)/6.
-    
-    t = t + h
-    
-    RKx[i+1] = [t,x]
-    RKy[i+1] = [t,y]
-    RKz[i+1] = [t,z]
-    RKw[i+1] = [t,w]
-
-    RKxz[i+1] = [x,z]
-    
-##comment 5 lines below to stop plotting output
-
-Prk1 = list_plot(RKxz) #blue is default color
-Prk2 = line(RKxz)
-
-show(Prk1+Prk2,ymin=0)
-
+t0 = 0 #t init
+t1 = 40 #t end
+h = 0.01 # step size
+sol=desolve_odeint(f,[A0,C0],srange(t0,t1,h),[A,C])  #vector of derivative fcns, init conditions, time, dependent variables
+#p=line(zip(sol[:,0],sol[:,1])) #plot S versus I
+#p.show()
+pA=line(zip(srange(t0,t1,h),sol[:,0])) #plot A vs t
+#px.show()
+pC=line(zip(srange(t0,t1,h),sol[:,1]),color='red') #plot C vs t
+#py.show()
+(pA+pC).show()
 </script>
 </div>
 
