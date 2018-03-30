@@ -96,5 +96,41 @@ pC=line(zip(srange(t0,t1,h),sol[:,1]),color='red') #plot C vs t
 </script>
 </div>
 
+<hr>
+  
+<P> 
+$$\frac{dx}{dt} = y $$
+$$\frac{dy}{dt} = \gamma yz$$
+$$\frac{dz}{dt} = -\beta xw $$
+$$\frac{dw}{dt} = yzw$$
+Let \(\gamma = 1, \beta = 1\).<br>
+<div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+from sage.calculus.desolvers import desolve_odeint
+x,y,z,w=var('x y z w')
+
+gamma = 1
+beta = 1
+
+
+f=[y , gamma*y*z,-1.*beta*x*w,y*z*w]  #note f is a vector here 
+x0 = 1.0 #x init
+y0 = 0.0 #y init
+z0 = 1.0 #z init
+w0 = 0.01 #w init
+
+t0 = 0 #t init
+t1 = 1 #t end
+h = 0.01 # step size
+sol=desolve_odeint(f,[x0,y0,z0,w0],srange(t0,t1,h),[x,y,z,w])  #vector of derivative fcns, init conditions, time, dependent variables
+#p=line(zip(sol[:,0],sol[:,1])) #plot x versus y
+#p.show()
+px=line(zip(srange(t0,t1,h),sol[:,0])) #plot x vs t   - note sol[:, i] i=0->x ; i=1->y ; i=2->z ; i=3-> w
+#px.show()
+py=line(zip(srange(t0,t1,h),sol[:,1]),color='red') #plot y vs t
+#py.show()
+(px+py).show()
+</script>
+</div>  
 </body>
 </html>
