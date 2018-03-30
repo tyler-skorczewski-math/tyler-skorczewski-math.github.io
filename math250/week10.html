@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 700px; padding-left: 1cm; font-size: 175%;">
+
+  <h1>Math 250 </h1>
+
+<hr>
+
+<h2>Warmups </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
+  <div id="ex0" class="collapse">
+    <ol type='A'>
+    <li>
+    </ol>
+ </div>
+
+<!--$$begin{bmatrix} a & b\\ c & d \end{bmatrix}-->
+
+<h2>Example 1 - Forced mass-spring systems </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P> Consider a damped mass spring system \(m=1, b=2, k = 3\) suspended from a ceiling. Let the acceleration due to gravity \(g=9.8\), i.e. the in the postive direction of displacement.
+      <ol type='a'>
+        <li> Draw a picture of this system.
+        <li> What is the DE that governs this system?
+        <li> Where is the system in equilibrium?
+        <li> Label this DE.
+        <li> What is the general solution to the associated homogeneous equation?
+        <li> What is a particular solution?
+        <li> What is the general solution?
+        <li> What is the long term behavior, i.e. as \(t \to \infty\)?
+      </ol>
+</div>
+
+<h2>Example 2 - Forced mass spring system without damping</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+ <P>Consider an undamped spring with spring constant, \(k\), attached to a mass, \(m\), attached to a fly wheel. The fly wheel provides a peridoic force \(F(t) = F_0 \cos(\omega_f t)\).
+ Let the mass intially be at rest at equilibrium.
+<ol type='1'>
+  <li> Draw a picture of this system.
+  <li> Use Newton's 2nd Law to write an equation of motion.
+  <li> Label this DE.
+  <li> What is the solution to the associated homogeneous equation?
+  <li> What is the <u>natural frequency</u>, \(\omega_0\), of this system?
+  <li> Consider the case where \(\omega_f \neq \omega_0\).
+    <ol type='a'>
+       <li> Use the method of undertermined coefficients to find a particular solution, \(x_p\).
+       <li> What form should you choose to find \(x_p\)?
+       <li> Use the initial conditions to find the solution to the full IVP.
+       <li> Use the cosine addition and subtraction formulas to rewrite your solution in the form \(x(t) = C \sin(A) \sin(B) \), where \(A,B,C\) are to be determined.
+    </ol>
+  <li> Now consider the case where \(\omega_f = \omega_0\).
+      <ol type='a'>
+         <li> Why do we need to consider this as a separate case?
+         <li> Use the method of undertermined coefficients to find a particular solution, \(x_p\).
+         <li> What form should you choose to find \(x_p\)?
+         <li> What is the behavior of \(x_p\) as \(t \to \infty\)?
+         <li> What is the name of this behavior?
+      </ol>
+</ol>
+
+</div>
+
+<h2>Example 3 - Car on wavy road</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+<br>
+<P> Consider a car moving along a wavy road. Assume all the mass of the car and the 4 wheels (with shocks) can be reduced to a single mass-wheel-shock system.
+  Let the mass of the car be 600 kg and the spring constant of the shock to be 70000 N/m. Let \(x(t)\) be the displacement of the spring in the shock absorber.
+  Assume the wavy road has a periodic structure with height 10 centimeter and wavelength 10 m. Then driving along the road with velocity \(v\) induces a motion \(y=0.05 \cos(2\pi v/10)\).
+  Assume the shock absorber has no damping.
+
+  <ol type='1'>
+    <li> Explain why \(m x'' = -k (x - y)\) describes the displacement of the spring.
+    <li> At what velocity do we expect to experience resonant vibrations?
+  </ol>
+
+</div>
+
+
+<h2>Example 4 - Transient solutions versus steady-state/long-term behavior </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<div id="ex4" class="collapse">
+<P> Consider the IVP
+  $$x'' + 4x' + 5x = 10\cos(3t), \hspace{1cm} x(0)=x'(0)=0.$$
+  <ol type='1'>
+    <li>Find the solution to the associated homogeneous equation.
+    <li>Use the method of undertermined coefficients to find a particular solution.
+    <li>Use the initial conditions to find the specific solution to the IVP.
+    <li>What part of the solution is the 'transient solution'? What is the long-term behavior of the solution?
+  </ol>
+</div>
+
+<h2>Example 5 - Practical resonance</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<div id="ex5" class="collapse">
+<P> Consider a mass-spring system with damping and periodic forcing given by
+  $$mx'' + bx' + kx = F_0 \cos (\omega_f t), \hspace{1cm} m,b,k,F_0 > 0.$$
+  In general \(x_h\), the solution to the associated homogeneous equation, will always go to zero as \(t \to \infty\). This is because of the damping or friction term, \(b >0\).
+  Our next to find a solution of this DE would be to use the method of undertermined coefficients to find a particular solution, \(x_p\).
+  $$x_0 = A \cos(\omega_f t) + B\sin(\omega_f t)$$
+  After calculating \(x_p'\) and \(x_p''\), plugging into the DE we solve for \(A\) and \(B\).
+  $$ A = \frac{(k - m\omega_f^2)F_0}{(k-m\omega_f^2)^2 + (b \omega_f)^2} \hspace{1cm} B = \frac{b \omega_f F_0}{(k-m\omega_f^2)^2 + (b \omega_f)^2}$$
+  $$x_p = A \cos(\omega_f t) + B \sin(\omega_f t)$$
+  Then we can let \(A = C \cos(\phi)\) and \(B = C \sin(\phi)\) so
+  $$x_p = C\cos(\phi)\cos(\omega_f t) + C\sin(\phi)\sin(\omega_f t).$$
+  Recall \(\cos(a \pm b) = \cos(a)\cos(b) \mp \sin(a)\sin(b)\) so
+  $$x_p = C\cos(\omega_f t - \phi),$$
+  where
+  $$C^2 = A^2 + B^2, \hspace{1cm} C = \frac{F_0}{\sqrt{(k-m\omega_f^2)^2 + (b \omega_f)^2}}$$
+  and
+  $$\tan(\phi) = \frac{B}{A} = \frac{b\omega_f}{k - m\omega_f^2}.$$
+
+<P> Let's consider the amplitude response to be a function of the forcing frequency, \(C \equiv C(\omega_f)\).
+  $$C(\omega_f) = \frac{F_0}{\sqrt{(k-m\omega_f^2)^2 + (b \omega_f)^2}}$$
+  Plots showing several different values of the other parameters are shown below.<br>
+  <img src='prac_res.png' width=300><br>
+  <ol type='1'>
+    <li>What is \(\frac{dC}{d\omega_f} \)?
+    <li>Explain why the graph of \(C(\omega_f)\) is always decreasing if \(b^2 > 2km\).
+    <li>Assume \(b^2 < 2km\). At what forcing frequency is \(C(\omega_f)\) at a maximum?
+  </ol>
+</div>
+
+<!--<h2>Example 6 -More undertermined coefficients </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+<div id="ex6" class="collapse">
+<P> Consider the DE \(y'' - y' - 2y = 5e^{2x}\).
+  <ol type='a'>
+    <li> What is the general solution to the associated homogeneous equation, \(y_h\)?
+    <li> What do you notice about the RHS of the DE and \(y_h\)?
+    <li> What form should we choose for \(y_p\) when using the method of undertermined coefficients?
+    <li> Find \(y_p\).
+    <li> Where did the form for \(y_p\) come from? Try to explain using operator ideas from last week.
+  </ol>
+
+</div>
+
+<h2>Example 7 -</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
+<div id="ex7" class="collapse">
+
+<P> Find the general solution to the DE below.
+  $$ y''' + y'' = 3e^x + 4x^2$$
+</div>
+
+
+<h2>Example 8 - Bouyancy problem</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example 8</button>
+<div id="ex8" class="collapse">
+<P>
+
+</div>
+
+<h2>Example 9 - Law of Cosines </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example 9</button>
+<div id="ex9" class="collapse">
+
+Consider the figure below.<br>
+<img src="./lawofcosines.jpg" width=350><br>
+By dropping a perpendicular from each vertex to the opposite side, derive the equations below.
+$$c \cos B + b \cos C = a$$
+$$c \cos A + a \cos C = b$$
+$$a \cos B + b \cos A = c$$
+<P>Rewrite these as three linear equations for the unknowns \(\cos A, \cos B\), and \(\cos C\). Row reduce this system to derive the <a href="https://en.wikipedia.org/wiki/Law_of_cosines">Law of Cosines</a>.
+
+</div>
+
+<h2>Example 10 - Wheatstone Bridge </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example 10</button>
+<div id="ex10" class="collapse">
+
+The circuit diagram below is called a <a href="https://en.wikipedia.org/wiki/Wheatstone_bridge">Wheatsone bridge</a>. It is useful for determining an unknown resistance of an object.
+When using the bridge to find resistance \(R_x\), resistances \(R_1\) and \(R_3\) are known, while \(R_2\) is adjustable.
+\(R_2\) is adjusted until the current through the middle branch (from junctions B to D) is equal to zero. Then the resistance \(R_x\) can be found from
+$$R_x  = \frac{R_2 R_3}{R_1}.$$
+We will derive this formula.<br>
+<img src="./wheatstonebridge.png" width=350><br>
+
+<ol type='1'>
+<li> Use Kirchoff's current law to write equations for the currents \(I_1, I_2, I_3, I_x, I_G\) in junctions B and D.
+<li> Use Kirchoff's voltage law to write equations for the currents in loops ABD and BCD.
+<li> When the bridge is balanced so \(I_G = 0\) we have 4 linear equations in the unknowns \(I_1, I_2, I_3, I_x\). Use these to derive the formula above.
+</ol>
+</div>
+-->
+
+</body>
+</html>
