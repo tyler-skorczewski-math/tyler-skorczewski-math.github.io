@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus II</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 700px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Series and Power Series Worksheet</h1>
+
+<hr>
+
+<h2>Topic 1 - Series Convergence </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Topic 1</button>
+  <div id="ex1" class="collapse">
+    <P>Use your flow chart to determine if each of the series below converges. If it converges use the Sage code to give an estimate of the series value using the first 10, 20, & 40 terms.
+
+<ol type='A'>
+ <li>$$\sum_{n=1}^{\infty} \frac{1}{n} - \sin \left( \frac{2n^2}{3n^5 + n^2} \right) $$ <!--  limit comparison -->
+ <li>$$\sum_{n=1}^{\infty} \frac{1}{n\sqrt{n}}$$      <!-- p series -->
+ <li>$$\sum_{n=1}^{\infty} \frac{e^n}{n!}$$  <!-- ratio test-->
+ <li>$$\sum_{n=1}^{\infty} \left( 7 + 2^n \right)^{-4}$$
+</ol>
+
+<div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+var('n')
+@interact
+def _(N = slider(1,100,1), f = input_box(default = "1/(n^2)", type = str)):
+  func = sage_eval(f, locals={'n':n})
+  ssum = 0
+  for q in [1..N]:
+    ssum = ssum + func(n=q)
+  print "Series Approximation: " + str(ssum)
+</script></div>
+
+  </div>
+
+
+<h2>Topic 2 - Power Series Convergence</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Topic 2</button>
+  <div id="ex2" class="collapse">
+<P> Find the center of the power series, interval of convergence and radius of convergence for the following power series.
+  <ol type='A'>
+    <li>$$\sum_{n=1}^{\infty} \frac{1}{2^n}x^n$$
+    <li>$$f(x) = 1 + x + 4x^2 + 9 x^3 + 16x^4 + \cdot\cdot\cdot $$
+    <li>$$\sum_{n=1}^{\infty} \frac{1}{n+2}x^n$$
+    <li>$$\sum_{n=1}^{\infty} (-1)^n \frac{1}{(2n+1)!}x^{2n+1}$$
+    <li>$$2 \sum_{n=1}^{\infty} \frac{3^n}{2n}x^n$$
+    <li>$$\sum_{n=1}^{\infty} (-1)^{n+1} \frac{1}{n2^n}(x-3)^n$$
+  </ol>
+
+  </div>
+
+
+<h2>Topic 3  - Manipulating Power Series</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Topic 3</button>
+<div id="ex3" class="collapse">
+<P> For this topic we explore how to find new power series by manipulating known power series.
+  <ol type='1'>
+    <li> Consider a basic power series representation for a function $$f(x) = \sum_{n=0}^{\infty} x^n = 1 + x + x^2 + x^3 + \dotsm.$$
+      What is the domain of \(f\)? What is a (non-power series) formula for \(f(x)\)?
+    <li> Find the power series representation for \( g(x) = \frac{x}{1 − x}\). (Hint: How is this related to the series above?) On what interval does the series converge to the function?
+    <li> Find the power series representation for \(h(x) = \frac{1}{1 + x^2}\). On what interval does the series converge to the function?
+    <li> Find the power series representation of \(\tan^{-1}(x)\). (Hint: start with the power series for \(h(x) = \frac{1}{1 + x^2}\) and antidifferentiate. Solve for the constant of integration by substituting \(x = 0\).) On what
+interval does the series converge to the function?
+  </ol>
+</div>
+
+<h2>Topic 4 - Kempner Series</h2>
+<P>(Advanced - only if time)<br>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Topic 4</button>
+  <div id="ex4" class="collapse">
+<P> It may be surprising
+that a subseries of the harmonic series in which about one
+in every five terms is deleted might converge. A depleted
+harmonic series is a series obtained from \(\sum_{n=1}^{\infty}\frac{1}{n}\) by
+removing any term \(1/n\) if a given digit, say 9, appears
+in the decimal expansion of \(n\). We will argue that this depleted
+harmonic series converges by answering the following
+questions.
+<ol type='a'>
+<li> How many whole numbers \(n\) have \(d\) digits?
+<li> How many \(d\)-digit whole numbers \(h(d)\) do not
+contain 9 as one or more of their digits?
+<li> What is the smallest \(d\)-digit number \(m(d)\)?
+<li> Explain why the deleted harmonic series is
+bounded by $$\sum_{d=1}^{\infty} \frac{h(d)}{m(d)}.$$
+<li> Show that this series converges.
+  </div>
+
+</body>
+</html>
