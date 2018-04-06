@@ -91,7 +91,7 @@
 <br>
 <P> Consider a car moving along a wavy road. Assume all the mass of the car and the 4 wheels (with shocks) can be reduced to a single mass-wheel-shock system.
   Let the mass of the car be 600 kg and the spring constant of the shock to be 70000 N/m. Let \(x(t)\) be the displacement of the spring in the shock absorber.
-  Assume the wavy road has a periodic structure with height 10 centimeter and wavelength 10 m. Then driving along the road with velocity \(v\) induces a motion \(y=0.05 \cos(2\pi v/10)\).
+  Assume the wavy road has a periodic structure with height 10 centimeter and wavelength 10 m. Then driving along the road with velocity \(v\) induces a motion \(y=0.05 \cos(2\pi v t/10)\).
   Assume the shock absorber has no damping.
 
   <ol type='1'>
@@ -122,7 +122,7 @@
   $$mx'' + bx' + kx = F_0 \cos (\omega_f t), \hspace{1cm} m,b,k,F_0 > 0.$$
   In general \(x_h\), the solution to the associated homogeneous equation, will always go to zero as \(t \to \infty\). This is because of the damping or friction term, \(b >0\).
   Our next to find a solution of this DE would be to use the method of undertermined coefficients to find a particular solution, \(x_p\).
-  $$x_0 = A \cos(\omega_f t) + B\sin(\omega_f t)$$
+  $$x_p = A \cos(\omega_f t) + B\sin(\omega_f t)$$
   After calculating \(x_p'\) and \(x_p''\), plugging into the DE we solve for \(A\) and \(B\).
   $$ A = \frac{(k - m\omega_f^2)F_0}{(k-m\omega_f^2)^2 + (b \omega_f)^2} \hspace{1cm} B = \frac{b \omega_f F_0}{(k-m\omega_f^2)^2 + (b \omega_f)^2}$$
   $$x_p = A \cos(\omega_f t) + B \sin(\omega_f t)$$
