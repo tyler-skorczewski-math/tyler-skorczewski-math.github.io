@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Math 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 700px; padding-left: 1cm" background="bg.jpg">
+
+<h1> Exam 2 Review </h1>
+<hr>
+<ol type='1'>
+<li> If we know \( y(x) = e^{2x} \) is a solution to \(y''' + y' -10 y = 0\) write down the general solution.
+<li> Find the general solution to \(y^{(4)} - 5y'' + 4y = e^x - xe^{2x}\).
+<li> Use the trigonometric identity \(\cos (a \pm b) = \cos(a)\cos(b) \mp \sin(a) \sin(b)\) to find a general solution to \(y'' + y' + y = \sin(x) \sin(3x)\).
+<li> Find the amplitude of the steady-state, or long-term behavior, of the solution to \(x'' + 4x' + 4x = 10 \cos(3t)\).
+<li> A 2 kg mass is connected to a spring and dashpot. The dashpot provides 8 Netwons of damping force for every 1 m/s of velocity. The spring provides a 16 Newtons of restoring force for every meter of displacement.
+The spring is stretched 1 meter and released from rest. Set up an IVP governing the displacement of the mass. Classify the system as overdamped, underdamped, or critically damped. Justify your answer.
+<li> Solve \(y'' - 4y' + 3y\) with \(y(0) = 7, y'(0) = 11\).
+<li> Find a basis for the solution space of the system below.
+$$x_1 - 2x_2 + 3x_3 = 0$$
+$$2x_1 - 3x_2 - 3x_3 = 0$$
+<li> True or False. \(\vec{w} = \begin{bmatrix}-7\\7\\11\end{bmatrix}\) is in span\(\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}\). Justify your answer.
+$$\vec{v}_1 = \begin{bmatrix}1\\2\\1\end{bmatrix}, \vec{v}_2 = \begin{bmatrix}-4\\-1\\2\end{bmatrix},\vec{v}_3 = \begin{bmatrix}-3\\1\\3\end{bmatrix}$$
+
+</body>
+</html>
