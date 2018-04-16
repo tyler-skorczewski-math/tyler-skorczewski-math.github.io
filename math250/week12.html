@@ -34,6 +34,7 @@
     <ol type='A'>
     <li> Consider the matrix \(A = \begin{bmatrix}-2 & 1 & 1 \\1 & -2 & 1\\ 1 & 1 & -2 \end{bmatrix}\). We know that \(|A - \lambda I| = \lambda(\lambda+3)^2\). Find the eigenvalues and eigenvectors of \(A\).
     <li> Show that \(e^{5t}\begin{bmatrix}2\\1\end{bmatrix}\) is a solution to \(\vec{x}' = \begin{bmatrix}4 & 2\\3 & -1 \end{bmatrix} \vec{x}\).
+    <li> Use the <a href="./pplane.jar">pplane</a> software to draw a phase plane for the DE system above.
     </ol>
  </div>
 
@@ -50,6 +51,7 @@
         <li> Can you write the system in matrix-vector form?
         <li> Label this system.
         <li> What are the eigenvalues and eigenvectors of the matrix? What do you notice?
+        <li> Use the <a href="./pplane.jar">pplane</a> software to draw a phase plane for this system. Sketch some solutions. What is the long-term behavior of these solutions?
       </ol>
 </div>
 
@@ -87,6 +89,7 @@
 <P> $$x_1' = 4x_1 + 2x_2$$
     $$x_2' = 3x_1 - 1x_2$$
   <ol type='1'>
+    <li>Use the <a href="./pplane.jar">pplane</a> software to draw a phase plane for this system. Sketch some solutions. Describe the nature of these solutions?
     <li>Write the system in matrix vector form.
     <li>Find the eigenvalues and eigenvectors of the matrix.
     <li>Use the information above to find two solutions.
@@ -101,27 +104,35 @@
       $$x_2' = 3x_1 + 4x_2$$
     <ol type='1'>
       <li>Write the system in matrix vector form.
+      <li>Use the <a href="./pplane.jar">pplane</a> software to draw a phase plane for this system. Sketch some solutions. What is the long-term behavior of these solutions?
       <li>Find the eigenvalues and eigenvectors of the matrix.
-      <li>Use the information above to find two solutions.
-      <li>What is the general solution to the system?
+      <li>Your eigenvalues and eigenvectors should be complex. Consider one eigenpair.
+        Break this apart into real and imaginary parts.
+        Show that the real and imaginary parts are each a solution to the system.
+        Are these linearly independent?
+      <li>What is the general solution to the system without resorting to complex valued functions?
     </ol>
 </div>
 
-<!--<h2>Example 6 -More undertermined coefficients </h2>
+<h2>Example 6 - 2 story house </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
 <div id="ex6" class="collapse">
-<P> Consider the DE \(y'' - y' - 2y = 5e^{2x}\).
+<img src="./house.png"><br>
+<p> Consider the 2 story house above. Imagine that the furnace breaks. Heat can be exchanged between the top and bottom floors and the outside.
   <ol type='a'>
-    <li> What is the general solution to the associated homogeneous equation, \(y_h\)?
-    <li> What do you notice about the RHS of the DE and \(y_h\)?
-    <li> What form should we choose for \(y_p\) when using the method of undertermined coefficients?
-    <li> Find \(y_p\).
-    <li> Where did the form for \(y_p\) come from? Try to explain using operator ideas from last week.
+    <li> Explain why the system below could be a model for the temperature dynamics of each floor.
+      $$T_1' = -k_{1,A}(T_1 - A) - k_{1,2} (T_1 - T_2) $$
+      $$T_2' = -k_{2,A}(T_2 - A) + k_{1,2} (T_1 - T_2) $$
+    <li> Use the <a href="./pplane.jar">pplane</a> software to draw a phase plane for this system. Describe how solutions behave. Use common language.
+    <li> Write the system in matrix-vector form. Label this system.
+    <li> Find the eigenvalues and eigenvectors for the matrix above.
+    <li> Write down the general solution.
+    <li> If the initial conditions are \(T_1(0) = 70\) and \(T_2(0) = 60\) find a particular solution to the IVP.
   </ol>
 
 </div>
 
-<h2>Example 7 -</h2>
+<!--<h2>Example 7 -</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
 <div id="ex7" class="collapse">
 
