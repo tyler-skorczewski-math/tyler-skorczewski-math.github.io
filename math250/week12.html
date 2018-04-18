@@ -132,15 +132,22 @@
 
 </div>
 
-<!--<h2>Example 7 -</h2>
+<h2>Example 7 -</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
 <div id="ex7" class="collapse">
 
-<P> Find the general solution to the DE below.
-  $$ y''' + y'' = 3e^x + 4x^2$$
+<P> Consider the system of first order DEs below.
+  $$\vec{x}' = \begin{bmatrix}3 & -2 & 0\\ -1 & 3 & -2\\0 & -1 & 3\end{bmatrix} \vec{x}$$
+  
+ <ol type='1'>
+   <li> Show that \(\vec{x}_1 = \begin{bmatrix}2e^t\\2e^t\\e^t\end{bmatrix}, \vec{x}_2 = \begin{bmatrix}2e^{3t}\\ 0 \\-e^{-3t}\end{bmatrix},\vec{x}_3 = \begin{bmatrix}2e^{5t}\\-2e^{5t}\\e^{5t}\end{bmatrix}\) are solutions to this system
+   <li> Can you identify the eigenvalues and eigenvectors of the matrix from this information?
+   <li> Are these solutions linearly independent? Calculate the Wronskian.
+   <li> What is the general solution to the system?
+  </ol>
 </div>
 
-
+<!--
 <h2>Example 8 - Bouyancy problem</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example 8</button>
 <div id="ex8" class="collapse">
