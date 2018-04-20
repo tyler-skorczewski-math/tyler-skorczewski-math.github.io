@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+<body style="width: 1000px;">
+
+<h1>Intro to DEs</h1>
+
+<h2>SIR</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#river">SIR</button>
+<div id="river" class="collapse">
+
+  <P>The system below is a set of 3 equations in 3 unknowns known as the SIR equations. They are used to model disease outbreaks.
+    In this model \(S(t)\) represents the fraction of the population who are susceptible to a disease at time \(t\), \(I(t)\) is the fraction infected with the disease, and \(R(t)\) is the fraction removed.
+    $$\frac{dS}{dt} = -a S I$$
+    $$\frac{dI}{dt} = a S I - b I $$
+    $$\frac{dR}{dt} = bI $$
+    This system consists of three coupled, nonlinear equations. In general we cannot solve such systems analytically.
+  The applet below solves these equations numerically with different values of \(a\) and \(b\) and assumes that 1% of the population is infected initially. Plots of \(S,I,R\) as functions of time are shown in blue, red, and green, respectively.<br>
+  <div class="compute"><script type="text/x-sage">
+
+# everything following hash symbol is comment
+from sage.calculus.desolvers import desolve_odeint
+S,I,R=var('S I R')
+
+a=0.25
+b=0.1
+
+@interact
+
+def _(a=(0.25,(0.01,1.0)),b=(0.1,(0.01,1.0))):
+
+  f=[-a*S*I , a*S*I - b*I,b*I]  #note f is a vector here
+  S0 = 0.99 #S init
+  I0 = 0.01 #I init
+  R0 = 0
+  t0 = 0 #t init
+  t1 = 100 #t end
+  h = 0.01 # step size
+  sol=desolve_odeint(f,[S0,I0,R0],srange(t0,t1,h),[S,I,R])
+  #p=line(zip(sol[:,0],sol[:,1])) #plot S versus I
+  #p.show()
+  pS=line(zip(srange(t0,t1,h),sol[:,0])) #plot S vs t
+  #px.show()
+  pI=line(zip(srange(t0,t1,h),sol[:,1]),color='red') #plot I vs t
+  #py.show()
+  pR=line(zip(srange(t0,t1,h),sol[:,2]),color='green') #plot R vs t
+  (pS+pR+pI).show()
+
+  </script>
+  </div>
+
+ <p>To do: <ol type='1'>
+ <li> Explore the system. What do you think \(a,b\) represent? What are their units?
+ <li> Can you explain each equation in common language?
+ <li> How many ways can a person be in the 'removed' population?
+ <li> What quantity being positive is associated with the disease spreading?
+ <li> When is the maximum infection rate?
+ <li> Assume at time 0, \(I(0)=0.01, a=0.25, b=0.1\). Can you figure out a the minimum fraction of the population that would need to be vaccinated to prevent the disease from spreading (i.e. an outbreak)?
+ </ol>
+
+
+</div>
+
+
+<h2>Spring motion</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#bb">spring motion</button>
+<div id="bb" class="collapse">
+<img src="./massspring.png" width=300><br>
+<P>Consider the mass-spring system above (moving on a frictionless table). Hooke's Law states that the force due to the spring \(F_{spring}=-kx\) where \(k >0 \) is the spring constant. Large values of \(k\) are associated with stiffer springs.
+<P>To Do:<ol type='1'>
+  <li> Use Netwon's second law to build a differential equation that describes the horizontal displacment (motion), \(x(t)\), of a mass, \(m\), on the end of a spring with spring constant \(k\).
+  <li> What is the order of your differential equation?
+  <li> With resorting to an analytical technique to solve the system, can you find a solution via guess and check?
+  <li> Does your knowledge of your guessed solution match what you'd expect from the behavior of a spring? Why or why not?
+</ol>
+
+
+</div>
+
+<h2>Chemical reactions</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gest">chemical reactions</button>
+<div id="gest" class="collapse">
+<P>Consider the chemical reaction where reactants \(A\) and \(B\) combine to make product \(C\).
+$$A + B \to C$$
+
+<P>The law of mass action states that rate of the chemical reaction is proportional to the amounts of the reactants available, i.e. if there is a lot of \(A\) and \(B\) around then the reaction produces \(C\) quickly, if not then slowly.
+Let \(x(t)\) be the amount of chemical \(C\) produced at time \(t\). Let \(a\) and \(b\) be the initial amounts of \(A\) and \(B\), respectively.
+
+<P>To Do:<ol type='1'>
+  <li> Explain why the chemical reaction is modeled with the differential equation
+    $$\frac{dx}{dt} = k (a-x)(b-x).$$
+  <li> What is the initial condition, i.e. \(x(0) = \)?
+  <li> Use the fact this is separable and partial fractions to find a solution to teh IVP.
+ </ol>
+
+
+</div>
+
+<h2>More Tanks </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">More Tanks</button>
+<div id="ex2" class="collapse">
+
+<ol type='A'>
+  <li> Consider a 100 gallon tank filled with saltwater. We want to flush out the salt and replace it with fresh water.
+    We will accomplish this by pouring in pure water at a rate of 5 gal/min and letting the mixture flow out at 5 gal/min.
+    Assume the mixture in the tank is always perfectly mixed.
+    <ol type='1'>
+      <li> If there is initially 10 lbs of salt in the tank how much is there at time \(t\)?
+      <li> How long until there is less than 0.1 lbs of salt in the tank?
+    </ol>
+
+  <li> Now consider a 50 gallon tank of pure water. Saltwater with concentration 2 lbs/gal is pumped in at a rate of 3 gal/min, is continuously mixed, and flows out at 3 gal/min.
+    <ol type='1'>
+      <li> Set up an IVP describing this situation.
+      <li> Describe the DE using vocubulary we have learned thus far.
+      <li> Solve this system. Is there a particular method that is aimed at this type of problem?
+    </ol>
+
+</ol>
+</div>
+</body>
+</html>
