@@ -1,0 +1,234 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px; padding-left: 1cm; font-size: 175%;" background="bg.jpg">
+
+  <h1>Math 250 </h1>
+
+<hr>
+<P> <a href="./pplane.jar">Pplane</a> is software that can be used to draw phase planes for the systems in the examples below. If possible try to sketch a phase plane by hand first.
+  <br>
+  <hr>
+<h2>Warmups </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
+  <div id="ex0" class="collapse">
+    <ol type='A'>
+    <li> Classify the (0,0) equilibrium solution of \(\vec{x} = \begin{bmatrix} 1 & 2 \\ 3 & 4\end{bmatrix} \vec{x}\).
+    <li>
+    </ol>
+ </div>
+
+<!--$$begin{bmatrix} a & b\\ c & d \end{bmatrix}-->
+
+<h2>Example 1 - bacteria</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P> Consider a petri dish with two strains of bacteria, \(x\) and \(y\), with the dynamics below.
+      $$x' = 2x(7-x) - xy,$$
+      $$y' = 2y(8-y) - xy.$$
+      <ol type='1'>
+        <li>Describe each term in the equations above using common language.
+        <li>Find any equilibrium solutions.
+        <li>Calculate the Jacobian matrix.
+        <li>Classify the equilibrium solutions you have found.
+        <li>Sketch a phase plane with some solutions. Describe how the solutions relate back to the topic of bacteria in a petri dish.
+      </ol>
+</div>
+
+<h2>Example 2 - Is it a center?</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+  <P> Consider the system below.
+    $$x' = -y + ax(x^2 + y^2)$$
+    $$y' = x + ay(x^2 + y^2)$$
+<ol type='1'>
+  <li>Verify (0,0) is an equilibrium solution.
+  <li>Use linearization (analyze Jacobian) to classify this equilibrium solution.
+  <li>Can you think of any reason why your analysis above might not be valid?
+  <li>Consider a transformation to polar coordinates for this system.
+    $$r^2 = x^2 + y^2$$
+    $$\tan\theta = \frac{y}{x}$$
+    Find an equation for \(r'\) and show \(theta' = 1\).
+  <li>Analyse the equilibrium solution at \(r=0 \Leftrightarrow (0,0)_{x,y}\) in terms of \(a\).
+</ol>
+
+</div>
+
+<h2>Example 3 - springs again</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+<br>
+<P> So far we have considered spring that obey Hooke's Law \(F = -kx\). Consider a nonlinear spring with the force below.
+  $$F = -kx - \beta x^3$$
+  <ol type='1'>
+    <li>Does the spring get stiffer or weaker if \(\beta > 0\)?
+    <li>Let \(m=1, k = 4\) and neglect damping forces. Find the equilibrium solutions if \(\beta = 1\) and \(\beta = -1\).
+    <li>For the \(\beta = -1\) case, classify any equilibrium solutions using linearization.
+    <li>For the \(\beta = 1\) case, classify any equilibrium solutions using linearization.
+    <li>Add a damping term \(bx'\) to your system with a weaker spring. Find and classify any equilibrium solutions and sketch a phase plane.
+  </ol>
+
+
+</div>
+
+
+<h2>Example 4 - Final Review </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<div id="ex4" class="collapse">
+<P>
+  <ol type='1'>
+    <li> Find a general solution to \(\frac{dy}{dx} = \frac{1}{x^2 -1}\).
+    <li> Find a particular solution to \(\frac{dx}{dt} = \frac{1}{1 + t^2}, x(0) = 0\).
+    <li> Find a general solution \(x \frac{dy}{dx} + y = x^3\).
+    <li> Find a basis for the nullspace of the matrix \(A = \begin{bmatrix}-1 & 1 & 2 & 4\\2 & 0 & 1 & -7\end{bmatrix}\).
+    <li> Use Gaussian Elimination to find the inverse of \(A = \begin{bmatrix} 1 & 3 \\ 2 & 7\end{bmatrix}\). Verify your solution by using a known formula for the inverse of a 2x2 matrix.
+    <li> Use the method of undetermined coefficients to find a solution to \(y'' - 4y' - 12y = 3e^{5t}\).
+    <li> Find a solution to \(x''' - 4x' = 0\).
+    <li> How many solutions are there to the system below?
+      $$1x - y + 2z = -3$$
+      $$4x + 4y - 2z = 1 $$
+      $$-2x + 2y - 4z = 6$$
+
+  </ol>
+</div>
+
+<!--
+<h2>Example 5 - mass-spring </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<div id="ex5" class="collapse">
+  <P> Consider a mass-spring system modeled with \(2x'' + x' + 3x = 0\).
+    <ol type='1'>
+      <li>What is the general solution to this DE?
+      <li>Is the spring overdamped, underdamped, or critically damped?
+      <li>Write this 2nd order DE as a system of first order equations.
+      <li>Sketch/plot a phase plane for the system. What do the horizontal and vertical axes represent?
+      <li>(0,0) is an equilibrium solution. What is the physical interpretation of this equilibrium solution?
+      <li>Find the eigenvalues of the matrix from your answer to question 3) above? What is the name given to the equilibrium solution?
+    </ol>
+</div>
+
+<h2>Example 6 - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+<div id="ex6" class="collapse">
+
+<p> In example 5 above, and for mass-spring systems in general, we have a way to classify the behavior of the spring using jus the values of \(m,b,k\) before solving the DE.
+  Can we do that with a general system of 2 first order linear differential equations?<br>
+<P> Consider the system
+  $$\vec{x}' = \begin{bmatrix}a & b \\ c & d \end{bmatrix} \vec{x}.$$
+  <ol type='1'>
+    <li>Explain why (0,0) is the equilibrium solution of the system above.
+    <li>What are the eigenvalues, \(\lambda_1,\lambda_2\) of the matrix above?
+    <li>The trace of a square matrix is the sum of the diagonal elements. What is the trace of the matrix above, \(\tau = tr (A)\)?
+    <li>What is the determinant of the matrix above, \(\Delta = det(A)\)?
+    <li>Show \(\Delta = \lambda_1, \lambda_2\), and \(\tau = \lambda_1 + \lambda_2\).
+    <li>What is true if \(\Delta < 0\)? What kind of equilibrium is (0,0)?
+    <li>Assume \(\Delta > 0\).
+      <ol type='i'>
+        <li>What is true if \(\tau > 0\) and \(\tau^2 - 4\Delta > 0\)? What kind of equilibrium is (0,0)?
+        <li>What is true if \(\tau > 0\) and \(\tau^2 - 4\Delta < 0\)? What kind of equilibrium is (0,0)?
+        <li>What is true if \(\tau < 0\) and \(\tau^2 - 4\Delta > 0\)? What kind of equilibrium is (0,0)?
+        <li>What is true if \(\tau < 0\) and \(\tau^2 - 4\Delta < 0\)? What kind of equilibrium is (0,0)?
+        <li>What is true if \(\tau = 0\)? What kind of equilibrium is (0,0)?
+      </ol>
+    <li>Can you sketch a picture of a \(\Delta, \tau\) plane that describes your answers above?
+    <li>Use your work above to label the (0,0) equilirbium of the systems below.
+      <ol = type='a'>
+        <li>$$\vec{x}' = \begin{bmatrix}-1 & 0 \\ 0 & -2 \end{bmatrix} \vec{x}.$$
+        <li>$$\vec{x}' = \begin{bmatrix}0 & -1 \\ 1 & 0 \end{bmatrix} \vec{x}.$$
+        <li>$$\vec{x}' = \begin{bmatrix}-1 & 6 \\ 0 & -2 \end{bmatrix} \vec{x}.$$
+      </ol>
+  </ol>
+
+</div>
+
+<h2>Example 7 -</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
+<div id="ex7" class="collapse">
+
+<P> Consider the first order, nonlinear, autonomous system below.
+  $$x' = 1- y^2$$
+  $$y' = x +2y$$
+
+ <ol type='1'>
+   <li>A nullcline is a set of points where \(x'=0\) or \(y'=0\). Find equations for the \(x\)-nullclines.
+   <li>Find an equation for \(y-\)nullclines.
+   <li>Find any equilibrium solutions to the system. What is the relationship between equilibrium solutions and nullclines?
+   <li>What is the behavior of \(y'\) on the \(x\)-nullclines?, the behavior of \(x'\) on the \(y\)-nullclines?
+   <li>Sketch a phase plane with some solution curves.
+  </ol>
+</div>
+
+
+<h2>Example 8 - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example 8</button>
+<div id="ex8" class="collapse">
+  <P> Consider the first order, nonlinear, autonomous system below.
+    $$x' = f(x,y) = -x + x^3$$
+    $$y' = g(x,y) = - 2y$$
+  <ol type='1'>
+    <li>Find any equilibrium solutions \((x^*,y^*)\) and sketch a phase plane.
+    <li>Can you decribe the behavior of the equilibrium solitions from your phase plane?
+    <li>What is the Jacobian \(J(x,y)\) matrix of this system?
+      $$J(x,y) = \begin{bmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} \\ \frac{\partial g}{\partial x} & \frac{\partial g}{\partial y} \end{bmatrix} $$
+    <li>Let \(u=x-x^*, v=y-y^*\). Take notes on why near the equilibrium solutions the system behaves like \(\begin{bmatrix}u' \\ v' \end{bmatrix} = J(x^*,y^*) \begin{bmatrix}u \\ v \end{bmatrix}\).
+    <li>What is \(J(0,0)\)? How can we classify this equilibrium solution?
+    <li>Use the Jacobian to classify any other equilibrium solutions.
+  </ol>
+</div>
+
+
+<h2>Example 9 - Rabbits and Sheep </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example 9</button>
+<div id="ex9" class="collapse">
+ <P> Consider a population of rabbits, \(x\), and sheep, \(y\) that have dynamics
+   $$x' = x(3-x) - 2xy,$$
+   $$y' = y(2-y) - xy.$$
+   <ol type='1'>
+     <li>Describe each term in the equations above using common language.
+     <li>Find any equilibrium solutions.
+     <li>Calculate the Jacobian matrix.
+     <li>Classify the equilibrium solutions you have found.
+     <li>Sketch a phase plane with some solutions. Describe how the solutions relate back to the topic of rabbits and sheep.
+   </ol>
+</div>
+
+<h2>Example 10 - Bacteria </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example 10</button>
+<div id="ex10" class="collapse">
+
+  <P> Consider a petri dish with two strains of bacteria, \(x\) and \(y\), with the dynamics below.
+    $$x' = 2x(7-x) - xy,$$
+    $$y' = 2y(8-x) - xy.$$
+    <ol type='1'>
+      <li>Describe each term in the equations above using common language.
+      <li>Find any equilibrium solutions.
+      <li>Calculate the Jacobian matrix.
+      <li>Classify the equilibrium solutions you have found.
+      <li>Sketch a phase plane with some solutions. Describe how the solutions relate back to the topic of bacteria in a petri dish.
+    </ol>
+  </div>
+-->
+</body>
+</html>
