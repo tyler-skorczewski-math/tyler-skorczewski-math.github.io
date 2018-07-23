@@ -1,0 +1,40 @@
+<html>
+
+<head>
+<title>NIX BIRTHDAY QUEST</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='woof')
+window.location = 'n1.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+
+<style>
+body {
+    color: yellow;
+}
+
+h1 {
+    color: rgb(0,255,255);
+}
+
+p {
+    color: rgb(0,255,255);
+}
+</style>
+
+</head>
+
+<body background="scales_11.jpg">
+
+<p>Find the code hidden where this picture was taken: <br><br>
+<img src="./p0.png" height=400 >
+<br><br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+<h2>Enter the code : <input name="answer" type="text" size="10" maxlength="20"/>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>
