@@ -1,0 +1,40 @@
+<html>
+
+<head>
+<title>NIX BIRTHDAY QUEST</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='mon')
+window.location = 'bananas1.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+
+<style>
+body {
+    color: black;
+}
+
+h1 {
+    color: rgb(0,0,0);
+}
+
+p {
+    color: rgb(0,0,0);
+}
+</style>
+
+</head>
+
+<body background="scales_12.jpg">
+
+<img src="./bananas.png" height=400 >
+<br><br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+
+<table><tr><td bgcolor="#FFFF00"><h2>Enter the code : </h2><input name="answer" type="text" size="10" maxlength="20"/></td></tr></table>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>

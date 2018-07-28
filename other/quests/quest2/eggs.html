@@ -1,0 +1,43 @@
+<html>
+
+<head>
+<title>NIX BIRTHDAY QUEST</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=="peeker")
+window.location = 'snf1.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+
+<style>
+body {
+    color: black;
+}
+
+h1 {
+    color: rgb(0,0,0);
+}
+
+p {
+    color: rgb(0,0,0);
+}
+</style>
+
+</head>
+
+<body background="scales_04.jpg">
+
+<img src="./eggs.png" height=400 >
+<br><br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+
+<table><tr><td bgcolor="#98FB98"><h2>Unscramble the letters found in the dragon eggs to find the next present</h2>
+  <h2>(pattern: __ __ -- __ __ __ -- __ __ __ __).</h2>
+  <h2> You will find the next code with the present. </h2></td></tr>
+  <tr><td bgcolor="#98FB98"><h2>Enter the code : </h2><input name="answer" type="text" size="10" maxlength="20"/></td></tr></table>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>
