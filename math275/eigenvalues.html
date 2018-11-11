@@ -1,1 +1,90 @@
-touch
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 275</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 700px; padding-left: 1cm; font-size: 175%;" background="bg.jpg">
+
+  <h1>Math 250 </h1>
+
+<hr>
+
+<h2>Warmups </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
+  <div id="ex0" class="collapse">
+
+ <P>
+<ol type='1'>
+  <li> Calculate the eigenvalues and eignevectors of the matrices below.
+     $$A = \begin{bmatrix}0 & 1 \\-1 & 0 \end{bmatrix}, \hspace{1cm} C = \begin{bmatrix}2 & 1 \\1 & 2 \end{bmatrix}$$
+  <li> Let \(D = \begin{bmatrix}-2 & 1 & 1 \\1 & -2 & 1\\ 1 & 1 & -2 \end{bmatrix} \). We know det\( (D-\lambda I) = \lambda (\lambda + 3)^2 \). Find the eigenvalues and associated eigenvectors of \(D\).
+</div>
+
+<h2>Theory </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#thm">Theorem</button>
+  <div id="thm" class="collapse">
+
+ <P> <b>Theorem</b> Let \(A\) be an \(n \times n\) matrix. Let \(\lambda_1, \lambda_2, ... , \lambda_n\) be the distinct eigenvalues of \(A\) associated with eigenvectors \(\vec{v}_1, \vec{v}_2, ... , \vec{v}_n\). Then the set of eigenvectors are linearly independent.
+
+</div>
+
+
+<h2>Application  - Isle Royale</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+<div id="ex1" class="collapse">
+<br>
+<P> Consider <a href="http://www.isleroyalewolf.org/overview/overview/at_a_glance.html">Isle Royale</a> in Lake Superior. On Isle Royale there are wolf and moose populations. This nearly closed system provides an ideal setting for studying the ecology between predator and prey species.
+  Let \(w_n\) be the wolf population in year \(n\) and \(m_n\) be the moose population in year \(n\).
+  Assume the population dynamics behave according to the equations below.
+  $$ w_{n+1} = 0.72 w_n + 0.24 m_n$$
+  $$ m_{n+1} = -0.16w_n + 1.28 m_n$$
+
+  <ol type='1'>
+    <li> Explain the dynamics using common language.
+    <li> Write the system in matrix vector form \(A\vec{x} = \vec{b}\).
+    <li> The eigenvalues of this matrix are 1.2 and 0.8. What are the eigenvectors of the matrix \(A\)?
+    <li> What does the theorem above mean for our problem? How can we use the theorem to make calculating the populations easier?
+    <li> Assume the population in year 0 is \(\begin{bmatrix}130\\210\end{bmatrix}\). Write this as a linear combination of the eigenvectors.
+    <li> What is the population in year 3?
+    <li> What happens as \(n \to \infty\)? Are these populations stable?
+  </ol>
+
+</div>
+
+<h2>Application  - Rabbits</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+<br>
+<P> Consider a population of rabbits. Half of the rabbits survive their first year of life. Of those that survive, half survive their second year. The max lifespan is 3 years.
+  During the first year these rabbits do not reproduce. During the second year the average number of offspring is 6 rabbits. During the third year the average number of offspring is 8.
+  <ol type='1'>
+    <li> Let \(\vec{x}_n = \)[number less than 1 yr old, number between 1 and 2 years old, number between 2 and 3 years old]\(^T\) in year \(n\).
+      Find a matrix \(A\) such that \(\vec{x}_{n+1} = A\vec{x}_n\). The matrix \(A\) is called a <a href="https://en.wikipedia.org/wiki/Leslie_matrix">Leslie matrix</a>.
+    <li> What are the eigenvalues of \(A\)?
+    <li> Is this population stable? Why or why not?
+  </ol>
+
+</div>
+
+
+</body>
+</html>
