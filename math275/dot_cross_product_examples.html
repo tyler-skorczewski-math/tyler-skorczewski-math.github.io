@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 275</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px; padding-left: 1cm; font-size: 175%;" background="bg.jpg">
+
+  <h1>Dot and Cross Products</h1>
+
+<hr>
+
+<h2>Warmup </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warm ups</button>
+  <div id="ex0" class="collapse">
+    <P>Assume \(\vec{a} \neq \vec{0}\). Which of the following, if any, are true statements? If it is true, explain why. If not, can you come up with a counterexample that shows why not?
+      <ol>
+      <li>If \(\vec{a} \cdot \vec{b} = \vec{a} \cdot \vec{c}\) then \(\vec{b} = \vec{c}\).
+      <li>If \(\vec{a} \times \vec{b} = \vec{a} \times \vec{c}\) then \(\vec{b} = \vec{c}\).
+      <li>If \(\vec{a} \cdot \vec{b} = \vec{a} \cdot \vec{c}\) and \(\vec{a} \times \vec{b} = \vec{a} \times \vec{c}\) then \(\vec{b} = \vec{c}\).
+      </ol>
+ </div>
+
+<h2>Example 1 - Areas of triangles</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+<img width="200" src="./stanfordbunny.png"><br>
+
+<P>A somewhat common problem in computer graphics is to calculate the area of a triangle in 3D space using only its coordinates.
+  Above is an image of the famous <a href="https://en.wikipedia.org/wiki/Stanford_bunny">Stanford bunny</a>.
+  This is a standard test case for many discrete geometry and computer graphics algorithms.
+<br>
+<P>This problem also arises in surface strain calculations in mechanics. Below is an image of a triangulated surface of a deforming red blood cell. Small changes in the areas of the triangles are related to the stresses felt when the cell is changing shape.
+  <img height="150" src="./rbc_deformations.png"><br>
+
+<P>Can you use the cross product to calculate the area of the triangle with corners \((0,0,0), (1,0,1), (3,-1,2)\)?
+
+</div>
+
+<h2>Example 2 - PiP </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+  <!--<iframe width=800 id="iframepdf" src="./RBC_windingnumber.pdf"></iframe>-->
+  <object width="700" height="550" data="./RBC_windingnumber.pdf" type="application/pdf">
+  Your browser does not support pdfs, <a href="filename.pdf">click here to
+  download the file.</a>
+</object>
+
+<P> Can you determine if the point \(p = (1,1,0)\) is in the triangle with corners \((2,2,0), (-1,0,0), (3,0,0)\)?
+<ol type='a'>
+<li> First find vectors \(v_1, v_2, v_3\) that point from \(p\) to each corner.
+<li> Use the dot product to find the angles between each pair of vectors.
+<li> Calculate the winding number and determine if the point is inside the triangle.
+<li>If time, try using the cross product to calculate the winding number.
+  <ol>
+    <li> Calculate the cross products \(v_1 \times v_2\), \(v_2 \times v_3\), \(v_3 \times v_1\).
+    <li> Find the angles between each pair of vectors.
+    <li> Calculate the winding numer. Is it the same as above? Why or why not?
+    </ol>
+</ol>
+</div>
