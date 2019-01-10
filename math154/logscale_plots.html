@@ -80,28 +80,28 @@ auto_update=False):
       if wfit:
             a,b = fit_line(time,cfs)
             p+=plot(a*x+b,1,83,color='red',thickness=3)
-            txt = "y = " + str(a) + "x + " + str(b)
+            txt = "y = " + str(a) + "t + " + str(b)
             p+=text(txt,(40,2000),color='red')
     elif ptype =='semilog x':
-      p=list_plot_semilogx(zip(time,cfs),axes_labels=['ln time','discharge'])
+      p=list_plot_semilogx(zip(time,cfs),base=exp(1.),axes_labels=['ln time','discharge'])
       if wfit:
-            a,b = fit_line(log(time),cfs)
-            p+=plot(a*log(x)+b,1,83,color='red',thickness=3)
-            txt = "y = " + str(a) + "x + " + str(b)
+            a,b = fit_line(ln(time),cfs)
+            p+=plot(a*ln(x)+b,1,83,color='red',thickness=3)
+            txt = "y = " + str(a) + "t + " + str(b)
             p+=text(txt,(40,2000),color='red')
     elif ptype =='semilog y':
-      p=list_plot_semilogy(zip(time,cfs),axes_labels=['time','ln discharge'])
+      p=list_plot_semilogy(zip(time,cfs),base=exp(1.),axes_labels=['time','ln discharge'])
       if wfit:
-            a,b = fit_line(time,log(cfs))
+            a,b = fit_line(time,ln(cfs))
             p+=plot(exp(a*x+b),1,83,color='red',thickness=3)
-            txt = "y = " + str(a) + "x + " + str(b)
+            txt = "y = " + str(a) + "t + " + str(b)
             p+=text(txt,(40,2000),color='red')
     elif ptype =='log log':
-      p=list_plot_loglog(zip(time,cfs),axes_labels=['ln time','ln discharge'])
+      p=list_plot_loglog(zip(time,cfs),base=exp(1.),axes_labels=['ln time','ln discharge'])
       if wfit:
-            a,b = fit_line(log(time),log(cfs))
+            a,b = fit_line(ln(time),ln(cfs))
             p+=plot(exp(b) * x^a,1,83,color='red',thickness=3)
-            txt = "y = " + str(a) + "x + " + str(b)
+            txt = "y = " + str(a) + "t + " + str(b)
             p+=text(txt,(40,2000),color='red')
     show(p)
 
