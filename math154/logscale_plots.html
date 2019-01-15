@@ -38,10 +38,10 @@ The data show discharge as a function of time at gaging station \# 12145500 on t
 
 <P>To Do:<ol type='1'>
 <li>Describe the graph of the data shown in the sage applet.
-<li>We will try to fit this data to an exponential function in the form \(D = Ae^{at}\) where \(D\) is discharge and \(t\) is time. What kinds of parameters are \(A\) and \(a\)? What are their units and what do they represent?
-<li>Take the log of this equation. What do you notice?
-<li>Plot the data using a log scale on the y-axis (dischage).  Is this new graph consistent with your equation above?
-<li>Fit a line to the \(\log(D)\) vs. \(t\) data. What do the slope and intercept represent?
+<li>We will try to fit this data to an exponential function in the form \(D = Ae^{at}\) where \(D\) is discharge and \(t\) is time. What are the units of \(A\) and \(a\) and what do they represent?
+<li>Take the natural log of this equation. What do you notice about the relationship \( \ln D\) and \(t \) ?
+<li>Plot the data using a (natural) log scale on the y-axis (dischage).  Is this new graph consistent with your equation above?
+<li>Fit a line to the \(\ln(D)\) vs. \(t\) data. What do the slope and intercept represent?
 <li>Plot the data and your fit curve on one graph. Does the fit look good?
 <li>Modeling these discrete storm events is important for quantifying the response characteristics for different drainage basins. For example, the Raging River has a steep sided basin with a lot of near-surface bedrock, which is very impervious. Water falling on the basin is quickly transferred to the Raging River; the river has a very short response time. How will the parameters of an exponential model differ between a short response basin like the Raging and a long response basin? How will the parameters of an exponential model differ between a small versus large storm event?
 <li>The USGS provides near real-time discharge data for thousands of streams around the US. Go to <a href="http://water.usgs.gov/realtime.html">http://water.usgs.gov/realtime.html</a> and see if you can find similar data for a river near your hometown or the <a href="https://waterdata.usgs.gov/wi/nwis/uv?cb_00060=on&cb_00065=on&format=gif_default&site_no=05369000&period=&begin_date=2017-08-29&end_date=2017-09-05">Red Cedar River</a> here in Menomonie.
@@ -123,9 +123,9 @@ auto_update=False):
 <P>Reference: Allison T, Cicchetti DV. Sleep in mammals: ecological and constitutional correlates. Science. 1976;194:732-734.
 <P>To Do:<ol type='1'>
   <li>Describe the graph of the data shown in the sage applet.
-  <li>We will try to fit this data to a function in the form \(b= CB^p\) where \(b\) is brain mass and \(B\) is body mass. What kinds of parameters are \(C\) and \(p\)?
+  <li>We will try to fit this data to a function in the form \(b= CB^p\) where \(b\) is brain mass and \(B\) is body mass. 
   <li>Plot the log of brain mass against the log of body mass. What does this graph look like?
-  <li>Fit a line to the log-log plot. What do the slope and intercept represent? How are the slope and intercept related to \(C\) and \(p\)?
+  <li>Fit a line to the log-log plot. What do the slope and intercept represent? How are the slope and intercept related to \(C\) and \(p\)? Note that we are using a log base 10 here.
 </ol>
 
   <div class="compute">
