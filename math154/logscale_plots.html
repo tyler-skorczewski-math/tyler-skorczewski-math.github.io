@@ -262,4 +262,67 @@ auto_update=False):
 
 </div>
 </body>
+<!-- Extra example P =  200 exp(0.02 t)
+sage code
+# everything following hash symbol is comment
+
+import numpy
+import numpy.linalg
+
+var('x')
+def fit_line(x_data,y_data) :
+ n=len(x_data); a=0.; b=0.
+ if n==len(y_data) :
+  A=numpy.array([[x_data[j],1] for j in range(n)])
+  B=numpy.array(y_data)
+  X=numpy.linalg.lstsq(A,B)[0]
+  a=X[0]; b=X[1]
+  return a, b
+
+time=numpy.array([10,20,30,40,50,60,70,80,90,100,110,120])
+pop=numpy.array([244,298,364,445,544,664,811,991,1210,1478,1805,2205])
+
+
+@interact
+
+def _(wfit = checkbox(False,label='show fit?'),
+ptype = selector(['plot','semilog x','semilog y','log log'],buttons=True,label='plot type'),
+auto_update=False):
+
+    if ptype=='plot':
+      p=list_plot(zip(time,pop),axes_labels=['time','pop'],size=30)
+      if wfit:
+            a,b = fit_line(time,pop)
+            p+=plot(a*x+b,1,120,color='red',thickness=3)
+            txt = "y = " + str(a) + "t + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    elif ptype =='semilog x':
+      p=list_plot_semilogx(zip(time,pop),base=exp(1.),axes_labels=['ln time','pop'],size=30)
+      if wfit:
+            a,b = fit_line(ln(time),pop)
+            p+=plot(a*ln(x)+b,1,120,color='red',thickness=3)
+            txt = "y = " + str(a) + "t + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    elif ptype =='semilog y':
+      p=list_plot_semilogy(zip(time,pop),base=exp(1.),axes_labels=['time','ln pop'],size=30)
+      if wfit:
+            a,b = fit_line(time,ln(pop))
+            p+=plot(exp(a*x+b),1,120,color='red',thickness=3)
+            txt = "y = " + str(a) + "t + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    elif ptype =='log log':
+      p=list_plot_loglog(zip(time,pop),base=exp(1.),axes_labels=['ln time','ln pop'],size=30)
+      if wfit:
+            a,b = fit_line(ln(time),ln(pop))
+            p+=plot(exp(b) * x^a,1,120,color='red',thickness=3)
+            txt = "y = " + str(a) + "t + " + str(b)
+            p+=text(txt,(40,2000),color='red')
+    show(p)
+
+end sage code
+link: https://sagecell.sagemath.org/?z=eJzNlF9P2zAQwN_zKU7bQ2x6qpySQguyNnjYJ9gDUtVVTnHbgOtktgsJn37ntHQtQ2waL0SJc7n_-fmSz6AftGvDqrRLWFTGVI9RWim_At-ui8pA6WFerdfahiQp13XlAtjNum6PHvqmtMosk-RBOZY2KU9u9QIWZZiRQbNmdquCwra7cbhIwEqj7U7PL0FJ0b-EgtYEygVZO_OBP1zJbSHlnGrZZLINndxNMZtS5w7uoLTglF1qZvmUU8j1UcguGelv5GHPfeOD_8mu8JpPxJTMSt6QELu5mWRR4XTYOAsKoUiSUK71cSuZwIHAU4G5wKHAM4HnAkcCxwIzQRfZs4GgjuqqPo4c5DkOxiM8Pcsxz4c4pOczkkdZhuNxRmExNj8fYTYSQxwMxJDSJMnX0gbt1Jx2JGKesUciDRLmKz2_L6qGfVPGazSq0EamflU9xq34knJM6tDWmly9NnoeKscmaW2qkGLq9bo01RKaA7klOd7pSqdYbEKorJff3WafPAZDzBmTq02oZpuaOGvZtcAvEuIHcUu7wnIbkF50WoBamtKHWdSxp7JmES4SJo6q0X7W1fBykkY9tUIWasOXT1qeCr7LQbnj6z-n3B4KC3rJ_fzt8x451T3ZVVYnTa_AiFvgvDKVk6nTtynSVzG_t9p7eXocGJpI-1MbF-iBD47RlPbgU4jLTlP8USzoJjCKRZbHkRGCH5bbumvzzAoI1u89eYXYbGdtXqArlNdSNzXL-i85GgvvRWlsV4q_hZN8Gv7BkbZvIW3_HemOJ5F933QSs1jqdaSxdDel_EMyff5FvEaU9HT-z4i-B-l-Sv-KteBwAs0P9UHAxp81ow_rF2MIL1g=&lang=sage
+-->
+
 </html>
+  
+ 
