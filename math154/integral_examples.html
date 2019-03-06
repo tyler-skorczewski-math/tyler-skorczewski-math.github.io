@@ -27,7 +27,14 @@ $(function () {
   <h1>Integral examples</h1>
 
 <hr>
-
+<h2>Warmups</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#warmups">Warmups</button>
+  <div id="warmups" class="collapse">
+    <ol>
+      <li>Find the volume of the solid created by rotating the region between \(y = 2x\) and \(y = x^2\) about the \(x\)-axis. <ul><li> Sketch a figure of the situation<li> determine which direction you should slice<li> what slices look like<li>find the endpoints of integration <li> set up the integral<li> evaluate</ul>
+      <li>Find the volume of the solid created by rotating the region enclosed by \(y=e^x, y=0, x=0\), and \(x=1\) about the \(y\)-axis.
+    </div>
+    
 <h2>Example 1 - Corn growing degree days</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
   <div id="ex1" class="collapse">
@@ -95,7 +102,39 @@ Set up an integral equation that can be used to determine how big of a hole woul
 <h2>Example 4  </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
 <div id="ex4" class="collapse">
-<P width=600> Consider the region bounded by the curves \(y = 0.5 x^2 + 2, y = x^2\) and the \(y\)-axis.
+<P> Consider the region bounded by the curves \(y = 0.5 x^2 + 2, y = x^2\) and the \(y\)-axis.
   What is the volume of the solid created by rotating this region around the line \(x=4\)?<br>
   <img src="./images/int_ex_4_try2.PNG", height=300>
+</div>
+  
+ <h2>Example 5  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<div id="ex5" class="collapse">
+<P> Consider the region bounded by the curves \(y = 2 - x^2\) and \(y = x^2\).
+  What is the volume of the solid created by rotating this region around the line \(x=1\)?<br>
+  <ol>
+    <li>Sketch a figure of the situation including the axis of rotation.
+    <li>Calculate the locations of any intersections.
+    <li>Determine if you should use slicing (disks, washers, etc) or cylindrical shells. Be ready to justify your approach.
+    <li>Set up an integral representing the volume.
+    <li>Evaluate it.
+  </ol>
+</div>
+  
+<h2>Example 6 - Pyramids  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+<div id="ex6" class="collapse">
+  <img src="./pyramid.gif" width=200><br><br>
+<P> Use the idea of slicing to set up and evaluate an integral that represents the volume of a square pyramid whose base has sides of length \(L\) and height \(H\).
+</div>
+  
+ <h2>Example 7 - Rocket  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
+<div id="ex7" class="collapse">
+  <img src="./rocket.png" width=150><br><br>
+<P> A rocket initially at rest relative to a spacestation is undergoing a docking manuver.
+  The rockets main engines provide a thrust (acceleration) of \(a(t) = \frac{t}{1 + t^2}\) over time \(t\) (in seconds).
+  The retrorockets provide a thrust in the opposite direction of \(a(t) = t/2\).
+  How long should the manuver last if the rocket is to be at rest again when the manuver is finished?
+  Set up an equation that can be used to determine this time. It will not be solvable algebraically. Use a numerical method or graph and visually estimate a time.
 </div>
