@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154 work examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Work & hydrostatic force examples</h1>
+
+<hr>
+
+<h2>Warmups</h2>
+
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
+  <div id="ex0" class="collapse">
+    <ol type='A'>
+      <li> Find the work required to move a particle along a straight line from \(x=0\) to \(x=2\) with force \(F(x) = xe^{-3x}\).
+      <li> A spring has a 20 cm natural length. What is the work required to stretch the spring to 30 cm long if \(k=2\) N/m?
+      <!--<li> Set up an integral representing the fluid force on the end of a (full) trough with -->
+    </ol>
+
+  </div>
+
+
+
+<h2>Example 1 - Springs</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <img src="./massspring.png"><br>
+    <P> Consider the mass-spring system above.
+      The force required to stretch a spring a distance \(x\) is given by Hooke's Law \(F = kx\), where \(k\) represents the stiffness of the spring.
+
+      <P> Consider a spring with \(k = 10 \) N/m.
+        <ol>
+            <li> How much force is required to keep spring stretched 5 meters?
+            <li> What is the general relationship between work and force?
+            <li> What is the work required to stretch a spring 5 meters from rest?
+        </ol>
+
+
+</div>
+
+<h2>Example 2 - Chain </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+  <P> A 10 foot chain weighs 75 pounds and hangs from a ceiling. How much work is required to pull the chain to the top?
+
+<ol type='a'>
+<li> Sketch a picture of the situation.
+<li> \(W = \int_a^b \) ???
+<li> What is the weight of a 1 foot chunk of the chain? a 2 foot chunk?
+<li> What are the units of work in imperial units? SI?
+<li> Set up an integral representing the work required to pull the chain to the top.
+<li> Evaluate the integral to calculate the required work.
+</ol>
+</div>
+
+<h2>Example 3 - Piston </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+ <P> Consider a piston. A piston head moves up and down in a chamber filled with gas. The pressure of the gas in the chamber \(P\) is a function of the volume of the chamber \(V\).
+   Assume the piston chamber here is cylindrical with radius \(r\). Let \(x\) be the distance the piston moves.
+ <ol>
+   <li> What is the relationship between force, pressure, and area?
+   <li> What is a formula for the force on the piston head?
+   <li> Can you use this to develop another integral formula for work that only uses pressure and volume?
+   <li> Let \(PV^{1.4} = k\) where \(k\) is constant be a constituative law for the gas in the chamber (like the ideal gas law).
+     How much work is done during the part of an engine cycle where \(V\) expands from 100 cubic inches to 800 cubic inches.
+     Assume \(P=160\)PSI at the start.
+ </ol>
+
+</div>
+
+<h2>Example 4 - Leaking bucket </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<div id="ex4" class="collapse">
+<P> A bucket weighing 4 pounds when empty is attached to a rope of negligible mass is used to draw water from a well 30 feet deep.
+  Initially, the bucket contains 40 pounds of water, but as it is pulled up at a constant rate of 2 ft/sec, water leaks at a rate of 0.2 pounds/sec.
+  How much work is done in pulling the bucket to the top of the well?
+</div>
+
+<h2>Example 5 - Titan Games Heavy Metal  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<div id="ex5" class="collapse">
+  <iframe width="1132" height="637" src="https://www.youtube.com/embed/M3FYfcHWnXs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<P>Set up integrals and calculate the work done for the three parts of the Heavy Metal challenge.
+  Assume the chain is 30 feet long, weighs 350 pounds, with a 100 weight at the end.
+  Assume the competitors walk up a ramp 30 feet long and 30 feet high along a 45 degree angle so there isn't excess chain to consider.
+  Only consider work done to move the chain and weight vertically.
+  <ul>
+    <li>Determine the work required to walk up the ramp. Calculate your answer in units of foot-pounds.
+    <li>Determine the work required to pull the chain up to the top of the platform.
+    <li>Determine the work required to move the mass 30 feet to the platform.
+    <li>What is the total work required for the task?
+  </ul>
+</div>
+
+<h2>Example 6 - Cylindrical tank  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+<div id="ex6" class="collapse">
+  <P> Calculate the work required to pump the water over the top of a filled cylindrical tank with height 2 meters and radius 1/2 meter.
+    The density of water is \(\delta = 1000\) kg/m\(^3\) and the acceleration due to gravity near the surface of the Earth is \(g=9.8\)m/sec\(^2\).
+
+  <p>Some questions to consider:
+    <ul>
+      <li> What is the relationship between density, gravity, volume, and force?
+      <li> What does a slice across the cylinder look like?
+      <li> How far from the top of the cylinder is the slice?
+    </ul>
+</div>
+
+<h2>Example 7 - Triangular trough  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
+<div id="ex7" class="collapse">
+  <img src="./triangletrough.png"><br>
+  <ol>
+    <li>Assume the trough above is full of water and the dimensions are \(L=4, W=2, H=1\) meters. What is the work required to pump the water over the edge?
+    <li>What is the total force due to hydrostatic pressure on one end of the trough?
+  </ol>
+</div>
+
+<h2>Example 8 - Hoover Dam  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example 8</button>
+<div id="ex8" class="collapse">
+  <img src="./hooverdam.jpg" height=300><img src="./hooverapprox.png"><br>
+  <P>Consider the Hoover Dam. We'll approximate the dam as a trapezoid with dimensions shown above.
+    Assume the dam is only full to a depth of 200 meters. Answer the questions below.
+  <ol>
+    <li> What is the pressure at the base of the dam?
+    <li> What is the pressure on a arbitrary strip of the dam?
+    <li> What is the relationship between force and pressure?
+    <li> What is the total force on the dam?
+  </ol>
+</div>
+
+<h2>Example 9 - Titanic  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example 9</button>
+<div id="ex9" class="collapse">
+  <img src="./titanic.jpg" width=400><br>
+  <P>In 1912 the Titanic sank in the Atlantic 12,500 feet below the surface.
+    Assume water has force density of 62.4 pounds per cubic foot. Answer the questions below.
+  <ol>
+    <li> What is the relationship between force and pressure?
+    <li> What is the relationship between density, pressure, depth, and gravity?
+    <li> What is the pressure on a horizontal 100 square foot metal plate?
+    <li> What if the plate above is oriented vertically? Should it be greater or less than the force on the horizontal plate?
+    <li> Set up an integral representing the total force due to hydrostatic pressure on a circular porthole with diameter 2 feet in the middle of the vertical plate above.
+  </ol>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>
