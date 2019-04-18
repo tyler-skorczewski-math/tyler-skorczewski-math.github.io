@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154 integral examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Dot and Cross Products</h1>
+
+<hr>
+
+<h2>Properties of dot products </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Dot Products</button>
+  <div id="ex0" class="collapse">
+    <P>
+      <ol>
+      <li>\(\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos(\theta) \)
+      <li>\(\vec{a} \cdot \vec{b} = \sum_i a_i b_i\)
+      <li>\(\vec{a} \cdot \vec{a} = \|\vec{a}\|^2\)
+      <li>\(\vec{a} \cdot \vec{b} = \vec{b} \cdot \vec{a} \)
+      <li>\(\vec{a} \cdot ( \vec{b} + \vec{c} ) = \vec{a} \cdot \vec{b} + \vec{a} \cdot \vec{c} \)
+      <li>\( (r\vec{a}) \cdot \vec{b} = \vec{a} \cdot (r \vec{b} )\)
+      <li>\( \vec{a} \cdot \vec{0} = 0\)
+
+      </ol>
+ </div>
+
+<h2>Example 1 - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P> Let \( \vec{a} = <3,4,5>\). Calculate \(\vec{a} \cdot \vec{a}\). How is this related to the length of \(\vec{a}\)?
+</div>
+
+<h2>Example 2 - Work </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+  <img src="./work_sled.png" width=300><br>
+  Consider pulling a sled 5 meters along the ground horizontally. The force from the rope pulling the sled can be described with vector \(<4,3>\).
+  What is the work done?
+
+</div>
+
+<h2>Example 3 - projection</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+<P> Let \(\vec{a} = <3,-4>\) and \(\vec{b}= <5,0>\).
+<ol>
+  <li> Find the projection of \(\vec{b}\) onto \(\vec{a}\).
+  <li> What is the orthogonal projection?
+  <li> What is the angle between the vectors?
+</div>
+
+<h2>Cross products </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">cross products</button>
+<div id="ex4" class="collapse">
+<ol>
+  <li> \(\vec{a} \times \vec{b} = \begin{bmatrix}a_1 \\ a_2 \\ a_3\end{bmatrix} \times  \begin{bmatrix}b_1 \\ b_2 \\ b_3\end{bmatrix} =
+ \begin{bmatrix}a_2 b_3 - a_3b_2 \\ a_3b_1 - a_1b_3 \\ a_1b_2 - a_2b_1\end{bmatrix} \)
+  <li> \(\vec{a} \times \vec{b} = |\vec{a}||\vec{b}|\sin(\theta) \hat{n} \)
+  <li> \(\vec{a} \times \vec{b} \) is orthogonal to both \(\vec{a}\) and \(\vec{b}\).
+  <li> \(\vec{a} \times \vec{b} = -\vec{b} \times \vec{a} \)
+  <li> \(\vec{a} \times \vec{b} = (r\vec{a}) \times \vec{b} = \vec{a} \times (r \vec{b})\)
+  <li> \(\vec{a} \times (\vec{b} + \vec{c}) = \vec{a} \times \vec{b} + \vec{a} \times \vec{c}\)
+  <li> \((\vec{a} + \vec{b}) \times \vec{c} = \vec{a} \times \vec{c} + \vec{b} \times \vec{c}\)
+  <li> \(\vec{a} \times \vec{b} \times \vec{c} = \vec{b} (\vec{a}\cdot\vec{c}) - \vec{c}(\vec{a}\cdot\vec{b})\)
+  <li> \(\vec{a} \cdot (\vec{a}\times\vec{b}) = 0\)
+</ol>
+</div>
+
+<h2>Example 5 - Torque </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<div id="ex5" class="collapse">
+  <img src="./torque_wrench.png" width=300><br>
+  Consider a 30 cm long wrench stretching horizontally from a nut.
+  A force \(<0,3,-4>\) is applied to the end of the wrench opposite the nut.
+  What is the torque applied?
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</body>
+</html>
