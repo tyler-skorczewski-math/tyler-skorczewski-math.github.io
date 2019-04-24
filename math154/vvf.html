@@ -6,7 +6,7 @@
 </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>MATH 154 integral examples</title>
+    <title>Calculus examples</title>
     <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
     <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
     <script>
@@ -20,18 +20,51 @@ $(function () {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body style="width: 1000px;">
+  <body style="width: 1000px; padding-left: 1cm" background="bg.jpg">
 
   <h1>Vector valued functions</h1>
 
 <hr>
 
-<!--<h2>Warmup </h2>
+<h2>Warmup </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warm ups</button>
   <div id="ex0" class="collapse">
-    <P>
+    <ol>
+      <li> Find the unit tangent vector to the curve \( \vec{r}(t) = \begin{bmatrix}1 + \cos(t)\\ 2- \sin(6t) \end{bmatrix}\) when \(t=\pi/6\).
+      <li> True or False. The points \(A(-1,0,1), B(1,1,-1), C(1,1,1)\) form a right triangle.
+    </ol>
  </div>
--->
+
+ <h2>Derivative properties for vector valued functions </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#prop">Properties</button>
+   <div id="prop" class="collapse">
+       <ol type='a'>
+         <li>\(\displaystyle \frac{d}{dt} \left( \vec{u}(t) + \vec{v}(t) \right) = \frac{d\vec{u}}{dt} + \frac{d\vec{v}}{dt} = \vec{u}'(t)  + \vec{v}'(t)  \)
+         <li>\(\displaystyle \frac{d}{dt} \left( c \vec{u}(t) \right) = c \vec{u}'(t) \)
+         <li>\(\displaystyle \frac{d}{dt} \left( f(t) \vec{u}(t) \right) = f'(t) \vec{u}(t) + f(t) \vec{u}'(t) \)
+         <li>\(\displaystyle \frac{d}{dt} \left( \vec{u}(t) \cdot \vec{v}(t) \right) = \vec{u}' \cdot \vec{v} + \vec{u} \cdot \vec{v}' \)
+         <li>\(\displaystyle \frac{d}{dt} \left( \vec{u}(t) \times \vec{v}(t) \right) = \vec{u}' \times \vec{v} + \vec{u} \times \vec{v}' \)
+         <li>\(\displaystyle \frac{d}{dt} \left( \vec{u}(f(t)) \right) = \vec{u}'(f(t)) f'(t) \)
+         </ol>
+
+      <P>Questions.
+        <ol>
+          <li>Prove statement c) above.
+          <li>Find an expression for \(\displaystyle \frac{d}{dt} \left( \vec{u}(t) \cdot \left( \vec{v}(t) \times \vec{w}(t)\right) \right) \).
+        </ol>
+ </div>
+
+ <h2>Theorem</h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#thm">Theorem</button>
+   <div id="thm" class="collapse">
+     <P> Prove the following statement. Let \(\vec{r}(t) \in \mathbb{R}^3\). Then \(\vec{r} \perp \vec{r}'\) if and only if \(\vec{r}\) lies on the surface of a sphere.
+       <P>Some questions to consider when proving this statement:
+        <ul>
+          <li>What does it mean to for a curve to lie on the surface of a sphere?
+          <li>How are spheres defined? How about circles?
+          <li>What needs to be true to prove "if and only if" statements?
+        </ul>
+ </div>
 
 <h2>Example 1 - circular motion</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
