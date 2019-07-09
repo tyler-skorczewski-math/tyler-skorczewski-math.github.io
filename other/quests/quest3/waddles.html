@@ -1,0 +1,29 @@
+<html>
+
+<head>
+<title>Beanie Boo Quest</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='owlette')
+window.location = 'owlette.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+</head>
+
+<body>
+
+<h2>Waddles</h2>
+
+<img src="./waddles.jpg" height=400 width=400><br><br>
+<P>When I swim I go really fast,<br>
+but when I run, I'm usually last!<br><br>
+<P>Waddles is hiding in one of six shoes hidden in the front yard. The other shoes have the name of the next clue scrambled up.
+<br><br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+<h2>Enter the next Benie Boo code : <input name="answer" type="text" size="10" maxlength="20"/>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>

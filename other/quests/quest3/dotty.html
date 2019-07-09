@@ -1,0 +1,30 @@
+<html>
+
+<head>
+<title>Beanie Boo Quest</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='tracy')
+window.location = 'pepper.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+</head>
+
+<body>
+
+<h2>Dotty</h2>
+
+<img src="./dotty.gif" height=400 width=400><br><br>
+<P>If you stare at my bold colored spots,<br>
+They might start to look like big crazy spots!<br><br>
+<P>In the side yard you'll find 9 eggs. One has Dotty, others have letters and codes to the next Beanie Boo.
+<P>Once you find Dotty and the next Beanie Boo enter her name for the next steps.
+<br><br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+<h2>Enter the next Benie Boo code : <input name="answer" type="text" size="10" maxlength="20"/>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>

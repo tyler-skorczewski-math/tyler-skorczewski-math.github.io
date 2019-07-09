@@ -1,0 +1,29 @@
+<html>
+
+<head>
+<title>Beanie Boo Quest</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='play')
+window.location = 'n0.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+</head>
+
+<body>
+
+<h2>Owlette</h2>
+
+<img src="./owlette.jpg" height=400 width=400><br><br>
+<P>Tuck me in to sleep at night,<br>
+but when you hug me hold me tight.<br><br>
+<P>Find Owlette's nest in a place you climb to get to (not a tree).
+<br><br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+<h2>Enter the next Benie Boo code : <input name="answer" type="text" size="10" maxlength="20"/>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>

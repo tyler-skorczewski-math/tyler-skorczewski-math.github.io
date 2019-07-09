@@ -1,0 +1,29 @@
+<html>
+
+<head>
+<title>Beanie Boo Quest</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='dotty')
+window.location = 'dotty.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+</head>
+
+<body>
+
+<h2>Twigs</h2>
+
+<img src="./twigs.jpg" height=400 width=400><br><br>
+<P>I am friendly, tall and sweet,<br>
+Eating leaves is my favorite treat.<br><br>
+<P>You'll find me where my name says!
+<br><br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+<h2>Enter the next Benie Boo code : <input name="answer" type="text" size="10" maxlength="20"/>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>

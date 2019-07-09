@@ -1,0 +1,29 @@
+<html>
+
+<head>
+<title>Beanie Boo Quest</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='waddles')
+window.location = 'waddles.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+</head>
+
+<body>
+
+<h2>Pepper</h2>
+
+<img src="./pepper.jpg" height=400 width=400><br><br>
+<P>I sometimes climb up a tree,<br>
+but climbing down is hard for me!<br><br>
+<P>Find Pepper up a tree!
+<br><br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+<h2>Enter the next Benie Boo code : <input name="answer" type="text" size="10" maxlength="20"/>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>

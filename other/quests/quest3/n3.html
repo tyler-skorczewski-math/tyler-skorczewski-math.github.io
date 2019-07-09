@@ -1,0 +1,24 @@
+<html>
+
+<head>
+<title>Beanie Boo Quest</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='garter')
+window.location = 'end.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+
+</head>
+
+<P>Find the next Beanie Boo where this picture was taken!<br>
+<img src="./p3.jpg" height=400 >
+<br><br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+<h2>Enter the Beanie Boo name : <input name="answer" type="text" size="10" maxlength="20"/>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>
