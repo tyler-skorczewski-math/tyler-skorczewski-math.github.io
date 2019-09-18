@@ -36,15 +36,22 @@
 
     <div class="compute">
     <script type="text/x-sage">
-    # everything following hash symbol is comment
+from sage.manifolds.utilities import set_axes_labels
+from sage.plot.plot3d.plot3d import axes
+# everything following hash symbol is comment
 var('x y')
 f = x^2 + y
 @interact
 
 def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
   pretty_print(html('$z = f(x,y)\;=\;%s$'%latex(f)))
-  w = plot3d(f,(x,-3,3),(y,-2,2), frame=True, color='purple', opacity=0.8)
-  show(w)
+  w = plot3d(f,(x,-5,5),(y,-5,5), frame=True, color='purple', opacity=0.8)
+  set_axes_labels(w,'x','y','z')
+  S = axes(2,0.5)
+  tx = text3d('x',(2,0,0))
+  ty = text3d('y',(0,2,0))
+  tz = text3d('z',(0,0,2))
+  show(w+S+tx+ty+tz)
   </script>
     </div>
  <!--</div>-->
