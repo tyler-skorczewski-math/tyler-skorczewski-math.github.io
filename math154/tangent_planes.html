@@ -13,7 +13,7 @@
     // Make the div with id 'mycell' a Sage cell
     sagecell.makeSagecell({inputLocation:  'div.mycell',
                            template:       sagecell.templates.minimal,
-                           evalButtonText: 'Activate'});
+                           evalButtonText: 'Plotting tool'});
     // Make *any* div with class 'compute' a Sage cell
     sagecell.makeSagecell({inputLocation: 'div.compute',
                            evalButtonText: 'Plotting tool'});
@@ -58,7 +58,7 @@
      </ol>
  </div>
  
-<div class="compute">
+<div class="mycell">
 <script type="text/x-sage">
 from sage.manifolds.utilities import set_axes_labels
 from sage.plot.plot3d.plot3d import axes
