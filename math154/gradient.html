@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>The Gradient and Directional Derivatives</h1>
+
+<hr>
+
+<h2>Gradient and directional derivatives </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#idea">Idea</button>
+  <div id="idea" class="collapse">
+     <P>Let \(\displaystyle f \equiv f(x,y,z) \).
+       <ul>
+         <li>gradient (2d): \(\displaystyle \nabla f = \begin{bmatrix}f_x \\ f_y \end{bmatrix} \)<br><br>
+         <li>gradient (3d): \(\displaystyle \nabla f = \begin{bmatrix}f_x \\ f_y \\ f_z \end{bmatrix} \)<br><br>
+         <li>derivative in the direction \(\vec{u}\): \(\displaystyle D_{\vec{u}}f = \nabla f \cdot \hat{u} \)<br><br>
+       </ul>
+</div>
+
+<h2>Warmup </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">Warm up</button>
+  <div id="wu" class="collapse">
+
+    <ol type='A'>
+      <li>True or False. Let \(\displaystyle \nabla f(1,1) = 3 \hat{x} - 5 \hat{y}\). The sign of the directional derivative of \(f\) in the direction \(\vec{v} = 4 \hat{x} + 2 \hat{y}\) is positive.
+      <li>
+    </ol>
+
+    </div>
+
+
+ <h2>Examples</h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+   <div id="ex1" class="collapse">
+     Find the derivatives \(D_{\hat{u}} f\) in the directions indicated.
+     <ol type='a'>
+         <li>\( \displaystyle z = f(x,y) = \frac{1}{4} (x^2 + 2y^2 )  + 2   \), in direction \(\hat{u} = <1/\sqrt{2}, 1/\sqrt{2} >\), at point (3,2)<br><br>
+         <li>\( \displaystyle z = f(x,y) = e^{-(x^2 + y^2)}   \), in direction \(\hat{u} = <\cos 5\pi/4, \sin 5\pi/4 >\), at point (0,0)<br><br>
+         <li>\( \displaystyle z = f(x,y) = 3 - \frac{x^2}{10} + \frac{xy^2}{10}   \), in direction \(\hat{u} = <1/\sqrt{2}, -1/\sqrt{2} >\), at point (3,-1)<br><br>
+         <li>\( \displaystyle z = f(x,y) = x\sin(xy)  \), in direction \(\theta = \pi/3\), at point (2,0)<br><br>
+     </ol>
+ </div>
+
+ <h2>Steepest ascent </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+ <div id="ex2" class="collapse">
+   <P>Let \(\displaystyle z = f(x,y) = 4 + x^2 + 3y^2\). Let's say we are at point (2,-1/2, 35/4). What is the direction of steepest ascent? steepest descent?
+   </div>
+
+
+
+
+<h2>Temperature </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exigl">Example </button>
+<div id="exigl" class="collapse">
+  <P>Let the temperature at a point in space be given by \(\displaystyle T(x,y,z) = 200e^{-x^2 - 3y^2-9^2}\).
+    What is the rate of change of temperature at point \(P_1(2,-1,2)\) in the direction toward point \(P_2(3,-3,3)\)?
+</div>
+
+<h2>Example </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
+<div id="ex3" class="collapse">
+    <P>Let \(\displaystyle z = f(x,y) = 12 - 4x^2 -y^2\).Let's say we are at point P(1,2,4). What direction can we move in the \(xy\)-plane that has zero change in \(f\) at P?
+</div>
+
+<h2>Graphical Example </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exgq">Example</button>
+<div id="exgq" class="collapse">
+    <P>At which point below is the gradient most parallel/anti-parallel to \(\hat{y}\)?<br><br>
+      <img src="./gradient_contmap1.png" width=300><br><br>
+      <ol type='A'>
+        <li>(0,4)
+        <li>(-4,-4)
+        <li>(0,0)
+        <li>(6,-2)
+        </ol>
+</div>
+
+
+<h2>Example - Tangent planes to level sets</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4mtn">Example</button>
+<div id="ex4mtn" class="collapse">
+
+    <P> Let \(\displaystyle f(x,y,z) = xy + yz + xz\). Consider the level set \(f(x,y,z) = 3\). What is the tangent plane to this level set at (1,1,1)? Is (1,1,1) a point on the level set?
+
+</div>
+
+<h2>Example - alpine roller coaster </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exar">Example</button>
+<div id="exar" class="collapse">
+  <img src="alpinecoaster.jpg" width=300><br><br>
+<P>An alpine roller coaster is to be constructed along the side of a hill. The hill is modeled by the equation \(z=50-x^2+5xy-2y^2\), where \(x,y\) and \(z\) are measured in meters.
+  You are a member of the design team. You are tasked with providing information about possible roller coaster track paths at a point (-1,3,16) on the hill.
+  You are asked to answer the following questions with adequate mathematical justification. Assume the positive \(y\)-axis points north and the positive \(x\)-axis points east.
+
+<ol type='a'>
+
+<li> In what direction is the steepest downward path? Why is this information important?
+
+<li>In what direction is the path level? Why is this information important?
+
+<li>If you angle the roller coaster track due north, will you start to ascend or descend?
+
+<li>If you angle the roller coaster track southeast:
+<ol type='i'>
+
+<li>Will you start to ascend or descend?
+<li>At what rate?
+<li>At what angle above or below the horizontal will the path in that direction begin?
+</ol>
+
+<li>If the roller coaster track is toward the point \((0,5,0)\) on the hill, will you start to ascend or descend? At what rate?
+
+</ol>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+</body>
+</html>
