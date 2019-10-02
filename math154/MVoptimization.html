@@ -40,7 +40,7 @@ f = x^2 + y
 
 def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
   pretty_print(html('$z = f(x,y)\;=\;%s$'%latex(f)))
-  w = plot3d(f,(x,-3,3),(y,-2,2), frame=True, color='purple', opacity=0.8)
+  w = plot3d(f,(x,-3,3),(y,-4,4), frame=True, color='purple', opacity=0.8)
   show(w)
 </script>
 </div>
@@ -75,11 +75,11 @@ def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
 <div class="mycell">
 <script type="text/x-sage">
 # everything following hash symbol is comment
- var('x y')
- f = x^2 + y
- @interact
+var('x y')
+f = x^2 + y
+@interact
 
- def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
+def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
    pretty_print(html('$z = f(x,y)\;=\;%s$'%latex(f)))
    w = plot3d(f,(x,-5,5),(y,-5,5), frame=True, color='purple', opacity=0.8)
    show(w)
