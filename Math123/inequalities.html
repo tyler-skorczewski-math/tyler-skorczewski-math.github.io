@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Math examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Systems of Inequalities</h1>
+
+<hr>
+
+<h2>Translating word problems</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#idea">Motivation</button>
+  <div id="idea" class="collapse">
+    <ol type='A'>
+      <li>To be eligible for a university scholarship, a student must score at least 600 on the SAT verbal test and 600 on the SAT
+      mathematics test and must have a combined verbal–mathematics score of 1325 or more. Write this as a system of inequalities.
+      <li>A test is scored by giving 4 points for each correct answer and 21 for each incorrect answer. To obtain an acceptable score,
+      a student must answer at least 60 questions and attain a score of 200 points. Express this information with inequalities.
+      <li>A plane has two kinds of packages to deliver; each of the first kind weighs 140 pounds and occupies 3 cubic feet of space.
+      Each of the second kind weighs 185 pounds and occupies 5 cubic feet of space. The plane is limited to a total of 6000 pounds of
+      cargo and has 300 cubic feet of cargo space available. Write the inequalities that describe the number of each kind of package that can be carried.
+    </ol>
+</div>
+
+
+ <h2>Examples</h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Examples</button>
+   <div id="ex1" class="collapse">
+     Graph the solution set to the systems of inequalities below.<br>
+     <ol type='A'>
+         <li>$$x + y \le 100$$
+           $$40 \le x + y$$
+           $$x \ge 0, y \ge 0$$
+           $$x \le 80, y \le 70$$
+           <br><br>
+         <li>$$4x + 3y \ge 12$$
+           $$x - y \le 0$$
+           <br><br>
+          <li>$$x + y \le 2$$
+            $$2x + y \ge 6$$
+            $$y \ge 0$$
+            <br><br>
+
+     </ol>
+<div class="mycell">
+<script>
+var('x y')
+f1 = 'y>x-3'
+f2 = '3x - 4x >= 6'
+f3 = 'x>=0'
+f4 = 'y>=0'
+f5 = 'x>=0'
+f6 = 'y>=0'
+xmin = -5.
+xmax = 2.
+ymin = -5.
+ymax = 2.
+
+print('Enter inequalities in the boxes below:')
+print('Use top boxes first.')
+
+@interact
+def _(f1 = input_box(f1, label='inequality ', width='20'),
+      f2 = input_box(f2, label='inequality ', width='20'),
+      f3 = input_box(f3, label='inequality ', width='20'),
+      f4 = input_box(f4, label='inequality ', width='20'),
+      f5 = input_box(f5, label='inequality ', width='20'),
+      f6 = input_box(f6, label='inequality ', width='20'),
+      xmin = slider(-10.,1.,0.1,xmin),
+      xmax = slider(1.,100.,0.1,xmax),
+      ymin = slider(-10.,1.,0.1,ymin),
+      ymax = slider(1.,100.,0.1,ymax)):
+        try:
+            p=region_plot([f1,f2,f3,f4,f5,f6],(x,xmin,xmax),(y,ymin,ymax))
+        except:
+            try:
+                p=region_plot([f1,f2,f3,f4,f5],(x,xmin,xmax),(y,ymin,ymax))
+            except:
+                try:
+                    p=region_plot([f1,f2,f3,f4],(x,xmin,xmax),(y,ymin,ymax))
+                except:
+                    try:
+                        p=region_plot([f1,f2,f3],(x,xmin,xmax),(y,ymin,ymax))
+                    except:
+                        try:
+                            p=region_plot([f1,f2],(x,xmin,xmax),(y,ymin,ymax))
+                        except:
+                            p=region_plot([f1],(x,xmin,xmax),(y,ymin,ymax))
+        show(p,axes=True,frame=False )
+</script>
+</div>
+ </div>
+
+ <h2>Teach your neighbor </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+ <div id="ex2" class="collapse">
+   <P>Graph the solution set and find the corners of the following systems.<br>
+     <ol type='A'>
+         <li>$$x + y \le 6$$
+           $$8 \ge 2x + y$$
+           $$x \ge 0, y \ge 0$$
+           <br><br>
+         <li>$$2x + y \ge 50$$
+           $$x + 2y \ge 40$$
+           $$x \ge 0, y \ge 0$$
+           <br><br>
+   </div>
+
+
+<h2>Campus store </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exigl">Example </button>
+<div id="exigl" class="collapse">
+  <P>The Campus Store orders homecoming mugs and glasses.
+    The mugs cost $1.58 each and the glasses cost $1.07 each.
+    They plan to sell the mugs for $3.29 each and the glasses for $2.45 each.
+    They are limited to $600 for the purchase of the mugs and glasses and need to get at least $1100 in total sales.
+    Identify variables, write this information as inequalities, and graph the solution set.
+</div>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+</body>
+</html>
