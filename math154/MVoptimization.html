@@ -40,7 +40,7 @@ f = x^2 + y
 
 def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
   pretty_print(html('$z = f(x,y)\;=\;%s$'%latex(f)))
-  w = plot3d(f,(x,-3,3),(y,-4,4), frame=True, color='purple', opacity=0.8)
+  w = plot3d(f,(x,-3,3),(y,-2,2), frame=True, color='purple', opacity=0.8)
   show(w)
 </script>
 </div>
@@ -75,11 +75,11 @@ def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
 <div class="mycell">
 <script type="text/x-sage">
 # everything following hash symbol is comment
-var('x y')
-f = x^2 + y
-@interact
+ var('x y')
+ f = x^2 + y
+ @interact
 
-def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
+ def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
    pretty_print(html('$z = f(x,y)\;=\;%s$'%latex(f)))
    w = plot3d(f,(x,-5,5),(y,-5,5), frame=True, color='purple', opacity=0.8)
    show(w)
@@ -91,22 +91,12 @@ def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
      </ol>
  </div>
 
- <h2>Critical points </h2>
- <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#excp">Example</button>
- <div id="excp" class="collapse">
-   <P>Find the critical points of \(f(x,y) = 4x - 3x^3 - 2xy^2\).
-   </div>
-    
-    
  <h2>Shipping boxes </h2>
  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
  <div id="ex2" class="collapse">
-   <P>A shipping company ships requires that the rectangular boxes they ship have the sum of the length, width, and height at most 96 inches.
+   <P>A shipping company ships requires that the rectangular boxes they ship have the sum of the length, width, and height is at most 96 inches.
      What is the box with the largest volume able to be shipped? (Yes - it is a cube. Show this using the ideas from multivariable optimization.)
    </div>
-
-
-
 
 <h2>Global Max/Mins </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exigl">Example </button>
@@ -117,7 +107,11 @@ def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
 <h2>Blood Types </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
 <div id="ex3" class="collapse">
-    <P>
+    <P> People have one of four blood types: A, B, O, or AB. These four types come from three alleles, one each for A, B, and O.
+      A person gets one allele from each parent. If the person is AA or AO they are blood type A. If the person is BB or BO they are blood type B.
+      If the person is AB then they are blood type AB, and if they are OO then they are type O. Let \(p\) be the fraction of A alleles in a population,
+      \(q\) the fraction of B alleles and \(r\) the fraction of O alleles. The Hardy-Weinberg Law states the fraction of the population with 2 different alleles is
+      \(P = 2pq + 2pr + 2rq\). We know \(p + q + r = 1\) (why?). Use this to eliminate \(p\) and other constraints to find the maximum of \(P\) on the set of feasible \((q,r)\) values.
 </div>
 
 <!--
