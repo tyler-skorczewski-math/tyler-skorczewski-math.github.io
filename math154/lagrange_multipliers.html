@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Multivariable Optimization - Lagrange Multipliers</h1>
+
+<hr>
+
+<h2>Background - Tangent planes to level sets</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#idea">Background</button>
+  <div id="idea" class="collapse">
+      <P> Let \(\displaystyle f(x,y,z) = xy + yz + xz\). Consider the level set \(f(x,y,z) = 3\).
+        <ul>
+        <li>What is the tangent plane to this level set at (1,1,1)?
+        <li>Is (1,1,1) a point on the level set?
+        <li>What is the relationship between \(\nabla f\) and the tangent plane to a level set?
+
+</div>
+
+ <h2>Examples</h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Examples</button>
+   <div id="ex1" class="collapse">
+    <ol type='A'>
+      <li> Find the max/min of the function \(f(x,y) = 2x^2 + y^2 + 2\) with constraint \(g(x,y) = x^2 + 4y^2 - 4 = 0\).<br><br>
+      <li> Find the max/min of the function \(f(x,y) = x^2 + y^2 \) with constraint \(g(x,y) = xy - 1 = 0\).<br><br>
+      </ol>
+ </div>
+
+ <h2>Distance to surface </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+ <div id="ex2" class="collapse">
+   <P>Find the smallest distance between the point (3,4,0) and the surface of the cone \(z^2 = x^2 + y^2\). (hint: what does symmetry tell us about solutions?)
+   </div>
+
+<h2>Examples with Two Constraints</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exigl">Example </button>
+<div id="exigl" class="collapse">
+  <ol type='A'>
+    <li> Find the max/min of the function \(f(x,y,z) = xyz\) with constraints \(g(x,y,z) = x^2 + y^2 - 4 = 0\) and \(h(x,y,z) = x + y + z -1 = 0\).<br><br>
+    <li> Find the maximum of the function \(d = \sqrt{x^2 + y^2 + z^2}\) with constraints \(g(x,y,z) = x + y + 2z -2 = 0\) and \(h(x,y,z) = x^2 + y^2 - z = 0\).<br><br>
+      <ul>
+        <li>What are the shapes of the surfaces described by the contraints?
+        <li>What does it mean when both constraints are satisfied?
+        <li>What does the objective function \(d\) represent?
+        <li>Explain why we can try to maximize \(d^2\) instead of \(d\).
+    </ol>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+</body>
+</html>
