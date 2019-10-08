@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
   <head>
@@ -25,8 +26,7 @@
   <body style="width:750px; padding-left: 1cm" background="bg.jpg">
 
   <h1>Linear Programming Problems</h1>
-    <P>There are videos on the course <a href="https://uwsto.instructure.com/courses/202177/pages/linear-programming-videos?module_item_id=3345836">Canvas page</a>
-
+<P>There are videos on the course <a href="https://uwsto.instructure.com/courses/202177/pages/linear-programming-videos?module_item_id=3345836">Canvas page</a>.<br>
 <hr>
 
 <h2>Example - Oil refinery (Sys Ineq)</h2>
@@ -72,7 +72,18 @@
   $$x \geq 0, y \geq 0. $$
   <P>What if we wanted to maximize \(P = 5x + 2y\)?
 </div>
-    
+
+<h2>Example</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2b">Example</button>
+  <div id="ex2b" class="collapse">
+<p>Maximize
+  $$z = 8x + 4y$$
+   subject to the constraints
+  $$-3x + 2y \leq 8$$
+  $$5x + 2y \leq 16$$
+  $$x \geq 0, y \geq 0. $$
+</div>
+
 <h2>Example - Conference planning</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
   <div id="ex3" class="collapse">
@@ -123,6 +134,188 @@
       <P><b>Bonus</b> How much should the company spend to buy another gallon of maple syrup?
   </div>
 
+  <h2>Example - Book fair</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exbf">Example</button>
+    <div id="exbf" class="collapse">
+  <p> The Book Fair sponsors book fairs at elementary schools and sells good books to children that are written to capture their interest.
+    In preparation for a fair they put together three different packages of books. Each package contains short story books, science books, and history books.
+    Pack I contains three short story books, one science, and two history books.
+    Pack II contains two short story books, four science books, and one history book.
+    Pack III contains one short story book, two science, and three history books.
+    The Book Fair has 660 short story books, 740 science books, and 853 history books.
+    The profit on each pack is $1.25 for Pack I, $2.00 for Pack II, and $1.60 for Pack III.
+    How many of each pack should be made to maximize profit?
+  </div>
+
+  <h2>Example - </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4a">Example</button>
+    <div id="ex4a" class="collapse">
+  <p> Minimize
+    $$z = 30 x_1 + 15 x_2 + 28x_3$$
+     subject to
+    $$5x_1 + 3x_2 + 4x_3 \geq 45,$$
+    $$5x_1 + 6x_2 + 8x_3 \geq 120,$$
+    $$20x_1 + 6x_2 + 14x_3 \geq 300.$$
+  </div>
+
+  <h2>Example - Oil refinery (LP)</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exOR">Example</button>
+    <div id="exOR" class="collapse">
+   <P> The maximum daily production of an oil refinery is 1900 barrels. It makes 3 kinds of fuel: gasoline, diesel, and heating oil.
+     Gasoline has a production cost of $6 per barrel. Diesel has a production cost of $5 per barrel, and heating oil has a production cost of $8 per barrel.
+     The daily production budget is $13400. The profit per barrel is $8, $6, and $9 for gas, diesel, and heating oil, respectively. How much of each should be made to maximize profit?
+  </div>
+
+  <h2>Example - Personnel scheduling</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exUA">Example</button>
+    <div id="exUA" class="collapse">
+  <p>  The table below shows the minimum number of customer service agents required to provide quality service to United Airlines customers.
+  <style type="text/css">
+  .tg  {border-collapse:collapse;border-spacing:0;}
+  .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+  .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+  .tg .tg-yw4l{vertical-align:top}
+  </style>
+  <table class="tg">
+  <tr>
+    <th class="tg-031e"></th>
+    <th class="tg-yw4l"></th>
+    <th class="tg-yw4l">time</th>
+    <th class="tg-yw4l">periods</th>
+    <th class="tg-yw4l">covered</th>
+    <th class="tg-yw4l"></th>
+    <th class="tg-yw4l"></th>
+  </tr>
+  <tr>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">shift</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">time period</td>
+    <td class="tg-yw4l">1</td>
+    <td class="tg-yw4l">2</td>
+    <td class="tg-yw4l">3</td>
+    <td class="tg-yw4l">4</td>
+    <td class="tg-yw4l">5</td>
+    <td class="tg-yw4l">min agents needed</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">6AM - 8AM</td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">48</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">8AM - 10AM</td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">79</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">10AM - 12PM</td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">65</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l"> 12PM - 2PM</td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">87</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">2PM - 4PM</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">64</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">4PM - 6PM</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">73</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">6PM - 8PM</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">82</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">8PM - 10PM</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">43</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">10PM - 12AM</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l">52</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">12AM - 6AM</td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l"></td>
+    <td class="tg-yw4l">x</td>
+    <td class="tg-yw4l">15</td>
+  </tr>
+  </table>
+  The union for the customer service agents requires that agents work 8 hour shifts and the authorized shifts are:
+  <ol type='1'>
+    <li>shift 1: 6AM to 2PM
+      <li>shift 2: 8AM to 4PM
+        <li>shift 3: 12PM (noon) to 8PM
+          <li>shift 4: 4PM to 12AM (midnight)
+            <li>shift 5: 10PM to 6AM.
+  </ol>
+  These shifts are shown in the table above with x's.
+  Because some shifts are more/less desirable than others, the daily wages differ for each shift.
+  The daily wages for shifts 1-5 are $170, $160, $175, $180, $195, respectively.
+  <ul>
+    <li>Can you determine how many people should be assigned to each shift to minimize the total personnel cost while meeting, or surpassing, the minimum service agent requirements?
+    <li> How does this problem compare to the United Airlines problem from the paper assigned for today? What is similar? What additional constraints did UA have to deal with? What other problems did they solve?
+  </ul>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6b">Bonus</button>
+    <div id="ex6b" class="collapse">
+      <P>Is it worth it to the airline company to add another shift from 12AM to 8 AM at a wage cost of $200 per day?
+    </div>
+
+  </div>
 
 <br>
 <br>
