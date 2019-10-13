@@ -167,8 +167,7 @@ Find the number of lamps that should be shipped from each supplier to each store
      subject to
     $$5x_1 + 3x_2 + 4x_3 \geq 45,$$
     $$5x_1 + 6x_2 + 8x_3 \geq 120,$$
-    $$20x_1 + 6x_2 + 14x_3 \geq 300$$
-    $$x \geq 0, y \geq 0, z \geq 0. $$
+    $$20x_1 + 6x_2 + 14x_3 \geq 300.$$
   </div>
 
   <h2>Example - Oil refinery (LP)</h2>
@@ -321,7 +320,7 @@ Find the number of lamps that should be shipped from each supplier to each store
   The daily wages for shifts 1-5 are $170, $160, $175, $180, $195, respectively.
   <ul>
     <li>Can you determine how many people should be assigned to each shift to minimize the total personnel cost while meeting, or surpassing, the minimum service agent requirements?
-    <li> How does this problem compare to the United Airlines problem from the paper assigned for today? What is similar? What additional constraints did UA have to deal with? What other problems did they solve?
+    <li> How does this problem compare to the <a href="./United_Airlines_Station_Manpower_Planning_System.pdf">United Airlines problem from the paper</a> assigned for today? What is similar? What additional constraints did UA have to deal with? What other problems did they solve?
   </ul>
   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6b">Bonus</button>
     <div id="ex6b" class="collapse">
@@ -329,6 +328,26 @@ Find the number of lamps that should be shipped from each supplier to each store
     </div>
 
   </div>
+
+  <h2>Example - Iron grate production</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exIG">Example</button>
+    <div id="exIG" class="collapse">
+      <P> Kane manufacturing has a division that produces two models of iron grates, A and B.
+        To produce a model A grate requires 3 lbs of cast iron and 6 minutes of labor.
+        To produce a model B grate requires 4 lbs of cast iron and 3 minutes of labor.
+        The profit for each model A is $2.00 and for each model B is $1.50.
+        Every day the company has 1000 lbs of cast iron available and 20 hours of labor.
+        Currently, the company has a cap of 180 model A grates per day.
+        How many of each type of grate should be made to maximize profit?
+
+        <P>More questions:
+        <ul>
+          <li> The <b>shadow price</b> of a constraint is the increase in profit from a 1 unit increase in the constaint available (for a standard max problem).
+            What is the shadow price of cast iron for this situation.
+          <li> How much can the amount of cast iron change before we have a new optimal solution (from original situation)?
+          <li> How much would the profit from model A grates need to change before a new corner of the feasible set describes the optimal solution?
+          </ul>
+    </div>
 
 <br>
 <br>
