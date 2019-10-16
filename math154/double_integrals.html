@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Double integrals</h1>
+
+<hr>
+
+<h2>Warmups</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">warmups</button>
+  <div id="wu" class="collapse">
+      <ol type='1'>
+        <li>The integral \(\displaystyle \int_0^1 \int_0^1 x^2~dx~dy\) represents which of the following:
+        <ol type='a'>
+          <li> Area under the curve \(y = x^2\) between \(x = 0\) and \(x = 1\).
+          <li> Volume under the surface \(z = x^2\) above the square \(0 \leq x, y \leq 1\) on the \(xy\)-plane.
+          <li> Area under the curve \(y = x^2\) above the square \(0 \leq x, y \leq 1\) on the \(xy\)-plane.
+          </ol>
+        <li>The integral \(\displaystyle \int_T (y-y^2)~dA\) over the region where \(T\) is the rectangle \(−1 \leq x \leq 1, 0 \leq y \leq 1\) is
+          <ol type='a'>
+            <li>positive
+            <li>negative
+            <li>zero
+            </ol>
+
+        </ol>
+
+
+</div>
+
+<h2>Example</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#idea">Example</button>
+  <div id="idea" class="collapse">
+      <P> Approximate volume under surface \(z = f(x,y) = \cos(x)\cos(y)\) for \( 0\leq x,y \leq \pi/2\) using 4 subdivisions.
+<div class="mycell">
+  <script type="text/x-sage">
+# everything following hash symbol is comment
+var('x y')
+f = cos(x)*cos(y)
+pi = 4.0*atan(1.0)
+
+w = plot3d(f,(x,0,pi/2.),(y,0,pi/2.), frame=True, color='purple', opacity=0.8)
+c = contour_plot(f,(x,0,pi/2.),(y,0,pi/2.),fill=False, cmap='hsv', labels=True)
+show(w)
+show(c)
+</script>
+</div>
+
+</div>
+
+<h2>Example - batting average</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exampleBA">Example</button>
+  <div id="exampleBA" class="collapse">
+    <img src="./battingaveragezone.png" width=600><br>
+      <P> (images from <a href="https://www.amazon.com/Science-Hitting-Ted-Williams/dp/0671621033">The Science of Hitting</a> and <a href="https://baseballwithr.wordpress.com/2016/09/19/constructing-heat-maps-for-avg/">Baseball with R</a>).
+      <ol type='1'>
+        <li> Estimate <a href="http://www.espn.com/mlb/player/hotzones/_/id/30836/mike-trout">Mike Trout's</a> batting average (on pitches in strike zone) using the middle picture above.
+        <li> If you use the right figure are you likely to be more or less accurate in your estimate? Why or why not?
+        <li> How do your ideas relate to the concepts of double integrals from the class reading for today?
+        </ol>
+</div>
+
+<h2>Example - concert seating</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exampleCS">Example</button>
+  <div id="exampleCS" class="collapse">
+      <P> Consider a concert hall 50 m long and 30 meters wide. Chairs are 1.0 m by 0.8 m. Aisles are negligible.
+        Crowd is sold out.
+        <ol>
+          <li>Set up an integral that represents the number of people at the event.
+          <li>What if there are two classes of seats? High priced seats on right \( ( x>25 )\) that are 1.2 square meters, and low priced seats that are 0.8 square meters on the left.
+          What is the number of people?
+        </ol>
+
+</div>
+
+ <h2>Examples</h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Examples</button>
+   <div id="ex1" class="collapse">
+    <P>Evaluate each integral as written. Then evaluate with the order reversed.
+    <ol type='A'>
+      <li> \(\displaystyle \int_1^6 \int_2^9 \frac{\sqrt{y}}{x^2}~dy~dx\)<br><br>
+      <li> \(\displaystyle \int_1^2 \int_1^e x^2 \ln(x)~dx~dy\)<br><br>
+      </ol>
+    <P><b>Theorem (Fubini)</b> Suppose that \(f(x,y)\) is a function of two variables that is continuous over a rectangular region \(R = \{ (x,y)\in \mathbb{R}^2 | a \leq x \leq b, c \leq y \leq d \} \).
+      Then we have that <br>
+      \( \displaystyle \int\int_R f(x,y)~dA = \int\int_R f(x,y)~dx~dy = \int_c^d \int_a^b f(x,y)~dx~dy = \int_a^b \int_c^d f(x,y)~dy~dx.\)<br>
+      More genereally, this is true if \(f\) is bounded on \(R\) and \(f\) is discontinuous only on a finite number of continuous curves, i.e. \(f\) is integrable.
+ </div>
+
+ <h2>Mass of sheet </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+ <div id="ex2" class="collapse">
+   <P>Consider a flat plate of metal with variable density \(\rho(x,y) = e^{2x+y}\) kg/m\(^3\) and \(0 \leq x \leq 2, 0\leq y \leq 4\) m.
+     What is the mass of the sheet?
+   </div>
+
+<h2>Center of Mass example</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#excom">Example </button>
+<div id="excom" class="collapse">
+  <P>Consider a flat plate of metal with variable density \(\rho(x,y) = 1 + 2x + 3y\) kg/m\(^3\) and \(-1 \leq x \leq 1, 0\leq y \leq 1\) m.
+    <ol>
+      <li>What is the mass of the plate?
+      <li>What is the \(x\) coordinate of the center of mass?
+      <li>What is the \(y\) coordinate of the center of mass?
+      </ol>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+</body>
+</html>
