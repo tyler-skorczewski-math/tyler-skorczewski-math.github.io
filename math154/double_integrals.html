@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body style="width:750px; padding-left: 1cm" background="bg.jpg">
+  <body style="width:750px; padding-left: 1cm; padding-bottom:10cm" background="bg.jpg">
 
   <h1>Double integrals</h1>
 
@@ -165,14 +165,64 @@ show(c)
       <P> Find the average value of \(f(x,y)= x\) over the region bounded by \(y=e^x, y = 0, x = 0,\) and \(x=1\).
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<h2>Example - Region of integration</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5a">Example</button>
+  <div id="ex5a" class="collapse">
+      <P> Set up a double integral that represents the area of the region bounded by \(x=0, y=3-x^2\), and \(y = 1 + x^5\).
+        Calculate this area.<br>
+</div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example</button>
+  <div id="ex6" class="collapse">
+      <P> Sketch the region of integration for the following integrals. Then write each integral with the order reversed.
+        <ol type='1'>
+          <li> \(\displaystyle \int_0^1 \int_{x-1}^{1-x} x~dy~dx\)<br><br>
+          <li> \(\displaystyle \int_{-1}^0 \int_{-\sqrt{y+1}}^{\sqrt{y+1}} y^2~dx~dy\)<br><br>
+          <li> \(\displaystyle \int_{0}^3 \int_{-\sqrt{9-x^2}}^{\sqrt{9-x^2}} y^2~dy~dx\)<br><br>
+        </ol>
+</div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example</button>
+  <div id="ex7" class="collapse">
+      <P> The region \(D\) is given in the figure below.
+        Evaluate the double integral \(\displaystyle \iint_D (x^2 - y^2)~dA\) by using the easier order of integration.<br>
+        <img src="./int_gen_reg1.png" width=250><br><br>
+</div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example</button>
+  <div id="ex8" class="collapse">
+      <P> Find the volume of the solid bounded by the planes
+\(x + y = 1, x − y = 1, x = 0, z = 0,\) and \(z = 10\).
+</div>
+
+<h2>Example - Joint PDF</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example</button>
+  <div id="ex9" class="collapse">
+      <P> Consider \(X\) and \(Y\) two random variables of
+probability densities \(p_1(x)\) and \(p_2(y)\), respectively. The
+random variables \(X\) and \(Y\) are said to be independent if
+their joint density function is given by
+\(p(x, y) = p_1(x)p_2(y)\). At a drive-thru restaurant,
+customers spend, on average, 3 minutes placing their
+orders and an additional 5 minutes paying for and picking
+up their meals. Assume that placing the order and paying
+for/picking up the meal are two independent events \(X\) and
+\(Y\). If the waiting times are modeled by the exponential
+probability densities<br>
+\(\displaystyle p_1(x) = \begin{cases} \frac{1}{3}e^{-x/3}, & x \geq 0\\ 0 & \text{otherwise},\end{cases}\)<br>
+and <br>
+\(\displaystyle p_2(y) = \begin{cases} \frac{1}{5}e^{-y/5}, & y \geq 0\\ 0 & \text{otherwise},\end{cases}\)<br>
+respectively, the probability that a customer will spend less
+than 6 minutes in the drive-thru line is given by<br>
+\(\displaystyle P\left[X + Y \leq 6\right] = \iint_D p(x, y)~dx~dy,\) where<br>
+\(\displaystyle D = \left\{ (x,y) | x,y \geq 0, x+y \leq 6 \right\}\).<br>
+Find
+\(\displaystyle P\left[X + Y \leq 6\right]\) and interpret the result.
+</div>
+
 <br>
 
 
