@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm; padding-bottom:10cm" background="bg.jpg">
+
+  <h1>Integrals in Polar Coordinates</h1>
+
+<hr>
+
+<h2>Warmups</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">warmups</button>
+  <div id="wu" class="collapse">
+      <ol type='1'>
+        <li>Find the polar coordinates \( (r,\theta) \) of the following points with Cartesian coordinates:
+        <ol type='a'>
+          <li> \( (1,1) \)
+          <li> \( (1,0) \)
+          <li> \( (0,3) \)
+          <li> \( (-2,0) \)
+          </ol>
+        <li> Find the Cartesian coordinates of \( (2, 3\pi/2)_{r,\theta} \).
+        <li> Transform the following equations from rectangular to polar coordinates.
+          <ol type='a'>
+            <li> \( x^2 + y^2 = 25 \)
+            <li> \( y = x^2 - x \)
+            </ol>
+        <li> Transform the following equations from polar to rectangular coordinates.
+          <ol type='a'>
+            <li> \( r\cos \theta = 2 \)
+            <li> \( \tan \theta = 1 \)
+            <li> \( r = 2\cos \theta \)
+            </ol>
+
+        </ol>
+
+
+</div>
+
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example">Example</button>
+  <div id="example" class="collapse">
+      <P> What is the area enclosed by \(y^2 = x - x^2\)?
+</div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example0">Example</button>
+  <div id="example0" class="collapse">
+      <P> What is the area inside region  \(r = 2 - \cos \theta\)?<br>
+<div class="mycell">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+theta = var('theta')
+r = 2*cos(theta)
+tstart = 0
+tend = 2*pi
+print("Enter the radius,r, as a function of angle, theta")
+@interact
+def _(r=input_box(r,label="r(theta) =  "),tstart=input_box(tstart,label="theta start = "),tend=input_box(tend,label="theta end = ")):
+    pp = polar_plot(r, (theta,tstart,tend) )
+    pp.show()
+</script>
+</div>
+
+</div>
+
+ <h2>Example</h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example</button>
+   <div id="ex1" class="collapse">
+    <P>Set up an integral representing the area inside the polar curve \(r = 1 + \cos (2\theta) \) and outside \(r = 1\).
+<div class="mycell">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+theta = var('theta')
+r1 = 2*cos(theta)
+tstart1 = 0
+tend1 = 2*pi
+r2 = 2*sin(theta)
+tstart2 = 0
+tend2 = 2*pi
+print("Enter two polar curves, where r is a function of theta")
+@interact
+def _(r1=input_box(r1,label="r(theta) =  "),tstart1=input_box(tstart1,label="theta start = "),tend1=input_box(tend1,label="theta end = "),r2=input_box(r2,label="r(theta) =  "),tstart2=input_box(tstart2,label="theta start = "),tend2=input_box(tend2,label="theta end = ")):
+    pp1 = polar_plot(r1, (theta,tstart1,tend1),color='blue' )
+    pp2 = polar_plot(r2, (theta,tstart2,tend2), color='red' )
+    (pp1 + pp2).show()
+</script>
+</div>
+ </div>
+
+
+<h2>Example - Converting integrals</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exampletri">Example</button>
+  <div id="exampletri" class="collapse">
+      <P> Convert \( \displaystyle I = \int_{-1}^{1} \int_{1 - \sqrt{1 - y}}^{1 + \sqrt{1 - y}} x^2 + y^2 dx dy\) to polar coordinates.
+
+</div>
+
+<h2>Example - Gaussian </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
+  <div id="ex3" class="collapse">
+      <P> Evaluate \( \displaystyle \int_{-\infty}^{\infty} e^{-x^2} dx \).
+
+</div>
+
+<br>
+
+
+</body>
+</html>
