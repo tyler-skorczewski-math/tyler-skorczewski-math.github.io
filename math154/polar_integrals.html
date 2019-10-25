@@ -106,12 +106,12 @@
 <h2>Example - </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example0">Example</button>
   <div id="example0" class="collapse">
-      <P> What is the area inside region  \(r = 2 - \cos \theta\)?<br>
+      <P> What is the area inside region  \(r = 2 - \cos 2\theta\)?<br>
 <div class="mycell">
 <script type="text/x-sage">
 # everything following hash symbol is comment
 theta = var('theta')
-r = 2*cos(theta)
+r = 2*cos(2*theta)
 tstart = 0
 tend = 2*pi
 print("Enter the radius,r, as a function of angle, theta")
