@@ -63,7 +63,7 @@
 
     <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq1">Question 1</button>
       <div id="vq1" class="collapse">
-    <P>Which of the following regions resembles a quarter of a doughnut?
+    <P>Which of the following regions resembles a quarter of a washer?
       <ol type='1'>
         <li> \(0 \leq r \leq 5, 0 \leq \theta \leq \pi/2\)
         <li> \(3 \leq r \leq 5, 0 \leq \theta \leq 2\pi\)
@@ -80,7 +80,6 @@
           <li> \(\displaystyle \int_{-3}^{3} \int_0^{\sqrt{9-x^2}}1~dy~dx \)
           <li> \(\displaystyle \int_{-3}^{3} \int_0^{\sqrt{9-x^2}}1~dx~dy \)
           <li> \(\displaystyle \int_{-3}^{0} \int_{-\sqrt{9-x^2}}^{\sqrt{9-x^2}}1~dx~dy \)
-          <li> none of the above
           </ol>
           <P>(No calculation) What is the value of \(\displaystyle \int_{0}^{3} \int_{\pi}^{2\pi} r~d\theta~dr \)?
         </div><br>
@@ -95,7 +94,12 @@
             <li> cardiod
             <li> none of the above
             </ol>
-          </div>
+          </div><br>
+          
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq4">Question 4</button>
+            <div id="vq4" class="collapse">
+          <img src="polar_int_unit_circle_voting.png" width=400><br>
+            </div>
 </div>
 
 <h2>Example - </h2>
@@ -107,12 +111,12 @@
 <h2>Example - </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example0">Example</button>
   <div id="example0" class="collapse">
-      <P> What is the area inside region  \(r = 2 - \cos 2\theta\)?<br>
+      <P> What is the area inside region  \(r = 2 - \cos \theta\)?<br>
 <div class="mycell">
 <script type="text/x-sage">
 # everything following hash symbol is comment
 theta = var('theta')
-r = 2*cos(2*theta)
+r = 2*cos(theta)
 tstart = 0
 tend = 2*pi
 print("Enter the radius,r, as a function of angle, theta")
@@ -153,8 +157,15 @@ def _(r1=input_box(r1,label="r(theta) =  "),tstart1=input_box(tstart1,label="the
 <h2>Example - Converting integrals</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exampletri">Example</button>
   <div id="exampletri" class="collapse">
-      <P> Convert \( \displaystyle I = \int_{-1}^{1} \int_{1 - \sqrt{1 - y}}^{1 + \sqrt{1 - y}} x^2 + y^2 dx dy\) to polar coordinates.
+      <P> Convert \( \displaystyle I = \int_{-1}^{1} \int_{1 - \sqrt{1 - y}}^{1 + \sqrt{1 - y}} x^2 + y^2~dx~dy\) to polar coordinates.
 
+</div>
+
+<h2>Example - Converting integrals</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exampleci2">Example</button>
+  <div id="exampleci2" class="collapse">
+      <P> Evaluate the following integral by converting to polar coordinates:<br>
+\(\displaystyle \int_{{ - 1}}^{1}{{\int_{{ - \sqrt {1 - {x^2}} }}^{0}{{\cos \left( {{x^2} + {y^2}} \right)\,dy}}\,dx}} \)
 </div>
 
 <h2>Example - Gaussian </h2>
