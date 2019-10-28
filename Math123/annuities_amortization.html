@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm; padding-bottom: 10cm" background="bg.jpg">
+
+  <h1>Annuities & Amortization</h1>
+
+<hr>
+
+<h2>Formulas</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#formula">Formulas </button>
+  <div id="formula" class="collapse">
+    <ul>
+      <li><b>Annuities</b>
+        <ul>
+        <li>future value: \(\displaystyle FV = R \frac{(1+i)^n - 1}{i} \)
+        <li>present value: \(\displaystyle P = R \left[ \frac{1 - (1 + i)^n}{i}\right]\)
+        </ul>
+      <li><b>Amortization</b>
+        <ul>
+        <li>
+        <li>
+        </ul>
+      <li>Question: What does each variable represent in the equations above?
+    </ul>
+</div>
+
+<h2>Example - Savings account</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example </button>
+  <div id="ex1" class="collapse">
+<p>  Consider investing $100 a year in a savings account compounded annually at rate 3%.
+How much money do you have after 6 years?
+</div>
+
+<h2>Example  - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example </button>
+  <div id="ex2" class="collapse">
+    <p> $2000 is invested in a trust fund that pays 6% per year simple interest.
+      What is the amount in the fund at the end of the 10 years?
+</div>
+
+<h2>Example  - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2a">Example </button>
+  <div id="ex2a" class="collapse">
+    <p> What is the value of an annuity at the end of 20 years if $2000 is deposited into the account earning 8.5%
+    interest compounded annually. How much of this is interest?
+</div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example </button>
+  <div id="ex3" class="collapse">
+    <P> Consider saving for a child's education. You put in $100 a month into an account giving 6% interest per year
+    compounded monthly, starting when the child is 6. How much is there when the child turns 18?
+</div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example </button>
+  <div id="ex4" class="collapse">
+  <P> Suppose parents are saving for a child's college education right when he/she is born. They want to
+  put some money in an account each birthday earning 6% compounded annually. If they want $80,000 when the child is 18,
+  how much do they need to put in each year?
+    </div>
+
+<h2>Example -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4b">Example </button>
+  <div id="ex4b" class="collapse">
+  <P> A company estimates it will have to replace a $10,000 machine in 5 years. If it wants to have the funds
+  available how much should it put away each month in an account earning 6% compounded monthly?
+    </div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4c">Example </button>
+  <div id="ex4c" class="collapse">
+  <P>After making a down payment at $6000 for a car, Murphy pays $600 a month for 36 months with interest compounded monthly
+    at 6% per year. What was the original amount of the car? How much interest is paid?
+  </div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example </button>
+  <div id="ex5" class="collapse">
+  <P> Find the present value of an annuity with periodic payments of $2000 semiannually for a period of 10 years at interest rate 6%
+    compounded semiannually.
+  </div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example </button>
+  <div id="ex6" class="collapse">
+  <P> 
+  </div>
+
+<!--
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example </button>
+  <div id="ex7" class="collapse">
+  <P> Suppose I invest in a fund that advertises a 6% rate and is compounded monthly. How long until I double my money?
+  </div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example </button>
+  <div id="ex8" class="collapse">
+  <P> Suppose I invest in a fund that is compounded monthly. What interest rate do I need to double my money in 10 years?
+  </div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example </button>
+  <div id="ex9" class="collapse">
+  <P> Consider investing $1 at 8% annual interest. What is the value after 1 year if the compounding is done
+    <ol type='a'>
+      <li>annually?
+      <li>quarterly?
+      <li>monthly?
+      </ol>
+
+    <P> <b>Question</b> What is the difference between the Annual Percentage Yield (APY) and the Annual Interest Rate (APR)? Note that APY is also called effective rate sometimes.
+    <P> Come up with a formula to calculate the APY given the APR and how often interest is compounded.
+
+  </div>
+
+<h2>Example - APY </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example </button>
+  <div id="ex10" class="collapse">
+  <P> What is the effective rate (APY) on a savings account with 5% nominal rate (APR) compounded monthly?
+  </div>
+
+<h2>Example - Christmas Club </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example </button>
+  <div id="ex11" class="collapse">
+  <P> Consider someone saving for Christmas by putting money in a savings account earning 3% interest compounded monthly.
+    How much does this person need to put in at the beginning of the year to have $500 on December 1 (11 months later)?
+  <P> Can you explain what Present Value and Future Value mean in these situations?
+  </div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex12">Example </button>
+  <div id="ex12" class="collapse">
+  <P> Find the present value of $49,158.60 in 5 years compounded quarterly with nominal interest rateof 10%.
+  </div>
+
+<h2>Example - Bookstore </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex13">Example </button>
+  <div id="ex13" class="collapse">
+  <P> The bookstore charges 1% interest per month on your unpaid balance. You charge $232.75 for books and don't pay your bill until the semester is over 4 months later.
+    How much do you owe?
+  </div>
+-->
+
+<br>
+
+
+
+</body>
+</html>
