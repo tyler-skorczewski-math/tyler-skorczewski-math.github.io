@@ -33,7 +33,7 @@ $(function () {
       <li><b>Annuities</b>
         <ul>
         <li>future value: \(\displaystyle FV = R \frac{(1+i)^n - 1}{i} \)<br><br>
-        <li>present value: \(\displaystyle P = R \left[ \frac{1 - (1 + i)^n}{i}\right]\)<br>
+        <li>present value: \(\displaystyle P = R \left[ \frac{1 - (1 + i)^{-n}}{i}\right]\)<br>
         </ul>
       <li><b>Amortization</b>
         <ul>
@@ -133,7 +133,7 @@ How much money do you have after 6 years?
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example </button>
   <div id="ex9" class="collapse">
   <P> Suppose that a family determines that they can afford at most $2000 a month for a mortgage. The current mortgage rates
-    are 6% a year compounded monthly. What is the most they could borrow in a 30 year mortgage?
+    are 6% a year compounded monthly. What is the most they could borrow in a 30 year mortgage? What if the most they can afford is $1800 a month?
   </div>
 
   <h2>Example - Loan balance</h2>
@@ -167,12 +167,6 @@ How much money do you have after 6 years?
       How much must be deposited annually to accumulate sufficient funds to provide for these payments? How much total interest is earned during the entire 45 year process?
     </div>
 
-    <h2>Example- Home equity </h2>
-    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex14">Example </button>
-      <div id="ex14" class="collapse">
-      <P> Suppose Paul bought a house 10 years ago for $200,000. He made a down payment of 20% of the purchase price and took out a 30 year mortgage on the rest at 6% per year on the unpaid balance compounded monthly.
-        The house is now worth $380,000. How much equity does he have in the house?
-      </div>
 
       <h2>Example  - Adjustable rate mortgages</h2>
       <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex15">Example</button>
