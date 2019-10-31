@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm; padding-bottom: 10cm" background="bg.jpg">
+
+  <h1>More Financial Math problems</h1>
+
+<hr>
+
+<h2>Formulas</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#formula">Formulas </button>
+  <div id="formula" class="collapse">
+    <ul>
+      <li><b>Simple Interest</b>
+        <ul>
+        <li>interst: \(I = Prt\)
+        <li>amount: \(A = P + I = P(1 + rt)\)
+        </ul>
+      <li><b>Compound Interest</b>
+        <ul>
+        <li>amount: \(A = P(1+i)^n = P(1+\frac{r}{m})^n\)
+        <li>interest: \(I = A-P\)
+        </ul>
+      <li><b>Annuities</b>
+        <ul>
+        <li>future value: \(\displaystyle FV = R \frac{(1+i)^n - 1}{i} \)<br><br>
+        <li>present value: \(\displaystyle P = R \left[ \frac{1 - (1 + i)^n}{i}\right]\)<br>
+        </ul>
+      <li><b>Amortization</b>
+        <ul>
+        <li> payments: \(\displaystyle R = P \frac{i}{1 - (1+i)^{-n}} \)<br><br>
+        <li> loan balance: \(\displaystyle Balance = P (1 + i)^n - R \left[ \frac{(1 + i)^n - 1}{i} \right] \)
+        </ul>
+      <li>Question: What does each variable represent in the equations above?
+    </ul>
+</div>
+
+<h2>Example - Retirement planning </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex13">Example </button>
+  <div id="ex13" class="collapse">
+  <P> A person wants to make annual deposits for 25 years into an annuity that earns 9.4% compounded annually in order to retire.
+    Once retired they will make 20 equal annual withdrawls of $25,000 reducing the balance of the account to $0.
+    How much must be deposited annually to accumulate sufficient funds to provide for these payments? How much total interest is earned during the entire 45 year process?
+  </div>
+
+  <h2>Example - More retirement planning </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex13a">Example </button>
+    <div id="ex13a" class="collapse">
+    <P> A person wants to make monthly deposits for 40 years into an annuity that earns 7.2% per year compounded monthly in order to retire.
+      Once retired they plan to make monthly withdrawls at a rate of $60,000 per year ($5000 each month) for the next 30 years
+       reducing the balance of the account to $0.
+      How much must be deposited each month to accumulate sufficient funds to provide for these payments?
+    </div>
+
+<h2>Example- Home equity </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex14">Example </button>
+  <div id="ex14" class="collapse">
+  <P> Suppose a couple bought a house 15 years ago for $300,000.
+    They made a down payment of 25% of the purchase price and took out a 30 year mortgage on the
+    rest at 4.8% per year on the unpaid balance compounded monthly.
+    The house is now worth $420,000. How much equity do they have in the house?
+  </div>
+
+<h2>Example - Paying Points? </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex18">Example</button>
+  <div id="ex18" class="collapse">
+  <P> When taking out a mortgage a point is simply 1% of the loan amount. In the mortgage
+process, a bank typically offers people several loan options. These loan options will have different interest
+rates but in order to get a lower rate, one must pay the bank by paying points. In a way this can be
+thought of a prepaying interest to the bank. For example, let’s look at a couple buying a house for
+$150,000. Let’s assume they put 20% down, so the loan amount is $120,000. We will neglect any closing costs associated with the mortgage.
+A bank may offer these people a 30 year loan option with a 4% annual interest rate compounded monthly and another option
+with a 3.75% interest rate if they pay 1 point at the beginning of the loan. Which option is better for
+this couple? It depends on how many months they plan on staying in the house. (Many people do not
+stay in a home for the entire length of their mortgage.) If they live there a short time they may not
+recoup the money they paid upfront in lower monthly payments. Determine the number of months the couple must stay in the house for paying points to be worth it.
+
+<ol type='1'>
+  <li> How much is 1 point of the loan?
+  <li> What is the monthly payment if you don't pay the point and have the 4% interest rate?
+  <li> What is the monthly payment if you do pay the point and have the 3.75% interest rate?
+  <li> How many months need to pass before the total cost of the point plus the montly payment
+    at 3.75% interest is cheaper than the total cost of monthly payments at 4% interest?
+</ol>
+  </div>
+
+  <h2>Example - Home prices</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example </button>
+    <div id="ex1" class="collapse">
+  <p>  The National Association of Realtors estimates that the average home price in Omaha, Nebraska was $75,600 in 1990 and $135,200 in 2008. Determine approximately the average annual rate of inflation of home prices in that 18-year period.
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1ans">Solution</button>
+      <div id="ex1ans" class="collapse">
+      <P>This is a compound interest problem (interest compounded annually) where the initial amount is \(P=75600\), the final amount is \(A=135200\) and the duration is \(t=18\).
+        Applying the formula we see:
+        <ul>
+          <li>\(A = P (1 + i)^n\)
+          <li>\(A = P (1 + r)^t\)
+          <li>\(135200 = 75600 (1 + r)^{18}\)
+          <li>We can solve for \(r\)
+          <li>\(r = \left(\frac{135200}{75600}\right)^{1/18} - 1 = 0.0328 = 3.28\%  \)
+          </ul>
+      </div>
+  </div>
+
+  <h2>Example  - Loan choices</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example </button>
+    <div id="ex2" class="collapse">
+  <p>  A jeweler wants to obtain a $3000 loan for 4 months. She has the choice of a simple interest loan at 10.3% or a discount loan at 10.1%. (The discount rate is a percentage of the maturity value - not the proceeds.) Which one will result in the lower fee for the use of the money?
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2ans">Solution</button>
+      <div id="ex2ans" class="collapse">
+       <ul>
+         <li>For the simple interest loan we have \(I = Prt = 3000(0.103)(4/12) = \$103\).
+         <li>For the simple discount loan the fee for the use of the money is the maturity value minus the proceeds, \(M-P\).
+         <li>\(M-P = Mdt\) where \(d = 10.1\) is the discount rate, and \(t=4/12\) is the duration.
+         <li>Solving for \(M\) we have \(M = \frac{P}{1 - dt} = \frac{3000}{1 - (0.101)(4/12)} = 3104.52\).
+         <li>Then \(M - P = \$104.52\) so the simple interst loan is the better deal.
+         </ul>
+      </div>
+  </div>
+
+  <h2>Example  - Investment choices</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example </button>
+    <div id="ex3" class="collapse">
+  <p> Which is the better investment, one with 5.0% compounded annually or 4.92% compounded monthly?
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3ans">Solution</button>
+      <div id="ex3ans" class="collapse">
+       <ul>
+         <li>For this problem we can look at Annual Percentage Yield or effective rates.
+         <li>For 5% compounded annually we have the APY \(= (1 + 0.05/1)^{1} - 1 = 0.05\).
+         <li>For 4.92% compounded monthly we have the APY \(= (1 + 0.0492/12)^{12} - 1 = 0.050325\).
+         <li>The 4.92% investment has the better APY and is a better investment.
+         </ul>
+      </div>
+  </div>
+
+  <h2>Example - Saving for college</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example </button>
+    <div id="ex6" class="collapse">
+  <p> The parents of a child have just come into a large inheritance and wish to establish a trust fund for her college education.
+    If they estimate that they will need $100,000 in 13 years, how much should they set aside in the trust now if they can invest the money at 8.5% per year compounded quarterly?
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6ans">Solution</button>
+      <div id="ex6ans" class="collapse">
+        <ul>
+          <li>This is a present value problem \(P = A(1+i)^{-n}\) where \(A=100000, i = r/m = .085/4, n=mt = 4(13)\).
+          <li>We see \(P = 100000(1 + 0.085/4)^{-52} = 33506.76\).
+        </ul>
+      </div>
+  </div>
+
+<br>
+
+
+
+</body>
+</html>
