@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm; padding-bottom: 10cm" background="bg.jpg">
+
+  <h1>Sets and Venn Diagrams</h1>
+
+<hr>
+
+<!--
+<h2>Formulas</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#formula">Formulas </button>
+  <div id="formula" class="collapse">
+    <ul>
+      <li><b>Annuities</b>
+        <ul>
+        <li>future value: \(\displaystyle FV = R \frac{(1+i)^n - 1}{i} \)<br><br>
+        <li>present value: \(\displaystyle P = R \left[ \frac{1 - (1 + i)^n}{i}\right]\)<br>
+        </ul>
+      <li><b>Amortization</b>
+        <ul>
+        <li> payments: \(\displaystyle R = P \frac{i}{1 - (1+i)^{-n}} \)<br><br>
+        <li> loan balance: \(\displaystyle Balance = P (1 + i)^n - R \left[ \frac{(1 + i)^n - 1}{i} \right] \)
+        </ul>
+      <li>Question: What does each variable represent in the equations above?
+    </ul>
+</div>
+-->
+
+<h2>Example - Notation </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example </button>
+  <div id="ex1" class="collapse">
+<p>  A <b>set</b> is a well-defined collection of <b>elements</b>.
+
+  <P> Let \(\displaystyle A = \left\{ a,b,c,d,e,...,x,y,z\right\} \) be the alphabet.
+    <ul>
+      <li>\(A\) is a set.
+      <li>The letters are the elements.
+      <li>\( a\in A\) is said "\(a\) is in \(A\)."
+      <li>\( \phi \notin A\) is said "phi is not in \(A\)."
+      </ul>
+</div>
+
+<h2>Example - Central America </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example </button>
+  <div id="ex2" class="collapse">
+    <ul>
+      <li>Name all the countries in Central America. Call this set \(A\).
+      <li>What is \(n(A)\)?
+      <li>Let \( B = \{ Belize, Guatemala, Panama\}\). What does \(B \subset A\) mean?
+      <li>Let \( C = \{ Guatemala, Panama, Belize\}\). Does \(B \subseteq C\)?
+      </ul>
+</div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2a">Example </button>
+  <div id="ex2a" class="collapse">
+      <ul>
+        <li> \(\displaystyle A = \left\{ 2,4,6,8,10, ... \right\} \)
+        <li> \(\displaystyle A = \left\{ x \mid x>0, x=2n \text{ where } n \in \mathbb{N} \right\} \)
+        <li> \(\mathbb{N}\) is the set of natural numbers \(\{1,2,3,4,...\}\).
+        </ul>
+</div>
+
+
+<h2>Example - Venn Diagrams </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4b">Example </button>
+  <div id="ex4b" class="collapse">
+  <img src="./musictshirt_venn.jpg" width=300> <img src="./music_venn.jpg" width=300> <br>
+   <ul>
+     <li>What is the universal set?
+     <li>What is the intersection?
+     <li>How could we describe music you don't like?
+     <li>How could we describe music you or I like?
+     <li>How could we describe music neither of us like?
+     <li>What is the complement of the universal set?
+     </ul>
+    </div>
+
+<h2>Example - Basic Set Properties </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4c">Example </button>
+  <div id="ex4c" class="collapse">
+  <P>Some set properties
+    <ul>
+      <li>Let \(U\) be the universal set.
+      <li>\( A \cup B = B \cup A\)
+      <li>\( A \cap B = B \cap A\)
+      <li>\( A \cup (B \cup C) = (A \cup B) \cup C\)
+      <li>\( A \cap (B \cap C) = (A \cap B) \cap C\)
+      <li>\(A \cup (B \cap C) = (A \cup B) \cap (A \cup C)\)
+      <li>\(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\)
+    </ul>
+<br>
+     <img src="./basicVenn.png" width=300><br>
+     <ul>
+       <li>What is \( (A \cup B)^c \)?
+       <li>What is \( (A \cap B)^c \)?
+       <li>These are DeMorgan's Laws.
+      </ul>
+
+  </div>
+
+<h2>Example - Car dealership</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example </button>
+  <div id="ex5" class="collapse">
+  <P> Let \(U\) be the set of all cars at a dealership.
+    <ul>
+      <li>Let \(A = \{ x \in U | x\text{ has satellite radio} \} \).
+      <li>Let \(B = \{ x \in U | x\text{ has a moon roof} \} \).
+      <li>Let \(C = \{ x \in U | x\text{ has side air bags} \} \).
+      </ul>
+
+    <ol type='1'>
+      <li> Find an expression for the set of cars with at least one of the options.
+      <li> Find an expression for the set of cars with exactly one option.
+      <li> Find an expression for the set of cars with satellite radio and a side air bags, but no moon roof.
+      <li> What does a Venn diagram look like here?
+      </ol>
+  </div>
+
+<h2>Example - 3 set Venn Diagram </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example </button>
+  <div id="ex6" class="collapse">
+  <img src="./basicVennthree.png" width=350><br>
+  <P> How many regions are shown in the Venn Diagram above? Label each region with its own set expression.
+  </div>
+
+
+<h2>Example - Power set </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example </button>
+  <div id="ex7" class="collapse">
+  <P> Consider the set A = {dog, cat, fish, hamster}. How many subsets of A are there?
+  </div>
+
+<h2>Example - countries </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example </button>
+  <div id="ex8" class="collapse">
+  <ol type="1">
+    <li> 3 minutes. Indivually name as many countries as you can that begin with the letter M.
+    <li> Get in groups of 3 or 4.
+      <li> What is the intersection of your set?
+      <li> What is the union?
+    <li> What is \(n(M)\)?
+    <li>Let \(I\) be the set of island countries. What is \(M \cap I\)?
+    <li>Let \(A\) be the set of African countries. What is \(M \cap A\)?
+    <li>What is \( (M \cap A) \cup (M \cap I) \)?
+    <li>What is \( (M \cap A) \cap (M \cap I) \)?
+  </div>
+
+<h2>Example - Business Survey </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example </button>
+  <div id="ex9" class="collapse">
+  <P> A recent survey of businesses showed 750 offer health insurance, 640 offer dental insurance, and 280 offer both.
+    <ul>
+      <li>Let H be the set of businesses that offer health insurance.
+      <li>Let D be the set of businesses that offer dental insurance.
+    </ul>
+
+    <ol>
+      <li>What is H\(\cup\)D?
+      <li>What is H\(\cap\)D?
+      <li>What are n(H), n(D), and n(H\(\cap\)D)?
+      <li>What is n(H\(\cup\)D)?
+      <li>Sketch a Venn Diagram of the situation.
+      </ol>
+  </div>
+
+<h2>Example - Coffee Survey </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example </button>
+  <div id="ex10" class="collapse">
+  <P> A recent survey of 100 coffee drinker showed 70 take sugar, 60 take cream, and 50 take both.
+    <ol>
+      <li>How many take sugar or cream?
+      <li>Sketch a Venn Diagram of the situation.
+      </ol>
+  </div>
+
+<h2>Example -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example </button>
+  <div id="ex11" class="collapse">
+  <P> Let n(U)=250, n(A)=85, n(B) = 130, and n(A\(\cap\)B)=35. Find n(A\(\cup\)B)\(^c\). Draw a Venn Diagram of the situation.
+  </div>
+<br>
+
+<h2>Example -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex12">Example </button>
+  <div id="ex12" class="collapse">
+  <img src="./Venn3_1.png" width=350><br>
+  <P>Consider the Venn diagram above and find the quanities below:<br>
+    <ol>
+      <li>n(A\(^c\))
+      <li>n(B\(^c\))
+      <li>n(A\(^c\cap\)B\(^c\))
+      <li>n(A\(\cup\)B)
+      <li>n(A\(\cup\)B)\(^c\)
+      <li>n(A\(\cap\)B)
+      <li>n(A\(\cap\)B)\(^c\)
+      <li>n(A\(^c\cup\)B\(^c\))
+      <li>n(B\(\cap\)C\(^c\) )
+    </ol>
+  </div>
+
+<h2>Example - Magazine advertising </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex13">Example </button>
+  <div id="ex13" class="collapse">
+
+  <P>A company advertises a product in 3 magazines: Sports Illustrated, People, and Time.
+    A Survery of 500 people who bought the product reveals the information below.<br>
+    <ul>
+      <li>180 saw ads in SI
+      <li>200 saw ads in People
+      <li>192 saw ads in Time
+      <li>84 saw ads in both SI and People
+      <li>52 saw ads in both SI and Time
+      <li>64 saw ads in both People and Time
+      <li>38 saw ads in all three
+    </ul>
+
+    <ol type='1'>
+      <li>Draw a Venn Diagram of the situation.
+      <li>How many learned of the product from at least one magazine?
+      <li>How many learned of the product from exactly one magazine?
+      </ol>
+
+  </div>
+
+<h2>Example - Health Class </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex14">Example </button>
+  <div id="ex14" class="collapse">
+
+  <P>A health class surveyed 1100 students from freshman dorms about eating habits in the cafeteria.<br>
+    <ul>
+      <li>425 ate breakfast
+      <li>680 ate lunch
+      <li>855 ate dinner
+      <li>275 ate breakfast and lunch
+      <li>505 ate lunch and dinner
+      <li>375 ate breakfast and dinner
+      <li>240 ate all three
+    </ul>
+
+    <ol type='1'>
+      <li>Draw a Venn Diagram of the situation.
+      <li>How many ate only breakfast?
+      <li>How many ate at least 2 meals in the cafeteria?
+      <li>How many ate only 1 meal?
+      <li>How many didn't eat in the cafeteria?
+      </ol>
+
+  </div>
+
+<br>
+
+
+</body>
+</html>
