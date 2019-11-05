@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm; padding-bottom: 10cm" background="bg.jpg">
+
+  <h1>Counting Principles</h1>
+
+<hr>
+
+<h2>Ideas</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ideas">Ideas </button>
+  <div id="ideas" class="collapse">
+    <ul>
+      <li>Principle of Multiplication
+      <li>Principle of Addition
+      </ul>
+
+</div>
+
+<h2>Formulas</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#formula">Formulas </button>
+  <div id="formula" class="collapse">
+    <ul>
+      <li><b>Factorial</b>  \( n! = n(n-1)(n-2)...(2)(1)\) and \(0! = 1\).
+
+      <li><b>Permutation</b>
+        <ul>
+          <li>\(P(n,k)\) = number of ways to order \(k\) things from a set of \(n\)
+          <li> Order is important.
+          <li>\(\displaystyle P(n,k) = \frac{n!}{(n-k)!}\)
+          </ul>
+      <li><b>Combination</b>
+            <ul>
+              <li>\(C(n,k)\) = number of ways to choose \(k\) things from a set of \(n\)
+              <li> Order is not important.
+              <li>\(\displaystyle C(n,k) = \begin{pmatrix}n\\k\end{pmatrix} = \frac{n!}{k!(n-k)!}\)
+              </ul>
+    </ul>
+</div>
+
+<h2>Example - Coin flips </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example </button>
+  <div id="ex1" class="collapse">
+<p>  How many ways are there to flip a coin three times?
+
+    <ul>
+      <li>List all the ways using H for heads and T for tails.
+      <li>Draw a tree diagram.
+      <li>Find an numerical expression for this number.
+      </ul>
+</div>
+
+<h2>Example - Diner </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example </button>
+  <div id="ex2" class="collapse">
+    <P>A diner has 3 drinks: coffee, tea, and orange juice. It has 2 bread choices: muffins and bagels.
+      It has 2 egg choices: scrambled and poached.
+    <ul>
+      <li>Draw a tree diagram that describes all possible breakfast meals with drink, bread and eggs.
+      <li>How many choices are there?
+      </ul>
+</div>
+
+<h2>Example - news stand </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2a">Example </button>
+  <div id="ex2a" class="collapse">
+      <P>Michael is at a news stand and will buy a newspaper or magazine. There are 9 newspapers and 13 magazines.
+        How many choices does he have?
+</div>
+
+
+<h2>Example - Seating </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4b">Example </button>
+  <div id="ex4b" class="collapse">
+  <P> How many ways can 3 men and 3 women be seated in a row so that no one sits next to someone of the same gender?
+    </div>
+
+<h2>Example - Initials </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4c">Example </button>
+  <div id="ex4c" class="collapse">
+  <P>Determine the largest group of people that can meet if no two people have the same three initials.
+    Assume people have first, middle, and last names in the English alphabet.
+
+  </div>
+
+
+
+<h2>Example -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example </button>
+  <div id="ex6" class="collapse">
+
+  <P>Will a parking identification code of one letter followed by 2 digits provide for 3000 parking permits?
+  </div>
+
+
+<h2>Example - Power set </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example </button>
+  <div id="ex7" class="collapse">
+  <P> Consider the set A = {dog, cat, fish, hamster}. How many subsets of A are there?
+  </div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example </button>
+  <div id="ex8" class="collapse">
+    <P> Onetta goes to the food court to get a salad and sandwich for lunch.
+      The Daily Deli has 5 varieties of sandwiches and 2 salads.
+      Better Bites has 3 varieties of sandwiches and 6 salads.
+      The Lunch Spot has 8 varieties of sandwiches and 5 salads.
+  <ol type="1">
+    <li>Determine the number of ways Onetta can select a sandwich and a salad if she gets her meal at one restaurant.
+    <li>Determine the number of ways Onetta can select a sandwich and a salad if she can go to multiple restaurants.
+    </ol>
+  </div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example </button>
+  <div id="ex9" class="collapse">
+  <P> In how many different ways can 5 art and 3 music books be arranged on a shelf if books on the same subject are kept together?
+  </div>
+
+  <h2>Example - consistent information?</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example </button>
+    <div id="ex5" class="collapse">
+    <P> There are 29 elements in sets A, B, and C all together. Is the following set of information consistent?
+      <ul>
+        <li>n(A)=15
+        <li>n(B)=12
+        <li>n(C)=15
+        <li>n(A\(\cap\)B)=5
+        <li>n(A\(\cap\)C)=6
+        <li>n(B\(\cap\)C)=4
+        <li>n(A\(\cap\)B \(\cap\)C)=2
+        </ul>
+
+    </div>
+
+<h2>Example - ABC </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example </button>
+  <div id="ex10" class="collapse">
+  <P> Consider the set A = { a, b, c }.
+    <ol>
+      <li>How many ways are there to order this set?
+      <li>Draw a tree diagram that shows all possible orderings.
+      </ol>
+  </div>
+
+<h2>Example - Baseball lineups </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example </button>
+  <div id="ex11" class="collapse">
+  <ol>
+    <li> How many ways are there to fill out a baseball lineup? (9 batters/positions in a lineup)
+    <li> Suppose I have a 25 man baseball roster. How many ways are there to fill out a 9 man lineup?
+    <li> How do you use your calculator to do this computation?
+    </ol>
+  </div>
+<br>
+
+<h2>Example - stock brokerage </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex12">Example </button>
+  <div id="ex12" class="collapse">
+
+  <P>A stock brokerage firm has 9 new clients to divide among 3 account managers. How many ways are there to do this?
+  </div>
+
+<h2>Example - Baseball series </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex13">Example </button>
+  <div id="ex13" class="collapse">
+
+  <P> Consider a 7-game baseball series between Houston (H) and Washington (W).
+    <ul>
+      <li>How many ways can the series be ordered with Washington winning?
+      <li>with Houston or Washington winning?
+    </ul>
+
+  </div>
+
+<h2>Example - pick a pair</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex14">Example </button>
+  <div id="ex14" class="collapse">
+
+  <P> Consider a set A = {a, b, c, d, e}. How many ways can I choose a pair of elements?
+  </div>
+
+<h2>Example - poker hands</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex15">Example </button>
+  <div id="ex15" class="collapse">
+
+  <P> How many 5 card poker hands can be dealt from a standard 52 card deck?
+  </div>
+<br>
+
+
+</body>
+</html>
