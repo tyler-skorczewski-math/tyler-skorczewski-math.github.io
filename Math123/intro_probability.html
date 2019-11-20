@@ -1,0 +1,345 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:600px; padding-left: 1cm; padding-bottom: 10cm" background="bg.jpg">
+
+  <h1>Introduction to Probability</h1>
+
+<hr>
+
+
+<!--
+<h2>Formulas</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#formula">Formulas </button>
+  <div id="formula" class="collapse">
+    <ul>
+      <li><b>Annuities</b>
+        <ul>
+        <li>future value: \(\displaystyle FV = R \frac{(1+i)^n - 1}{i} \)<br><br>
+        <li>present value: \(\displaystyle P = R \left[ \frac{1 - (1 + i)^n}{i}\right]\)<br>
+        </ul>
+      <li><b>Amortization</b>
+        <ul>
+        <li> payments: \(\displaystyle R = P \frac{i}{1 - (1+i)^{-n}} \)<br><br>
+        <li> loan balance: \(\displaystyle Balance = P (1 + i)^n - R \left[ \frac{(1 + i)^n - 1}{i} \right] \)
+        </ul>
+      <li>Question: What does each variable represent in the equations above?
+    </ul>
+</div>
+-->
+
+<h2>Example - Notation & Terminology </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example </button>
+  <div id="ex1" class="collapse">
+<p>  Consider rolling a standard six-sided die.<br>
+
+    <ul>
+      <li>What is the probability a 6 comes up (event 1)?<br>
+      <li>What is the probability a number greater than 4 comes up (event 2)?<br>
+      <li>What is the probability the number that comes up is odd (event 3)?<br>
+      </ul><br>
+
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#term">Terminology </button>
+      <div id="term" class="collapse">
+        <ul>
+          <li><b>Experiment :</b> activity with observable result<br>
+          <li><b>Sample point :</b> outcome of experiment<br>
+          <li><b>Sample space :</b> set of all sample points/outcomes<br>
+          <li><b>Event :</b> subset of sample space with desired outcome(s)<br>
+          </ul>
+
+      <ol>
+        <li>Identify the elements/terminology in the rolling the die example above.<br>
+        <li>How would we write the event the number is not odd?<br>
+        <li>Use set notation to describe the event that event 2 or event 3 occurs.<br>
+        <li>Use set notation to describe the event that event 2 and event 3 occur.<br>
+        </ol>
+      </div><br><br>
+
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#simple">Simple Events </button>
+        <div id="simple" class="collapse">
+          <P> Events with only one outcome are <u>simple events</u>.
+          <br>
+          <P><b>Theorem :</b> Let \(S\) be the sample space for an experiment \(S = \{s_1,s_2,s_3,...,s_n\}\).
+            If all the simple events of \(S\) are equally likely then \(P(s_1) = P(s_2) = ... = P(s_n) = \frac{1}{n}\).
+            Moreover if \(E = \{s_1, s_2,...,s_k\}\) then \(P(E) = P(s_1) + P(s_2) + ... + P(s_k) = \frac{k}{n} \).
+
+            <P>Question: How does this relate to example above?
+        </div><br><br>
+
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#rmk">Basics </button>
+          <div id="rmk" class="collapse">
+        <ul>
+          <li><b>Remark :</b> Probabilities are always between 0 and 1.<br>
+          <li>What does it mean if \(P(E) = 0\)?<br>
+          <li>What does it mean if \(P(E) = 1\)?<br>
+          <li>What is \(P(S)\) if \(S\) is the whole sample space?<br>
+          </div>
+
+
+</div>
+
+<h2>Example - Two Dice  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example </button>
+  <div id="ex2" class="collapse">
+    <P>Consider rolling a pair of standard six-sided dice.<br>
+    <ul>
+      <li>Write the sample space for this experiment.<br>
+      <li>What is the probability of doubles?<br>
+      <li>What is the probability of rolling a seven?<br>
+      <li>What is the probability of rolling a sum greater than 10?<br>
+      </ul>
+</div>
+
+<h2>Example - Coin Flips</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2a">Example </button>
+  <div id="ex2a" class="collapse">
+    <P>Consider a fair coin flipped three times.<br>
+      <ul>
+        <li> What is the sample space?<br>
+        <li> Use set notation to describe the event of flipping exactly two heads.<br>
+        <li> What is the probability of exactly two heads?<br>
+        <li> What is the probability of at least one heads?<br>
+        <li> What is the probability of exactly zero heads?<br>
+        </ul>
+</div>
+
+
+<h2>Example - Cards </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4b">Example </button>
+  <div id="ex4b" class="collapse">
+  <P>Consider a standard 52 card deck. Imagine you deal a 5 card hand.<br>
+   <ul>
+     <li>How large is the sample space?
+     <li>What is the probability of being dealt 4 aces?
+     <li>What is the probability of 4 aces or 4 jacks?
+     </ul>
+    </div>
+
+
+<h2>Example - Coins </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4c">Example </button>
+  <div id="ex4c" class="collapse">
+  <P>Ray has some change in his pocket: two pennies, four nickels, three dimes, four quarters, and two half dollars.
+    He draws out a coin at random. The probability of drawing any one of the coins is:
+    <ul>
+      <li>0.05 for each penny
+      <li>0.02 for each dime
+      <li>0.04 for each nickel
+      <li>0.07 for each quarter
+      <li>0.20 for each half dollar
+    </ul>
+    <P>Find the probability that the
+     <ol type='a'>
+       <li>coin drawn is a dime.
+       <li>coin drawn is a quarter or a half dollar.
+       <li>coin drawn is a nickel.
+       <li>value of the coin drawn is less than 10 cents.
+      </ol>
+
+  </div>
+
+
+<h2>Example - Movie bin</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example </button>
+  <div id="ex5" class="collapse">
+  <P> Consider a discount movie bin at a store: some are DVD, some are Blue-Ray. Some are action, comedy, or drama.<br>
+    <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0lax"></th>
+    <th class="tg-0lax">Action</th>
+    <th class="tg-0lax">Comedy</th>
+    <th class="tg-0lax">Drama</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">DVD</td>
+    <td class="tg-0lax">20</td>
+    <td class="tg-0lax">30</td>
+    <td class="tg-0lax">15</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Blue-ray</td>
+    <td class="tg-0lax">10</td>
+    <td class="tg-0lax">5</td>
+    <td class="tg-0lax">10</td>
+  </tr>
+</table>
+
+    <ol type='1'>
+      <li> What is the probability that a randomly drawn movie is an action movie?<br>
+      <li> What is the probability that a randomly drawn movie is a DVD?<br>
+      <li> What is the probability that a randomly drawn movie is a comedy or drama movie?<br>
+      <li> What is the probability that a randomly drawn movie is a comedy movie on Blue-ray?<br>
+      <li> What is the probability that a randomly drawn movie is a comedy movie or a Blue-ray?<br>
+      <li>What is the probability that a randomly drawn movie is not a comedy?<br>
+      </ol>
+  </div>
+
+
+<h2>Example - More dice </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example </button>
+  <div id="ex6" class="collapse">
+
+  <P> Suppose two fair six-sided dice are rolled.
+    <ol>
+      <li>What is the probability the values of the dice sum to 7 or 11?<br>
+      <li>What is the probability of doubles or a sum less than 5?<br>
+      </ol>
+  </div>
+
+
+<h2>Example - Divisibility </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example </button>
+  <div id="ex7" class="collapse">
+  <P> What is the probability that number randomly selected from 1 to 500 is exactly divisible by 3 or 4?
+  </div>
+
+
+<h2>Example - Quality Control </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example </button>
+  <div id="ex8" class="collapse">
+    <P>A facotry makes batches of 45 precision parts. Quality Control randomly selects 10 for testing and rejects the whole batch if 1 or more are found to be defective.
+      A certain batch has 9 defective parts. What is the probability this batch is rejected?
+</div>
+
+<h2>Example - Birthday Problem </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example </button>
+  <div id="ex9" class="collapse">
+  <P> What is the probability that two people in this room have the same birthday (excluding Feb 29)?
+  </div>
+
+<!--
+<h2>Example - Coffee Survey </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example </button>
+  <div id="ex10" class="collapse">
+  <P> A recent survey of 100 coffee drinker showed 70 take sugar, 60 take cream, and 50 take both.
+    <ol>
+      <li>How many take sugar or cream?
+      <li>Sketch a Venn Diagram of the situation.
+      </ol>
+  </div>
+
+<h2>Example -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example </button>
+  <div id="ex11" class="collapse">
+  <P> Let n(U)=250, n(A)=85, n(B) = 130, and n(A\(\cap\)B)=35. Find n(A\(\cup\)B)\(^c\). Draw a Venn Diagram of the situation.
+  </div>
+<br>
+
+<h2>Example -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex12">Example </button>
+  <div id="ex12" class="collapse">
+  <img src="./Venn3_1.png" width=350><br>
+  <P>Consider the Venn diagram above and find the quanities below:<br>
+    <ol>
+      <li>n(A\(^c\))
+      <li>n(B\(^c\))
+      <li>n(A\(^c\cap\)B\(^c\))
+      <li>n(A\(\cup\)B)
+      <li>n(A\(\cup\)B)\(^c\)
+      <li>n(A\(\cap\)B)
+      <li>n(A\(\cap\)B)\(^c\)
+      <li>n(A\(^c\cup\)B\(^c\))
+      <li>n(B\(\cap\)C\(^c\) )
+    </ol>
+  </div>
+
+<h2>Example - Magazine advertising </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex13">Example </button>
+  <div id="ex13" class="collapse">
+
+  <P>A company advertises a product in 3 magazines: Sports Illustrated, People, and Time.
+    A Survery of 500 people who bought the product reveals the information below.<br>
+    <ul>
+      <li>180 saw ads in SI
+      <li>200 saw ads in People
+      <li>192 saw ads in Time
+      <li>84 saw ads in both SI and People
+      <li>52 saw ads in both SI and Time
+      <li>64 saw ads in both People and Time
+      <li>38 saw ads in all three
+    </ul>
+
+    <ol type='1'>
+      <li>Draw a Venn Diagram of the situation.
+      <li>How many learned of the product from at least one magazine?
+      <li>How many learned of the product from exactly one magazine?
+      </ol>
+
+  </div>
+
+<h2>Example - Health Class </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex14">Example </button>
+  <div id="ex14" class="collapse">
+
+  <P>A health class surveyed 1100 students from freshman dorms about eating habits in the cafeteria.<br>
+    <ul>
+      <li>425 ate breakfast
+      <li>680 ate lunch
+      <li>855 ate dinner
+      <li>275 ate breakfast and lunch
+      <li>505 ate lunch and dinner
+      <li>375 ate breakfast and dinner
+      <li>240 ate all three
+    </ul>
+
+    <ol type='1'>
+      <li>Draw a Venn Diagram of the situation.
+      <li>How many ate only breakfast?
+      <li>How many ate at least 2 meals in the cafeteria?
+      <li>How many ate only 1 meal?
+      <li>How many didn't eat in the cafeteria?
+      </ol>
+
+  </div>
+
+<h2>Example - Sociology project </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex15">Example </button>
+  <div id="ex15" class="collapse">
+
+  <P>Charles Tally gave the following summary of his interviews with 135 students for a sociology project:
+    <ul>
+      <li>65 said they like to go to movies.
+      <li>77 said they like to go to football games.
+      <li>61 said they like to go to the theater.
+      <li>28 said they like to attend movies and football games.
+      <li>25 said they like to attend movies and the theater.
+      <li>29 said they like to attend football games and the theater.
+      <li>8 said they like to attend all three.
+      <li>4 said they do not like to attend any of these.
+      </ul>
+  <P>The professor refused to accept Charles’s paper because the information was inconsistent.
+    Was the professor justified in claiming that the information was inconsistent?
+  </div>
+-->
+<br>
+
+
+</body>
+</html>
