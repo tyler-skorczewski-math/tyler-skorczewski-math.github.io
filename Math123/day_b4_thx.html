@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:600px; padding-left: 1cm; padding-bottom: 10cm" background="bg.jpg">
+
+<h1>Day before Thanksgiving break</h1>
+<hr>
+
+<h2>Example - Triangles</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example</button>
+  <div id="ex1" class="collapse">
+<p> How many triangles can you count in the image below?<br>
+  <img src="./triangles.jpg" width=300>
+</div>
+
+<h2>
+
+  <h2>Example - Deranged Secret Santa Permutations</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+    <div id="ex2" class="collapse">
+      <P>A <a href="https://en.wikipedia.org/wiki/Derangement">derangement</a> is a permutation of the elements of a set, such that no element appears in its original position.<br>
+      <ul>
+        <li>For example consider the set {A,B,C,D,E}. Consider this the originial order.<br>
+        <li>BACED is not a derangement because C still appears in the third position - same as in the original order.<br>
+        <li>CDAEB is a derangement. <br>
+        </ul>
+
+      <ol>
+        <li>How many derangments are there of the set {A,B,C}?
+          <ul><li>How many ways are there to order the elements of this set? Can you list them all?</li></ul>
+        <li>How many derangments are there of the set {A,B,C,D}?
+          <ul><li>How many ways are there to order the elements of this set?</li><li>Hint: a tree diagram may help here</li></ul>
+      </ol>
+      <br>
+
+      <P>How does this relate to Secret Santa?<br>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2ans">Solution</button>
+    <div id="ex2ans" class="collapse">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5kC5k5QBqcc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+
+<h2>Example - Big binomial expansion</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
+  <div id="ex3" class="collapse">
+<P> What is the coefficient of \(x^9\) when you expand \((1 + x)(1+x^2)(1+x^3)\dots(1+x^{100}) \)?<br><br>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3ans">Solution</button>
+      <div id="ex3ans" class="collapse">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Lhb1AB3pti8?start=49" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+
+<h2>Example - Seating charts</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example</button>
+  <div id="ex6" class="collapse">
+  <P>Sometimes people just don’t get along, and you are caught in the middle. Imagine
+that you are a wedding planner organizing the rehearsal dinner before a big wedding.
+There are a total of 16 people attending the rehearsal dinner: A, B, C, ..., H
+are relatives of the bride and groom; I, J, K, Á P are members of the wedding party. If things weren’t stressful enough, you are told that some of these people
+have serious issues:
+<ul>
+<li>A doesn’t get along with F,G, or H,
+<li>B doesn’t get along with C,D, or H,
+<li>C doesn’t get along with B,D, E, G, or H,
+<li>D doesn’t get along with B, C, or E,
+<li>E doesn’t get along with C,D, F, or G,
+<li>F doesn’t get along with A, E, or G,
+<li>G doesn’t get along with A, C, E, or F,
+<li>H doesn’t get along with A, B, or C.
+</ul>
+To make the rehearsal dinner go smoothly you are instructed to find a way to
+seat these people so that people that don’t get along must be seated at different
+tables. (I through P get along with everyone, so they are not a concern.) How are
+you going to set up the seating arrangements with so many incompatibility issues
+to worry about? What is the minimum number of tables you will need?
+  </div>
+
+
+</body>
+</html>
