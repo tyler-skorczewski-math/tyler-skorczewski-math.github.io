@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:700px; padding-left: 1cm; padding-bottom: 10cm" background="bg.jpg">
+
+  <h1>Bayes Theorem</h1>
+
+<hr>
+
+
+
+<h2>Example 1 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+<p> Consider two urns that contain balls. Urn 1 has 3 blue and 2 white balls. Urn 2 has 1 blue and 3 white balls.
+  A single six-sided die is rolled and if a 1 or 2 comes up, a ball is drawn from urn 1.
+  Otherwise a ball is drawn from urn 2.
+  If the ball drawn is blue, what is the probability that it came from urn 1? from urn 2?
+</div>
+
+<h2>Example 2 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+<p> A new, inexpensive skin test is devised for detecting tuberculosis.
+  To evaluate the test before it is put into use, a medical researcher randomly selects 1000 people.
+  Using a precise, but more expensive method already available, it si found that 8% of the 1000 people have TB.
+  Now each of the subjects is given the new skin test and the following results are recorded: The test indicates TB in 96% of theose who have it and in 2% of those who do not.
+  Based on these results, what is the probability of a randomly chosen person having TB given that the skin test indicates the disease?
+  What is the probability of a person not having tuberculosis given that the skin test indicates the disease?
+  What is the probability of a person having TB given that the skin test indicates no disease is present?
+</div>
+
+<h2>Example 3</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+  <div id="ex3" class="collapse">
+  <P> A company produces 1000 refridgerators a week at three plants. Plant A produces 350 refridgerators a week, plant B produces 250 a week, and plant C produces 400 refridgerators a week.
+    Production records indicate that 5% of the refridgerators from plant A will be defective, 3% from plant B, and 7% from plant C.
+    All refridgerators are shipped to a central warehouse. If a randomly selected refridgerator at the warehouse is found to be defective, what is the probability it came from plant A?
+  </div>
+
+  <h2>Example 4 </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+    <div id="ex4" class="collapse">
+    <P> If two cards are drawn from a standard 52 card deck without replacement and the second card is a heart, what is the probability the first card is a heart?
+    </div>
+
+    <h2>Example 5 </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+      <div id="ex5" class="collapse">
+        <P>A study was conducted in a large metropolitan area to determine the annual incomes of married couples where one or both spouses worked.
+          The table below shows the results of this study.
+          <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 539px">
+<colgroup>
+<col style="width: 149px">
+<col style="width: 186px">
+<col style="width: 204px">
+</colgroup>
+  <tr>
+    <th class="tg-031e">Annual Family income ($)</th>
+    <th class="tg-031e">% couples in income range</th>
+    <th class="tg-031e">% of couples in income range with both spouses employed</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">150,000 and up</td>
+    <td class="tg-031e">4</td>
+    <td class="tg-031e">65</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">100,000-149,999</td>
+    <td class="tg-031e">10</td>
+    <td class="tg-031e">73</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">75,000-99,999</td>
+    <td class="tg-031e">21</td>
+    <td class="tg-031e">68</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">50,000-74,999</td>
+    <td class="tg-031e">24</td>
+    <td class="tg-031e">63</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">30,000-49,999</td>
+    <td class="tg-031e">30</td>
+    <td class="tg-031e">43</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">under 30,000</td>
+    <td class="tg-031e">11</td>
+    <td class="tg-031e">28</td>
+  </tr>
+</table>
+<ol type='a'>
+  <li>What is the probability that a couple selected at random from this area has two incomes?
+  <li>If a randomly selected couple has two incomes, what is the probability that the annual income of this couple is $150,000 or more?
+  <li>If a randomly selected couple has two incomes, what is the probability that the annual income of this couple is greater than $49,999?
+  </ol>
+      </div>
+
+      <h2>Example 6 </h2>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+        <div id="ex6" class="collapse">
+        <P>An insurance company has compiled the accompanying data relating the age of drivers and the accident rate (the probability of being involved in an accident during a 1 year period) for drivers with that group.
+          <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">Age group</th>
+    <th class="tg-031e">% of insured drivers</th>
+    <th class="tg-031e">Accident rate, %</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">Under 25</td>
+    <td class="tg-031e">16</td>
+    <td class="tg-031e">5.5</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">25-44</td>
+    <td class="tg-031e">40</td>
+    <td class="tg-031e">2.5</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">45-64</td>
+    <td class="tg-031e">30</td>
+    <td class="tg-031e">2</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">65 and over</td>
+    <td class="tg-031e">14</td>
+    <td class="tg-031e">4</td>
+  </tr>
+</table>
+<p>What is the probability that an insured driver selected at random:
+<ol type='a'>
+  <li>will be involved in an accident during a particular 1 year period?
+  <li>who is involved in an accident in under 25?
+  </ol>
+        </div>
+
+<h2>Example </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example </button>
+  <div id="ex7" class="collapse">
+  <P>A creative writing class has 32 students, of whom 16 are seniors, 12 are juniors, and 4 are sophomores.
+    Nine of the seniors, 5 of the juniors, and 2 of the sophomores are journalism majors.
+    A student is selected at random. What is the probability that the student is
+    <ol type='a'>
+      <li>a journalism major, knowing that the student is a junior?
+      <li>not a senior, given that the student is a journalism major?
+    </ol>
+
+</div>
+
+</body>
+</html>

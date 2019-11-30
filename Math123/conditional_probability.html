@@ -1,0 +1,277 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:600px; padding-left: 1cm; padding-bottom: 10cm" background="bg.jpg">
+
+  <h1>Conditional Probability and Independence</h1>
+
+<hr>
+
+
+<!--
+<h2>Formulas</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#formula">Formulas </button>
+  <div id="formula" class="collapse">
+    <ul>
+      <li><b>Annuities</b>
+        <ul>
+        <li>future value: \(\displaystyle FV = R \frac{(1+i)^n - 1}{i} \)<br><br>
+        <li>present value: \(\displaystyle P = R \left[ \frac{1 - (1 + i)^n}{i}\right]\)<br>
+        </ul>
+      <li><b>Amortization</b>
+        <ul>
+        <li> payments: \(\displaystyle R = P \frac{i}{1 - (1+i)^{-n}} \)<br><br>
+        <li> loan balance: \(\displaystyle Balance = P (1 + i)^n - R \left[ \frac{(1 + i)^n - 1}{i} \right] \)
+        </ul>
+      <li>Question: What does each variable represent in the equations above?
+    </ul>
+</div>
+-->
+
+<h2>Example - 10 sided die </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example </button>
+  <div id="ex1" class="collapse">
+<p>  Consider rolling a ten-sided die. <br>
+
+    <ul>
+      <li>What is the probability of rolling a prime (event 1)?<br>
+      <li>What is the probability rolling an odd number (event 2)?<br>
+      <li>What is the probability of a prime given that the roll is an odd number?<br>
+      <li>What is the probabilty of a prime or an odd number?
+      </ul><br>
+
+
+
+        <ul>
+          <li><b>Conditional Probability :</b> \(\displaystyle P(E|F) = \frac{n(E \cap F)/n(S)}{n(F)/n(S)} = \frac{P(E \cap F)}{P(F)}\) if \(P(F) \neq 0\)<br>
+          <li>Why do we add the extra statement 'if \(P(F) \neq 0\)?'<br>
+          </ul>
+
+
+
+</div>
+
+<h2>Example - Rain and Accidents  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example </button>
+  <div id="ex2" class="collapse">
+    <P>Records for Menomonie over the past several years give the following relative frequencies for being in an accident on Memorial Day:<br>
+      <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-0lax"></th>
+    <th class="tg-0lax">Accident A</th>
+    <th class="tg-0lax">No Accident A'</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Rain R</td>
+    <td class="tg-0lax">0.025</td>
+    <td class="tg-0lax">0.335</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">No Rain R'</td>
+    <td class="tg-0lax">0.015</td>
+    <td class="tg-0lax">0.625</td>
+  </tr>
+</table>
+    <ul>
+      <li>What is the probabilty of an accident?<br>
+      <li>What is the probability of rain on Memorial Day?<br>
+      <li>What is the probability of an accident given rain?<br>
+      <li>What is the probability of an accident given no rain?<br>
+      <li>How much more likely is it to have an accident on Memorial Day if there is rain?
+      </ul>
+</div>
+
+<h2>Example - Store Customers</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2a">Example </button>
+  <div id="ex2a" class="collapse">
+    <P> 60% of a store's customers are female and 75% of female customers have a charge account.
+
+      <ul>
+        <li> What is the probabilty that a random customer is a female with a charge account?<br>
+        <li> If 80% of males have a charge account, what is the probabilty that a random customer has a charge account?<br>
+        </ul>
+</div>
+
+
+<h2>Example - Three event result </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4b">Example </button>
+  <div id="ex4b" class="collapse">
+  <P>Explain the formula \(\displaystyle P( A \cap B \cap C) = P(A) P(|A) P(C| A \cap B)\).
+    </div>
+
+
+<h2>Example - More blackjack </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4c">Example </button>
+  <div id="ex4c" class="collapse">
+  <P>Consider playing blackack with a single 52 card deck. Blackjack is an ace and a card worth 10 (10,J,Q,K).
+    <ul>
+      <li>What is the probabilty of blackjack if the first card dealt is an ace?<br>
+      <li>What is the probabilty of blackjack if the first card dealt is a card worth 10?<br>
+      <li>How is this related to the previous unordered approach we looked at?
+    </ul>
+
+  </div>
+
+<h2>Example - Computer Company</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exbc">Example </button>
+  <div id="exbc" class="collapse">
+    <P>A large computer company, A, subcontracts the making of circuit boards to companies B and C, 40% and 60% repsectively.
+      Company B then subcontracts 70% of its orders to company D and 30% to company E. All ship the boards back to A to use in different things.
+      Quality Control at A has found that 0.5%, 1.5% and 1% of the boards made by C,D,E are defective, respectively.
+
+
+      <ul>
+        <li>What is the probabilty that a random computer sold by A is defective?<br>
+        <li>Draw a tree diagram to illustrate this example.<br>
+      </ul>
+  </div>
+
+
+<h2>Example - balls in a box</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exep">Example </button>
+  <div id="exep" class="collapse">
+    <P>Consider a box with 3 blue and 2 white balls. We pick out 2 balls one at a time.
+      What is the probabilty the second ball is white if we consider the case where we replace the first ball versus
+      the case without replacement?
+
+      <ul>
+        <li>Draw a tree diagram that illustrates the case with replacement and write down the probabilty of the second ball being white.<br>
+        <li>Draw a tree diagram that illustrates the case without replacing the first ball and write down the probabilty of the second ball being white.<br>
+        <li>Which case represents the balls being drawn as independent events? Why?<br>
+        <li><b>Definition</b> If \(A\) and \(B\) are events in sample space \(S\) we say they are independent if and only if \(P(A\cap B) = P(A)P(B)\).
+          Otherwise they are dependent.<br>
+        <li>Use this equation to verify the independence for your chosen case above.
+      </ul>
+  </div>
+
+<h2>Example - Coin Flips</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example </button>
+  <div id="ex5" class="collapse">
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5gif">GIF </button>
+      <div id="ex5gif" class="collapse">
+        <img src="./coinflip_eaten.gif" width=270><br>
+      </div>
+
+  <P> Consider flipping a coin twice. Show the flips are independent events. Draw a tree diagram that represents the situation.<br>
+
+  </div>
+
+
+<h2>Example - National Lung Society </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example </button>
+  <div id="ex6" class="collapse">
+
+  <P> The National Lung Society surveyed 2000 women.
+    <ul>
+      <li>680 were smokers.<br>
+      <li>50 has emphysema.<br>
+      <li>42 were smokers who had emphysema.<br>
+      </ul>
+
+      <P> Do these results suggest smoking and emphysema are independent events?
+
+  </div>
+
+
+<h2>Example - Battery </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example </button>
+  <div id="ex7" class="collapse">
+  <P> The probabilty a battery will last 10 hours is 0.8. The probabilty that it will last 15 hours is 0.15.
+    Given that a battery has lasted 10 hours what is the probabilty it will last 15 hours?
+  </div>
+
+
+<h2>Example - University students and financial aid </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example </button>
+  <div id="ex8" class="collapse">
+    <P>Consider the following data from a university about its students and whether they receive financial aid.
+      <table>
+        <tr><td></td><td>Receives financial aid</td><td>No financial aid</td><td>total</td></tr>
+        <tr><td>Undergrad</td><td>4222</td><td>3898</td><td>8120</td></tr>
+        <tr><td>Grad student</td><td>1879</td><td>731</td><td>2610</td></tr>
+        <tr><td>total</td><td>6101</td><td>4629</td><td></td></tr>
+      </table>
+      <br><br>
+      <ul><li>Let \(A = \) student is an undergrad.<br>
+        <li>Let \(B = \) student receives financial aid.<br>
+        <li>Calculate the quanitities below and use words to describe what they represent.
+        </ul>
+
+        <ol>
+          <li>\(P(A)\)<br>
+          <li>\(P(B)\)<br>
+          <li>\(P(A \cap B ) \)<br>
+          <li>\(P(B \mid A) \) <br>
+          <li>\(P(B \mid A^c) \)<br>
+          <li>Are \(A\) and \(B\) independent events?
+          </ol>
+</div>
+
+<h2>Example - Landscaping company </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example </button>
+  <div id="ex9" class="collapse">
+  <P> Consider owning a landscaping company and bidding on 3 projects. You estimate the chances of winning the bid
+    on projects A, B, and C to be 0.7, 0.6, and 0.5, respectively. You also know the chances of winning each are independent.
+    Draw a tree diagram to help you determine the probabilty that you win:
+    <ol>
+      <li>all three bids?<br>
+      <li>exactly two bids?<br>
+      <li>exactly one bid?<br>
+      <li>no bids?
+      </ol>
+  </div>
+
+
+<h2>Example - Cards </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example </button>
+  <div id="ex10" class="collapse">
+  <P> A single card is drawn from a standard deck of 52.
+    <ul>
+      <li>Let \(S \equiv \) the card is a spade.<br>
+      <li>Let \(F \equiv \) the card is a face card.<br>
+      <li>Let \(C \equiv \) the card is a club.<br>
+      </ul><br>
+
+  <P>Which pairs of events are independent?<br><br>
+
+  <P>Remark: do not confuse independent events with mutually exclusive events.
+  </div>
+
+<h2>Example - dice (again)  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example </button>
+  <div id="ex11" class="collapse">
+  <P> A single six-sided die is rolled 6 times. What is the probabilty of the sequence of rolls being 1,2,3,4,5,6 ?
+  </div>
+<br>
+
+
+<br>
+
+
+</body>
+</html>
