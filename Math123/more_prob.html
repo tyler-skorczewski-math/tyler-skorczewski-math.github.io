@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:600px; padding-left: 1cm; padding-bottom: 10cm" background="bg.jpg">
+
+  <h1>More Probability</h1>
+
+<hr>
+
+<h2>Example - mutually exclusive events </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex12">Example </button>
+  <div id="ex12" class="collapse">
+  <P>Let \(E\) and \(F\) be mutually exclusive events. Suppose that \(P(E)=0.1\) and \(P(F)=0.6\). Find the quantities below.<br>
+    <ol>
+      <li>\(P(E\cap F) \) <br>
+      <li>\(P(E\cup F) \) <br>
+      <li>\(P(E^c) \) <br>
+      <li>\(P(E^c\cap F^c) \) <br>
+      <li>\(P(E^c\cup F^c) \) <br>
+    </ol>
+  </div>
+
+<h2>Example - Venn diagram and probability </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex13">Example </button>
+  <div id="ex13" class="collapse">
+
+  <P>Let \(A\) and \(B\) be events on sample space \(S\) such that \(P(A)=0.2, P(B)=0.1\), and \(P(A\cap B) = 0.05\).<br>
+    <ul>
+      <li>Draw a Venn Diagram labled with probabilties.<br>
+      <li>Find \(P(A \cup B) \).<br>
+      <li>Find \(P(A^c \cap B^c) \).<br>
+      <li>Find \(P(A^c \cap B) \).<br>
+    </ul>
+
+  </div>
+
+
+<h2>Example - random number </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex14">Example </button>
+  <div id="ex14" class="collapse">
+
+  <P> Three numbers are drawn from {1, 2, 3, 4, 5, 6, 7} and placed in a row in the order drawn to form a three-digit number.
+    What is the probability that <br>
+    <ol type='a'>
+      <li>the number is 456?
+      <li>the first digit is 2, 4, or 6?
+      <li>it is larger than 600?
+      <li>it is less than 326?
+    </ol>
+  </div>
+
+<h2>Example - HS reunion </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex15">Example </button>
+  <div id="ex15" class="collapse">
+
+  <P>Lauren attended her 10th high school reunion.
+    Of the 65 people present, she observed that 31 were married and in their first marriage,
+    22 were married and in their second marriage, and 12 were currently single. (a)  (b)  (c)
+    <ol>
+      <li>If one person is selected at random from the group, find the probability that it is a single person.
+      <li>If two people are selected at random, find the probability that both are in their second marriage.
+      <li>If three people are selected at random, find the probability that two are in their first marriage and one is single.
+      </ol>
+
+  </div>
+
+  <h2>Example - dice (again)  </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example </button>
+    <div id="ex11" class="collapse">
+    <P> A single six-sided die is rolled 6 times. What is the probabilty of the sequence of rolls being 1,2,3,4,5,6 ?
+    </div>
+  <br>
+
+  <h2>Example - Landscaping company </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example </button>
+    <div id="ex9" class="collapse">
+    <P> Consider owning a landscaping company and bidding on 3 projects. You estimate the chances of winning the bid
+      on projects A, B, and C to be 0.7, 0.6, and 0.5, respectively. You also know the chances of winning each are independent.
+      Draw a tree diagram to help you determine the probabilty that you win:
+      <ol>
+        <li>all three bids?<br>
+        <li>exactly two bids?<br>
+        <li>exactly one bid?<br>
+        <li>no bids?
+        </ol>
+    </div>
+
+    <h2>Example </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example </button>
+      <div id="ex4" class="collapse">
+      <P> If two cards are drawn from a standard 52 card deck without replacement and the second card is a heart, what is the probability the first card is a heart?
+      </div>
+
+      <h2>Example </h2>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example </button>
+        <div id="ex5" class="collapse">
+          <P>A study was conducted in a large metropolitan area to determine the annual incomes of married couples where one or both spouses worked.
+            The table below shows the results of this study.
+            <style type="text/css">
+  .tg  {border-collapse:collapse;border-spacing:0;}
+  .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+  .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+  </style>
+  <table class="tg" style="undefined;table-layout: fixed; width: 539px">
+  <colgroup>
+  <col style="width: 149px">
+  <col style="width: 186px">
+  <col style="width: 204px">
+  </colgroup>
+    <tr>
+      <th class="tg-031e">Annual Family income ($)</th>
+      <th class="tg-031e">% couples in income range</th>
+      <th class="tg-031e">% of couples in income range with both spouses employed</th>
+    </tr>
+    <tr>
+      <td class="tg-031e">150,000 and up</td>
+      <td class="tg-031e">4</td>
+      <td class="tg-031e">65</td>
+    </tr>
+    <tr>
+      <td class="tg-031e">100,000-149,999</td>
+      <td class="tg-031e">10</td>
+      <td class="tg-031e">73</td>
+    </tr>
+    <tr>
+      <td class="tg-031e">75,000-99,999</td>
+      <td class="tg-031e">21</td>
+      <td class="tg-031e">68</td>
+    </tr>
+    <tr>
+      <td class="tg-031e">50,000-74,999</td>
+      <td class="tg-031e">24</td>
+      <td class="tg-031e">63</td>
+    </tr>
+    <tr>
+      <td class="tg-031e">30,000-49,999</td>
+      <td class="tg-031e">30</td>
+      <td class="tg-031e">43</td>
+    </tr>
+    <tr>
+      <td class="tg-031e">under 30,000</td>
+      <td class="tg-031e">11</td>
+      <td class="tg-031e">28</td>
+    </tr>
+  </table>
+  <ol type='a'>
+    <li>What is the probability that a couple selected at random from this area has two incomes?
+    <li>If a randomly selected couple has two incomes, what is the probability that the annual income of this couple is $150,000 or more?
+    <li>If a randomly selected couple has two incomes, what is the probability that the annual income of this couple is greater than $49,999?
+    </ol>
+        </div>
+
+  <h2>Example </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example </button>
+    <div id="ex7" class="collapse">
+    <P>A creative writing class has 32 students, of whom 16 are seniors, 12 are juniors, and 4 are sophomores.
+      Nine of the seniors, 5 of the juniors, and 2 of the sophomores are journalism majors.
+      A student is selected at random. What is the probability that the student is
+      <ol type='a'>
+        <li>a journalism major, knowing that the student is a junior?
+        <li>not a senior, given that the student is a journalism major?
+      </ol>
+
+  </div>
+
+</body>
+</html>
