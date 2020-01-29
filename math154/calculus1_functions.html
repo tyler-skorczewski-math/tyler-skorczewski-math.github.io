@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus I</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Functions</h1>
+
+<hr>
+
+<h2>Example 1 - Busses</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P>A bus rental company charges $100 pls $5 per rider. The maximum occupancy of the bus is 40 people.
+      <ol>
+        <li>Make a table with numbers of riders and cost to rent. (You don't need to include every number.)
+        <li>Come up with an algebraic definition of the function describing the rental cost.
+        <li>Sketch a graph of this function.
+        <li>What are the domain and range of this function?
+        </ol>
+  </div>
+
+<h2>Definition - Function</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#def1">Definition</button>
+  <div id="def1" class="collapse">
+    <P><b>Definition</b>: A function is a rule for assigning to each member of a set, called the domain, one and only one member of another set, called the range.
+  </div>
+
+
+<h2>Example 2 - class </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+    <P>In a previous class, Chris earned a B+, Elizabeth earned an A, and Michael earned a C.
+      Is this a function?
+  </div>
+
+
+<h2>Example 3 - sin(x) </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+  <P>Consider \(f(x)=\sin (x)\).
+    <ol>
+      <li>What are the domain and range?
+      <li>We know \(\sin(0)=\sin(2\pi)=0\), but the definition of function states each member of the
+        domain is assigned to one and only one member of the range. What is going on here?
+      <li>What does the graph look like? How is this related to ideas above?
+      </ol>
+</div>
+
+<h2>Example 4 - SIR</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+  <div id="ex4" class="collapse">
+    <P>Consider the virus currently (2020) occuring in China. (<a href="https://www.bbc.com/news/world-asia-china-51249208">News story</a>)<br><br>
+      <a href="https://sagecell.sagemath.org/?z=eJyFU8FuozAQvfMVo_YQaCaI7G4PrYS0V24RHFEUOTA03hhs2aZN_n4HQ6KN9lAOxjN-783Mw3RW9-DEB6WNUM2oRpe25LT6JOtA9kZbD0vi4K7OU3-w51-RxwoLLCGHT2HjlYcKCihXSRS11EFVlL1uScVX9GiEFb1L3iPgp0IoECbeNcRCmZNAOJIXnJuh4cCSH-0Acb0JkJfqpcD7bjPhOTG_9lw1HLFClv6IFrEs3UZR9FsOnqxoPO9Db4c4YPP5hXGW4s80SYJWHk_rPbf0HBZ2gDX_dyK-z1oHR_Y8cT1LT1r7BG952bi8zjBL3954ybaYcY7dyz3S0B6M5k5dvs24OIubPEtfE4hm16q8hlrinz102gJv8IwK5DC1tQ-QZ2OZH1dVEsKigply_pZSLJTyRlHfUkqmzI3t2BQlnT8Ypf-p_pguKmy00jZfWWpXS7VHSHmHfFiiYQH5C4M8XTzfMNnTCiF-zXDDXzaZAXM7T8UA_kTgZD8q4aUe-EIp_QVHNRLfJGPJEZsbQN10GSaI7kJstLmR3OgaMl4eFYHXIKCVjoQjfHqoNrF4kEc1OXTUeGoRxNBCGOIRYKnR_FMxj7211HPQpouwO-mvuNqti9263K39JfkLbV0WGA==&lang=sage&interacts=eJyLjgUAARUAuQ==">
+      Link to applet</a>
+
+    <div class="compute">
+    <script type="text/x-sage">
+from sage.calculus.desolvers import desolve_system_rk4
+t,S,I,R = var('t S I R')
+
+def SIRmodel(y,t,params):
+    S, I, R = y
+    alpha, beta = params
+    return ([-alpha*S*I,alpha*S*I-beta*I,beta*I])
+
+alpha = 0.2
+beta = 0.1
+@interact
+
+def _(alpha=(alpha,(0.,3.)),beta=(beta,(0.,3.))):
+    sol = desolve_system_rk4(SIRmodel([S,I,R],t,[alpha,beta]),[S,I,R],ics=[0,0.99,0.01,0],ivar=t,end_points=100.,step=0.5)
+    SS=[ [i,j] for i,j,k,l in sol]
+    IS =[ [i,k] for i,j,k,l in sol]
+    RS =[ [i,l] for i,j,k,l in sol]
+    SP = list_plot(SS)
+    IP = list_plot(IS,color='red')
+    RP = list_plot(RS,color='green')
+    tx = text('time', (50,-0.1))
+    print("In the simulation below blue represents the fraction of the population susceptible to a disease,")
+    print("the red the fraction infected, and green the fraction recovered or removed.")
+    show(SP+IP+RP+tx)
+        </script>
+      </div>
+  </div>
+
+  <h2>Example 5 - distance formula </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+    <div id="ex5" class="collapse">
+      <P>Let \(f(x) = x^2\). We will make a new function, \(D(x)\), defined by the distance from (0,0) to \(x,f(x)\).
+      <ol type = 'A'>
+        <li>What is the distance formula between two points (a,b) and (x,y)?<br><br>
+        <li>What is \(D(0)\) here? \(D(3)\)? \(D(-3)\)?
+        <li>What do you notice about \(D(3)\) and \(D(-3)\)? Why is this happening?
+        <li>Can you come up with a algebraic definition for \(D(x)\)?
+        <li>What is the domain and range of \(D\)?
+        <li>Graph \(D(x)\).
+      </ol>
+    </div>
+
+  <h2>Example 6 - Blood flow in a vessel </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+      <div id="ex6" class="collapse">
+        <P> Consider blood flow in a vessel. The flow is not the same different areas of the vessel lumen. <br>
+          <img src="bloodflow.png"><br>
+         <P>\(u(r) = k (R^2 - r^2) \), where \(u\) is horizontal velocity, \(R\) is the radius of the vessel, \(r\) is the radial coordinate, and \(k\) is a constant.
+        <P>What can you say about the blood flow?
+
+      </div>
+
+<h2>Definition - Polynomial</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#def2">Definition</button>
+  <div id="def2" class="collapse">
+    <P><b>Definition</b>: A polynomial in \(x\) is an expression that can written in form \(p(x) = a_0 + a_1 x + a_2 x^2 + ... + a_n x^n\),
+      where \(a_i\) are constants and powers of \(x\) are positive integers. The degree of \(p(x)\) is, \(n\), the largest power of \(x\).
+  </div>
+
+ <h2>Example 7  </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
+  <div id="ex7" class="collapse">
+  <P>Consider \(f(x) = x^2\).
+    <ol>
+      <li>What does \(g(x) = f(x-1)\) look like?<br>
+      <li>Let \(h(x) = 3x^{1/4}\). What is \(h(f(x))\)?
+      </ol>
+</div>
+
+<h2>Example 8  </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example 8</button>
+ <div id="ex8" class="collapse">
+ <P>
+</div>
+
+<h2>Example 9  </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example 9</button>
+ <div id="ex9" class="collapse">
+ <P>
+</div>
+
+<h2>Example 10  </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example 10</button>
+ <div id="ex10" class="collapse">
+ <P>
+</div>
+
+-->
+</body>
+</html>
