@@ -60,8 +60,8 @@ def _(f = input_box(f,label='f(x) = '),x0 = input_box(x0,label='center = '),orde
     p   = plot(f,-1,5, thickness=2)
     pt = plot(ft,-1, 5, color='green', thickness=2)
     dot = point((x0,f(x=x0)),pointsize=80,rgbcolor=(1,0,0))
-    pretty_print(html('$f(x)\;=\;%s$'%latex(f)))
-    pretty_print(html('$T_{%s}(x)\;=\;%s$'%(order,latex(ft))))
+    pretty_print(html('$f(x)=%s$'%latex(f)))
+    pretty_print(html('$T_{%s}(x)=%s$'%(order,latex(ft))))
     ymn = f(x=x0) - 5
     ymx = f(x=x0) + 5
     show(dot + p + pt, ymin = ymn, ymax = ymx )
