@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Inverse Functions</h1>
+
+<hr>
+
+<h2>Basic examples</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+ <div id="ex1" class="collapse">
+<P>Find the inverses of the following functions:
+<ol type='1'>
+<li>\( f(x) = 2x -3 \)
+<li>\( j(x) = (x-3)^3 \)
+<li>\( l(x) = x^2 -1 \)
+</ol>
+<P>Recall that to find the inverse of a function \( y = f(x) \), we swap \(x\) and \(y\) and solve for \(y\).
+<P>Let's take a closer look at \(l(x)\). Sketch it and its inverse on one set of axes. What do you notice?
+</div>
+
+<h2>1-1 functions</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#onetoone">Definition</button>
+ <div id="onetoone" class="collapse">
+<P><B>Definition:</B>A function, \(f\), is <u>one-to-one</u> iff \(x_1 \neq x_2 \Rightarrow f(x_1) \neq f(x_2)\), i.e. different inputs give different outputs.
+<P>The graph of a function must pass the vertical line test if it is truly a function. For a function to be 1-1, it must pass a horizontal line test. Explain why this must be true.
+</div>
+
+<h2>Example 2</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+
+<P> Consider \(f(x) = 2x + 3\). Find its inverse and graph both on the same set of axes.
+<P> What do you notice about the slopes of these functions?<br>
+</div>
+
+<h2>Inverse trig functions</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#invtrig">Inverse trig fcns</button>
+  <div id="invtrig" class="collapse">
+
+    <P>Find the following values:
+  <ul>
+    <li> \( \cos^{-1} (1)   \)
+    <li> \( \sin^{-1} (1)   \)
+    <li> \( \arccos(0)   \)
+    <li> \( \sin^{-1} \left( \frac{\sqrt{3}}{2} \right)   \)
+    <li> \( \cos^{-1} \left( \frac{1}{2}  \right) \)
+    <li> \( \cos^{-1} \left( \frac{-\sqrt{3}}{2} \right)    \)
+    <li> \( \arctan(0)   \)
+    <li> \( \tan^{-1}(1)   \)
+    <li> \( \cos^{-1} (2)   \)
+  </ul><br><br>
+  
+<P>Question: Sketch a plot of the cosine function. Does this function have an inverse? Why or why not?
+  <div class="compute">
+    <script type="text/x-sage">
+p1 = plot(cos,-2*pi,2*pi,color='blue')
+pt = text(r"$y = \cos(x)$",(2.9,0.5),fontsize=20)
+p2 = plot(cos,0,pi,color='red',thickness=5)
+
+@interact
+
+def _(winv = checkbox(False,label='Show domain restriction?')):
+  if winv:
+      show(p2+p1+pt)
+  else:
+      show(p1+pt)
+
+
+p3 = plot(acos,-1,1,color='black',thickness=3)
+pti = text(r"$y = \cos^{-1}(x)$",(0.5,2),fontsize=20,color='black')
+show(p3+pti)
+
+    </script>
+  </div>
+</div>
+
+<h2>Example - Voting </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#excv">Voting Questions</button>
+ <div id="excv" class="collapse">
+   <ol type='A'>
+     <li> Which of the following are true statements?
+       <ol type='a'>
+         <li>\(\sin^{-1}\sin(\frac{5}{4}) = \frac{5}{4}\)
+         <li>\(\sin\sin^{-1}(\frac{5}{4}) = \frac{5}{4}\)
+         <li>\(\sin^{-1}\sin(\frac{3\pi}{4}) = \frac{3\pi}{4}\)
+         <li>\(\sin\sin^{-1}(\frac{3\pi}{4}) = \frac{3\pi}{4}\)
+         </ol><br>
+      <li>True or False. All even functions are not invertible.
+      <li>True or False. All odd functions are invertible.
+      <li>True or False. \(f(x) = 32 + \frac{9}{5}x\) and \(g(x) = \frac{5}{9}(x-32)\) are inverse functions of each other.
+       </ol>
+ </div>
+
+ <h2>Example - working some out by hand </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exeo">Example</button>
+  <div id="exeo" class="collapse">
+    <P>Use a right triangle diagram to find the values of \( \sin(\tan^{-1} (\frac{4}{3}))\) and \(\cos(\sin^{-1}(\frac{6}{10}))\).
+</div>
+
+<h2>Explore</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exexp">Example</button>
+<div id="exexp" class="collapse">
+  <P>How many functions can you find that are there own inverse? What do you notice about these functions?
+</div>
+
+
+
+</body>
+</html>

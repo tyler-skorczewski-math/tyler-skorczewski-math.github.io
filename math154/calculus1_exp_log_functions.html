@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Exponential and Logarithmic Functions</h1>
+
+<hr>
+
+<h2>Voting</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Voting</button>
+  <div id="cv" class="collapse">
+<ol type='A'>
+<li><img src="./log_exp_cv_3.png" width=400><br><br>
+<li><img src="./log_exp_cv_2.png" width=400><br><br>
+<li><img src="./log_exp_cv_1.png" width=400><br><br>
+</ol>
+</div>
+
+
+<h2>Properties of logarithms</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#logproperties">Log properties</button>
+  <div id="logproperties" class="collapse">
+<ol type='1'>
+<li>\( \ln 1 = 0 \)
+<li>\( \ln ab = \ln a + \ln b \)   for \(a,b >0 \)
+<li>\( \ln a/b = \ln a - \ln b \)
+<li>\( \ln x^r = r \ln x \)   for \(x >0 \)
+</ol>
+</div>
+
+<h2>Functions in the form \(a^x\)</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#atox">\(a^x\)</button>
+    <div id="atox" class="collapse">
+    <P>We may have learned in grade school that \(a^x\) meant repeatedly multiplying \(a\) \(x\) times, i.e. \(\underbrace{a \cdot a \cdot a \cdot ... \cdot a}_{x \text{ times}}\)
+    <P>What does \(a^{\pi}\) or \(a^{\sqrt{2}}\) mean then?
+    <P>Definition: Let \(a^x = e^{\ln a^x} = e^{x \ln a} \). This allows us to extend the idea of exponents. Question: Does it still encompass the old idea?
+    <P>Properties<ol type='1'>
+      <li>\(a^xa^y = a^{x+y}\)
+      <li>\(\frac{a^x}{a^y} = a^{x-y}\)
+      <li>\((a^x)^y = a^{xy}\)
+      <li>\((ab)^x = a^xb^x\)
+      <li>\( \left(\frac{a}{b}\right)^x = \frac{a^x}{b^x}\)
+      </ol>
+    <P>Task: Prove property 1. (hint: first prove the lemma \(e^ae^b = e^{a+b}\) )
+
+    </div>
+
+    <h2>Example - caffeine </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example</button>
+      <div id="ex1" class="collapse">
+    <P>Caffeine leaves the body at a continuous rate of 17% per hour. How much caffeine is
+    left in the body 8 hours after drinking a cup of coffee containing 100 mg of caffeine? What is the half life of caffeine?
+  </div>
+
+  <h2>Example - inflation </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+    <div id="ex2" class="collapse">
+  <P>“During 1988, Nicaragua’s inflation rate averaged 1.3% a day.” Which formula represents the above statement? Assume t is measured in days.
+<ul>
+  <li>(a) \(I = I_0e^{0.013t}\)
+<li>(b) \(I = I_0(1.013)^t\)
+<li>(c) \(I = I_0(1.013)t\)
+<li>(d) \(I = I_0(1.3)t\)
+</ol>
+
+</div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
+  <div id="ex3" class="collapse">
+<ol type='A'>
+  <li> Find the function in the form \( f(x) = ae^{bx} \) that goes through the points (1,2) and (5,8).
+  <li> Find the function in the form \( g(t) = g_0 \gamma^t \) if we know \(g(20) = 88.2\) and \(g(23) = 91.4\).
+  </ol>
+</div>
+
+<h2>Example - pharmacokinetics</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example</button>
+  <div id="ex4" class="collapse">
+<P>When a patient is given medication, the drug enters the bloodstream. As the drug passes through the liver and kidneys, it is metabolized and eliminated
+  at a rate that depends on the particular drug. For the antibiotic ampicillin, approximately 40% of the drug is eliminated every hour. A typical dose of amplicillin is
+  250 mg. Consider the following tasks.
+  <ol>
+    <li>Make a table showing the amount of drug (Q) after t hours for the first 4 hours after administering the drug.
+    <li>Find a function in the form \(Q(t) = A B^t\) that represents the amount of drug in the body.
+    <li>Rewrite this function in the form \(Q(t) = a e^{-bt}\) with \(a,b > 0\).
+    <li>What is the half life of this drug in the body?
+    <li>Plot this function on normal and a semilog graph. What do you notice?
+    </ol>
+
+</div>
+
+    <h2>Logscale plots</h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#logscale">Logscale plots</button>
+      <div id="logscale" class="collapse">
+
+    <P> The following sage applet can be used to plot functions on normal(linear) and log scales.<br>
+
+    	<div class="compute">
+    	<script type="text/x-sage">
+    	# everything following hash symbol is comment
+
+var('x')
+f = x^2 -4
+a = -2
+b = 4
+
+@interact
+
+def _(f = input_box(f,label='f(x) = '),
+      a=input_box(a,label='x min',width=5),
+      b=input_box(b,label='x max',width=5),
+      ptype = selector(['plot','semilog x','semilog y','log log'],buttons=True,label='plot type'),
+      auto_update=False):
+
+    if ptype=='plot':
+        p=plot(f,a,b)
+    elif ptype =='semilog x':
+        p=plot_semilogx(f,a,b)
+    elif ptype =='semilog y':
+        p=plot_semilogy(f,a,b)
+    elif ptype =='log log':
+        p=plot_loglog(f,a,b)
+    show(p)
+    	</script>
+    	</div>
+
+
+      </div>
+
+
+</body>
+</html>
