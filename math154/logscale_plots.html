@@ -76,28 +76,28 @@ ptype = selector(['plot','semilog x','semilog y','log log'],buttons=True,label='
 auto_update=False):
 
     if ptype=='plot':
-      p=list_plot(zip(time,cfs),axes_labels=['time','discharge'])
+      p=list_plot(list(zip(time,cfs)),axes_labels=['time','discharge'])
       if wfit:
             a,b = fit_line(time,cfs)
             p+=plot(a*x+b,1,83,color='red',thickness=3)
             txt = "y = " + str(a) + "t + " + str(b)
             p+=text(txt,(40,2000),color='red')
     elif ptype =='semilog x':
-      p=list_plot_semilogx(zip(time,cfs),base=exp(1.),axes_labels=['ln time','discharge'])
+      p=list_plot_semilogx(list(zip(time,cfs)),base=exp(1.),axes_labels=['ln time','discharge'])
       if wfit:
             a,b = fit_line(ln(time),cfs)
             p+=plot(a*ln(x)+b,1,83,color='red',thickness=3)
             txt = "y = " + str(a) + "t + " + str(b)
             p+=text(txt,(40,2000),color='red')
     elif ptype =='semilog y':
-      p=list_plot_semilogy(zip(time,cfs),base=exp(1.),axes_labels=['time','ln discharge'])
+      p=list_plot_semilogy(list(zip(time,cfs)),base=exp(1.),axes_labels=['time','ln discharge'])
       if wfit:
             a,b = fit_line(time,ln(cfs))
             p+=plot(exp(a*x+b),1,83,color='red',thickness=3)
             txt = "y = " + str(a) + "t + " + str(b)
             p+=text(txt,(40,2000),color='red')
     elif ptype =='log log':
-      p=list_plot_loglog(zip(time,cfs),base=exp(1.),axes_labels=['ln time','ln discharge'])
+      p=list_plot_loglog(list(zip(time,cfs)),base=exp(1.),axes_labels=['ln time','ln discharge'])
       if wfit:
             a,b = fit_line(ln(time),ln(cfs))
             p+=plot(exp(b) * x^a,1,83,color='red',thickness=3)
@@ -157,28 +157,28 @@ ptype = selector(['plot','semilog x','semilog y','log log'],buttons=True,label='
 auto_update=False):
 
     if ptype=='plot':
-      p=list_plot(zip(body,brain),axes_labels=['body','brain'])
+      p=list_plot(list(zip(body,brain)),axes_labels=['body','brain'])
       if wfit:
             a,b = fit_line(body,brain)
             p+=plot(a*x+b,0.01,6000,color='red',thickness=3)
             txt = "y = " + str(a) + "x + " + str(b)
             p+=text(txt,(40,2000),color='red')
     elif ptype =='semilog x':
-      p=list_plot_semilogx(zip(body,brain),axes_labels=['body','brain'])
+      p=list_plot_semilogx(list(zip(body,brain)),axes_labels=['body','brain'])
       if wfit:
             a,b = fit_line(log(body),brain)
             p+=plot(a*log(x)+b,0.01,6000,color='red',thickness=3)
             txt = "y = " + str(a) + "x + " + str(b)
             p+=text(txt,(40,2000),color='red')
     elif ptype =='semilog y':
-      p=list_plot_semilogy(zip(body,brain),axes_labels=['body','brain'])
+      p=list_plot_semilogy(list(zip(body,brain)),axes_labels=['body','brain'])
       if wfit:
             a,b = fit_line(body,log(brain))
             p+=plot_semilogy(exp(a*x+b),0.01,6000,color='red',thickness=3)
             txt = "y = " + str(a) + "x + " + str(b)
             p+=text(txt,(40,2000),color='red')
     elif ptype =='log log':
-      p=list_plot_loglog(zip(body,brain),axes_labels=['body','brain'])
+      p=list_plot_loglog(list(zip(body,brain)),axes_labels=['body','brain'])
       if wfit:
             a,b = fit_line(log(body),log(brain))
             p+=plot_loglog(exp(b)*x^a,0.01,6000,color='red',thickness=3)
@@ -228,28 +228,28 @@ ptype = selector(['plot','semilog x','semilog y','log log'],buttons=True,label='
 auto_update=False):
 
     if ptype=='plot':
-      p=list_plot(zip(body,gest),axes_labels=['body','gestation'])
+      p=list_plot(list(zip(body,gest)),axes_labels=['body','gestation'])
       if wfit:
             a,b = fit_line(body,gest)
             p+=plot(a*x+b,0.01,6000,color='red',thickness=3)
             txt = "y = " + str(a) + "x + " + str(b)
             p+=text(txt,(40,2000),color='red')
     elif ptype =='semilog x':
-      p=list_plot_semilogx(zip(body,gest),axes_labels=['body','gestation'])
+      p=list_plot_semilogx(list(zip(body,gest)),axes_labels=['body','gestation'])
       if wfit:
             a,b = fit_line(log(body),gest)
             p+=plot(a*log(x)+b,0.01,6000,color='red',thickness=3)
             txt = "y = " + str(a) + "x + " + str(b)
             p+=text(txt,(40,2000),color='red')
     elif ptype =='semilog y':
-      p=list_plot_semilogy(zip(body,gest),axes_labels=['body','gestation'])
+      p=list_plot_semilogy(list(zip(body,gest)),axes_labels=['body','gestation'])
       if wfit:
             a,b = fit_line(body,log(gest))
             p+=plot_semilogy(exp(a*x+b),0.01,6000,color='red',thickness=3)
             txt = "y = " + str(a) + "x + " + str(b)
             p+=text(txt,(40,2000),color='red')
     elif ptype =='log log':
-      p=list_plot_loglog(zip(body,gest),axes_labels=['body','gestation'])
+      p=list_plot_loglog(list(zip(body,gest)),axes_labels=['body','gestation'])
       if wfit:
             a,b = fit_line(log(body),log(gest))
             p+=plot_loglog(exp(b)*x^a,0.01,6000,color='red',thickness=3)
