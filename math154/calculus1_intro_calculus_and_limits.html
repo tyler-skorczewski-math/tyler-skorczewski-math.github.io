@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Motivations for calculus</h1>
+
+<hr>
+
+<h2>Voting</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Voting</button>
+  <div id="cv" class="collapse">
+<ol type='A'>
+<li>Imagine that there is a rope around the equator of the earth. Add a 20 meter
+segment of rope to it. The new rope is held in a circular shape centered about the
+earth. Then the following can walk beneath the rope without touching it:
+<ol type='a'>
+  <li>an amoeba
+  <li>an ant
+  <li>I can (student)
+  <li>all of the above
+</ol>
+</ol>
+</div>
+
+
+
+
+  <h2>Example - average versus instantaneous rates of change - motion </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+    <div id="ex2" class="collapse">
+  <P>Let the distance travelled by a car be described by \s(t) = 10t^2 + t\).
+    <ol>
+        <li>What is the distance travelled at \(t=0\)?
+        <li>What is the distance travelled at \(t=10\)?
+        <li>What is the name given to the average rate of change of \(s\)?
+        <li>What are the units of the average rate of change of \(s\)?
+        <li>Calculate the average rate of change of \(s\) from \(t=0\) to \(t=10\).
+        <li>Calculate the average rate of change of \(s\) from \(t=1\) to \(t=1.1\).
+        <li>Calculate the average rate of change of \(s\) from \(t=1\) to \(t=1.01\).
+        <li>Calculate the average rate of change of \(s\) from \(t=1\) to \(t=1.001\).
+        <li>What do you think is happening at \(t=1\)?
+    </ol>
+
+</div>
+
+<h2>Example  tangent line </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
+  <div id="ex3" class="collapse">
+    <P>Consider the curve \(y = f(x) = x^2\). Consider trying to find the equation of the line tangent to this curve at \(x=2\).
+<ol type='A'>
+  <li> What is the equation of the secant line through \( (2,4)\) and \( (3,9) \)?
+  <li> What is the equation of the secant line through \( (2,4)\) and \( (2.1,f(2.1)) \)?
+  <li> What is the equation of the secant line through \( (2,4)\) and \( (2.01,f(2.01)) \)?
+  <li> What is the equation of the secant line through \( (2,4)\) and \( (2.001,f(2.001)) \)?
+  <li> Draw a picture of the curve and the secant lines above. What are we doing with the lines above?
+  <li> Can you guess a formula for the tangent line to the curve?
+  </ol>
+</div>
+
+<h2>Example  distance from velocity </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example</button>
+  <div id="ex4" class="collapse">
+    <P>Consider a particle moving along a line with velocity \(v(t) = 10 - |t - 10| \), where \(v\) is measured in m/s and \(t\) is in seconds.
+<ol type='A'>
+  <li> Sketch a graph of \(v(t)\).
+  <li> When is the particle stopped?
+  <li> What is the area under the graph from \(t=0\) to \(t = 2\)? to \(t=10\)? to \(t=20\)?
+  <li> What are the units of area in this situation?
+  <li> How far has the particle travelled in the first 5 seconds?
+  </ol>
+</div>
+
+
+</body>
+</html>
