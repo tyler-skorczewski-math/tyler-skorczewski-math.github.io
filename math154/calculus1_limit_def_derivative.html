@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Limit definition of derivative</h1>
+
+<hr>
+
+
+
+<h2>Warmup</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Example</button>
+  <div id="ex0" class="collapse">
+    <img src="./ski_mtn.png" width=450><br>
+    <P>The sketch above shows the altitude versus time graph of a person at a ski resort.
+      Copy this sketch onto your paper. Describe what is happening at various points along the graph.
+      Then sketch the velocity versus time graph immediately below so that the time lines up.
+  </div>
+
+  <h2>Definitions</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex00">Example</button>
+    <div id="ex00" class="collapse">
+      <P>There are two definitions for the derivative of a function \(f\) at point \(a\), denoted by \(f'(a) = \frac{df}{dx}(a)\).
+      <ol type'A'>
+        <li>\(\displaystyle f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}\)<br><br>
+        <li>\(\displaystyle f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}\)<br><br>
+        </ol>
+      <P>Can you explain why these are equivalent?
+    </div>
+
+    <h2>Example</h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0000">Example</button>
+      <div id="ex0000" class="collapse">
+        <P>Consider \(f(x) = 2^x\). What is the slope of the graph of \(f\) at \(x=0\)? What is the equation of the tangent line to the graph at this point?
+        <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-lboi">\(h\)</th>
+    <th class="tg-lboi">\(2^{0+h}\)</th>
+    <th class="tg-lboi">\(\frac{2^h - 1}{h}\)</th>
+  </tr>
+  <tr>
+    <td class="tg-lboi">-0.0003</td>
+    <td class="tg-lboi">0.999792078</td>
+    <td class="tg-lboi">0.693075</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">-0.0002</td>
+    <td class="tg-0lax">0.99986138</td>
+    <td class="tg-0lax">0.693099</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">-0.0001</td>
+    <td class="tg-0lax">0.999930688</td>
+    <td class="tg-0lax">0.693123</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">0</td>
+    <td class="tg-0lax">1</td>
+    <td class="tg-0lax">-</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">0.0001</td>
+    <td class="tg-0lax">1.00006932</td>
+    <td class="tg-0lax">0.693171</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">0.0002</td>
+    <td class="tg-0lax">1.00013864</td>
+    <td class="tg-0lax">0.693195</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">0.0003</td>
+    <td class="tg-0lax">1.00020797</td>
+    <td class="tg-0lax">0.693214</td>
+  </tr>
+</table>
+      </div>
+
+
+<h2>Example </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example</button>
+  <div id="ex1" class="collapse">
+    <P>Let \(f(x) = 3-4x^2\).<br><br>
+<P> Find the value of the derivative with respect to \(x\) at 5, i.e. \(f'(5)\) if it exists. If it doesn't exist explain why not.<br><br>
+  <P>\(\displaystyle f'(5) = \lim_{h \to 0} \frac{f(5 + h) - f(5)}{h}\)<br><br>
+  <P>What is the equation of the tangent line to the graph of \(f(x)\) at \(x=5\)?<br><br>
+
+    <div class="compute">
+    <script type="text/x-sage">
+var('x')
+f = 3-4.*x*x
+x0=5
+
+@interact
+
+def _(f=input_box(f,label="f(x) =  "),x0=input_box(x0,label="x0 = "),pm=(1.,(0.00001,5))):
+    p = plot(f,xmin=x0-pm,xmax=x0+pm)
+    p.show()
+
+    </script>
+  </div>
+
+  </div>
+
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+  <div id="ex2" class="collapse">
+    <P>Find the derivatives of the functions specified at the given points.
+      <ol type='A'>
+        <li>Let \(\displaystyle f(x) = 5\). Find \(f'(3)\) and \(f'(x)\).<br><br>
+        <li>Let \(\displaystyle g(x) = 3x\). Find \(g'(1)\) and \(g'(x)\).<br><br>
+        <li>Let \(\displaystyle h(x) = \sqrt{x}\). Find \(h'(2)\) and \(h'(x)\).<br><br>
+      </ol>
+  </div>
+
+
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example</button>
+  <div id="ex5" class="collapse">
+    <P>Let \(\displaystyle f(x) = |x|\). Find \(f'(1), f'(-1), f'(0)\).
+  </div>
+
+  <h2>Example - </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example</button>
+    <div id="ex6" class="collapse">
+      <P>Let \(\displaystyle f(x) = (1 + x)^2\). Find \(f'(x)\) using the definition of derivative.
+    </div>
+
+
+
+</body>
+</html>
