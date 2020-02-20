@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Limits Exam Review</h1>
+
+<hr>
+
+
+<ol type='A'>
+
+  <li>
+      You know the following statement is true:<br><br>
+"If f(x) is a polynomial, then f(x) is continuous."<br><br>
+
+Which of the following is also true?
+      <ol type='A'>
+        <li>If f(x) is not continuous, then it is not a polynomial.
+        <li>If f(x) is continuous, then it is a polynomial.
+        <li>If f(x) is not a polynomial, then it is not continuous.
+      </ol>
+    <br><br>
+
+<li>Find the following limits:
+  <ol type='1'>
+    <li>\(\displaystyle \lim_{x \to 2} \frac{3x-18}{2x-12}\).<br><br>
+    <li>\(\displaystyle \lim_{\theta \to \pi} \frac{\sin \theta}{\tan \theta}\).<br><br>
+    <li>\(\displaystyle \lim_{h \to 0} \frac{\frac{1}{a+h} - \frac{1}{a}}{h}\).<br><br>
+    <li>\(\displaystyle \lim_{x \to 3} \frac{x^2 - 4x +3}{x^2 + x -12} \).<br><br>
+    <li>\(\displaystyle \lim_{x \to 1} \frac{1}{1-x} - \frac{2}{1-x^2} \).<br><br>
+
+  </ol>
+
+  <li>True or False. \(\displaystyle \lim_{x \to 0} x^2 \cos( \frac{1}{x} )\) exists.
+  <li>True or False. \(\displaystyle \lim_{\theta \to \pi/2} \cos \theta \cos(\tan\theta)\) exists.
+  <li>True or False. The function \(f(x) = \cos x - x\) has a root between 0 and \(\pi/2\).
+  <li>Find the value of \(c\) that makes the function below continuous.<br>
+    $$f(x) = \begin{cases}x^2 - c, & x < 5\\ 4x + 2c, & x \geq 5 \end{cases}$$
+  <li>Suppose it is known for a given \(\epsilon,\delta >0\), if \(|x-3|<\delta\) then \(|f(x) -2| < \epsilon\).
+    Which of the following must also be true?
+    <ol type='a'>
+      <li>If \(|x-3|< 2 \delta\) then \(|f(x) -2| < \epsilon\).<br>
+      <li>If \(|x-3|< \delta\) then \(|f(x) -2| < 2\epsilon\).<br>
+      <li>If \(|x-3|< \delta/2\) then \(|f(x) -2| < \epsilon/2\).<br>
+      <li>If \(|x-3|< \delta/2\) then \(|f(x) -2| < \epsilon\).<br>
+    </ol>
+    <li>Use the definition of derivative to find \(f'(x)\) if \(f(x) = 2x^2 + 10x\).
+</ol>
+
+</body>
+</html>
