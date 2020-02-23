@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Derivatives as functions</h1>
+
+<hr>
+
+
+
+
+<h2>Example - Gompertz model of tumor growth </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example</button>
+  <div id="ex1" class="collapse">
+    <P>Consider the growth of a tumor. One way to measure tumor size is number of cells.
+      The Gompertz model is a function sometimes used to model the number of cells.<br>
+
+      <P>\(\displaystyle N(t) = N_{\infty} e^{\ln \left( \frac{N_0}{N_{\infty}}\right)e^{-bt}}\)<br>
+
+    <P>Here \(N_0\) is the initial number of cells. The applet below graphs \(N(t)\). Can you figure out what \(N_{\infty}, b\) do?
+
+    <P>What does \(N'(t)\) represent? What are the units of \(N'(t)\)?
+
+    <P>Can you use the applet below to estimate \(N'(1)\) if \(N_0=1, N_{\infty}=1000, b=0.05\)?
+
+    <div class="compute">
+    <script type="text/x-sage">
+var('t')
+N0 = 1.
+Ninf = 1000.
+b=0.05
+N = Ninf*exp( ln(N0/Ninf)*exp(-b*t))
+t0=1
+
+@interact
+
+def _(N0=input_box(N0,label="N0 =  "),Ninf=(Ninf,(1,2000)),b=(b,(0.00001,0.5)),t0=input_box(t0,label="t0 = "),pm=(200,(0.00001,200))):
+    N = Ninf*exp( ln(N0/Ninf)*exp(-b*t))
+    p = plot(N,xmin=max(0,t0-pm),xmax=t0+pm)
+    p.show()
+
+    </script>
+  </div>
+
+  </div>
+
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex1">Example</button>
+  <div id="gex1" class="collapse">
+    <P>Which of the following graphs is the graph of the
+derivative of the function shown on the right?<br>
+      <img src="./derivative_graphs1.png" width=600>
+  </div>
+
+  <h2>Examples </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex2">Example</button>
+    <div id="gex2" class="collapse">
+      <P>Which of the following graphs is the graph of the
+  derivative of the function shown on the right?<br>
+        <img src="./derivative_graphs2.png" width=600>
+    </div>
+
+    <h2>Examples </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex3">Example</button>
+      <div id="gex3" class="collapse">
+        <P>Which of the following graphs is the graph of the
+    derivative of the function shown on the right?<br>
+          <img src="./derivative_graphs3.png" width=600>
+      </div>
+
+      <h2>Examples </h2>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex4">Example</button>
+        <div id="gex4" class="collapse">
+          <P>The graph on the right is the derivative of which of
+the following functions?<br>
+            <img src="./derivative_graphs4.png" width=600>
+        </div>
+
+
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex5">Example</button>
+  <div id="gex5" class="collapse">
+    <P>The graph on the right is the derivative of which of
+the following functions?<br>
+      <img src="./derivative_graphs5.png" width=600>
+  </div>
+
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example</button>
+  <div id="ex5" class="collapse">
+    <P>Sketch the graphs of \(f'(x), f''(x)\), and \(f'''(x)\) for \(f(x)\) shown below.<br>
+      <img src="higher_order_sketch.png" width=500><br>
+  </div>
+
+  <h2>Voting - </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Example</button>
+    <div id="cv" class="collapse">
+      <ol>
+        <li>True or False. If \(f'(x) = g'(x)\) then \(f(x) = g(x)\).<br><br>
+        <li>Suppose that \(f(x)\) is a function with \(f(2) = 15\) and \(f'(2) = 3\). Estimate \(f(2.5)\).
+          <ol type='a'>
+            <li>10.5
+            <li>15
+            <li>16.5
+            <li>18
+          </ol>
+      </ol>
+    </div>
+
+
+
+</body>
+</html>
