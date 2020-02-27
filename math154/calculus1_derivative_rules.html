@@ -189,7 +189,7 @@ $(function () {
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#pdr">Theorem</button>
           <div id="pdr" class="collapse">
             <P>Product Rule for derivatives: Let \(u(x)\) and \(v(x)\) be differentiable functions.
-              Then let \(p(x) = u(x)v(x) = (uv)(x). Then \(p\) is differentiable and
+              Then let \(p(x) = u(x)v(x) = (uv)(x)\). Then \(p\) is differentiable and
               \(\frac{dp}{dx} = p'(x) = u'(x)v(x) + u(x)v'(x)\).
           </div>
           <br><br>
@@ -217,6 +217,35 @@ $(function () {
         <li>\(\displaystyle f(x) = \frac{3x}{\sqrt{x}}\)<br><br>
         <li>\(\displaystyle g(x) = \frac{2x-1}{5x+2}\)
       </ol>
+  </div>
+
+
+<h2>Example - Torricelli's law </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example</button>
+  <div id="ex10" class="collapse">
+    <img src="./tortank.png" width=100><br>
+    <P>Consider a tank full of water where the water drains out the bottom.
+    <P>We know for this kind of situation that the rate of change of height in the tank is proportional to the square root of the height.
+
+      <ol>
+        <li>Write out an equation that describes the dynamics above. Let \(y(t)\) represent the height at time \(t\).<br><br>
+        <li>Does the water drain faster when the tank is full or half full? Why?<br><br>
+        <li>Let \(\displaystyle y(t) = \frac{(C - tk)^2}{4}\) for constant \(C\). Does this solve your equation above?<br><br>
+        <li>Suppose for a certain tank we have \( y(0) = 9\) and \(y(20)=4\). Find \(C\) and \(k\).
+      </ol>
+  </div>
+
+<h2>Example - DE </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example</button>
+  <div id="ex11" class="collapse">
+    <P>Is \(\displaystyle y(x) = \frac{1}{x} - 1\) a solution to the differential equation <br><br>
+      \(\displaystyle x^3 y'' + x^2 y' - xy = x\)?
+  </div>
+
+<h2>Example - IVP </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex12">Example</button>
+  <div id="ex12" class="collapse">
+    <P>What is the function \(f\) that satisfies \(f'(x) = 3x + 2\) with \(f(0) = 1\)?
   </div>
 
 
