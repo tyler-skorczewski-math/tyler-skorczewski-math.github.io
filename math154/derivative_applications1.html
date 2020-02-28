@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Derivative rules</h1>
+
+<hr>
+
+<h2>Example - Torricelli's law </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example</button>
+  <div id="ex10" class="collapse">
+    <img src="./tortank.png" width=100><br>
+    <P>Consider a tank full of water where the water drains out the bottom.
+    <P>We know for this kind of situation that the rate of change of height in the tank is proportional to the square root of the height.
+
+      <ol>
+        <li>Write out an equation that describes the dynamics above. Let \(y(t)\) represent the height at time \(t\).<br><br>
+        <li>Does the water drain faster when the tank is full or half full? Why?<br><br>
+        <li>Let \(\displaystyle y(t) = \frac{(C - tk)^2}{4}\) for constant \(C\). Does this solve your equation above?<br><br>
+        <li>Suppose for a certain tank we have \( y(0) = 9\) and \(y(20)=4\). Find \(C\) and \(k\).
+      </ol>
+  </div>
+
+<h2>Example - DE </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example</button>
+  <div id="ex11" class="collapse">
+    <P>Is \(\displaystyle y(x) = \frac{1}{x} - 1\) a solution to the differential equation <br><br>
+      \(\displaystyle x^3 y'' + x^2 y' - xy = x\)?
+  </div>
+
+<h2>Example - IVP </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex12">Example</button>
+  <div id="ex12" class="collapse">
+    <P>What is the function \(f\) that satisfies \(f'(x) = 3x + 2\) with \(f(0) = 1\)?
+  </div>
+
+<h2>Example - Business </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex13">Example</button>
+  <div id="ex13" class="collapse">
+    <P>Consider running a business that sells widgets. You make (and sell) a quantity \(q\) of these widgets.
+
+    <ol>
+    <li>The cost of producing \(q\) widgets has a graph that looks like the graph below. Explain why this graph looks like it does in business terms.<br>
+    <img src="./costgraph.png" width=300><br>
+    <li>The revenue from selling \(q\) widgets has a graph that looks like the graph below. Explain why this graph looks like it does in business terms.<br>
+    <img src="./revenuegraph.png" width=300><br>
+    <li>Can you sketch a graph of the profit from selling \(q\) widgets?<br>
+    <li>Sketch a graph of the derivative of the profit.<br>
+    </ol>
+  </div>
+
+<h2>Example - Roller coaster </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex14">Example</button>
+  <div id="ex14" class="collapse">
+    <P>Consider building a roller coaster. After the initial straight descent from \(x=-1\) to \(x=0\), the coaster enters a parabolic arc.
+      There are supports at (-1,1), (0,0), and (1,1).
+      <ol>
+        <li>Describe the function that represents the track.
+        <li>If the velocity along the track is modeled by \(v(t) = t\), what is the position (distance along the track) at time \(t\)?
+        <li>What is the acceleration of the car at time \(t\)?
+        </ol>
+  </div>
+
+
+
+</body>
+</html>
