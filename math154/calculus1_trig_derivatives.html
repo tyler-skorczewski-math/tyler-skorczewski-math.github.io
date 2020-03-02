@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Trig Derivatives</h1>
+
+<hr>
+
+
+<h2>Warmup</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Warmup</button>
+  <div id="ex1" class="collapse">
+      <ol>
+        <li>Draw the graph of \(\sin(x)\) for \(-2\pi \leq x \leq 2\pi\).
+          Sketch the derivative beneath. <br>
+          <li>Draw the graph of \(\cos(x)\) for \(-2\pi \leq x \leq 2\pi\).
+            Sketch the derivative beneath. <br>
+        <li>What patterns/observations do you notice from these graphs?<br>
+      </ol><br>
+
+  </div>
+
+  </div>
+
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex1">Example</button>
+  <div id="gex1" class="collapse">
+    <P>We know that \(\frac{d}{dx} \sin x = \cos x\) and \(\frac{d}{dx} \cos x = - \sin x\).
+      Use these ideas, properties of trigonometric functions, and other derivative rules to find the following:
+      <ol>
+        <li>\(\frac{d}{dx} \tan x\)<br>
+        <li>\(\frac{d}{dx} \sec x \)<br>
+
+      </ol><br>
+
+  </div>
+
+  <h2>Examples </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex2">Example</button>
+    <div id="gex2" class="collapse">
+      <P>What is the equation of the tangent line to the graph of \(f(x) = 1 + \cos x\) at \(x=3\pi/2\)?
+        Draw the graph of \(f\) and the tangent line on the same set of axes.
+
+    </div>
+
+    <h2>Examples </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex3">Example</button>
+      <div id="gex3" class="collapse">
+        <P>Where does the graph of \(\tan x\) have a horizontal tangent line?
+      </div>
+
+
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex5">Example</button>
+  <div id="gex5" class="collapse">
+    <P>Let the position of a swinging pendulum in simple
+harmonic motion be given by \(s(t) = a\cos t + b\sin t\). Find
+the constants \(a\) and \(b\) such that when the velocity is 3 cm/
+s, \(s = 0\) and \(t = 0\).
+  </div>
+
+
+
+<!--
+<h2>Example - Torricelli's law </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example</button>
+  <div id="ex10" class="collapse">
+    <img src="./tortank.png" width=100><br>
+    <P>Consider a tank full of water where the water drains out the bottom.
+    <P>We know for this kind of situation that the rate of change of height in the tank is proportional to the square root of the height.
+
+      <ol>
+        <li>Write out an equation that describes the dynamics above. Let \(y(t)\) represent the height at time \(t\).<br><br>
+        <li>Does the water drain faster when the tank is full or half full? Why?<br><br>
+        <li>Let \(\displaystyle y(t) = \frac{(C - tk)^2}{4}\) for constant \(C\). Does this solve your equation above?<br><br>
+        <li>Suppose for a certain tank we have \( y(0) = 9\) and \(y(20)=4\). Find \(C\) and \(k\).
+      </ol>
+  </div>
+
+<h2>Example - DE </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example</button>
+  <div id="ex11" class="collapse">
+    <P>Is \(\displaystyle y(x) = \frac{1}{x} - 1\) a solution to the differential equation <br><br>
+      \(\displaystyle x^3 y'' + x^2 y' - xy = x\)?
+  </div>
+
+<h2>Example - IVP </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex12">Example</button>
+  <div id="ex12" class="collapse">
+    <P>What is the function \(f\) that satisfies \(f'(x) = 3x + 2\) with \(f(0) = 1\)?
+  </div>
+
+-->
+  <h2>Voting - </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Example</button>
+    <div id="cv" class="collapse">
+      <ol>
+        <li>If \(f(x)=\sin x\) then
+
+          <ol type='a'>
+            <li>\(f(x) = f^{(4)}(x)\)
+              <li>\(f(x) = -f '' (x)\)
+                <li> \(f '(x) = \cos(x)\)
+                  <li> all of the above.
+                  </ol><br><br>
+
+        <li>\(\displaystyle{\lim_{x\rightarrow 0} \frac{\sin x}{x} = 1}\) means that
+          <ol type='a'>
+            <li>\(\frac{0}{0} =1\)
+            <li>the tangent to the graph of \(y=\sin x\) at (0,0) is the line \(y=x\)
+            <li>you can cancel the \(x\)'s.
+            <li>\(\sin x =x\) for \(x\) near 0.
+          </ol><br><br>
+
+          <li> If \(f(x)= \sin x \cos x, f'(x)=\)
+            <ol type='a'>
+              <li>\(1-2\sin^2(x)\)
+              <li>\(2\cos^2(x) -1\)
+              <li>\(\cos 2x\)
+              <li>all of the above
+              <li>none of the above
+              </ol><br><br>
+
+              <li> If \(f(x) =\tan x, f'(x) =\)
+                <ol type='a'>
+                  <li>\(1+ \tan^2(x)\)
+                  <li>\(\cot x\)
+                  <li>\(-\cot x\)
+                  <li>all of the above
+                  <li>none of the above
+                  </ol><br><br>
+
+                  <li>\(\displaystyle{\lim_{h\rightarrow 0}\frac{\sin (2x+h)-\sin (2x)}{h}}\) equals
+                    <ol type='a'>
+                      <li>\(\cos x\)
+                      <li>\(\cos 2x\)
+                      <li>\(0\)
+                      <li>does not exist because 0/0 is not defined
+                      </ol><br><br>
+
+                      <li>We know that \(\displaystyle{\frac{d}{dx}(\sin x)=\cos x}$\).
+<b>True or False</b>:  \(\displaystyle{\frac{d}{dx}\sin (2x)=\cos (2x)}\).
+
+      </ol>
+    </div>
+
+    <h2>Examples </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex7">Example</button>
+      <div id="gex7" class="collapse">
+        <P>What is the equation of the tangent line to the graph of \(f (x) = x^2 − \tan x \) at \(x = 0\)?
+
+      </div>
+
+
+
+</body>
+</html>
