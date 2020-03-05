@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CALCULUS I</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Inverse functions</h1>
+
+<hr>
+
+<h2>Basic examples</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+ <div id="ex1" class="collapse">
+<P>Find the inverses of the following functions:
+<ol type='1'>
+<li>\( f(x) = 2x +3 \)
+<li>\( g(x) = 2^x\)
+<li>\( h(x) = \frac{2x}{x+1} \)
+</ol>
+
+</div>
+
+<h2>Example</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+<P> Consider \(f(x) = 2x + 3\). Find its inverse and graph both on the same set of axes.
+<P> What do you notice about the derivatives of these functions?<br>
+
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#invthm">Theorem</button>
+<div id="invthm" class="collapse">
+<P><b>Theorem</b> Let \(f\) and \(g\) be inverses of each other. Let \(f(a) = b\). If \(f'(a)\) exists and \(f'(a) \neq 0\). Then \(g'(b)\) exists and \(g'(b) = \frac{1}{f'(a)}\). An equivalent form says then \(g'(x) = \frac{1}{f'[g(x)]}\) provided \(f'[g(x)] \neq 0\).
+</div>
+<P> Consider \(j(x) = (x-3)^3\). What is \(\frac{d}{dx}j^{-1}\) at \(x=8\)?
+</div>
+
+<h2>Inverse trig functions</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#invtrig">Inverse trig fcns</button>
+  <div id="invtrig" class="collapse">
+    <P>Find the following values:
+  <ul>
+    <li> \( \cos^{-1} (0)   \)
+    <li> \( \sin^{-1} (0)   \)
+    <li> \( \arccos(\pi/2)   \)
+    <li> \( \sin^{-1} \left( \frac{\sqrt{2}}{2} \right)   \)
+    <li> \( \sin^{-1} \left( \frac{1}{2}  \right) \)
+    <li> \( \cos^{-1} \left( \frac{-\sqrt{3}}{2} \right)    \)
+    <li> \( \arctan(1)   \)
+    <li> \( \tan^{-1}(0)   \)
+
+  </ul>
+
+<P>Task: use the picture below along with the theorem above derivatives of inverses to show \(\frac{d}{dx}\cos^{-1}x = \frac{-1}{\sqrt{1-x^2}}\).<br>
+<img src="images/invcos.png" width=300><br>
+<P>Can you repeat this style of analysis to derive the derivative of inverse sine?
+<P>What about the derivative of inverse tangent?
+</div>
+
+<h2>Examples</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example </button>
+ <div id="ex11" class="collapse">
+<P>Find the derivatives of the following functions:
+<ol type='1'>
+<li>\(\displaystyle f(x) = \sin^{-1}(x^2) \)<br><br>
+<li>\(\displaystyle g(x) = (1 + \tan^{-1}x)^3\)<br><br>
+<li>\(\displaystyle h(x) = \cos^{-1} (\sqrt{x}) \)<br><br>
+<li>Find the equation of the tangent line to the graph of \(h(x)\) at \(x=0\).<br><br>
+<li>Find \(\displaystyle \frac{dj^{-1}}{dx}(2)\) where \(j(x) = x^2 + 3x + 2\) for \(x \geq -1\).<br><br>
+</ol>
+
+
+</div>
+
+</body>
+</html>

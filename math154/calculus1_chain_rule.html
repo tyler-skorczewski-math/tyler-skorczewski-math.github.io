@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Chain Rule</h1>
+
+<hr>
+
+<!--
+
+
+-->
+  <h2>Voting - </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Example</button>
+    <div id="cv" class="collapse">
+      <ol>
+          <li> If \(f(x)= \sin x \cos x, f'(x)=\)
+            <ol type='a'>
+              <li>\(1-2\sin^2(x)\)
+              <li>\(2\cos^2(x) -1\)
+              <li>\(\cos 2x\)
+              <li>all of the above
+              <li>none of the above
+              </ol><br><br>
+
+
+          <li>\(\displaystyle{\lim_{h\rightarrow 0}\frac{\sin (2x+h)-\sin (2x)}{h}}\) equals
+            <ol type='a'>
+              <li>\(\cos x\)
+              <li>\(\cos 2x\)
+              <li>\(0\)
+              <li>does not exist because 0/0 is not defined
+              </ol><br><br>
+
+          <li>We know that \(\displaystyle{\frac{d}{dx}(\sin x)=\cos x}\).
+            <b>True or False</b>:  \(\displaystyle{\frac{d}{dx}\sin (2x)=\cos (2x)}\).
+
+      </ol>
+    </div>
+
+<h2>Example - Hot Air Balloon </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex2">Example</button>
+  <div id="gex2" class="collapse">
+    <P>Consider flying in a hot air balloon. As you go higher,
+      the temperature of the air decreases \(3^{\circ}\)C per 1000 feet of altitude gain.
+      The altitude of the balloon is changing according to \(y(t) = 5000( 1 - \frac{1}{1+t})\).
+      Assume at sea level the temperature is \(15^{\circ}\)C.
+      Find the temperature as a function of time. What is the max/min temp? Can you plot the temperature as a function of time?
+
+  </div>
+
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex3">Example</button>
+  <div id="gex3" class="collapse">
+    <P>Decompose the following functions into a composite of two functions.
+
+      <ul>
+        <li>\(\displaystyle  H(x) = (2x+1)^3 \)<br><br>
+        <li>\(\displaystyle  J(x) = 2x^3 + 1 \)<br><br>
+        <li>\(\displaystyle  K(x) = \sqrt{(6x-5)} \)<br><br>
+        <li>\(\displaystyle  L(x) = \sin(7x^2-4) \)<br><br>
+        </ul><br><br>
+
+    <P> \(\displaystyle M(x) = \sin^3 (1 - x^2 + \sqrt{x}) \) is the composition of three function. Can you find them?
+
+  </div>
+
+<h2>Theorem - Chain Rule </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex5">Example</button>
+  <div id="gex5" class="collapse">
+    <P><b>Theorem (Chain rule)</b>: If \(h(x) = f(g(x))\) and \(f,g\) are differentiable, then \(h'(x) = f'(g(x))g'(x)\).
+      <br><br><br><br>
+
+    <P>Let \(f(x) = 3x\) and \(g(x) = 2x\). Find \(\frac{d}{dx} f(g(x))\).<br>
+
+    <P>Find the derivatives of the functions in the example above.
+
+
+  </div>
+
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex7">Example</button>
+  <div id="gex7" class="collapse">
+    <P> The formula for the volume of a sphere is \(V = \frac{4}{3}\pi r^3\),
+       where \(r\) (in feet) is the radius of the sphere. Suppose a spherical snowball is melting in the sun.
+       <ol type='a'>
+         <li> Suppose \(r = \frac{1}{(t + 1)^2} − \frac{1}{12}\) where \(t\) is time in
+minutes. Use the chain rule \(\frac{dS}{dt} = \frac{dS}{dr}\frac{dr}{dt}\) to find
+the rate at which the snowball is melting.<br><br>
+        <li> Use a. to find the rate at which the volume is
+changing at \(t = 1\) min.
+
+  </div>
+
+<h2>Example - Special relativity </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex1">Example</button>
+  <div id="gex1" class="collapse">
+    <P>Special relativity tell us that the faster a particle moves, the more mass it appears to have.
+      If the velocity of a particle is \(v\), the speed of light is \(c\), and the rest mass is \(m_0\), then the mass
+      obeys<br> \(\displaystyle m = \frac{m_0}{\sqrt{1 - \frac{v^2}{c^2}}}.\)
+      <br><br>
+
+      <P>Find and interpret \(\displaystyle \frac{dm}{dv}\).
+  </div>
+
+  <h2>Example - </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex11">Example</button>
+    <div id="gex11" class="collapse">
+      <P>The daily temperature in degrees Fahrenheit of
+      Phoenix in the summer can be modeled by the function
+      \(T(t) = 94 − 10\cos \left( \frac{\pi}{12}(t-2) \right) \)
+      , where \(t \) is hours after
+      midnight. Find the rate at which the temperature is
+      changing at 4 p.m.
+    </div>
+
+<h2>More Voting - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv2">Example</button>
+  <div id="cv2" class="collapse">
+    <ol>
+        <li> If \(f\) and \(g\) are both differentiable and \(h=f\circ g\), \(h^{\prime}(2)\) equals
+          <ol type='a'>
+            <li>\( f^{\prime}(2)\circ g^{\prime}(2) \)<br>
+            <li>\( f^{\prime}(2)g^{\prime}(2) \)<br>
+            <li>\( f^{\prime}(g(2)) g^{\prime}(2) \)<br>
+            <li>\( f^{\prime}(g(x)) g^{\prime}(2) \)<br>
+            </ol><br><br>
+
+        <li>The area of a circle, \(A=\pi r^2\), changes as its radius changes. If the radius
+changes with respect to time, the change in area with respect to time is
+          <ol type='a'>
+            <li>\(\displaystyle{ \frac{dA}{dr}=2\pi r}\)<br>
+            <li>\(\displaystyle{ \frac{dA}{dt}=2\pi r+\frac{dr}{dt}}\)<br>
+            <li>\(\displaystyle{ \frac{dA}{dt}=2\pi r \frac{dr}{dt}}\)<br>
+            <li>not enough information
+            </ol><br><br>
+
+    </ol>
+  </div>
+
+
+
+
+
+
+
+</body>
+</html>

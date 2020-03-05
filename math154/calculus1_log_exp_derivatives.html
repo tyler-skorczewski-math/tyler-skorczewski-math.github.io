@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Derivatives of logs and exponential functions</h1>
+
+<hr>
+
+<!--
+
+
+-->
+  <h2>Warmup </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Warmup</button>
+    <div id="cv" class="collapse">
+      <ol>
+          <li> Sketch graphs of the following functions on one set of axes:
+            <ol type='a'>
+              <li>\(f(x) = 5^x\)
+              <li>\(g(x) = 2^x\)
+              <li>\(h(x) = e^x\)
+              <li>\(j(x) = 2^{-x}\)
+              <li>\(k(x) = 1^x\)
+              </ol><br><br>
+
+
+
+
+      </ol>
+    </div>
+
+<h2>Definition and Theorem </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex22">Theorem</button>
+  <div id="gex22" class="collapse">
+    <P>Let's define \(e\) to be the value such that if \(b=e\) then the graph of \(b^x\) has slope 1 when \(x=0\).
+    <br><br>
+    <P><b>Theorem</b> <br><br>
+
+      \(\displaystyle \frac{d}{dx}e^x = e^x\) <br><br>
+      \(\displaystyle \frac{d}{dx}b^x = b^x \ln(b) \)
+
+  </div>
+
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex3">Example</button>
+  <div id="gex3" class="collapse">
+    <P>Find the derivatives of the following functions:
+
+      <ul>
+        <li>\(\displaystyle  H(x) = e^{3x} \)<br><br>
+        <li>\(\displaystyle  J(x) = e^{e^{x}} \)<br><br>
+        <li>\(\displaystyle  K(x) = \sqrt{e^{6x}} \)<br><br>
+        <li>\(\displaystyle  L(x) = \sin( e^{\cos{x}} ) \)<br><br>
+        <li>\(\displaystyle  M(x) = xe^{5x} \)<br><br>
+        </ul><br><br>
+
+
+
+  </div>
+
+<h2>Example - Carbon dating </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex5">Example</button>
+  <div id="gex5" class="collapse">
+    <P>C-14 decays out of nonliving tissue at a rate proportional to the amount there is, i.e. \(C' = -k C\).
+      If \(C(0) = C_0\) show that \(C(t) = C_0 e^{-kt}\) solves the differential equation above.
+
+    <P>Can you find the value of \(k\) if the half life of C-14 is 5728 years?<br><br>
+
+
+    <P>Question: Skeletal fragments found show that the C-14 ratio is 6.25% of the amount normally found in body tissue.
+      How long ago did the person die?
+
+
+  </div>
+
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex7">Example</button>
+  <div id="gex7" class="collapse">
+    <P> We can use what we know about \(e^x\) to find rules about \(\ln x\) and other functions.
+      <ol type='A'>
+        <li> Sketch the graphs of \(e^x\) and \(\ln x\) on the same axes. Add the line \(y=x\) to this figure. What do you notice?
+        <li> What is the slope of the line tangent to the graph of \(e^x\) at the point \(\ln a, a\)?
+        <li> How is the above slope related to the slope of the line tangent to the graph \(\ln x\) at \(a, \ln a\)?
+        </ol>
+  </div>
+
+  <h2>Theorem </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex2">Theorem</button>
+    <div id="gex2" class="collapse">
+
+      <P><b>Theorem</b> \(\displaystyle \frac{d}{dx} \ln x = \frac{1}{x}\) <br><br>
+        \(\displaystyle \frac{d}{dx}\log_b x = \frac{1}{x} \frac{1}{\ln b} \)
+
+    </div>
+
+  <h2>Examples </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex33">Example</button>
+    <div id="gex33" class="collapse">
+      <P>Find the derivatives of the following functions:
+
+        <ul>
+          <li>\(\displaystyle  H(x) = \ln (3x) \)<br><br>
+          <li>\(\displaystyle  J(x) = \ln (x^2 + 4x  - 3) \)<br><br>
+          <li>\(\displaystyle  K(x) = \ln (x^7) \)<br><br>
+          <li>\(\displaystyle  L(x) = \ln \left( \frac{4x^2 - 5}{3x - 9} \right) \)<br><br>
+          <li>\(\displaystyle  M(x) = \ln \left( (x^2 - 4)(x^3 + 2x) \right) \)<br><br>
+          </ul><br><br>
+
+
+
+    </div>
+
+
+<!--     EXTRA Examples
+-->
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#eex5">Example</button>
+  <div id="eex5" class="collapse">
+    <P>Let the position of a swinging pendulum in simple
+harmonic motion be given by \(s(t) = a\cos t + b\sin t\). Find
+the constants \(a\) and \(b\) such that when the velocity is 3 cm/
+s, \(s = 0\) and \(t = 0\).
+  </div>
+
+  <h2>Example - Torricelli's law </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#eex10">Example</button>
+    <div id="eex10" class="collapse">
+      <img src="./tortank.png" width=100><br>
+      <P>Consider a tank full of water where the water drains out the bottom.
+      <P>We know for this kind of situation that the rate of change of height in the tank is proportional to the square root of the height.
+
+        <ol>
+          <li>Write out an equation that describes the dynamics above. Let \(y(t)\) represent the height at time \(t\).<br><br>
+          <li>Does the water drain faster when the tank is full or half full? Why?<br><br>
+          <li>Let \(\displaystyle y(t) = \frac{(C - tk)^2}{4}\) for constant \(C\). Does this solve your equation above?<br><br>
+          <li>Suppose for a certain tank we have \( y(0) = 9\) and \(y(20)=4\). Find \(C\) and \(k\).
+        </ol>
+    </div>
+
+  <h2>Example - DE </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#eex11">Example</button>
+    <div id="eex11" class="collapse">
+      <P>Is \(\displaystyle y(x) = \frac{1}{x} - 1\) a solution to the differential equation <br><br>
+        \(\displaystyle x^3 y'' + x^2 y' - xy = x\)?
+    </div>
+
+  <h2>Example - IVP </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex12">Example</button>
+    <div id="ex12" class="collapse">
+      <P>What is the function \(f\) that satisfies \(f'(x) = 3x + 2\) with \(f(0) = 1\)?
+    </div>
+
+
+
+
+</body>
+</html>
