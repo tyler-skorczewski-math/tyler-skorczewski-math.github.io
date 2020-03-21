@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Mean Value Theorem</h1>
+
+<hr>
+
+<!--
+
+
+-->
+  <h2>Example Driving across Wyoming  </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Idea</button>
+    <div id="cv" class="collapse">
+      <P>Consider driving across Wyoming on Interstate 80, about 420 miles long. Let's assume the speed limit on I-80 is 70 mph.
+        If it takes more than 6 hrs to get across, what can you say about your speed? What assumptions are you making?
+        <br><br><br>
+        <P>If we assume continuous driving and no stops/going backwards, the average speed is less than 70 mph.
+          <br><br><br>
+          <P>Let's go the other way: assume we drive less than 70 mph without any stops. Then the trip will take longer than 6 hours.
+            <br><br><br>
+            <P>How is this related to the idea of the derivative?
+              The position function tells us our position along I-80.
+              The derivative tells us our velocity (positive -> going forward, negative -> going backward). Speed is the magnitude of velocity.
+              <P>We can put this into mathematical notation.<br>
+                <P>\(f(t) \equiv\) position. \(f'(t) \equiv\) velocity.
+                  If \(f'(t) \leq 70\) then \(\displaystyle \frac{f(t_{stop}) - f(t_{start})}{t_{stop} - t_{start}} \leq 70\), or equivalently
+                  \(\displaystyle f(t_{stop}) - f(t_{start}) \leq 70 (t_{stop} - t_{start})\),<br><br>
+                   \(\Rightarrow t_{stop}-t_{start} \geq \frac{f(t_{stop}) - f(t_{start})}{70} = \frac{420}{70} = 6\).
+                  <br><br>
+                  <br>
+
+      <P><b>Theorem (Speed limit law):</b> Let \(f\) be a function defined for \(x \in [a,b]\) and let \(M\) be any real number.
+        If \(f'(x) \leq M\) for all \(x \in [a,b]\) then \(f(b) - f(a) \leq M (b-a)\).
+
+        <br>
+        <P>Why is this called the speed limit law?
+        <br>
+        <P>Remark: a similar theorem is true using the \( \geq \).
+
+    </div>
+
+<h2>Example</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex3">Example</button>
+  <div id="gex3" class="collapse">
+    <P>Suppose \(f(0) = 2\) and \(f'(x) \geq 4 \forall x\). What can be said about values for \(f(1)\) and \(f(-3)\)?
+
+
+  </div>
+
+<h2>Theorem - Rolle's Theorem </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex5">Theorem</button>
+  <div id="gex5" class="collapse">
+    <P><b>Theorem (Rolle's Theorem)</b> Suppose \(b > a\) and \(f\) is a continuous function on \([a,b]\),
+      differentiable on \((a,b)\), and that \(f(a) = f(b)\). Then there exists a number \(c\) such that \( f'(c) = 0 \).
+      <br><br>
+      Remark: "If the graph goes up and comes back down (and derivatives exist everywhere), then there must be a spot where the derivative is 0."
+      <br><br>
+      <P>There are two big assumptions in this theorem: 1) that \(f\) is continuous on \([a,b]\), 2) \(f\) is differentiable.
+        Can you come up with examples that show why these two assumptions are needed to get the consequence of the theorem?
+
+  </div>
+
+
+
+<h2>Example -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex33">Example</button>
+  <div id="gex33" class="collapse">
+    <P>Consider the function \(f(x) = x^3 - x\) on the interval \([0,1]\).
+      Note that \(f\) is a polynomial, so it is both continuous and differentiable everywhere.
+      Also note that \(f(0) = f(1) = 0\). By Rolle's Theorem we know there is a number \(c \in (0,1)\) such that \(f'(c) = 0\).
+      Find this number.
+
+  </div>
+
+  <h2>Theorem - Mean Value Theorem </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex51">Theorem</button>
+    <div id="gex51" class="collapse">
+      <P><b>Theorem (Mean Value Theorem)</b> Suppose \(b > a\) and \(f\) is a continuous function on \([a,b]\),
+        differentiable on \((a,b)\). Then there exists a number \(c\) such that \(f'(c) = \frac{f(b) - f(a)}{b-a}\).
+        <br><br>
+        Remark: "There must be a spot where the instantaneous rate of change (the derivative) equals the average rate of change over the interval."
+        <br><br>
+        <P>Remark: Rolle's Theorem is just a special case of the Mean Value Theorem.
+          In 'math speak' we say the Mean Value Theorem generalizes Rolle's Theorem.
+          So why study Rolle's theorem at all if the Mean Value Theorem 'is better?'
+          We use the Mean Value Theorem in the special case where Rolle's Theorem applies a lot in proving more advanced theorems in future courses.
+          It is important to know both.
+
+
+    </div>
+
+
+
+  <h2>Example -  </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex331">Example</button>
+    <div id="gex331" class="collapse">
+      <P>Consider the function \(f(x) = x^4\) on the interval \([0,1]\).
+        Note that \(f\) is a polynomial, so it is both continuous and differentiable everywhere.
+        Find the number \(c \in (0,1)\) that shows the consequence of the Mean Value Theorem holds.
+
+    </div>
+
+
+
+</body>
+</html>

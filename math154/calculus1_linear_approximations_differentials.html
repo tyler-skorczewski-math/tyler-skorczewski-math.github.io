@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Linear approximations and differentials</h1>
+
+<hr>
+
+<!--
+
+
+-->
+  <h2>Big Idea </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Idea</button>
+    <div id="cv" class="collapse">
+      <P>The big idea for this lesson is that at a specific point on the graph of a function,
+        the tangent line is a very good approximation of the function.
+        This is true as long as the tangent line exists, i.e. the function is differentiable at that point.
+        We can approximate values of complicated functions by following the procedure below.
+      <ol type='1'>
+      <li>Find a nice, easily evaluated point of a complicated function near the value we want to approximate. Call it \(x_0,f(x_0)\). <br><br>
+      <li>Find the tangent line of this function at that point, i.e. \(y - f(x_0) = f'(x_0) (x - x_0)\).<br><br>
+      <li>Let \(L(x) = y\) and rewrite this as \(L(x) = f'(x_0) (x - x_0) + f(x_0)\).
+        \(L(x)\) is called the linear approximation of \(f\) or just the linearization. <br><br>
+      <li>When \(x\approx x_0\) then \(L(x) \approx f(x)\) so to approximate \(f(x)\) we just evaluate \(L(x)\).
+      </ol>
+    </div>
+
+<h2>Example - \(e^x\) near \(x=0\) </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex3">Example</button>
+  <div id="gex3" class="collapse">
+    <P>Let's suppose we want to know the value of \(e^{0.1}\) without a calculator.
+      Let's follow the steps above to approximate this value.<br>
+      <dl type='1'>
+      <dt>Find a nice, easily evaluated point of a complicated function near the value we want to approximate.</dt>
+        <dd>0.1 is near 0 and \(e^0 =1\) is easily evaluated. \(x_0 = 0\) and \(f(x) = e^x\) here.  </dd>
+
+      <dt>Find the tangent line of this function at that point, i.e. \(y - f(x_0) = f'(x_0) (x - x_0)\).</dt>
+        <dd>\(f'(x) = e^x\) and \(f'(0) = 1\) so the tangent line is \(y - 1 = 1(x-0)\).</dd>
+      <dt>Let \(L(x) = y\) and rewrite this as \(L(x) = f'(x_0) (x - x_0) + f(x_0)\). </dt>
+        <dd>\(L(x) = 1+ x\)</dd>
+      <dt>When \(x\approx x_0\) then \(L(x) \approx f(x)\) so to approximate \(f(x)\) we just evaluate \(L(x)\).</dt>
+      <dd>\(L(0.1) = 1+ 0.1 = 1.1 \approx e^{0.1} = 1.10517...\). This is a pretty good approximation.</dd>
+
+    </dl>
+
+
+  </div>
+
+<h2>Example -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex5">Example</button>
+  <div id="gex5" class="collapse">
+    <P>Use linearization to approximate \(g(6)\) where \(g(x) = e^{x\sin x}\). Note that \(g(2\pi)\) is easily evaluated.
+      <dl type='1'>
+      <dt>Find a nice, easily evaluated point of a complicated function near the value we want to approximate.</dt>
+        <dd>\(2\pi \approx 6.28..\) is near 6 and \(g(2\pi) = e^{2\pi \sin(2\pi)} = e^0 = 1\).  </dd>
+
+      <dt>Find the tangent line of this function at that point, i.e. \(y - f(x_0) = f'(x_0) (x - x_0)\).</dt>
+        <dd>(Don't forget product and chain rules!)<br>
+          \(g'(x) = e^{x\sin x}(\sin x + x\cos x)\) and <br>\(g'(2\pi) = e^0 (\sin (2\pi) + 2\pi \cos(2\pi)) = 2\pi\)
+          so the tangent line is \(y - 1 = 2\pi(x-2\pi)\).</dd>
+      <dt>Let \(L(x) = y\) and rewrite this as \(L(x) = f'(x_0) (x - x_0) + f(x_0)\). </dt>
+        <dd>\(L(x) = 2\pi(x-2\pi) + 1\)</dd>
+      <dt>When \(x\approx x_0\) then \(L(x) \approx f(x)\) so to approximate \(f(x)\) we just evaluate \(L(x)\).</dt>
+      <dd>\(L(6) = 2\pi(6-2\pi) =  -0.7793...\). This is a pretty good approximation.</dd>
+
+    </dl>
+  </div>
+
+
+
+<h2>Example -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex33">Example</button>
+  <div id="gex33" class="collapse">
+    <P>The line \(y = 1\) is tangent to the graph of \(f(x) = \cos x\) at (0,1). This means that
+      <ul>
+        <li>(a) the only x-values for which y = 1 is a good estimate for y = cos x are those that
+are close enough to 0.
+      <li>(b) tangent lines can intersect the graph of f infinitely many times.
+        <li>(c) the farther x is from 0, the worse the linear approximation is.
+          <li>(d) All of the above
+          </ul>
+  </div>
+
+<h2>Differentials  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#eex5">Idea</button>
+  <div id="eex5" class="collapse">
+    <P>Note from above that our tangent line near \(x_0,f(x_0)\) is \(y - f(x_0) = f'(x_0) (x - x_0)\).
+      Think about the left hand side (LHS) of this equation: it is telling us about the small change we make in \(y\) values
+      by moving a small amount in the \(x\) values along the tangent line. The quantity \(x-x_0\) on the RHS is this small amount.
+      We can let \(\Delta y\) represent a small change in \(y\) while \(\Delta x\) represents a small change in \(x\).
+      Then our tangent line equation begins to look like \(\Delta y = f'(x_0) \Delta x\).
+      This makes sense since \(f'(x_0)\) is the slope of the tangent line and rearranging we see \(f'(x_0) = \frac{\Delta y}{\Delta x}\)
+      or a rate of change. As we let \(Delta x\) shrink to 0, we say \(\Delta x \to dx\) and \(\Delta y \to dy\).
+      We call \(dx,dy\) differentials and write \(dy = f'(x) dx\).
+      These relate small changes in outputs of functions to small changes in inputs.
+
+      <br>
+      <br>
+      <P>Example: Let \(y = x^4 + 2x + 1\). Then \(y' = \frac{dy}{dx} = 4x^3 + 2\) and we can write the differential
+        form \(dy = (4x^3 + 2) dx\).
+
+    </div>
+
+    <h2>Differentials - Error  </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#err">Example</button>
+      <div id="err" class="collapse">
+        <P> The small changes used above to define differentials also could represent error in measurements.
+          Consider computing the area of a square with side lengths 2 cm,
+          but there is error in the measurement of the side length \(\pm 0.1\) cm.
+          What is the maximum error in the area calculation?
+          <br>
+
+
+        </div>
+
+        <h2>Differentials - Classroom Voting </h2>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv1">Example</button>
+          <div id="cv1" class="collapse">
+            <P> We can use a tangent line approximation to \(\sqrt{x}\) to approximate square roots of numbers.
+              If we do that for each of the square roots below, for which one would we get the smallest error?
+        <ol type='a'>
+          <li>\(\displaystyle \sqrt{4.2} \)<br><br>
+            <li>\(\displaystyle \sqrt{4.5} \)<br><br>
+              <li>\(\displaystyle \sqrt{9.2} \)<br><br>
+                <li>\(\displaystyle \sqrt{9.5} \)<br><br>
+                  <li>\(\displaystyle \sqrt{16.2} \)<br><br>
+                    <li>\(\displaystyle \sqrt{16.5} \)<br><br>
+        </ol>
+              <br>
+
+
+            </div>
+
+
+
+</body>
+</html>

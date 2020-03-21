@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 500px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Related rates</h1>
+
+<hr>
+
+<!--
+
+
+-->
+  <h2>Warmup </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Warmup</button>
+    <div id="cv" class="collapse">
+      <ol type='A'>
+      <li>If \( z(y) = y^2 \) and \(y(t) = t^3 + 1\), what is \(\frac{dz}{dt}\)? <br><br>
+      <li>What is the Law of Cosines?<br><br>
+      <li>What is the Pythagorean Theorem? <br><br>
+      <li>A boat is drawn close to a dock by pulling in a rope as shown.
+        How is the rate at which the rope is pulled in related to the rate at which the boat approaches the dock?<br>
+        <img src="./boat-dock.png" width=300><br>
+        <ol type='a'>
+          <li>One is a constant multiple of the other.
+          <li>They are equal.
+          <li>It depends on how close the boat is to the dock.
+        </ol><br><br>
+        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_6xjxc1xr&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_ox3mi04n" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+        <br><br><br><br><br><br>
+      </ol>
+    </div>
+
+<h2>Example - Ladder</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex3">Example</button>
+  <div id="gex3" class="collapse">
+    <P>A ladder 20 feet long leans against a building.
+      The bottom of the ladder is initially 1 foot away from the base of the building.
+      The bottom of the ladder starts to slide away from the building at a rate of 4 feet/sec.
+      How fast is the top of the ladder sliding down the building when the the top is 8 feet above the ground?
+
+      <ul>
+        <li>Draw a picture of this situation.
+          Let \(h\) represent the height of the ladder and \(x\) the distance from the building. <br><br>
+        <li>What shape(s) are you drawing? What geometric relationships are related to these shapes?<br><br>
+        <li>Write an equation relating \(x\) and \(h\).<br><br>
+        <li>Differentiate this equation implicitly with respect to time. Why with respect to time?<br><br>
+        <li>What variable in your differentiated equation above are we interested in finding?
+          Isolate this quantity using algebra. <br><br>
+        <li>Substitute values given in the problem (you may need to solve for some!) to determine the answer to the orginal question.
+        </ul><br><br>
+        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_bwggg7ap&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_8gdvtopz" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+
+
+  </div>
+
+<h2>Example - Rocket Launch </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex5">Example</button>
+  <div id="gex5" class="collapse">
+    <P> In 2014 NASA launched a new Orion rocket. Watch the video below (at least from 50 second mark until the 2 minute mark).<br>
+      <iframe width="478" height="269" src="https://www.youtube.com/embed/UEuOpxOrA_0?t=50" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br>
+    <P>In particular note that at the 28 second mark the video notes that the rocket is moving 1341 feet/sec.<br>
+    <P>The camera filming this launch is on a hill quite a ways away from the launch.
+      This camera has to rotate to keep the rocket in frame. Let's assume that the camera is 10000 feet away on top of a 1000 foot high hill.
+      The rocket launched from near sea level. We'll also assume that at the 28 second mark the rocket has an altitude of 20000 feet and is traveling vertically.
+      At what rate is the camera rotating to keep the rocket in frame?
+
+      <br><br>
+      <P>See video on Canvas. Working on getting the embedding to work properly here.
+        
+  </div>
+
+
+
+<h2>Example - Conical water tank </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex33">Example</button>
+  <div id="gex33" class="collapse">
+    <P> Consider a tank in the shape of a right circular cone with a height of 10 meters and a top circle with radius 4 meters.
+      Water is pumped into the tank at rate of 2 cubic meters per minute.
+      How is the depth of the water changing when the depth is 5 meters?
+      <br><br>
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_5sqc1jmz&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_duhj7163" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+  </div>
+
+<h2>Example - Bronze plate </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#eex5">Example</button>
+  <div id="eex5" class="collapse">
+    <P> A circular plate of bronze is heated in an industrial oven.
+      When the bronze heats up, it expands and the radius of the plate increases at a rate of 1/5 cm/sec.
+      What is the rate of increase of the bronze plate when the radius is 50 cm?
+      <br><br>
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_rqj5dvjb&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_6rlksfa1" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+    </div>
+
+
+
+
+</body>
+</html>
