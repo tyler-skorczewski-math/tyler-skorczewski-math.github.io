@@ -49,6 +49,25 @@ $(function () {
 <h2>Example - \(e^x\) near \(x=0\) </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex3">Example</button>
   <div id="gex3" class="collapse">
+    <div class="compute">
+    <script type="text/x-sage">
+pretty_print(html('<h2>Tangent line grapher</h2>'))
+@interact
+def tangent_line(f = input_box(default=exp(x)), xbegin = slider(-3,3,1/10,-1), xend = slider(0,4,1/10,1), x0 = slider(-1, 1, 1/100,0)):
+    prange = [xbegin, xend]
+    x0i = x0
+    var('x')
+    df = diff(f)
+    tanf = f(x=x0i) + df(x=x0i)*(x-x0i)
+    fplot = plot(f, prange[0], prange[1])
+    print('Tangent line is y = ' + tanf._repr_())
+    tanplot = plot(tanf, prange[0], prange[1], rgbcolor = (1,0,0))
+    fmax = f.find_local_maximum(prange[0], prange[1])[0]
+    fmin = f.find_local_minimum(prange[0], prange[1])[0]
+    show(fplot + tanplot, xmin = prange[0], xmax = prange[1], ymax = fmax, ymin = fmin)
+
+      </script>
+    </div>
     <P>Let's suppose we want to know the value of \(e^{0.1}\) without a calculator.
       Let's follow the steps above to approximate this value.<br>
       <dl type='1'>
