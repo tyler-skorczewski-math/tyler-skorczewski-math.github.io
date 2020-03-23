@@ -85,55 +85,27 @@ $(function () {
     </p><p> Where do you estimate the maximum to occur?
     </p><p> What do you notice about the tangent line at this point?
 
-    </p><div class="compute sagecell output_5CBC0F1668024656BB50204EAA8FD64F"><div class="sagecell_input">
-      <div class="sagecell_editor" style="display: none;">
-        <textarea class="sagecell_commands" autocapitalize="off" autocomplete="off" autocorrect="off" inputmode="verbatim" x-inputmode="verbatim" readonly="readonly"></textarea>
-      </div>
-      <!-- Explicitly set a button type other than 'submit' so it doesn't submit a form -->
-      <button type="button" class="sagecell_evalButton">Launch Sage Code</button>
-      <div class="sagecell_options">
-        <div class="sagecell_language" style="display: none;">
-          <label>
-            Language:
-            <select>
-              <option value="sage">Sage</option>
-              <option value="gap" style="display: none;">Gap</option>
-              <option value="gp" style="display: none;">GP</option>
-              <option value="html" style="display: none;">HTML</option>
-              <option value="maxima" style="display: none;">Maxima</option>
-              <option value="octave" style="display: none;">Octave</option>
-              <option value="python" style="display: none;">Python</option>
-              <option value="r" style="display: none;">R</option>
-              <option value="singular" style="display: none;">Singular</option>
-            </select>
-          </label>
+    </p>    <div class="compute">
+        <script type="text/x-sage">
+pretty_print(html('<h2>beam strength graph</h2>'))
+@interact
+def tangent_line(f = input_box(default=x^2*(sqrt(3600-x^2))), x0 = slider(0, 60, 0.005,15)):
+    prange = [0, 60]
+    x0i = x0
+    var('x')
+    df = diff(f)
+    tanf = f(x=x0i) + df(x=x0i)*(x-x0i)
+    fplot = plot(f, prange[0], prange[1])
+    print('Tangent line is y = ' + tanf._repr_())
+    tanplot = plot(tanf, x0-6, x0+6, rgbcolor = (1,0,0))
+    c = point((x0,f(x=x0)), rgbcolor=(1,0,0))
+    fmax = f.find_local_maximum(prange[0], prange[1])[0]
+    fmin = f.find_local_minimum(prange[0], prange[1])[0]
+    show(fplot + tanplot + c, xmin = prange[0], xmax = prange[1], ymax = fmax, ymin = fmin)
+
+          </script>
         </div>
-      </div>
-    <!--  <div class="sagecell_advancedFrame">
-        <div class="sagecell_advancedTitle">Advanced</div>
-        <div style="display:none" class="sagecell_advancedFields">
-          <fieldset class="sagecell_files">
-            <legend>Upload files</legend>
-            <button class="sagecell_addFile">Add file</button>
-            <button class="sagecell_clearFiles">Clear files</button>
-            <ul class="sagecell_fileList"></ul>
-          </fieldset>
-        </div>
-      </div> -->
-    </div>
 
-    <div class="sagecell-templates hide">
-    </div>
-
-
-    <div class="sagecell_output_elements" style="display: none;">
-      <div class="sagecell_output"></div>
-      <div class="sagecell_messages">
-        <hr>
-        <span style="font-size:large;font-weight:bold">Messages</span>
-        <br><br>
-      </div>
-    </div></div>
     <h4>Task 3: Calculate the maximum analytically.</h4>
     </div>
 
@@ -152,10 +124,16 @@ $(function () {
       Remember to find max and min, we find critical points where the derivative equals zero or doesn't exist, then evaluate the function at those points and the end points.
       <br><br>
       <ol type='A'>
-        <li>\(\displaystyle y(x) = x(x+2)(x-4), [-5,5]\) <br><br>
-        <li> \(\displaystyle f(x) = x + \sin x, [0,2\pi]\)<br><br>
-          <li> \(\displaystyle g(x) =\frac{x}{1+x}, [0,100]\)<br><br>
+        <li>\(\displaystyle f(x) = 2 + 4x - 2x^2, [0,2]\) <br><br>
+        <li> \(\displaystyle g(x) = x + \sin x, [0,2\pi]\)<br><br>
+        <!--<li> \(\displaystyle j(x) =\frac{x}{1+x}, [0,100]\)<br><br>-->
       </ol>
+      <br><br>
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_g0mrukar&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_co8ck9vx" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+      <br><br>
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_go6r7n6w&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_lqn55kr6" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+      <br><br>
+
 
   </div>
 
@@ -166,6 +144,8 @@ $(function () {
         one side lies along the x-axis, one side lies along the y-axis, and the corner opposite the origin lies along the line
         connecting the points (3,0) and (0,2). What are the dimensions of the rectangle that maximize area?<br>
         (Sorry the camera keeps refocusing in the video.)
+        <br><br>
+        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_nb05y44r&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_193yxe3n" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
     </div>
 
     <h2>Example - Point on a line </h2>
@@ -174,6 +154,8 @@ $(function () {
         <P> Find the point on the line \(x+y=1\) closest to the origin in the first quadrant.
            (Hint: if \(D\) is the distance from the origin to the point on the line,
             find the minimum of \(D^2\) .)
+
+            <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_2on4u5l6&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_qqedk69e" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
       </div>
 
 
