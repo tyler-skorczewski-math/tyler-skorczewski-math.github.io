@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Limits with infinity</h1>
+
+<hr>
+
+<!--
+
+
+-->
+  <h2>Example and definitions </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Example</button>
+    <div id="ex0" class="collapse">
+      <P>Consider the function \(f(x) = 1 - e^{-5x}\). What happens to the values of \(f(x)\) as \(x \to \infty\)?<br>
+        <div class="compute">
+        <script type="text/x-sage">
+var('x')
+f = 1 - exp(-5*x)
+x0=5
+
+@interact
+
+def _(f=input_box(f,label="f(x) =  "),x0=input_box(x0,label="xmax = ")):
+    p = plot(f,xmin=0,xmax=x0)
+    p.show()
+
+        </script>
+      </div><br>
+      <P><b>Definition 1</b> We say \(\displaystyle \lim_{x \to a} f(x) = L\) if and only if for all \(\epsilon > 0\)
+        there exists a \(\delta > 0\) such that if \(|x - a| < \delta\) then \(| f(x) -L | < \epsilon \).<br><br>
+      <P><b>Definition 2</b> We say \(\displaystyle \lim_{x \to \infty} f(x) = L\) if and only if for all \(\epsilon > 0\)
+          there exists an \(N > 0\) such that if \(x > N\) then \(| f(x) -L | < \epsilon \).<br><br>
+      <P>Question: Can you find the \(N\) value from definition 2 for the example above?
+    </div>
+
+    <h2>Example - rational function </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example</button>
+      <div id="ex1" class="collapse">
+        <P>Consider the function \(\displaystyle f(x) = \frac{2x^3-1}{x^3-1}\). <br>
+          <div class="compute">
+          <script type="text/x-sage">
+var('x')
+f = (2*x^3 - x)/(x^3 - 1)
+x0=5
+
+@interact
+
+def _(f=input_box(f,label="f(x) =  ")):
+    p = plot(f,xmin=-2.5,xmax=2.5,ymin=-10,ymax=10)
+    p.show()
+
+          </script>
+        </div><br>
+
+        <ol>
+          <li>What is \(\displaystyle \lim_{x \to 1}f(x)\)?<br><br>
+          <li>What is \(\displaystyle \lim_{x \to 1^+}f(x)\)?<br><br>
+          <li>What is \(\displaystyle \lim_{x \to 1^-}f(x)\)?<br><br>
+          <li>What is \(\displaystyle \lim_{x \to \infty}f(x)\)?<br><br>
+        </ol>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1a">Answers</button>
+          <div id="ex1a" class="collapse">
+            <P>Answers: DNE,\(+\infty,-\infty,2\)
+            </div><br><br>
+        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=0_fyqoblpm&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_d8ost3cv" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+      </div>
+
+      <h2>Examples </h2>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+        <div id="ex2" class="collapse">
+          <P> Find the limits below.<br>
+          <ol>
+            <li>\(\displaystyle \lim_{x \to \infty}\frac{\sqrt{x}+2x}{x^3+1}\)<br><br>
+            <li>\(\displaystyle \lim_{x \to \infty}\frac{x^{-2/3}}{x^{-1}} - \frac{x}{x^{2/3}}\)<br><br>
+            <li>\(\displaystyle \lim_{x \to 1infty}\frac{3x^3 - 5x^2 + x +1}{2x^3 - 4x}\)<br><br>
+            <li>\(\displaystyle \lim_{x \to \infty}\frac{x+1}{x+2}\)<br><br>
+          </ol><br><br>
+          <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=0_oe6bvy28&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_vmx564gn" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+
+        </div>
+
+<h2>Example - sketching graphs of rational functions  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#eex5">Example</button>
+  <div id="eex5" class="collapse">
+    <ul>
+      <li><iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_mt344wbz&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_xmvy6ia7" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+      <li><iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_yhhj29ao&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_exac5ceg" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+      </ul>
+
+    </div>
+
+
+</body>
+</html>
