@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I l'Hopital's rule</h1>
+
+<hr>
+
+<!--
+
+
+-->
+  <h2>Example and theorem </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Example</button>
+    <div id="ex0" class="collapse">
+      <P>Consider the function \(f(x) = \ln ( \cos (x)) \). What happens to the values of \(f(x)\) as \(x \to 0\)?
+        <details>
+          <summary>Answer</summary>
+          \(\displaystyle \lim_{x \to 0} \ln (\cos x) = \ln( \cos 0) = \ln (1) = 0\)
+        </details><br><br>
+
+      <P><b>Theorem</b> Let \(f\) and \(g\) e functions such that \(\lim_{x\to a} g(x) = b\) and \(f\)
+        is continuous at \(b\). Then \(\lim_{x\to a}f(g(x)) = f(\lim_{x\to a}g(x)) = f(b)\). Note we saw this
+        theorem earlier, but now we are allowing \(a\) to be \(\pm \infty\) too.
+
+      <br><br>
+      <P>Example: Evaluate \(\displaystyle \lim_{x \to \infty}e^{\frac{x^3 - \sqrt{x}}{-x - x^3}}\).
+        <details>
+          <summary>Answer</summary>
+          \(\displaystyle \lim_{x \to \infty}e^{\frac{x^3 - \sqrt{x}}{-x - x^3}} = e^{\lim_{x\to \infty} \frac{x^3 - \sqrt{x}}{-x - x^3}} = e^{-1} = \frac{1}{e}\)
+        </details><br><br>
+    </div>
+
+    <h2>Example  </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example</button>
+      <div id="ex1" class="collapse">
+        <P> What is \(\displaystyle \lim_{x \to \infty}x e^{-x}\)?<br><br>
+        <P>Note as \(x \to \infty\), we have \(x \to \infty\) but also \(e^{-x} \to 0\),
+          so we have something that looks like \(0 \cdot \infty\).
+          Anything multiplied by 0 is supposed to be zero, but anything 'multiplied by infinity' is supposed to be infinite.
+          What is happening here?
+        <br>
+        <br>
+        <P>\(0 \cdot \infty\) is an example of an indeterminate form.
+          We handle limits that are indeterminate forms using l'Hopital's rule.
+          <br><br>
+        <P><b>Theorem (l'Hopital's rule)</b> Let \(f\) and \(g\) be differentiable functions such that
+          as \(x \to a\) (or \(\pm  \infty\) ) either
+          <ol>
+            <li>\(\displaystyle \lim_{x\to a} \frac{f(x)}{g(x)} \to \frac{\infty}{\infty}\) or,
+            <li>\(\displaystyle \lim_{x\to a} \frac{f(x)}{g(x)} \to \frac{0}{0}\).
+            </ol>
+            <P>Then \(\displaystyle \lim_{x\to a} \frac{f(x)}{g(x)} = \lim_{x\to a} \frac{f'(x)}{g'(x)}\).
+              <br><br>
+            <P>This doesn't appear to help us since \(xe^{-x} \to 0 \cdot \infty\) not one of the forms from the theorem above.
+              What can we do?<br>
+              <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=0_bp30edo3&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_fd5johsw" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+
+            </optgroup>
+
+
+      </div>
+
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+  <div id="ex2" class="collapse">
+    <P> Try to find the following limits yourself before watching the videos below.
+      You may need to manipulate the limit to a form where l'Hopital's rule can be applied before using the rule.
+
+      <ol>
+        <li>\(\displaystyle \lim_{x\to 0} \frac{1-\cos(x))}{\sin(x)}\)<br><br>
+        <li>\(\displaystyle \lim_{x\to \infty} \frac{x^3}{e^x}\)<br><br>
+        <li>\(\displaystyle \lim_{x\to \infty} (1 + \frac{1}{x})^x\)<br><br>
+        <li>\(\displaystyle \lim_{x\to 0} \frac{1}{\sin(x)} - \frac{1}{x}\)<br><br>
+      </ol>
+<br><br>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=0_hup1hipx&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_ehrbdtrg" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+<br>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=0_x4j2oq0g&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_bxzh7u33" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+<br>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=0_p27to7fv&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_8k310lan" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+<br>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=0_ejkrnmih&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_lun9u9yq" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+  </div>
+
+
+
+
+</body>
+</html>
