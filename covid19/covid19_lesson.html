@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:600px; padding-left: 1cm; padding-bottom:10cm" background="bg.jpg">
+
+  <h1>COVID19 Lesson Page </h1>
+
+<hr>
+
+<P>I think it is appropriate to take some time to see how the material we are learning can be applied to the current COVID-19 virus situation. Below are some videos I've put together relating some of the material to this situation. We will also be looking at how to solve differential equations numerically for the last few weeks of the course so you can expect more information then.
+
+First some introduction to the topic from Dr. Hall in the Biology Department at UW Stout.<br>
+
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/VAIelPAgXMU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+
+<P>Models of the spread of the infection tend to follow the famous SIR (Susceptible-Infected-Recovered) model that has been around for a long while now.
+  In January a paper attempting to forecast spread used a variant called SEIR (E=emergent or exposed). <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)30260-9/fulltext"> Lancet article</a>(<a href="./PIIS0140673620302609.pdf">pdf</a>
+
+Let's take a look at the basic SIR model and what this means to #flattenthecurve.
+
+<a href="https://sagecell.sagemath.org/?z=eJyFVEtvozAQvvMrRmkloHFYkjZatRLSSj1xi-CYRpELk9Ybg5HttMlW_e87mIeaRquNgo3H38Mee9hpVYHhLxgVXBYHeTBRiUbJN9QGRNUobaEPbM3JWKy2en_nWZazlGWQwBvXgW8hhxQyP_S8EneQp1mlSpTBiVnWcM0rEz54QL-cQcqg5Z3cmMvmlTN4Rssp1kHdhEZ70DUE65mD3OQ3KRvfZi2eAl23IVc3RQpxNF96vdo8-jG_iwCuNBai0Yo2CGoHot5hYYU6GGhQC1V6nvdL1BY1Lyy9ux1sA6eYdB0L4ohFyzB0jknQtmOs35lrKE9kfJmvYMzI2uVtQ3lZd9Kt1iZkQ1wUJlnHLI7u76mJ5yymGOU4sQzrctsoWqlJFjGZk3iTxLQE8Lrc5ska1oL93sBOaaAXtmeS9tsua-MgV40mfpDnoRumOXSU_X8paU_JBor8LyUjSrewFSVFCmO3jVRf3M_Dac4KJZVOfI2l37udQ7IR8qIR6x702ILcPJ0-O1aiTmLq-LFN00B4lrzY-0yKGo09SUz8h55ujwXxLR5t4Be84YWwJ59BsFi0xzAPvynsFB2A-IPJPB74I92KClvqMmazljoA8gGhJ9dPO7pnH2X--VHaT4rPnrq7m6fXExYslq3pz2XIYDS6HY3SS5100BllYAZPrgK-CC6_CV5m2h6zS_FsFP8uePsPwa_n0t2CSVqDfUUwojpITnVXU7VL9Q7P8oBU5o1Gg6TjQK2tg1CdtuNGNQPJHEyBjRXPEsEq4FAKg9wgm5y5tSza1blaV_JYMuB1CW6N5wD6Qij64hGPrrTGigZl1AubV_Ue5Ktpuppmq6k90j-nJ6Unmz62kSL8C8nymUM=&lang=sage&interacts=eJyLjgUAARUAuQ==">Link to Applet that goes with video below</a>
+<br>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=0_dfb58jfm&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_fyh1hmes" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+<br>
+
+<P>In the above video Dr. Hall spoke about flattening the curve in the sense of getting the number of cases below the capacity threshold for providing medical care.
+  In mathematics we often think about a flattened curve in terms of the second derivative - namely we want the second derivative to be negative.
+  This means the spread (a rate) is slowing down, i.e. "the rate of increase is negative" and the graph of infection cases is concave down.
+
+<P>We can investigate this numerically with the idea of numerical derivatives we saw earlier in the course.
+
+Jupyter notebook associated with video below: <a href="./covid-derivatives.ipynb">covid-derivatives.ipynb</a> and data file: <a href="./usa-covid19.csv">usa-covid19.csv</a><br>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_k144lta4&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_udn6v69e" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+<br>
+<P>In Dr. Hall's video we saw her shade in a region under the infected cases graph and above the medical capacity threshold. This area is related to shortages in medical care and unnecessary deaths.
+  This should immediately remind us of integrals from calculus.<br>
+  <img src="./area_covid19.png" width=600><br>
+  <P>How can we calculate this area using the information from SIR models that may be used to forecast the spread of the disease?
+     This will help decision makers and other scientists understand the magnitude of the challenges we face.
+<br>
+<P>Jupyter notebook associated with video below: <a href="covid-integrate-example-with-SIR.ipynb">covid-integrate-example-with-SIR.ipynb</a>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_odv46va8&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_8xvtwq4c" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+</html>
