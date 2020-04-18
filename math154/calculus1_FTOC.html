@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+                         // Make *any* div with class 'compute' a Sage cell
+                         sagecell.makeSagecell({inputLocation: 'div.mycell',
+                                                evalButtonText: 'Evaluate'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 900px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I The Fundamental Theorem of Calculus</h1>
+
+<hr>
+
+<h2>Warm Up & Motivation </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#mot">Example</button>
+  <div id="mot" class="collapse">
+    <P>What is the area of a trapezoid?
+    <P>Sketch the graph of \(f(x) = 3x+1\).
+    <P>What is the area under the linear function \(f(x) = 3x +1\) between \(x=0\) and \(x=3\)?
+    <P>What is the area under the linear function \(f(x) = 3x +1\) between the \(y\)-axis and an arbitrary point \(x\)?
+    <P>Let the area function \(A_{f,0}(x)\) be the area under the graph of the function \(f\) from \(x=0\) to an arbitary point \(x\).
+      What is the formula for \(A_{f,0}(x)\) for the case above?
+  </div>
+
+  <h2>Example -   </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#car2">Example</button>
+    <div id="car2" class="collapse">
+      <P>Sketch the graph of \(g(x) = 2x\). What is the area function \(A_{g,0}(x)\),
+         i.e. the area under \(g\) from \(x=0\) to an arbitrary point \(x\)?
+    </div>
+
+  <h2>Example - </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#car">Example</button>
+    <div id="car" class="collapse">
+      <P>Consider \(f(x) = x^2\) and the associated area function from \(x=0\).<br><br>
+      <P>\(\displaystyle A_{f,0}(x) = \int_0^x f(t) dt\)<br><br>
+      <P>If \(A_{f,0}(x)\) is a function, can we find its derivative?
+        <br>
+        VIDEO HERE<br>
+
+        This leads to the following BIG IDEA
+    </div>
+
+  <h2>Theorem - FTOC </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Theorem</button>
+    <div id="cv" class="collapse">
+      <P> <b>Theorem (The Fundamental Theorem of Calculus):</b> Let \(f\) be any continuous function
+        defined on an open interval \(I\) containing point \(a\). Then we have<br>
+        <br>
+        \(\displaystyle \frac{d}{dx} \int_a^x f(t)~dt = f(x)\)<br>
+        or<br>
+        \(\displaystyle A_{f,a}(x) = \int_a^x f(t) dt\)\) and \(\displaystyle \frac{dA_{f,a}}{dx} = f(x)\).<br>
+<br><br>
+  <P>Remark: this says the integral of a function is an antiderivative!
+    <P>How does this work with our previous examples?
+      <br>
+      <br>
+      <P>Example: Let \(A(x) = \int_0^x \cos(t)~dt\). What is \(A(x)\)? Draw a picture of what is happening.
+        VIDEO HERE
+
+
+    </div>
+
+<h2>FTOC part two</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#comp">Theorem</button>
+  <div id="comp" class="collapse">
+    <P>Another form of the FTOC looks like \(\displaystyle \int_a^b f(x)~dx = F(b) - F(a)\).
+      This is saying that to find the area under the graph of \(f(x)\) from \(a\) to \(b\) we can evaluate the
+      difference in the antiderivative, \(F\), at \(b\) and \(a\).
+      <br>
+      <br>
+      <P>Example: Evaluate \(\displaystyle \int_1^4 (5x + x^{3/2})~dx\).
+
+      </div>
+
+<h2>Example- sine arch</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#prop">Properties</button>
+  <div id="prop" class="collapse">
+    <P>What is the area enclosed by one arch of the sine function?
+      </div>
+
+<h2>Example - chain rule</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ptt">Properties</button>
+<div id="ptt" class="collapse">
+  <P>Let \(\displaystyle F(x) = \int_0^x (1+t^2)^{1/3}~dt\).
+    <ol type = 'A'>
+      <li>What is \(F'(x)\)?<br><br>
+      <li>What is \(\displaystyle \frac{d}{dx} F(x^2)\)?<br><br>
+      </ol>
+    </div>
+
+<h2>Example - area between curves</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ave">Definition</button>
+  <div id="ave" class="collapse">
+    <P>Sketch the graphs of \(y=2x\) and \(y=x^2\) on the same set of axes. What is the area between the curves?
+</body>
+</html>
