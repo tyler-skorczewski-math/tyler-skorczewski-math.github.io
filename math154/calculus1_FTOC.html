@@ -38,6 +38,8 @@ $(function () {
     <P>What is the area under the linear function \(f(x) = 3x +1\) between the \(y\)-axis and an arbitrary point \(x\)?
     <P>Let the area function \(A_{f,0}(x)\) be the area under the graph of the function \(f\) from \(x=0\) to an arbitary point \(x\).
       What is the formula for \(A_{f,0}(x)\) for the case above?
+      <br>
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_mqnc1zu4&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_58enbhix" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
   </div>
 
   <h2>Example -   </h2>
@@ -45,6 +47,8 @@ $(function () {
     <div id="car2" class="collapse">
       <P>Sketch the graph of \(g(x) = 2x\). What is the area function \(A_{g,0}(x)\),
          i.e. the area under \(g\) from \(x=0\) to an arbitrary point \(x\)?
+         <br>
+         <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_1qe86rbe&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_tizqbuqt" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
     </div>
 
   <h2>Example - </h2>
@@ -54,9 +58,9 @@ $(function () {
       <P>\(\displaystyle A_{f,0}(x) = \int_0^x f(t) dt\)<br><br>
       <P>If \(A_{f,0}(x)\) is a function, can we find its derivative?
         <br>
-        VIDEO HERE<br>
+        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_gm1elt4r&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_wuvhkn4b" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe><br>
 
-        This leads to the following BIG IDEA
+        This leads to the following BIG IDEA ...
     </div>
 
   <h2>Theorem - FTOC </h2>
@@ -67,14 +71,19 @@ $(function () {
         <br>
         \(\displaystyle \frac{d}{dx} \int_a^x f(t)~dt = f(x)\)<br>
         or<br>
-        \(\displaystyle A_{f,a}(x) = \int_a^x f(t) dt\)\) and \(\displaystyle \frac{dA_{f,a}}{dx} = f(x)\).<br>
+        \(\displaystyle A_{f,a}(x) = \int_a^x f(t) dt\) and \(\displaystyle \frac{dA_{f,a}}{dx} = f(x)\).<br>
 <br><br>
   <P>Remark: this says the integral of a function is an antiderivative!
-    <P>How does this work with our previous examples?
+    <P>How does this work with our previous example?
+      <ul>
+        <li>\(\displaystyle A_{f,0}(x) = \int_0^x f(t) dt = \int_0^x t^2~dt = \frac{1}{3}x^3 + C\)
+        <li>Note \(C = 0\) because \(A_{f,0}(0) = \int_0^0 f(t) dt = 0 = \frac{1}{3}0^3 + C \Rightarrow C = 0\).
+        </ul>
       <br>
       <br>
       <P>Example: Let \(A(x) = \int_0^x \cos(t)~dt\). What is \(A(x)\)? Draw a picture of what is happening.
-        VIDEO HERE
+        <br>
+        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_aj5pvkdd&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_6pk0mg5v" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
 
 
     </div>
