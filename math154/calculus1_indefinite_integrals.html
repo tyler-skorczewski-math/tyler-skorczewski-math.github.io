@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+                         // Make *any* div with class 'compute' a Sage cell
+                         sagecell.makeSagecell({inputLocation: 'div.mycell',
+                                                evalButtonText: 'Evaluate'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 900px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I More Integration</h1>
+
+<hr>
+
+<h2>Definite vs Indefinite Integrals </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#mot">Example</button>
+  <div id="mot" class="collapse">
+    <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle}
+.tg .tg-rd2b{border-color:inherit;font-size:16px;font-weight:bold;text-align:left;text-decoration:underline;vertical-align:middle}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-rd2b">Definite Integrals</th>
+    <th class="tg-rd2b">Indefinite Integrals</th>
+  </tr>
+  <tr>
+    <td class="tg-lboi">\(\displaystyle \int_a^b f(x)~dx\)</td>
+    <td class="tg-lboi">\(\displaystyle \int f(x)~dx\)</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">has limits of integration</td>
+    <td class="tg-0lax">no limits of integration</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">thought of as area under the curve</td>
+    <td class="tg-0lax">is antiderivative of a function</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">is a number</td>
+    <td class="tg-0lax">is a family of functions</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">\(\displaystyle \int_a^b f(x)~dx = F(b)-F(a)\)</td>
+    <td class="tg-0lax">\(\displaystyle \int f(x)~dx = F(x) + C\)</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">don't need to consider +C</td>
+    <td class="tg-0lax">need +C (constant of integration)</td>
+  </tr>
+</table>
+  </div>
+
+  <h2>Examples -   </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#car2">Example</button>
+    <div id="car2" class="collapse">
+      <P>Evaluate the indefinite integrals below:
+      <ol>
+        <li>\(\displaystyle\int x^2 + \sqrt{x}  \, dx\)<br><br>
+        <li>\(\displaystyle \int 7\sec\!\left(x\right)\tan\!\left(x\right) \, dx\)<br><br>
+        <li>\(\displaystyle \int 11\sin(x)-2\cos(x)\,dx\)<br><br>
+        <li>\(\displaystyle\int \frac{1}{x^5}  \, dx\)<br><br>
+        </ol>
+         <br>
+         <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_2usfwgpg&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_o44ke3pp" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+    </div>
+
+    <h2>Example - Initial Value Problem   </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ivp">Example</button>
+    <div id="ivp" class="collapse">
+      Solve the following Initial Value Problem (IVP).
+    \(\displaystyle \frac{dy}{dt}=\sec^{2}\!\left(t\right)-3\sin\!\left(t\right),\;y(\frac{\pi}{4})=1\)
+    <br>
+    <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_d9bpqxph&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_3uucbwl7" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+    </div>
+
+    <h2>Example -   </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#nc">Example</button>
+    <div id="nc" class="collapse">
+      <img src="asteroids.jpg" width=350><br>
+      <P>Let \(N(d)\) be the number of asteroids of diameter \(\leq d\) kilometers.
+        Data suggest that the diameters are distributed according to a piecewise power law:
+        \(\displaystyle N'(d)=\begin{cases} 2\times 10^{9} d^{-2.6} & \mbox{for }d<67 \\ 1.7\times 10^{12} d^{-4.2} & \mbox{for } d\geq67\end{cases}.\)
+        <br>
+        <p>Compute the number of asteroids with diameter between 0.1 km and 100 km.
+        <br><br>
+
+    <br>
+  <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_kuze0g4c&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_h10r9q9k" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+    </div>
+
+    <h2>Classroom Voting   </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Example</button>
+    <div id="cv" class="collapse">
+      <img src="cv1_antiderivatives.png" width=400><br>
+
+
+    <br>
+    <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_l1153f6z&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_yrryd80f" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+    </div>
+
+</body>
+</html>

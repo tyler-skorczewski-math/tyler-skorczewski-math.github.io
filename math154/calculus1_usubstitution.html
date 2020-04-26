@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I U-Substitution</h1>
+
+<hr>
+
+<h2>Motivation</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">Motivation</button>
+  <div id="wu" class="collapse">
+    <P>Find \(\displaystyle \int \frac{3}{1+9x^2}dx\).
+  </div>
+
+<h2>Idea</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Idea</button>
+  <div id="ex0" class="collapse">
+    <P>The idea behind u-substitution is this is the chain rule for derivatives in reverse. Let \(F' = f\).
+      Then \(\displaystyle \frac{d}{dx}( F (u(x))) = \frac{dF}{du}{du}{dx} = F'(u) u'(x) = f(u)u'(x)\).
+      This says that \(F(u(x))\) is an antiderivative of \(f(u)u'(x)\).<br><br>
+
+    <P>We need to recognize \(f(u(x))\) and \(u'(x)\) in the integrand, i.e. we need to
+      find an 'inside' function in the integrand and its derivative. This requires practice and familiarity with derivatives.
+      The best way to get this familiarity is practice.
+  </div>
+
+
+<h2>Example</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example</button>
+<div id="ex1" class="collapse">
+<P>Find \(\displaystyle \int 3x^2 \cos(x^3)dx\).
+</div>
+<h2>Example</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+<div id="ex2" class="collapse">
+<P>Find the interals below using u-substitution, if possible.
+  <ol>
+    <li>\(\displaystyle \int x^3 \sqrt{x^4 + \pi}dx\)
+    <li>\(\displaystyle \int x^2 \sqrt{x^4 + \pi}dx\)
+    </ol>
+</div>
+
+<h2>Classroom Voting</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Example</button>
+  <div id="cv" class="collapse">
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv1">Voting 1</button>
+      <div id="cv1" class="collapse">
+    <img src="cv1_usub.png" width=400><br>
+  </div>
+  <br>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv2">Voting 2</button>
+    <div id="cv2" class="collapse">
+    <img src="cv2_usub.png" width=400><br>
+  </div>
+  </div>
+
+
+<h2>Example - Tricky one</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
+  <div id="ex3" class="collapse">
+    <P> Find \(\displaystyle \int \sqrt{1 + \sqrt{x}}dx\)
+  </div>
+
+  <h2>Examples - Definitite Integrals</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#def1">Example</button>
+    <div id="def1" class="collapse">
+      <P> U-substitution works for definite integrals too. We can deal with the limits of the definite integral two ways.
+        <ol>
+          <li>Compute the associated indefinite integral using a u-sub, expressing the antiderivative in terms of the original variable, then doing the evaluations at the limits.
+          <li>Do a u-sub to transform the definite integral, but also change the limits when doing the u-sub into the u-variable. Then proceed with the new definite integral.
+          </ol>
+
+        <P> We can see how this works in the example below.
+        <P>Example: Evaluate \(\displaystyle \int_1^3 \frac{1}{5-x}~dx\).
+          <BR>
+            VIDEO HERE
+    </div>
+
+
+
+
+</body>
+</html>
