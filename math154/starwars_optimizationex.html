@@ -236,19 +236,26 @@ h1 sub
 
 <div id="titles"><div id="titlecontent">
 
-	<p class="center">EXAMPLE IV<br />Integration</p>
+	<p class="center">EXAMPLE V<br />Calculus Strikes Back</p>
 
-  <P>Consider the integral
-	<P>$$\int \frac{x^3}{1 + x^2}dx.$$
-  <P>The rational function in the
-	<P>integrand is improper so we have to
-  <P>first do some polynomial long division.
-	<P>$$\frac{x^3}{1+x^2} = x - \frac{x}{1+x^2}$$
-	<P>Now our integral is equivalent to
-  <P>$$\int x dx - \int \frac{x}{1+x^2}dx.$$
-  <P>Integrating each piece yields
-  <P>$$\int \frac{x^3}{1 + x^2}dx = \frac{x^2}{2} - \frac{1}{2}\ln|1+x^2| + C.$$
-  <P>Note we used \(u\)-substitution \(u = 1+x^2\) for the second integral.
+  <P>Consider a company making widgets.
+	<P>The total revenue and total cost of selling and making \(q\) widgets are given by
+	<P>$$R(q) = 5q - 0.003q^2$$
+	<P>$$C(q) = 300 + 1.1q,$$
+	<P>where \(0 \leq q \leq 800\).
+	<P>We want to find the number of widgets that maximizes profit.
+	<br><br>
+	<P>Profit is revenue minus costs so we have
+	<P>$$P(q) = 5q - 0.003q^2 - (300 +1.1q).$$
+	<P>Differentiating yields
+	<P>$$P'(q) = 5 - 0.006q - 1.1q.$$
+	<P>Setting this equal to zero and solving for \(q\)
+	<P>we see that the critical point is \(q = 650\).
+	<P>Checking the critical point and endpoints we see
+	<P>$$P(0) = \$-300$$
+	<P>$$P(650) = \$967.50$$
+	<P>$$P(800) = \$800.$$
+	<P>Thus the company should produce and sell 650 widgets.
 
 </div></div>
 
