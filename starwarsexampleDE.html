@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>CSS Star Wars Crawling Titles</title>
+
+<style>
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+* { padding: 0; margin: 0; }
+
+body, html
+{
+	width: 100%;
+	height: 100%;
+	font-family: "Droid Sans", arial, verdana, sans-serif;
+	font-weight: 700;
+	color: #ff6;
+	background-color: #000;
+	overflow: hidden;
+}
+
+p#start
+{
+	position: relative;
+	width: 16em;
+	font-size: 200%;
+	font-weight: 400;
+	margin: 20% auto;
+	color: #4ee;
+	opacity: 0;
+	z-index: 1;
+	-webkit-animation: intro 2s ease-out;
+	-moz-animation: intro 2s ease-out;
+	-ms-animation: intro 2s ease-out;
+	-o-animation: intro 2s ease-out;
+	animation: intro 2s ease-out;
+}
+
+@-webkit-keyframes intro {
+	0% { opacity: 1; }
+	90% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@-moz-keyframes intro {
+	0% { opacity: 1; }
+	90% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@-ms-keyframes intro {
+	0% { opacity: 1; }
+	90% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@-o-keyframes intro {
+	0% { opacity: 1; }
+	90% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@keyframes intro {
+	0% { opacity: 1; }
+	90% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+h1
+{
+	position: absolute;
+	width: 2.6em;
+	left: 50%;
+	top: 25%;
+	font-size: 10em;
+	text-align: center;
+	margin-left: -1.3em;
+	line-height: 0.8em;
+	letter-spacing: -0.05em;
+	color: #000;
+	text-shadow: -2px -2px 0 #ff6, 2px -2px 0 #ff6, -2px 2px 0 #ff6, 2px 2px 0 #ff6;
+	opacity: 0;
+	z-index: 1;
+	-webkit-animation: logo 5s ease-out 2.5s;
+	-moz-animation: logo 5s ease-out 2.5s;
+	-ms-animation: logo 5s ease-out 2.5s;
+	-o-animation: logo 5s ease-out 2.5s;
+	animation: logo 5s ease-out 2.5s;
+}
+
+h1 sub
+{
+	display: block;
+	font-size: 0.3em;
+	letter-spacing: 0;
+	line-height: 0.8em;
+}
+
+@-webkit-keyframes logo {
+	0% { -webkit-transform: scale(1); opacity: 1; }
+	50% { opacity: 1; }
+	100% { -webkit-transform: scale(0.1); opacity: 0; }
+}
+
+@-moz-keyframes logo {
+	0% { -moz-transform: scale(1); opacity: 1; }
+	50% { opacity: 1; }
+	100% { -moz-transform: scale(0.1); opacity: 0; }
+}
+
+@-ms-keyframes logo {
+	0% { -ms-transform: scale(1); opacity: 1; }
+	50% { opacity: 1; }
+	100% { -ms-transform: scale(0.1); opacity: 0; }
+}
+
+@-o-keyframes logo {
+	0% { -o-transform: scale(1); opacity: 1; }
+	50% { opacity: 1; }
+	100% { -o-transform: scale(0.1); opacity: 0; }
+}
+
+@keyframes logo {
+	0% { transform: scale(1); opacity: 1; }
+	50% { opacity: 1; }
+	100% { transform: scale(0.1); opacity: 0; }
+}
+
+/* the interesting 3D scrolling stuff */
+#titles
+{
+	position: absolute;
+	width: 25em;
+	height: 50em;
+	bottom: 0;
+	left: 50%;
+	margin-left: -11em;
+	font-size: 350%;
+	text-align: justify;
+	overflow: hidden;
+	-webkit-transform-origin: 50% 100%;
+	-moz-transform-origin: 50% 100%;
+	-ms-transform-origin: 50% 100%;
+	-o-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	-webkit-transform: perspective(300px) rotateX(25deg);
+	-moz-transform: perspective(300px) rotateX(25deg);
+	-ms-transform: perspective(300px) rotateX(25deg);
+	-o-transform: perspective(300px) rotateX(25deg);
+	transform: perspective(300px) rotateX(25deg);
+}
+
+#titles:after
+{
+	position: absolute;
+	content: ' ';
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 60%;
+	background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+	background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+	background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+	background-image: -o-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+	background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+	pointer-events: none;
+}
+
+#titles p
+{
+	text-align: justify;
+	margin: 0.8em 0;
+}
+
+#titles p.center
+{
+	text-align: center;
+}
+
+#titles a
+{
+	color: #ff6;
+	text-decoration: underline;
+}
+
+#titlecontent
+{
+	position: absolute;
+	top: 100%;
+	-webkit-animation: scroll 100s linear 4s infinite;
+	-moz-animation: scroll 100s linear 4s infinite;
+	-ms-animation: scroll 100s linear 4s infinite;
+	-o-animation: scroll 100s linear 4s infinite;
+	animation: scroll 100s linear 4s infinite;
+}
+
+/* animation */
+@-webkit-keyframes scroll {
+	0% { top: 100%; }
+	100% { top: -170%; }
+}
+
+@-moz-keyframes scroll {
+	0% { top: 100%; }
+	100% { top: -170%; }
+}
+
+@-ms-keyframes scroll {
+	0% { top: 100%; }
+	100% { top: -170%; }
+}
+
+@-o-keyframes scroll {
+	0% { top: 100%; }
+	100% { top: -170%; }
+}
+
+@keyframes scroll {
+	0% { top: 100%; }
+	100% { top: -170%; }
+}
+</style>
+
+</head>
+<body>
+
+<p id="start">A short time ago in a classroom very, very close&hellip;</p>
+
+<h1>Differential Equations<sub>& Linear Algebra</sub></h1>
+
+<div id="titles"><div id="titlecontent">
+
+	<p class="center">EXAMPLE 6<br />The Return of Damped Forced Oscillators</p>
+
+  <P>Consider a mass-spring system with
+	<P>damping and periodic forcing given by
+  <P>$$mx'' + bx' + kx = F_0 \cos (\omega_f t),$$
+	<P>$$ \hspace{1cm} m,b,k,F_0 > 0.$$
+  <P>In general \(x_h\), the solution to the
+	<P>associated homogeneous equation, will
+	<P>always go to zero as \(t \to \infty\).
+	<P>This is because of the damping or friction
+	<P>term, \(b >0\).
+
+  <P>Our next to find a solution of this DE
+	<P>would be to use the method of
+	<P> undertermined coefficients to find a particular
+	<P>solution, \(x_p\).
+  <P>$$x_p = A \cos(\omega_f t) + B\sin(\omega_f t)$$
+  <P>After calculating \(x_p'\) and \(x_p''\),
+	<P>plugging into the DE we solve for \(A\) and \(B\).
+  <P>$$ A = \frac{(k - m\omega_f^2)F_0}{(k-m\omega_f^2)^2 + (b \omega_f)^2}$$
+	<P>$$ B = \frac{b \omega_f F_0}{(k-m\omega_f^2)^2 + (b \omega_f)^2}$$
+  <P>$$x_p = A \cos(\omega_f t) + B \sin(\omega_f t)$$
+  <P>Then we can let \(A = C \cos(\phi)\) and \(B = C \sin(\phi)\) so
+  <P>$$x_p = C\cos(\phi)\cos(\omega_f t) + C\sin(\phi)\sin(\omega_f t).$$
+  <P>Recall \(\cos(a \pm b) = \cos(a)\cos(b) \mp \sin(a)\sin(b)\) so
+  <P>$$x_p = C\cos(\omega_f t - \phi),$$
+  <P>where
+  <P>$$C^2 = A^2 + B^2, \hspace{1cm} C = \frac{F_0}{\sqrt{(k-m\omega_f^2)^2 + (b \omega_f)^2}}$$
+  <P>and
+  <P>$$\tan(\phi) = \frac{B}{A} = \frac{b\omega_f}{k - m\omega_f^2}.$$
+
+</div></div>
+<!--<P> Let's consider the amplitude response to be a function of the forcing frequency, \(C \equiv C(\omega_f)\).
+  $$C(\omega_f) = \frac{F_0}{\sqrt{(k-m\omega_f^2)^2 + (b \omega_f)^2}}$$
+  Plots showing several different values of the other parameters are shown below.<br>
+  <img src='prac_res.png' width=300><br>
+  <ol type='1'>
+    <li>What is \(\frac{dC}{d\omega_f} \)?
+    <li>Which graph (A,B, or C) of \(C(\omega_f)\) in the figure above occurs when \(b^2 > 2km\)? Explain your reasoning.
+    <li>Assume \(b^2 < 2km\). At what forcing frequency is \(C(\omega_f)\) at a maximum?
+  </ol>
+-->
+</body>
+</html>
