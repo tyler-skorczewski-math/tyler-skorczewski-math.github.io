@@ -1,0 +1,28 @@
+<html>
+
+<head>
+<title>Fantastic Fairy Quest</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='123')
+window.location = 'n3.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+
+</head>
+
+<body style="width:600px; padding-left: 1cm; padding-bottom:10cm">
+<h2>Good job craking the codes!</h2>
+<P>If you haven't found the briefcase yet - it is on the couch.<br>
+<P>You need to unlock the briefcase by performing the calculation below.<br>
+<P>Use the answer to unlock the briefcase.
+<img src="./division.png" height=400 >
+<br><br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+<h2>Enter the briefcase code : <input name="answer" type="text" size="10" maxlength="20"/>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>

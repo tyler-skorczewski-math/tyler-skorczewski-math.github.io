@@ -1,1 +1,29 @@
- 
+<html>
+
+<head>
+<title>Fantastic Fairy Quest</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='479001600')
+window.location = 'n0.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+
+</head>
+
+<body>
+
+<h2>Nora's Fantastic Fairies Birthday Quest!</h2>
+
+<P>Your fairy creatures hid and made you a quest.
+<P>You'll need to use your thinking and logic skills as well as your searching skills to find them all.
+<P>There are many ways we could have made this quest with fairies being found in different orders.
+<P>To begin the quest enter the number of different orders we could find the fairies.<br>
+  <form name="answerForm" onSubmit="solve(this); return false;">
+  <h2>Number of orderings : <input name="answer" type="text" size="10" maxlength="20"/>
+  <input value="Submit" type="submit />
+  </form>
+</body>
+</html>

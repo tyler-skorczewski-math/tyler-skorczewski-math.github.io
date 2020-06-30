@@ -1,0 +1,35 @@
+<html>
+
+<head>
+<title>Fantastic Fairy Quest</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='briefcase')
+window.location = 'n2.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+
+</head>
+<body style="width:600px; padding-left: 1cm; padding-bottom:10cm">
+<h2>Great job!</h2><br><br>
+<P>The codes below will help you find the next fairy creatures, but to
+  decrypt the codes you need the key. The key is broken up and hidden among
+  5 plastic eggs hidden throughout the front yard.
+  The first three codes take you to creatures. The fourth takes you to the next challenge.
+  <br><br>
+  Codes:<br>
+<ul>
+  <li><span style="background-color: #a8f79a">nijja kxjh</span> <!--green sled-->
+  <li><span style="background-color: #61a0e2">itdh okx</span> <!--mail box-->
+  <li><span style="background-color: #c1b4a4 ">fynid nywcq</span> <!--patio table-->
+  <li><span style="background-color: #fe9788">fvmijgewi</span> <!--briefcase-->
+  </ul>
+<br><br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+<h2>Enter the fourth code (decrypted) here : <input name="answer" type="text" size="10" maxlength="20"/>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>

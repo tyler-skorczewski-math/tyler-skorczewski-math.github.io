@@ -1,0 +1,25 @@
+<html>
+
+<head>
+<title>Fantastic Fairy Quest</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='213455')
+window.location = 'n6.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+
+</head>
+
+<body style="width:600px; padding-left: 1cm; padding-bottom:10cm">
+<P>Find the next fairy where this picture was taken!<br>
+<img src="./p5.jpg" height=400 >
+<br><br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+<h2>Enter the code : <input name="answer" type="text" size="10" maxlength="20"/>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>

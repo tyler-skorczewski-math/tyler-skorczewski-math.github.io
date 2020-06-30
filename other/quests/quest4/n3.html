@@ -1,0 +1,36 @@
+<html>
+
+<head>
+<title>Fantastic Fairy Quest</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='146328')
+window.location = 'n4.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+
+</head>
+
+<body style="width:600px; padding-left: 1cm; padding-bottom:10cm">
+<h2>Good job getting into the briefcase!</h2>
+<P>Inside the briefcase you see a cipher wheel and some codes. The codes give you hints for the next creatures.
+<P>To use a cipher wheel you line up the letters on the key.
+The encoded letters are on the inner circle and the decoded letters are on the outside.
+<br><br>
+Encoded messages:
+<ul>
+<li>zvki nyr <!--play doh-->
+<li>wkblvo bex<!--marble run-->
+<li>lkmu zkmu<!--back pack-->
+</ul>
+
+<br><br>
+The next few tasks don't require codes. Enter the next code you need below.<br>
+<form name="answerForm" onSubmit="solve(this); return false;">
+<h2>Enter the next code : <input name="answer" type="text" size="10" maxlength="20"/>
+<input value="Submit" type="submit />
+</form>
+</body>
+</html>
