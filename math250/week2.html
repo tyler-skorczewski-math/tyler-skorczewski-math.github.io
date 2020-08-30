@@ -20,26 +20,32 @@ $(function () {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body style="width: 1000px;">
+  <body style="width: 1000px; padding-left: 1cm; font-size: 200%;" background="bg.jpg">
+
 
   <h1>Math 250</h1>
 
 <hr>
 
-<h2>Warmups </h2>
+<h2>Warmups/Basics </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
   <div id="ex0" class="collapse">
     <ol type='A'>
     <li> Identify any separable DEs below and find their solutions.
       <ol type='a'>
         <li> \( \frac{dy}{dt} = ty + t\) <br> <br>
-        <li> \( \frac{dy}{dt} = y^2 + t^2\) <br> <br>
+        <li> \( \frac{dx}{dt} = y^2 + t^2\) <br> <br>
         <li> \( \frac{dy}{dt} = \sin(ty) \) <br> <br>
         <li> \( \frac{dx}{dt} = rx(1+x) \) <br> <br>
       </ol>
       <br>
+    <li> Solve \(\frac{dy}{dt} = 9y\) with \(y(4)=7\). (Thanks to Dr. Gong at UW Stout)<br>
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/html5/html5lib/v2.65/mwEmbedFrame.php/p/1660962/uiconf_id/27270162/entry_id/1_pl1d29al?wid=_1660962&iframeembed=true&playerId=kaltura_player&entry_id=1_pl1d29al&flashvars%5bstreamerType%5d=auto&amp;flashvars%5blocalizationCode%5d=en&amp;flashvars%5bleadWithHTML5%5d=true&amp;flashvars%5bsideBarContainer.plugin%5d=true&amp;flashvars%5bsideBarContainer.position%5d=left&amp;flashvars%5bsideBarContainer.clickToClose%5d=true&amp;flashvars%5bchapters.plugin%5d=true&amp;flashvars%5bchapters.layout%5d=vertical&amp;flashvars%5bchapters.thumbnailRotator%5d=false&amp;flashvars%5bstreamSelector.plugin%5d=true&amp;flashvars%5bEmbedPlayer.SpinnerTarget%5d=videoHolder&amp;flashvars%5bdualScreen.plugin%5d=true&amp;&wid=1_0d3332op" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
     <li> Use the integrating factor method to solve \( \frac{dx}{dt} + \frac{1}{t} x = 4 \). <br> <br>
-    <li> Use the integrating factor method to solve \( (x^2 + 1)\frac{dy}{dx} + 3xy = 6x\) with initial condition \(y(0)=5\). <br> <br>
+    <li> Use the integrating factor method to solve \( \frac{dy}{dt} = 2y + \sin 2t\). <br>
+    <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_yezxpof6&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_1lpbeis2" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe><br>
+    <li> Use the integrating factor method to solve \( (x^2 + 1)\frac{dy}{dx} + 3xy = 6x\) with initial condition \(y(0)=5\).<br>
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_nmct4fvq&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_ug5tz4m4" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe> <br> <br>
     <li> A population of bacteria grow according to the IVP \( \frac{dP}{dt} = kP, P(0)=P_0\). How long does it take the population to double in size? triple?
     </ol>
  </div>
@@ -78,6 +84,7 @@ $(function () {
       <li> If there is initially 10 lbs of salt in the tank how much is there at time \(t\)?
       <li> How long until there is less than 0.1 lbs of salt in the tank?
     </ol>
+    <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_s6enb1ax&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_wpdos7k9" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
 
   <li> Now consider a 50 gallon tank of pure water. Saltwater with concentration 2 lbs/gal is pumped in at a rate of 3 gal/min, is continuously mixed, and flows out at 3 gal/min.
     <ol type='1'>
@@ -85,6 +92,7 @@ $(function () {
       <li> Describe the DE using vocubulary we have learned thus far.
       <li> Solve this system. Is there a particular method that is aimed at this type of problem?
     </ol>
+    <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_nvnw2m5x&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_f65ljusg" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
 
 </ol>
 
@@ -94,7 +102,7 @@ $(function () {
 <h2>Example 3 - Drugs in the bloodstream </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
 <div id="ex3" class="collapse">
-  <img src="./pills.jpg" width=300><br>
+  <img src="./pills.jpg" width=150><br>
   Consider taking a pill. The pill dissolves and enters the bloodstream at a rate proportional to the amount left in the pill.
   The body metabolizes the drug in the bloodstream at a rate proportional to the amount in the bloodstream.
   <ol type='1'>
@@ -106,6 +114,10 @@ $(function () {
   <li> When is the amount of drug in the bloodstream at a maximum?
   <li> How is this related to the tank problems in the text or above?
   </ol>
+  <P>This idea is explored in more detail in <a href="wagner1967_pharmacokinetics.pdf">this paper by Wagner</a>.
+    They use the compartment model described above and match the theoretical/computational results to experiment.
+    The figure below shows how well the model aligns with experimental data.<br>
+    <img width=400 src="drug_curve.png"><br>
 
 </div>
 
@@ -121,6 +133,7 @@ We can't eat it until it has cooled down to 100 degrees. Let's use Newton's Law 
 <li> Solve the IVP.
 <li> Use your solution to determine the time it takes for the pie to have cooled to 100 degrees.
 </ol>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_9fx42ngh&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_hy0359ui" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe><br>
 
 </div>
 
@@ -130,6 +143,13 @@ We can't eat it until it has cooled down to 100 degrees. Let's use Newton's Law 
 
 <P> Consider a population, \(P\), that grows with dynamics \(\frac{dP}{dt} = k P\).
   If the population is 790 in the year 1750, and 1260 in the year 1850, how big is it in 1950?
+  <br>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5soln">Solution</button>
+  <div id="ex5soln" class="collapse">
+  <object width="700" height="550" data="./week2_morepopulations.pdf" type="application/pdf">
+  Your browser does not support pdfs, <a href="./week2_morepopulations.pdf">click here to
+  download the file.</a></object>
+</div>
 
 </div>
 
@@ -139,8 +159,32 @@ We can't eat it until it has cooled down to 100 degrees. Let's use Newton's Law 
 <a href="https://clevelandhistorical.org/items/show/58"><img src="./phactcuyahoga5.jpg" width=400><br>Lake Erie/Cuyahoga River on fire in 1969  </a><br>
 <P> Lake Erie has a total volume of 458 cubic kilometers. Assume the inflow/outflow rate are equal and 175 km\(^3\)/yr.
   Suppose at \(t=0\) the pollutant concentration is 0.05% and for \(t > 0\) pollutant concentration inflow is 0.01%.
-  If we assume the lake is perfectly mixed (it is not), how long will it take until the lake has a pollutant concentration of 0.02\%?
+  If we assume the lake is perfectly mixed (it is not), how long will it take until the lake has a pollutant concentration of 0.02%?
+<br>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6soln">Solution</button>
+<div id="ex6soln" class="collapse">
+<object width="700" height="550" data="./LakeErieexample.pdf" type="application/pdf">
+Your browser does not support pdfs, <a href="./LakeErieexample.pdf">click here to
+download the file.</a></object>
+</div>
+</div>
 
+<h2>Example 7 - Prolific Rabbits </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
+<div id="ex7" class="collapse">
+<P> Consider a prolific breed of rabbits whose birth and death rates,
+  \(\beta\) and \(\delta\), respectively, are proportional to the rabbit population,
+  \(P(t)\), with \(\beta > \delta\). Show that the rabbit population goes
+  to infinity in a finite amount of time.<br>
+  <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_p7rz9qz8&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_y1vk128c" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+
+</div>
+
+<h2>Example 8 - Just a graph </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example 8</button>
+<div id="ex8" class="collapse">
+  <P>What can we say about a differential equation \(\frac{dx}{dt} = f(x)\) just using the graph of \(f\)?
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_tza2a7wu&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_mqa0dbki" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
 </div>
 
 

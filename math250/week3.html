@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body style="width: 1000px;">
+  <body style="width: 1000px; padding-left: 1cm; font-size: 200%;" background="bg.jpg">
 
   <h1>Math 250</h1>
 
@@ -47,7 +47,7 @@
     $$ \frac{dy}{dx} = y-x. $$
 <ol type='1'>
 <li> Label this equation using vocabulary from the course.
-<li> Find particular solutions to the DE \( \frac{dy}{dx} = y - x\) with initial conditions:
+<li> Find particular solutions to the DE \( \frac{dy}{dx} = x - y\) with initial conditions:
   <ol type='a'>
     <li> \( y(0) = 2 \) <br> <br>
     <li> \( y(0.1) = 2.2\) (you'll need a calculator/computer - find C to 3 digits) <br> <br>
@@ -158,7 +158,7 @@ EM
 <P> Recall the drugs in the bloodstream example from week 2.
 $$\frac{dA}{dt} = -kA $$
 $$\frac{dC}{dt} = kA - mC$$
-Let \(k=0.1 \mbox{ min}^{-1}, m=0.05 \mbox{ min}^{-1}, A(0) = 1, C(0) = 0\). Modify the Euler method code below to work for a system of two differential equations and
+Let \(k=0.1, m=0.05, A(0) = 1, C(0) = 0\). Modify the Euler method code below to work for a system of two differential equations and
 approximate the amount of drug in the bloodstream when \(t=25\) using a stepsize of \(h=0.1\).<br>
 <div class="compute"><script type="text/x-sage">
 # everything following hash symbol is comment
