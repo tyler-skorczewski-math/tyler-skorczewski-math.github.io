@@ -3,27 +3,24 @@
   <head>
     <script type="text/javascript" async
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+  </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Calculus I</title>
+    <title>CALCULUS I</title>
     <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
     <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
     <script>
-    <script>$(function () {
-    // Make the div with id 'mycell' a Sage cell
-    sagecell.makeSagecell({inputLocation:  'div.mycell',
-                           template:       sagecell.templates.minimal,
-                           evalButtonText: 'Activate'});
+  $(function () {
     // Make *any* div with class 'compute' a Sage cell
     sagecell.makeSagecell({inputLocation: 'div.compute',
-                           evalButtonText: 'Evaluate'});
-    });
+          template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+  });
     </script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+  <body  style="width: 800px; padding-left: 1cm; padding-bottom: 10cm">
 
   <h1>Calc I Functions</h1>
 
@@ -73,9 +70,12 @@
 <h2>Example 4 - SIR</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
   <div id="ex4" class="collapse">
-    <P>Consider the virus currently (2020) occuring in China. (<a href="https://www.bbc.com/news/world-asia-china-51249208">News story</a>)<br><br>
-      <a href="https://sagecell.sagemath.org/?z=eJyFU8FuozAQvfMVo_YQaCaI7G4PrYS0V24RHFEUOTA03hhs2aZN_n4HQ6KN9lAOxjN-783Mw3RW9-DEB6WNUM2oRpe25LT6JOtA9kZbD0vi4K7OU3-w51-RxwoLLCGHT2HjlYcKCihXSRS11EFVlL1uScVX9GiEFb1L3iPgp0IoECbeNcRCmZNAOJIXnJuh4cCSH-0Acb0JkJfqpcD7bjPhOTG_9lw1HLFClv6IFrEs3UZR9FsOnqxoPO9Db4c4YPP5hXGW4s80SYJWHk_rPbf0HBZ2gDX_dyK-z1oHR_Y8cT1LT1r7BG952bi8zjBL3954ybaYcY7dyz3S0B6M5k5dvs24OIubPEtfE4hm16q8hlrinz102gJv8IwK5DC1tQ-QZ2OZH1dVEsKigply_pZSLJTyRlHfUkqmzI3t2BQlnT8Ypf-p_pguKmy00jZfWWpXS7VHSHmHfFiiYQH5C4M8XTzfMNnTCiF-zXDDXzaZAXM7T8UA_kTgZD8q4aUe-EIp_QVHNRLfJGPJEZsbQN10GSaI7kJstLmR3OgaMl4eFYHXIKCVjoQjfHqoNrF4kEc1OXTUeGoRxNBCGOIRYKnR_FMxj7211HPQpouwO-mvuNqti9263K39JfkLbV0WGA==&lang=sage&interacts=eJyLjgUAARUAuQ==">
-      Link to applet</a>
+    <P>Consider the corona virus currently (2020) occuring throughtout the world. (<a href="https://www.bbc.com/news/world-asia-china-51249208">News story</a>)<br><br>
+      SIR models are a class of epidemic models that track susceptible (S), infected (I), and removed (R) populations as a disease works its way through a community.
+      These types of models are actually used in the real world (<a href="https://www.sciencedirect.com/science/article/pii/S0960077920304549">article</a>).
+      There are many extensions of the model, but the basic model has just two parameters \(\alpha\) and \(\beta\). You can experiment with these parameters in the applet below.
+      Can you figure out what \(\alpha\) and \(\beta\) represent? Are there any functions here?
+
 
     <div class="compute">
     <script type="text/x-sage">
@@ -105,6 +105,8 @@ def _(alpha=(alpha,(0.,3.)),beta=(beta,(0.,3.))):
     show(SP+IP+RP+tx)
         </script>
       </div>
+      <a href="https://sagecell.sagemath.org/?z=eJyFU8FuozAQvfMVo_YQaCaI7G4PrYS0V24RHFEUOTA03hhs2aZN_n4HQ6KN9lAOxjN-783Mw3RW9-DEB6WNUM2oRpe25LT6JOtA9kZbD0vi4K7OU3-w51-RxwoLLCGHT2HjlYcKCihXSRS11EFVlL1uScVX9GiEFb1L3iPgp0IoECbeNcRCmZNAOJIXnJuh4cCSH-0Acb0JkJfqpcD7bjPhOTG_9lw1HLFClv6IFrEs3UZR9FsOnqxoPO9Db4c4YPP5hXGW4s80SYJWHk_rPbf0HBZ2gDX_dyK-z1oHR_Y8cT1LT1r7BG952bi8zjBL3954ybaYcY7dyz3S0B6M5k5dvs24OIubPEtfE4hm16q8hlrinz102gJv8IwK5DC1tQ-QZ2OZH1dVEsKigply_pZSLJTyRlHfUkqmzI3t2BQlnT8Ypf-p_pguKmy00jZfWWpXS7VHSHmHfFiiYQH5C4M8XTzfMNnTCiF-zXDDXzaZAXM7T8UA_kTgZD8q4aUe-EIp_QVHNRLfJGPJEZsbQN10GSaI7kJstLmR3OgaMl4eFYHXIKCVjoQjfHqoNrF4kEc1OXTUeGoRxNBCGOIRYKnR_FMxj7211HPQpouwO-mvuNqti9263K39JfkLbV0WGA==&lang=sage&interacts=eJyLjgUAARUAuQ==">
+      Link to applet</a> (if Sage code does not launch correctly)
   </div>
 
   <h2>Example 5 - distance formula </h2>
