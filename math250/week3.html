@@ -43,44 +43,44 @@
  <h2>Example - Euler's method for logistic equation</h2>
  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex00">Example</button>
    <div id="ex00" class="collapse">
-   <P>Let's implement Euler's method for the logistic equation \(\frac{dp}{dt} = 0.1p(10-p)\) with stepsize \(h=0.5\) and \(y(0) = 0.1\).<br>
+   <P>Let's implement Euler's method for the logistic equation \(\frac{dp}{dt} = 0.1p(10-p)\) with stepsize \(h=0.5\) and \(p(0) = 0.1\).<br>
    <div class="compute"><script type="text/x-sage">
- # everything following hash symbol is comment
- import numpy;
- x= var('x') #independent variable
- y = var('y')  #dependent variable
+# everything following hash symbol is comment
+import numpy;
+x= var('x') #independent variable
+y = var('y')  #dependent variable
 
- #how to plot numerical methods for dy/dx = f(x,y) using sage
+#how to plot numerical methods for dy/dx = f(x,y) using sage
 
- #change arguments as needed for hws
+#change arguments as needed for hws
 
- ### function and parameters ###
- def f(x,y): return 0.1*(10.-y)*y
- h=0.5
- x0 = 0
- x1 = 15
- y0 = .1
+### function and parameters ###
+def f(x,y): return 0.1*(10.-y)*y
+h=0.5
+x0 = 0
+x1 = 15
+y0 = .1
 
- ########################
- N = floor((x1-x0)/h)
- EM = numpy.zeros(shape=(N+1,2))
+########################
+N = floor((x1-x0)/h)
+EM = numpy.zeros(shape=(N+1,2))
 
- x = x0
- y = y0
- EM[0] = [x0,y0]
+x = x0
+y = y0
+EM[0] = [x0,y0]
 
- for i in range(N):  #euler method loop
-   y = y + h*f(x,y)
-   x = x + h
-   EM[i+1] = [x,y]
+for i in range(N):  #euler method loop
+ y = y + h*f(x,y)
+ x = x + h
+ EM[i+1] = [x,y]
 
- ##comment 3 lines below to stop plotting output
- Pem1 = list_plot(EM) #blue is default color
- Pem2 = line(EM)
- (Pem1+Pem2).show()
+##comment 3 lines below to stop plotting output
+Pem1 = list_plot(EM) #blue is default color
+Pem2 = line(EM)
+(Pem1+Pem2).show()
 
- #display pts for euler method
- EM
+#display pts for euler method
+EM
 
  </script></div>
 
