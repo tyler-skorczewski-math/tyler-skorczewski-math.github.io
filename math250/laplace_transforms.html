@@ -1,0 +1,123 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px; padding-left: 1cm; font-size: 175%;" background="bg.jpg">
+
+  <h1>Math 250/255 Laplace Transforms </h1>
+
+<hr>
+
+<h2>Definition</h2>
+<P> \(\displaystyle \mathcal{L} (f(t)) = F(s) = \int_0^{\infty} f(t) e^{-st}~dt\).
+
+<h2>Basic examples </h2>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_84ipbpzp&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_ohrtn32u" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe><br><br>
+<P>Exercise: Use integration by parts twice to show \(\displaystyle \mathcal{L} (t^2) = \frac{2}{s^3}, s > 0\).
+<br>
+
+<h2>Linearity </h2>
+<P>Claim: The Laplace transform is a linear operator.<br>
+  <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_xyno7jig&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_uc2uhjrd" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+<br>
+<P>Example: \(\displaystyle \mathcal{L} (3 + 2t^2) = 3\mathcal{L}(1) + 2 \mathcal{L} (t^2) = 3 \frac{1}{s} + 2 \frac{2}{s^3} = \frac{3}{s} + \frac{4}{s^3}, s>0\).
+<!--$$begin{bmatrix} a & b\\ c & d \end{bmatrix}-->
+
+<h2>Example - exponential functions </h2>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_rljst8gu&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_4yfa600h" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+<br>
+<br>
+
+<h2>Example - step function </h2>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_5qk0qn3z&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_t6s05m4j" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+<br>
+<P><b>Result:</b>\(\displaystyle \mathcal{L}(u(t-a)f(t-a)) = e^{-as}F(s)\)<br>
+  <P>Proof left to the reader.
+
+<h2>Going backwards - inverse Laplace transforms</h2>
+<P>Theorem: Suppose \(f(t)\) and \(g(t)\) are such that \(F(s) = \mathcal{L}(f(t))\)
+  and \(G(s) = \mathcal{L}(g(t))\) exist. If \(F(s) = G(s)\) for \(s > c\) for some \(c\), then
+  \(f(t) = g(t)\) whenever \(f\) and \(g\) are continuous on \([0,\infty)\).
+  <br>
+  <P>What does this mean? - The Laplace transform is a 1-1 function and an inverse exists, \(\displaystyle \mathcal{L}^{-1}\).
+    <br>
+  <P>If \(\displaystyle \mathcal{L} (f(t)) = F(s)\), then \(\displaystyle \mathcal{L}^{-1} (F(s)) = f(t)\).<br>
+  <P>Examples:
+    <ul>
+      <li>\(\displaystyle \mathcal{L}^{-1} (\frac{1}{s}) = 1\)<br><br>
+      <li>\(\displaystyle \mathcal{L}^{-1} (\frac{1}{s^3}) = \mathcal{L}^{-1} ( (\frac{2}{2})\frac{1}{s^3}) = \mathcal{L}^{-1} ((\frac{1}{2})\frac{2}{s^3}) =\frac{1}{2} \mathcal{L}^{-1} (\frac{2}{s^3}) = \frac{1}{2}t^2\)
+      </ul>
+  <P>Remark: the inverse Laplace transform is also a linear operator.
+    <br>
+  <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_btxstnei&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_ghc6taie" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+  <br><br>
+
+
+<h2>Goal: Using Laplace transforms to solve initial value problems (IVPs)  </h2>
+<P>Before we can work on DEs and IVPs, we need to see what the Laplace transform does to derivatives.<br>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_vv59hret&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_pbblec8b" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+<br><br>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_2rol1xm5&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_8qb0ia5b" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+<br><br>
+
+<P><b>Theorem</b> In general if \(f,f',f'',...,f^{(n-1)}\) are continuous, piecewise smooth, and of exponential order, then \(\mathcal{L} (  f^{(n)}(t))\) exists.
+  <P>\(\displaystyle \mathcal{L} (f^{(n)}(t)) = \mathcal{L} \left( \frac{d^n f}{dt^n} \right) = s^n F(s) + s^{n-1}f(0) + s^{n-2} f'(0) + ... + f^{(n-1)}(0)\)
+<br><br>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_1ta0vxo6&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_1b5yg1xs" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe><br><br>
+
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_9rv1ql4m&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_2af24yuv" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe><br>
+<br>
+
+<h2>Table of Laplace Transforms</h2>
+<img src="./laplace_table_sm.png" width=500><br>
+<P>A more complete table can be found <a href="./laplace_transforms_table.jpg">here</a> and you can perform an internet search for even more expansive tables.<br>
+
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_06jgmw7n&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_dy5mb92k" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+<br><br>
+
+<h2>A Couple More Theorems</h2>
+<p>We can look up inverse Laplace transforms in a table, but sometimes we need a form for \(s-a\) instead of \(s\).
+<br>
+<p><b>Theorem: </b> If \(F(s) = \mathcal{L}(f(t))\) exists for \(s>c\) then \(\mathcal{L}(e^{at}f(t))\) exists for \(s > c + a\) and
+  \(\mathcal{L}(e^{at}f(t)) = F(s-a)\), and \(\mathcal{L}^{-1}(F(s-a)) = e^{at} f(t)\).
+  <br>
+  <p><b>PF</b> We know \(\displaystyle F(s) = \int_0^{\infty} f(t) e^{-st}~dt\).<br>
+     Then \(\displaystyle F(s-a) = \int_0^{\infty} f(t) e^{-(s-a)t}~dt = \int_0^{\infty} f(t) e^{at} e^{-st}~dt = \mathcal{L}(e^{at}f(t)) \).
+<br>
+<P>Note this can be used in both directions, to find Laplace transforms and inverse Laplace transforms.
+<br><p><b>Example 1: </b>\(\displaystyle \mathcal{L}(t^n) = \frac{n!}{s^{n+1}} \Rightarrow \mathcal{L}(e^{at}t^n) = \frac{n!}{(s-a)^{n+1}} \)
+<br><p><b>Example 2: </b>\(\displaystyle \mathcal{L}^{-1}(\frac{a}{s^2 +a^2}) = \sin (at) \Rightarrow \mathcal{L}^{-1}(\frac{a}{(s-a)^2 +a^2}) = e^{at}\sin (at) \)
+
+<br>
+
+ <p><b>Theorem: </b>Let \(f\) be a piecewise continuous function of exponential order as \(t \to \infty\). Then \(\displaystyle \mathcal{L}(-t f(t)) = F'(s) = \frac{d}{ds}F(s)\).
+We also have that \(\displaystyle f(t) = \mathcal{L}^{-1}(F(s)) = \frac{-1}{t}\mathcal{L}^{-1}(F'(s))\). <br>In general, \(\displaystyle \mathcal{L}(t^n f(t)) = (-1)^n \frac{d^n}{ds^n}F(s) = (-1)^nF^{(n)}(s)\).
+<br>
+<br><p><b>Example 1: </b>\(\displaystyle \mathcal{L}(t e^{-2t}) = -\frac{d}{ds}\mathcal{L}(e^{-2t}) = -\frac{d}{ds} \frac{1}{s+2} = - \frac{-1}{(s+2)^2} = \frac{1}{(s+2)^2} \)
+<br><p><b>Example 2: </b>\(\displaystyle \mathcal{L}(t \sin(3t)) = -\frac{d}{ds}\mathcal{L}(\sin(3t)) = -\frac{d}{ds} \left( \frac{3}{s^2 + 3^2}\right) = (-3)(-1) \left( \frac{1}{s^2 + 3^2}\right)^2 (2s) = \frac{6s}{(s^2 + 3^2)^2} \)
+
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2020</footer>
+</body>
+</html>
