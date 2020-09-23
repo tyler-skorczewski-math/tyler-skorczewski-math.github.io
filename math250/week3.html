@@ -146,6 +146,42 @@ EM
 </ol>
 </div>
 
+<h2>Notes on error</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#err">Notes</button>
+  <div id="err" class="collapse">
+<ul>
+<li>There are two kinds of error we see when using numerical methods to approximate solutions to initial value problems, local error and global error.
+Local error (truncation error) is the error introduced in one step of the method. Global error is the error that accumulates over several steps.
+<br>
+<li>Euler's method is \(\mathcal{O}(h)\). This means that as the error scales as \(h\) to the first power, e.g. making \(h\) 10 times smaller makes
+the error 10 times smaller. For Euler's method making \(h\) 10 times smaller also requires 10 times more function evaluations.
+<br>
+<li><b>Taylor's Theorem</b> Let \(f\) be a function with \(n\) derivatives on the interval \([a,b]\) (\(f \in C^n[a,b]\) ) and let \(f^{(n+1)}\) exist on \( (a,b) \).
+Let  \(x_0 \in [a,b]\). For every \(x \in [a,b]\) there exists a \(\xi (x)\) between \(x_0\) and \(x\) such that \(f(x) = T_n (x) + R(x)\). \(T_n\) is the \(n^{th}\)
+order Taylor polynomial and \(R(x)\) is the remainder term.
+$$T_n(x) = f(x_0) + \sum_{k=1}^{n} \frac{f^(k)(x_0)}{k!} (x-x_0)^k$$
+$$R(x) = \frac{f^{(n+1)}(\xi (x))}{(n+1)!} (x-x_0)^{n+1}$$
+<br>
+<br>
+<li>Let \(\frac{dy}{dx} = f(x,y)\). Applying Taylor's Theorem to \(y\) about \(x_n\) with the first order Taylor polynomial we have
+$$y_{n+1} = y(x_{n+1}) = y(x_n + h) = y(x_n) + \frac{dy}{dx}(x_n) (x_{n+1} - x_n) + \frac{1}{2} \frac{d^2y}{dx^2}(\xi) (x_{n+1} - x_n)^2,$$
+$$\Rightarrow y_{n+1} = y_n + h \frac{dy}{dx}(x_n)  + \frac{1}{2} h^2 \frac{d^2y}{dx^2}(\xi).$$
+<br>
+<li>If we solve this for \(\frac{dy}{dx}\) we see
+$$\frac{dy}{dx} = \frac{y_{n+1} - y_n}{h} - \frac{1}{2}h \frac{d^2y}{dx^2}(\xi).$$
+The first term comes from the Euler method approximation. The second is the truncation error (local error). The truncation error name comes from truncating the Taylor series.
+<br>
+<li>Note that if we can bound the second derivative of \(y\) we can bound the error, i.e. if \( \left| \frac{d^2y}{dx^2} \right| < M\) for all \(x\) in the interval we are interested
+in, then the error is always less than \(\frac{M}{2} h\). This is why we say the error is \(\mathcal{O}(h)\). It looks like a constant times \(h\) to the first power.
+<br>
+<br>
+<li>We can't just make \(h\) as small as we want. We also have to consider round-off error, or machine precision.
+The error behaves like \(Error = \frac{M}{2}h + \frac{d}{h}\). We can minimize the error as a function of \(h\) using methods from calculus to find an optimal \(h\) value.
+In practice the number of function evaluations required often plays a more important role in the choice of \(h\) over round-off error considerations.
+</ul>
+</div>
+
+
 <h2>Example 2 - Lakes </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
 <div id="ex2" class="collapse">
