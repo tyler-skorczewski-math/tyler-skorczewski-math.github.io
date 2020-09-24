@@ -390,6 +390,51 @@ EM
 <li> Write a paragraph or two in your notebook that explains the relationship between the Improved Euler and Runge-Kutta Methods for IVPs and the trapezoidal rule and Simpson's rule for numerical integration.
 </ol>
 
+<h3>RK code from class 9-23-2020</h3>
+<div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+import numpy;
+x= var('x') #independent variable
+y = var('y')  #dependent variable
+
+#how to plot numerical methods for dy/dx = f(x,y) using sage
+
+#change arguments as needed for hws
+
+### function and parameters ###
+def f(x,y): return 0.25 - y + 5.*(y**8)/(1. + y**8)
+h=0.001
+x0 = 0
+x1 = 1
+y0 = .78
+
+########################
+N = floor((x1-x0)/h)
+RK = numpy.zeros(shape=(N+1,2))
+
+x = x0
+y = y0
+RK[0] = [x0,y0]
+
+for i in range(N):  #RK method loop
+  k1 = f(x,y)
+  k2 = f(x+h/2., y + k1*h/2.)
+  k3 = f(x+h/2., y + k2*h/2.)
+  k4 = f(x+h, y + h*k3)
+  y = y + h*(k1+2*k2+2*k3+k4)/6.
+  x = x + h
+  RK[i+1] = [x,y]
+
+##comment 3 lines below to stop plotting output
+Prk1 = list_plot(RK) #blue is default color
+Prk2 = line(RK)
+(Prk1+Prk2).show()
+
+#display pts for euler method
+RK
+
+</script></div>
+
 </div>
 
 <h2>Example 5 - Warning Example </h2>
