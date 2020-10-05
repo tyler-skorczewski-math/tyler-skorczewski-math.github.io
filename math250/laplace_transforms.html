@@ -143,7 +143,18 @@ We also have that \(\displaystyle f(t) = \mathcal{L}^{-1}(F(s)) = \frac{-1}{t}\m
 
 
 
-<h2>More to come ...</h2>
+<h2>Convolutions</h2>
+
+<h3>Definition</h3>
+<P><b>Definition</b> The convolution \(f * g\) of the piecewise continuous functions \(f\) and \(g\) is defined for \(t \geq 0 \) by \(\displaystyle (f*g)(t) = \int_0^t f(x)g(t-x)~dx\).
+  <br><br>
+<P><b>Example 1:</b> \(\displaystyle t*t^2 = \int_0^t (t-x)x^2~dx = \left. \frac{t}{3}x^3 - \frac{1}{4}x^4  \right]_{x=0}^t = \frac{1}{12}t^4\).
+
+<h2>Theorem</h2>
+<p><b>Theorem: </b>Suppose \(f(t)\) and \(g(t)\) are piecewise continuous functions such that \(\mathcal{L}(f(t)) = F(s)\) and \(\mathcal{L}(g(t)) = G(s)\) exist. Then the Laplace transform of \(f*g\) exists and
+\(\mathcal{L}(f(t)*g(t)) = F(s)G(s)\) and \(\mathcal{L}^{-1}(F(s)G(s))=f(t)*g(t)\).
+<br><br>
+<P><b>Example 2:</b> Solve \(x' + x = e^{-2t}, x(0) = 0\) for \(x(t)\) using the convolution ideas above.
 
 <footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2020</footer>
 </body>
