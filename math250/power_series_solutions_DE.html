@@ -1,0 +1,93 @@
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px; padding-left: 1cm; font-size: 175%;" background="bg.jpg">
+
+  <h1>Math 250/255 Power Series Solutions to Differential Equations </h1>
+
+<hr>
+
+<h2>Power Series Review</h2>
+
+<h3>Review of some series convergence tests from calculus.</h3>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_d6lc2nuc&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_hjwua9y4" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe><br>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_5jjycl9u&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_b8rzy3q4" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe><br>
+
+<P>See <a href="https://tyler-skorczewski-math.github.io/math154/power_series-ans.html">this page</a> for more practice with power series ideas from calculus.<br>
+
+
+<P><b>Definition: </b> If the Taylor series of the function \(f\) converges to \(f(x)\) for all \(x\)
+  in some open interval containing \(a\), then we say that the function \(f\) is analytic at \(x=a\).
+
+<P><b>Theorem: </b> If \(\displaystyle \sum_{n=0}^{\infty} a_n x^n = \sum_{n=0}^{\infty} b_n x^n\) for
+  every point \(x\) in some open interval \(I\),then \(a_n=b_n\) for all \(n\geq 0\).
+  Moreover, if \(\displaystyle \sum_{n=0}^{\infty} a_n x^n = 0 \) for all \(x\) then \(a_n = 0\) for all \(n\).
+
+<P><b>Result: </b>We can differentiate power series term by term
+  \(\displaystyle \begin{eqnarray}
+      \frac{d}{dx}\left(\sum_{n=0}^\infty c_n
+\,x^n\right)&=&\frac{d}{dx}(c_0+c_1x+c_2x^2+c_3x^3+c_4x^4+c_5x^5+\cdots)\\
+      &=&0+c_1+2c_2x+3c_3x^2+4c_4x^3+5c_5x^4+\cdots\\
+      &=&
+      \sum_{n=1}^\infty n\,c_n \,x^{n-1}.
+      \end{eqnarray} \)
+
+    <P>Note that we have begun our sum at \(n=1\) since the first term (constant term) is zero when we differentiate.
+    However, we don't have to do that, and we can say that \(\displaystyle \frac{d}{dx}\left(\sum_{n=0}^\infty c_n
+              \,x^n\right)=\sum_{n=1}^\infty n\,c_n \,x^{n-1} = \sum_{n=0}^\infty n\,c_n \,x^{n} \) since the \(n=0\) term will be zero anyway on the RHS here.
+
+  <h3>Shifting indices</h3>
+  <P>Index shifting is one of the 'standard tricks' of mathematics, along with multiplying by one, adding zero, and expanding/regrouping terms in parentheses.
+    The idea is to start a sum at a different value of the index than originally written, but shift the index values so that terms refer to the same quantities.
+    This is very useful to get an equation with many series terms all summing over the same index. If you shift the start backward then you shift the index forwards the same amount in the series.
+    <P><b>Example 1:</b> \(\displaystyle \sum_{n=2}^{\infty} c_n x^n = \sum_{n=0}^{\infty} c_{n+2} x^{n+2}\) (shift start back by 2, index forward by 2)
+    <P><b>Example 2:</b> \(\displaystyle \sum_{n=3}^{\infty} n(n-2) c_n x^n = \sum_{n=0}^{\infty} (n+3)(n+1)c_{n+3} x^{n+3}\) (shift start back by 3, index forward by 3)
+
+<h2>Using power series to solve differential equations</h2>
+<P>We restrict ourselves to solutions at ordinary points.
+  If we have a DE \(y'' + P(x)y' + Q(x)y = 0\), ordinary points
+  are \(x\) values where \(P(x)\) and \(Q(x)\) are analytic.
+
+<P>The idea to using power series is to plug in \(\displaystyle y = \sum_{n=0}^{\infty} c_n x^n\) and its derivatives into a DE
+  and use properties of power series to find a power series representation of the solution.
+
+<P><b>Example 1:</b>\((x-2)y' + y = 0\)<br>
+  <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_y6mws7l4&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_bmbqyhq1" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+
+<P><b>Example 2:</b>\((2-x^2)y'' - xy' - 4y = 0\)<br>
+  <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_qej8yvms&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_syhr54c4" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+
+<P><b>Example :</b>\(y'' = y\)<br>
+  <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_szmivpfb&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_afjjm2tp" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+
+<!--
+<h2>Bessel Functions?</h2>
+
+<h2>Legendre polynomials?</h2>
+-->
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2020</footer>
+</body>
+</html>
