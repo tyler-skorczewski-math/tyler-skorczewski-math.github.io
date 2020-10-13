@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Derivative rules</h1>
+
+<hr>
+
+
+
+
+<h2>Example -</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example</button>
+  <div id="ex1" class="collapse">
+    <P>Consider the function \(f(x) = x^2\).
+      <ol>
+        <li>Use the definition of derivative to find \(f'(1)\).<br>
+        <li>Use the definition of derivative to find \(f'(2)\).<br>
+        <li>Use the definition of derivative to find \(f'(3)\).<br>
+      </ol><br>
+
+    <P>Do you see a pattern here? Can you guess the form for \(f'(x)\)?
+  </div>
+
+  </div>
+
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex1">Example</button>
+  <div id="gex1" class="collapse">
+    <P>Consider the function \(g(x) = x^3\).
+      <ol>
+        <li>Use the definition of derivative to find \(g'(1)\).<br>
+        <li>Use the definition of derivative to find \(g'(2)\).<br>
+        <li>Use the definition of derivative to find \(g'(3)\).<br>
+      </ol><br>
+
+    <P>Do you see a pattern here? Can you guess the form for \(g'(x)\)?
+  </div>
+
+  <h2>Examples </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex2">Example</button>
+    <div id="gex2" class="collapse">
+      <P>Consider the two exercises above. Fill in the table below.<br><br>
+        <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-cly1{text-align:left;vertical-align:middle}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">\(f(x)\)</th>
+    <th class="tg-cly1">\(f'(x)\)</th>
+  </tr>
+  <tr>
+    <td class="tg-cly1">\(x^0\)</td>
+    <td class="tg-cly1"></td>
+  </tr>
+  <tr>
+    <td class="tg-cly1">\(x\)</td>
+    <td class="tg-cly1"></td>
+  </tr>
+  <tr>
+    <td class="tg-cly1">\(x^2\)</td>
+    <td class="tg-cly1"></td>
+  </tr>
+  <tr>
+    <td class="tg-cly1">\(x^3\)</td>
+    <td class="tg-cly1"></td>
+  </tr>
+</table>
+<br>
+
+  <P>Can you see a pattern?<br><br>
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#res">Result</button>
+      <div id="res" class="collapse">
+        <P>Power Rule for Derivatives: If \(n\) is a nonnegative integer and \(f(x) = x^n\), then \(f'(x) = nx^{n-1}\).<br>
+      </div>
+
+
+    </div>
+
+    <h2>Examples </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex3">Example</button>
+      <div id="gex3" class="collapse">
+        <P>Consider \(h(x) = \sqrt{x} = x^{1/2}\). Does the rule above apply? Does it work here?
+      </div>
+
+      <h2>More derivative rules </h2>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex4">Example</button>
+        <div id="gex4" class="collapse">
+          <ol type='A'>
+            <li>Sum rule for derivatives: Let \(h(x) = f(x) + g(x)\). Then \(h'(x) = f'(x) + g'(x)\) provided the derivatives exist.<br><br>
+            <li>Constant multiple rule: Let \(k\) be a constant number and \(r(x) = k f(x)\). Then \(r'(x) = k f'(x)\) provided \(f'(x)\) exists.<br><br>
+            <li>True or False. Let \(h(x) = f(x) - g(x)\). Then \(h'(x) = f'(x) - g'(x)\). Why or why not?
+            </ol>
+        </div>
+
+
+<h2>Examples </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex5">Example</button>
+  <div id="gex5" class="collapse">
+    <P>Let \(f(x) = 3x^4 + 2x^3 + x^2 - 5x +2\).
+      <ol>
+        <li>Find \(f'(x)\).<br>
+        <li>Find \(f''(x)\).<br>
+        <li>Find \(f'''(x)\).<br>
+        <li>Find \(f^{(4)}(x)\).<br>
+        <li>Find \(f^{(5)}(x)\).<br>
+        <li>Do you notice any patterns?
+        </ol>
+        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=0_tl0xbw8h&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_9jb1hwyn" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+  </div>
+
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example</button>
+  <div id="ex5" class="collapse">
+    <P>Find the derivatives of the following functions.
+      <ol>
+        <li>\(\displaystyle f(x) = 10^{3\pi}\)<br><br>
+        <li>\(\displaystyle g(x) = (x+ 1)^3\)<br><br>
+        <li>\(\displaystyle h(x) = (x^2 + 1)(x + 4)\)<br><br>
+          <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=0_gteumvtr&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_y1ou3vpl" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+        <li>\(\displaystyle j(x) = (x^3 + x^2)^2\)<br><br>
+        <li>\(\displaystyle k(x) = x^{\sqrt{2}}\)<br><br>
+        <li>\(\displaystyle m(x) = \frac{1}{x^2}\)<br><br>
+        <li>\(\displaystyle n(x) = \frac{x^2 - x}{x^4}\)<br><br>
+          <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=0_o8ylj0px&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_80n8lirr" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+      </ol>
+  </div>
+
+<h2>Example - going backwards </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example</button>
+<div id="ex6" class="collapse">
+  <P>Power Rule for Derivatives: If \(f(x) = x^n\), then \(f'(x) = nx^{n-1}\).<br><br>
+  <P>Whenever we find a rule for derivatives, we also find a rule for antiderivatives.<br><br>
+  <P>Power Rule for Antiderivatives: If \(f(x) = x^n\) and \(n \neq -1\), then the function \(F(x)\) such that
+    \(F'(x) = f(x)\) is \(F(x) = \frac{1}{n+1}x^{n+1} + C\) for any constant \(C\).<br><br>
+
+    <P>Find \(F(x)\) such that \(F'(x) = f(x)\) for the functions below.
+    <ol>
+      <li>\(\displaystyle f_1(x) = 2x\)<br><br>
+      <li>\(\displaystyle f_2(x) = x^2\)<br><br>
+      <li>\(\displaystyle f_3(x) = x + 2x^2 + 8x^4 + 4\)<br><br>
+    </ol>
+    <br>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6a">Answers</button>
+    <div id="ex6a" class="collapse">
+      <ol>
+        <li>\(\displaystyle F_1(x) = x^2 + C\)<br><br>
+        <li>\(\displaystyle F_2(x) = (1/3) x^3 + C\)<br><br>
+        <li>\(\displaystyle F_3(x) = (1/2)x^2 + (2/3)x^3 + (8/5)x^5 + 4x + C\)<br><br>
+      </ol>
+    </div>
+
+    <P>Question: Let \(f'(x) = x^2\) and \(g'(x) = x^2\). Does \(f(x) = g(x)\)?
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6aa">Answer</button>
+      <div id="ex6aa" class="collapse">
+        <P>No. \(f\) does not necessarily equal \(g\). The constants could be different, e.g. \(f(x) = (1/3)x^3 + 1\) and \(g(x) = (1/3)x^3 + 2\).
+        </div>
+</div>
+
+<h2>Example - a few more rules </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example</button>
+  <div id="ex7" class="collapse">
+    <P>Draw the graph of any function and draw the graph of its derivative beneath it.<br>
+    <P>Now draw your function shifted up 4 units. Draw the graph of the derivative of this new function. What do you notice? <br>
+
+    <P>Let \(f\) be a differentiable function and \(a\) be any constant. Then we have the following:
+      <ol>
+        <li>\(\displaystyle (f(x) + a)' = f'(x)\)<br><br>
+        <li>\(\displaystyle (f(x+a))' = ???\)<br><br>
+        <li>\(\displaystyle (af(x))' = af'(x)\)<br><br>
+        <li>\(\displaystyle f'(ax)) = af'(ax)\)<br><br>
+      </ol>
+  </div>
+
+  <h2>Example - product rule </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example</button>
+    <div id="ex8" class="collapse">
+      <P>Let \(f(x) = x\) and \(g(x) = 2x\). Does \((fg)' = f'g'\)?<br><br>
+
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#pdr">Theorem</button>
+          <div id="pdr" class="collapse">
+            <P>Product Rule for derivatives: Let \(u(x)\) and \(v(x)\) be differentiable functions.
+              Then let \(p(x) = u(x)v(x) = (uv)(x)\). Then \(p\) is differentiable and
+              \(\frac{dp}{dx} = p'(x) = u'(x)v(x) + u(x)v'(x)\).
+          </div>
+          <br><br>
+
+        <P>Find derivatives of the functions below.
+        <ol>
+          <li>\(\displaystyle f(x) = x(2x)\) <br><br>
+          <li>\(\displaystyle g(x) = \sqrt{x}(x+5)\) <br><br>
+          <li>\(\displaystyle j(x) = (x^4 + 5)(x^2 - 3)\) <br><br>
+          <li>\(\displaystyle k(x) = (5x^2 - \pi)(3x^{-2} + 2\sqrt{x})\) <br><br>
+        </ol>
+
+      <br><br>
+      <P><b>Exercise</b> What is the equation of the tangent line to \(\displaystyle j(x) = (x^4 + 5)(x^2 - 3)\) at \(x=0\)?
+        <br>
+        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_t7njhdde&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_8eng8f4i" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+    </div>
+
+<h2>Example - quotient rule </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example</button>
+  <div id="ex9" class="collapse">
+    <P>Quotient rule for derivatives: Let \(\displaystyle q(x) = \frac{u(x)}{v(x)}\) where \(u\) and \(v\) are differentiable.
+      Then \(\displaystyle q' = \frac{u' v - uv'}{v^2}\).
+    <br><br>
+    <P>Prove this is true by letting \(u = qv\) and using the product rule.<br><br>
+
+      <P>Find derivatives of the functions below.
+      <ol>
+        <li>\(\displaystyle f(x) = \frac{3x}{\sqrt{x}}\)<br><br>
+        <li>\(\displaystyle g(x) = \frac{2x-1}{5x+2}\)
+      </ol>
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_d5p9ym9x&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_rg5i5fdh" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+  </div>
+
+<!--
+<h2>Example - Torricelli's law </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example</button>
+  <div id="ex10" class="collapse">
+    <img src="./tortank.png" width=100><br>
+    <P>Consider a tank full of water where the water drains out the bottom.
+    <P>We know for this kind of situation that the rate of change of height in the tank is proportional to the square root of the height.
+
+      <ol>
+        <li>Write out an equation that describes the dynamics above. Let \(y(t)\) represent the height at time \(t\).<br><br>
+        <li>Does the water drain faster when the tank is full or half full? Why?<br><br>
+        <li>Let \(\displaystyle y(t) = \frac{(C - tk)^2}{4}\) for constant \(C\). Does this solve your equation above?<br><br>
+        <li>Suppose for a certain tank we have \( y(0) = 9\) and \(y(20)=4\). Find \(C\) and \(k\).
+      </ol>
+  </div>
+
+<h2>Example - DE </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example</button>
+  <div id="ex11" class="collapse">
+    <P>Is \(\displaystyle y(x) = \frac{1}{x} - 1\) a solution to the differential equation <br><br>
+      \(\displaystyle x^3 y'' + x^2 y' - xy = x\)?
+  </div>
+
+<h2>Example - IVP </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex12">Example</button>
+  <div id="ex12" class="collapse">
+    <P>What is the function \(f\) that satisfies \(f'(x) = 3x + 2\) with \(f(0) = 1\)?
+  </div>
+
+-->
+  <h2>Example with product and quotient rule </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Example</button>
+    <div id="cv" class="collapse">
+      <P>(from UW Stout math professor Dr. Benson) Let \(f(x) = \frac{(e^x + 2x)(6x^3 + x^2)}{2\sqrt{x} - 7x}\). Find \(f'(x)\).<br>
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_ssy0w7ed&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_hzuvw9ih" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+    </div>
+
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2020</footer>
+</body>
+</html>
