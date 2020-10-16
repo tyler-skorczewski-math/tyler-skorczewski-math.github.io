@@ -87,6 +87,25 @@
 
 <h2>Legendre polynomials?</h2>
 -->
+<h3>Airy equation</h3>
+<P>The solutions to \(\displaystyle y'' - xy = 0\) are known as Airy functions. They appear in physics in optics, radio wave, and quantum mechanics applications.
+<div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import special
+
+x = np.linspace(-15, 5, 201)
+ai, aip, bi, bip = special.airy(x)
+
+plt.plot(x, ai, 'r', label='Ai(x)')
+plt.plot(x, bi, 'b--', label='Bi(x)')
+plt.ylim(-0.5, 1.0)
+plt.grid()
+plt.legend(loc='upper left')
+plt.show()
+</script>
+</div>
 
 <footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2020</footer>
 </body>
