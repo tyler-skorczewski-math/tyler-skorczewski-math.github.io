@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Derivatives Exam Review</h1>
+
+<hr>
+
+
+<h2>Example - Torricelli's law </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example</button>
+  <div id="ex10" class="collapse">
+    <img src="./tortank.png" width=100><br>
+    <P>Consider a tank full of water where the water drains out the bottom.
+    <P>We know for this kind of situation that the rate of change of height in the tank is proportional to the square root of the height.
+
+      <ol>
+        <li>Write out an equation that describes the dynamics above. Let \(y(t)\) represent the height at time \(t\).<br><br>
+        <li>Does the water drain faster when the tank is full or half full? Why?<br><br>
+        <li>Let \(\displaystyle y(t) = \frac{(C - tk)^2}{4}\) for constant \(C\). Does this solve your equation above?<br><br>
+        <li>Suppose for a certain tank we have \( y(0) = 9\) and \(y(20)=4\). Find \(C\) and \(k\).
+      </ol>
+  </div>
+
+  <h2>Examples </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#eex5">Example</button>
+    <div id="eex5" class="collapse">
+      <P> Where is the slope of the tangent to line the graph of \(y^{2/3} + x^{2/3} = 1\) equal to 1?<br>
+  <div class="compute">
+<script type="text/x-sage">
+var('x y')
+f = (y^2)^(1/3) + (x^2)^(1/3) == 1
+x0=5
+
+@interact
+
+def _(f=input_box(f,label="equation: "),
+xmin=input_box(-1,label="min x"),
+xmax=input_box(1,label="max x"),
+ymin=input_box(-1,label="min y"),
+ymax=input_box(1,label="max y"), ):
+  p = implicit_plot(f, (x,xmin,xmax), (y,ymin,ymax),plot_points=500)
+  p.show()
+
+  </script>
+  </div>
+    </div>
+
+  <h2>Examples </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex5">Example</button>
+    <div id="gex5" class="collapse">
+      <P>Let the position of a swinging pendulum in simple
+  harmonic motion be given by \(s(t) = a\cos t + b\sin t\). Find
+  the constants \(a\) and \(b\) such that when the velocity is 3 cm/
+  s, \(s = 0\) and \(t = 0\).
+    </div>
+<br><br><br>
+
+  <h2>More examples </h2>
+  <ol type='A'>
+
+  <!--<li><img src="./log_exp_cv_1.png" width=400><br><br>-->
+  <li>True or False. If a function is differentiable, it is continuous. <br><br>
+  <li>Find the equation of the tangent line to the graph of \( f(x) = e^{-x} \) at \(x=0\).<br><br>
+  <!--<li>Let \(\displaystyle f(x) = \sqrt{x} \). Find \(f'(x)\) using the definition of derivative.<br><br>-->
+    <P>Find derivatives of the functions below.
+    <ol>
+      <li>\(\displaystyle f(x) = \cos(3x) \) <br><br>
+      <li>\(\displaystyle g(x) = \sqrt{x}(x+5)\) <br><br>
+      <li>\(\displaystyle j(x) = (x^4 + 5)(x^2 - 3)\) <br><br>
+        <li>\(\displaystyle f(x) = \tan(8x^3 - 4x) \) <br><br>
+        <li>\(\displaystyle g(x) = \sqrt{\cos(\sin(x))}\) <br><br>
+        <li>\(\displaystyle j(x) = \frac{x^4 + 5}{x^2 - 3}\) <br><br>
+          <li>\(\displaystyle f(x) = \ln(4x + e^{3x}) \) <br><br>
+          <li>\(\displaystyle g(x) = e^{e^{e^{x}}}\) <br><br>
+          <li>\(\displaystyle j(x) = \sin(2x)e^{3x}\) <br><br>
+
+      </ol><br><br>
+    <li>What is the 2020th derivative of \(y(x) = \sin(x)\)?<br><br>
+    <li>Find the equation of the tangent line to the graph of \( f(x) = \sqrt{x+1} \) at \(x=8\).<br><br>
+    <li>If the position of a particle is given by \(v(t) = 3t^6 - 2t^2 - t\), find the velocity and acceleration as functions of \(t\).<br><br>
+    <li>Find the derivative of \(\displaystyle g(x) = \sin^4 (x^3)(x^3 - x + 1)\)<br><br>
+    <li>Sketch the derivative of the graph below.<br>
+      <img src="./humorous-math-graph.png" width=400><br><br>
+    <li>The water level in Ocean City, New Jersey, in January, which can be approximated
+  by \(w(t) = 1.9 + 2.9\cos (\pi t / 6) \), where \(t\) is measured in
+  hours after midnight, and the height is measured in feet. Find and graph the derivative. What is the physical
+  meaning? Find w′ (3). What is the physical meaning of this value?<br><br>
+    <li>Let \(y = (4x - 2)^3\). What is \(y'''(x)\)?<br><br>
+    <li>(1,0) is a point on the graph of \(7x^3 + \sin(y) = 7x^4y^2+7\). What is the tangent line to the graph of this equation at that point?<br><br>
+    <li>A sphere's radius is expanding at a rate of 2 cm/sec. How fast is the volume changing when \(r = 3\) cm?<br><br>
+    <li>Let \(u(x)\) and \(v(x)\) be shown below and \(f(x) = u(x)v(x)\). What is \(f'(1)\)?<br>
+      <img src="./2lingraphs.png" width=250>
+</ol>
+
+</body>
+</html>
