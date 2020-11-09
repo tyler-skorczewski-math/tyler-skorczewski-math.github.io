@@ -36,10 +36,15 @@ $(function () {
       <P>Consider driving across Wyoming on Interstate 80, about 420 miles long. Let's assume the speed limit on I-80 is 70 mph.
         If it takes more than 6 hrs to get across, what can you say about your speed? What assumptions are you making?
         <br><br><br>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cva">ans</button>
+          <div id="cva" class="collapse">
         <P>If we assume continuous driving and no stops/going backwards, the average speed is less than 70 mph.
           <br><br><br>
           <P>Let's go the other way: assume we drive less than 70 mph without any stops. Then the trip will take longer than 6 hours.
             <br><br><br>
+          </div>
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cvm">more</button>
+            <div id="cvm" class="collapse">
             <P>How is this related to the idea of the derivative?
               The position function tells us our position along I-80.
               The derivative tells us our velocity (positive -> going forward, negative -> going backward). Speed is the magnitude of velocity.
@@ -50,6 +55,8 @@ $(function () {
                    \(\Rightarrow t_{stop}-t_{start} \geq \frac{f(t_{stop}) - f(t_{start})}{70} = \frac{420}{70} = 6\).
                   <br><br>
                   <br>
+                </div>
+                <br><br>
 
       <P><b>Theorem (Speed limit law):</b> Let \(f\) be a function defined for \(x \in [a,b]\) and let \(M\) be any real number.
         If \(f'(x) \leq M\) for all \(x \in [a,b]\) then \(f(b) - f(a) \leq M (b-a)\).
@@ -64,10 +71,12 @@ $(function () {
 <h2>Example</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex3">Example</button>
   <div id="gex3" class="collapse">
-    <P>Suppose \(f(0) = 2\) and \(f'(x) \geq 4 \forall x\). What can be said about values for \(f(1)\) and \(f(-3)\)?
+    <P>Suppose \(f(0) = 2\) and \(f'(x) \geq 4 \hspace{0.2cm} \forall x\). (\( \forall \) means "for all" or "for any" or "for each") What can be said about values for \(f(1)\) and \(f(-3)\)?
       <br>
       <br>
-      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_nxdvpslq&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_86x9w030" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex3a">ans</button>
+        <div id="gex3a" class="collapse">
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_nxdvpslq&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_86x9w030" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe></div>
 
   </div>
 
@@ -94,8 +103,9 @@ $(function () {
       Note that \(f\) is a polynomial, so it is both continuous and differentiable everywhere.
       Also note that \(f(0) = f(1) = 0\). By Rolle's Theorem we know there is a number \(c \in (0,1)\) such that \(f'(c) = 0\).
       Find this number.<br>
-
-      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_t3rb7zgk&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_hmav8h6a" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex33a">ans</button>
+        <div id="gex33a" class="collapse">
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_t3rb7zgk&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_hmav8h6a" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe></div>
 
   </div>
 
@@ -126,9 +136,36 @@ $(function () {
         Note that \(f\) is a polynomial, so it is both continuous and differentiable everywhere.
         Find the number \(c \in (0,1)\) that shows the consequence of the Mean Value Theorem holds.
         <br>
-        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_bx7fkdar&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_0olnf7um" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex331a">ans</button>
+          <div id="gex331a" class="collapse">
+        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_bx7fkdar&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_0olnf7um" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe></div>
     </div>
 
+    <h2>Multiple Choice Questions -  </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#mc">Example</button>
+      <div id="mc" class="collapse">
+      <ol type="A">
+    <li>Two racers start a race at the same moment and finish in a tie. Which of the following
+must be true?
+    <ol type='a'>
+      <li> At some point during the race the two racers were not tied.
+      <li> The racers’ speeds at the end of the race must have been exactly the same.
+      <li> The racers must have had the same speed at exactly the same time at some point
+      in the race.
+      <li> The racers had to have the same speed at some moment, but not necessarily at
+      exactly the same time
+    </ol><br><br><br>
+    <li>A function intersects the x-axis at points a and b, where a < b. The slope of the
+function at a is positive and the slope at b is negative. Which of the following is true
+for any such function? There exists some point on the interval (a, b) where
+    <ol type='a'>
+      <li>the slope is zero and the function has a local maximum.
+      <li>the slope is zero but there is not a local maximum.
+      <li>there is a local maximum, but there doesn’t have to be a point at which the slope
+      is zero.
+      <li>none of the above have to be true.
+    </ol>
+  </div>
 
 
 </body>
