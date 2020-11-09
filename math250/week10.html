@@ -32,8 +32,8 @@
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
   <div id="ex0" class="collapse">
     <ol type='A'>
-    <li> What form should you choose for \(y_p\) when trying to find a particular solution of \(y'' - 2y' + y = 3te^{t}\)?
-     <li>
+      <li> What form should you choose for \(y_p\) when trying to find a particular solution of \(y'' - 2y' + y = 3te^{t}\)?
+       <li> What form should you choose for \(y_p\) when trying to find a particular solution of \(y^{(4)} + 9y'' = (t^2 + 1)\sin 3t\)?
     </ol>
  </div>
 
@@ -91,7 +91,7 @@
 <br>
 <P> Consider a car moving along a wavy road. Assume all the mass of the car and the 4 wheels (with shocks) can be reduced to a single mass-wheel-shock system.
   Let the mass of the car be 600 kg and the spring constant of the shock to be 70000 N/m. Let \(x(t)\) be the displacement of the spring in the shock absorber.
-  Assume the wavy road has a periodic structure with height 10 centimeter and wavelength 10 m. Then driving along the road with velocity \(v\) induces a motion \(y=0.05 \cos(2\pi v t/10)\).
+  Assume the wavy road has a periodic structure with height 10 centimeter and wavelength 10 m. Then driving along the road with velocity \(v\) induces a motion \(y=0.05 \cos(2\pi v/10)\).
   Assume the shock absorber has no damping.
 
   <ol type='1'>
@@ -122,7 +122,7 @@
   $$mx'' + bx' + kx = F_0 \cos (\omega_f t), \hspace{1cm} m,b,k,F_0 > 0.$$
   In general \(x_h\), the solution to the associated homogeneous equation, will always go to zero as \(t \to \infty\). This is because of the damping or friction term, \(b >0\).
   Our next to find a solution of this DE would be to use the method of undertermined coefficients to find a particular solution, \(x_p\).
-  $$x_p = A \cos(\omega_f t) + B\sin(\omega_f t)$$
+  $$x_0 = A \cos(\omega_f t) + B\sin(\omega_f t)$$
   After calculating \(x_p'\) and \(x_p''\), plugging into the DE we solve for \(A\) and \(B\).
   $$ A = \frac{(k - m\omega_f^2)F_0}{(k-m\omega_f^2)^2 + (b \omega_f)^2} \hspace{1cm} B = \frac{b \omega_f F_0}{(k-m\omega_f^2)^2 + (b \omega_f)^2}$$
   $$x_p = A \cos(\omega_f t) + B \sin(\omega_f t)$$
@@ -146,20 +146,17 @@
   </ol>
 </div>
 
-<!--<h2>Example 6 -More undertermined coefficients </h2>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+<h2>Examples  - MC </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example </button>
 <div id="ex6" class="collapse">
 <P> Consider the DE \(y'' - y' - 2y = 5e^{2x}\).
   <ol type='a'>
-    <li> What is the general solution to the associated homogeneous equation, \(y_h\)?
-    <li> What do you notice about the RHS of the DE and \(y_h\)?
-    <li> What form should we choose for \(y_p\) when using the method of undertermined coefficients?
-    <li> Find \(y_p\).
-    <li> Where did the form for \(y_p\) come from? Try to explain using operator ideas from last week.
+    <li> <img src="./resonance1.png" width=600>
+    <li> <img src="./resonance2.png" width=600>
   </ol>
 
 </div>
-
+<!--
 <h2>Example 7 -</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
 <div id="ex7" class="collapse">
