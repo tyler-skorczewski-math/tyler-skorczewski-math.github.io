@@ -23,7 +23,7 @@ $(function () {
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-  <body  style="width: 900px; padding-left: 1cm; padding-bottom: 10cm">
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
 
   <h1>Calc I Introduction to Area and Integration</h1>
 
@@ -175,6 +175,39 @@ function.
       <img src="./ave_value_integral.png" width=350><br>
     <P><b>Definition</b> The average value of \(f\) over \([a,b]\) is \(\displaystyle \bar{f} = \frac{1}{b-a} \int_a^b f(x)~dx\).<br><br>
     <P>Explain this definition.<br><br>
-    <P>What is the average value of \(\cos(x)\) over \([-\pi/2,\pi/2]\)?
+    <P>What is the average value of \(f(x) = 3 + 4x\) over \([0,2]\)?
+    </div>
+
+    <h2>Example - walking</h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exw">Example</button>
+      <div id="exw" class="collapse">
+        <P>A person walking along a straight path has her velocity in miles per hour at time \(t\) given by the function
+          \(v(t)=0.25t^3−1.5t^2+3t+0.25\), for times in the interval \(0 \leq t \leq 2\).
+          The graph of this function is also given in each of the three diagrams below.
+          <br>
+          <img src="./reimann_sums_ex.png" width=700><br>
+          Can you use this information to calculate left-endpoint, right-endpoint, and midpoint approximations for the distance walked using 4 subintervals (\(L_4, R_4, M_4\))?
+        </div>
+
+        <h2>Example - definite integrals graphically</h2>
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#dig">Example</button>
+          <div id="dig" class="collapse">
+            <img src="./def_int_area1.png" width=500><br>
+            <P>Use the graph of \(f\) above to calculate the following:
+              <ol>
+                <li>\(\displaystyle \int_{-1}^2 f(x)~dx\)
+                  <li>\(\displaystyle \int_{2}^4 f(x)~dx\)
+                    <li>\(\displaystyle \int_{-1}^7 f(x)~dx\)
+                    </ol>
+              <br>
+            </div>
+
+            <h2>Example - more approximations</h2>
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#diex">Example</button>
+              <div id="diex" class="collapse">
+                <P> Calculate the approximations \(L_4, R_4, M_2\) to the definite integral \(\displaystyle \int_0^4 \sqrt{x + 4}~dx\).
+                  <br>
+                </div>
+
 </body>
 </html>
