@@ -23,9 +23,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body style="width: 1000px; padding-left: 1cm; font-size: 175%;" background="bg.jpg">
+  <body  style="width: 800px; padding-left: 1cm; padding-bottom: 10cm">
 
-  <h1>Math 250 </h1>
+  <h1>Math 250 - Nonlinear systems of DE </h1>
 
 <hr>
 <P> <a href="./pplane.jar">Pplane</a> is software that can be used to draw phase planes for the systems in the examples below. If possible try to sketch a phase plane by hand first.
@@ -35,13 +35,57 @@
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
   <div id="ex0" class="collapse">
     <ol type='A'>
-    <li> Classify the (0,0) equilibrium solution of \(\vec{x} = \begin{bmatrix} 1 & 2 \\ 3 & 4\end{bmatrix} \vec{x}\).
-    <li>
+    <li> Classify the (0,0) equilibrium solution of \(\displaystyle \vec{x} = \begin{bmatrix} 1 & 2 \\ 3 & 4\end{bmatrix} \vec{x}\).<br><br>
+    <li> Explain why (0,0) is the only equilibrium solution of \(\displaystyle \frac{dx}{dt} = 2x - y, \hspace{1cm} \frac{dy}{dt} = x-3y\).<br><br>
+    <li> Which of the phase planes below is associated with each system?
+      <ol type='I'>
+        <li> \(\displaystyle \frac{dx}{dt} = x - 2y, \hspace{1cm} \frac{dy}{dt} = 4x - x^3\)
+        <li> \(\displaystyle \frac{dx}{dt} = x - y - x^2 + xy,\hspace{1cm}  \frac{dy}{dt} = -y -x^2\)
+        </ol>
+        <img src="./phaseplanes_systems1.png" width=800><br>
     </ol>
  </div>
 
 <!--$$begin{bmatrix} a & b\\ c & d \end{bmatrix}-->
 
+<h2>Example - Rabbits and Sheep </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example</button>
+<div id="ex9" class="collapse">
+ <P> Consider a population of rabbits, \(x\), and sheep, \(y\) that have dynamics
+   $$x' = x(3-x) - 2xy,$$
+   $$y' = y(2-y) - xy.$$
+   <ol type='1'>
+     <li>Describe each term in the equations above using common language.
+       How is \(x\) behaving in the absence of \(y\)?
+       What about \(y\) in the absence of \(x\)?
+       How do \(x\) and \(y\) affect each other?
+     <li>Find any equilibrium solutions.
+     <li>Calculate the Jacobian matrix.
+     <li>Classify the equilibrium solutions you have found.
+     <li>Sketch a phase plane with some solutions. Describe how the solutions relate back to the topic of rabbits and sheep.
+   </ol>
+</div>
+
+<h2>Example - Bacteria </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example</button>
+<div id="ex10" class="collapse">
+
+  <P> Consider a petri dish with two strains of bacteria, \(x\) and \(y\), with the dynamics below.
+    $$x' = 2x(7-x) - xy,$$
+    $$y' = 2y(8-x) - xy.$$
+    <ol type='1'>
+      <li>Describe each term in the equations above using common language.
+        How is \(x\) behaving in the absence of \(y\)?
+        What about \(y\) in the absence of \(x\)?
+        How do \(x\) and \(y\) affect each other?
+      <li>Find any equilibrium solutions.
+      <li>Calculate the Jacobian matrix.
+      <li>Classify the equilibrium solutions you have found.
+      <li>Sketch a phase plane with some solutions. Describe how the solutions relate back to the topic of bacteria in a petri dish.
+    </ol>
+  </div>
+
+<!--
 <h2>Example 1 - bacteria</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
   <div id="ex1" class="collapse">
@@ -50,15 +94,19 @@
       $$y' = 2y(8-y) - xy.$$
       <ol type='1'>
         <li>Describe each term in the equations above using common language.
+          How is \(x\) behaving in the absence of \(y\)?
+          What about \(y\) in the absence of \(x\)?
+          How do \(x\) and \(y\) affect each other?
         <li>Find any equilibrium solutions.
         <li>Calculate the Jacobian matrix.
         <li>Classify the equilibrium solutions you have found.
         <li>Sketch a phase plane with some solutions. Describe how the solutions relate back to the topic of bacteria in a petri dish.
       </ol>
 </div>
+-->
 
-<h2>Example 2 - Is it a center?</h2>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<h2>Example - Is it a center?</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
 <div id="ex2" class="collapse">
   <P> Consider the system below.
     $$x' = -y + ax(x^2 + y^2)$$
@@ -70,14 +118,14 @@
   <li>Consider a transformation to polar coordinates for this system.
     $$r^2 = x^2 + y^2$$
     $$\tan\theta = \frac{y}{x}$$
-    Find an equation for \(r'\) and show \(theta' = 1\).
+    Find an equation for \(r'\) and show \(\theta' = 1\).
   <li>Analyse the equilibrium solution at \(r=0 \Leftrightarrow (0,0)_{x,y}\) in terms of \(a\).
 </ol>
 
 </div>
 
-<h2>Example 3 - springs again</h2>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<h2>Example - springs again</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
 <div id="ex3" class="collapse">
 <br>
 <P> So far we have considered spring that obey Hooke's Law \(F = -kx\). Consider a nonlinear spring with the force below.
@@ -95,7 +143,7 @@
 
 
 <h2>Example 4 - Final Review </h2>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Examples</button>
 <div id="ex4" class="collapse">
 <P>
   <ol type='1'>
