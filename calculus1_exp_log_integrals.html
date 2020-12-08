@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Integrals with exponential and logarithmic forms</h1>
+
+<hr>
+
+<h2>Warmup/Formulas</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">Motivation</button>
+  <div id="wu" class="collapse">
+    <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle}
+.tg .tg-rd2b{border-color:inherit;font-size:16px;font-weight:bold;text-align:left;text-decoration:underline;vertical-align:middle}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-rd2b">Derivative Rule</th>
+    <th class="tg-rd2b">Antiderivative Rule</th>
+  </tr>
+  <tr>
+    <td class="tg-lboi">\(\displaystyle \frac{d}{dx} e^x = e^x\)</td>
+    <td class="tg-lboi">\(\displaystyle \int e^x~dx = e^x +C\)</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">\(\displaystyle \frac{d}{dx} a^x = a^x \ln(a)\)</span><br></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">\(\displaystyle \int a^x~dx = \frac{1}{\ln(a)} a^x +C\)</span><br></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">\(\displaystyle \frac{d}{dx} \ln(x) = \frac{1}{x}\)</span><br></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">\(\displaystyle \int \frac{1}{x}~dx = \ln|x| +C\)</span><br></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">\(\displaystyle \frac{d}{dx} \log_b (x)= \frac{1}{x} \frac{1}{\ln (b)}\)</span><br></td>
+    <td class="tg-0pky"></td>
+  </tr>
+</table>
+      <br>
+      <P>Make sure you can explain the absolute values in the \(\ln|x| +C\) antiderivative rule.<br>
+  </div>
+
+
+
+<h2>Example</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+<div id="ex2" class="collapse">
+<P>Find the interals below.
+  <ol>
+    <li>\(\displaystyle \int_0^1 e^x~dx\)
+    <li>\(\displaystyle \int te^{t^2+1}~dt\)
+
+    </ol>
+    <br>
+    <details>
+      <summary>videos</summary>
+    <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_ipbhe98o&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_a9j7yl8g" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+    <br>
+    <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_8vvtqnf5&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_nxgse8la" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+  </details>
+</div>
+
+
+
+
+
+  <h2>Examples - Definite Integrals</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#def1">Example</button>
+    <div id="def1" class="collapse">
+      <P> U-substitution works for definite integrals too. We can deal with the limits of the definite integral two ways.
+        <ol>
+          <li>Compute the associated indefinite integral using a u-sub, expressing the antiderivative in terms of the original variable, then doing the evaluations at the limits.
+          <li>Do a u-sub to transform the definite integral, but also change the limits when doing the u-sub into the u-variable. Then proceed with the new definite integral.
+          </ol>
+
+        <P> We can see how this works in the example below.
+       <P>Example: Evaluate \(\displaystyle \int_1^3 \frac{1}{5-x}~dx\).
+          <BR>
+            <details>
+              <summary>video</summary>
+            <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_0sgm8tav&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_cr6jbq5i" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+          </details>
+    </div>
+
+    <h2>Example - </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
+      <div id="ex3" class="collapse">
+        <P> Find \(\displaystyle \int_0^2 x e^{x^2} dx\)
+          <br>
+          <details>
+            <summary>video</summary>
+          <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_4vxux61d&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_rl65mcha" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+        </details>
+      </div>
+
+    <h2>Examples</h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example</button>
+    <div id="ex1" class="collapse">
+    <P>Find the integrals below.
+      <ol>
+        <li>\(\displaystyle \int \frac{e^{\sqrt{x}}}{\sqrt{x}}~dx\) <br><br>
+        <li>\(\displaystyle \int \frac{2x+3}{(x+1)^2}~dx\) <br><br>
+        <li>\(\displaystyle \int \frac{x^2}{x-3}~dx\)
+      <br>
+      <details>
+        <summary>video</summary>
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_0b97vyth&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_pqgef6mq" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+    </details><br><br>
+
+    <li>\(\displaystyle \int_{-1}^0 \frac{x+3}{x^2 + 5x + 6}~dx\) <br><br>
+    <li>\(\displaystyle \int \frac{10}{6-5x}~dx\) <br><br>
+    </ol>
+    </div>
+
+
+</body>
+</html>
