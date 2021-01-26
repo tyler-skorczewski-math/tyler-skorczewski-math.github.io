@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I Review</h1>
+
+<hr>
+
+<h2>Example 1 - Crows & Whelks</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example1">Example 1</button>
+  <div id="example1" class="collapse">
+<img src="images/northwestern_crow_feeding.jpg" width=400>
+<P><a href="https://fast.wistia.net/embed/iframe/zyjnhk7ja6">Video of crows dropping whelks</a>
+<P>Goal: R. Zach observed crows usually fly to about 5 meters before dropping whelks and repeatedly drop same whelk until it opens. Can we understand why they display this behavior?
+<P>Question: What do you think may be important here? What variables would you collect if conducting your own experiment/observing crows?
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#whelkdata">Data - click after thinking about questions above</button>
+  <div id="whelkdata" class="collapse">
+\begin{array}{|c | c c c c c c c c c c|}
+\hline
+h  &1.5&2&3&4&5&6&7&8&10&15\\
+n &56&20&10.2&7.6&6&5&4.3&3.8&3.1&2.5\\ \hline
+\end{array}
+
+</div>
+
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+h = [1.5,2,3,4,5,6,7,8,10,15]
+n = [56,20,10.2,7.6,6,5,4.3,3.8,3.1,2.5]
+
+a=15.9
+b=1.2
+dp = list_plot(list(zip(h,n)),color='red')
+
+@interact
+
+def _(wfit=checkbox(false,label='Show fit?')):
+    fp = plot(1 + a/(x-b),(x,1.5,15))
+
+    if wfit:
+      tp = text(r"$n=1 + \frac{a}{h-b} = 1 + \frac{15.9}{h-1.2}$",(6,30),fontsize= 20)
+      show(dp+fp+tp)
+    else:
+      show(dp)</script>
+</div>
+<P> Question: Can you explain the equation for the fit above? What are the variables and parameters? What are their units? What is the deal with the "\(1 +\)" term?
+<P> Question: Let's assume crows operate in a way that minimizes the energy required to crack the whelk shell. What is the function we want to optimize? This is called the objective function.
+<P> Can you find the value of the height where the optimal value occurs? How does this compare with Zach's observations?
+<P> More information about this example can be found in the following papers:
+<ul>
+<li><a href="https://uwstout.courses.wisconsin.edu/d2l/le/content/3802562/viewContent/23756823/View">Shell Dropping: Decision-Making and Optimal Foraging in Northwestern Crows</a>
+<li><a href="https://uwstout.courses.wisconsin.edu/d2l/le/content/3802562/viewContent/23756822/View">Selection and Dropping of Whelks by Northwestern Crows</a>
+</ul>
+</div>
+
+<h2>Example 2 - Crab claws</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+<img src="images/crab.jpg">
+
+<P> The male fiddler crab <i>Uca pugnax</i> grows one oversize claw whose only purpose appears to be attracting a mate. The relationship between the claw mass \(C\) and the body mass \(B\) (not counting the claw mass), both given in milligrams, has been reported to be
+
+\begin{equation*}
+C = 0.036B^{1.356}.
+\end{equation*}
+
+<ol type='a'>
+<li> Find a formula to relate the growth rates of the claw mass and body mass.
+<li> Plot the ratio of the claw mass growth rate to the body mass growth rate, as a function of body mass size in grams. Assume the body mass can be as large as 40 g.
+<li> For what body mass size in grams is the growth rate of the claw as large as the growth rate of the body mass?
+<li> At what body mass size in grams is the mass of the claw equal to the mass of the body?
+<li> Assume that the density of body tissues is roughly 1 mg per mm\(^3\) of volume, that the largest dimension of the claw is about 44 mm, and that the body mass is 30 g. Use this information to estimate the shape parameter \(c\) in the length-volume relationship \(V=cl^3\).
+
+</ol>
+
+</div>
+
+<h2>Example 3 - Bonneville Salt Flats</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+<img src="images/saltflats.jpg" width=300>
+
+<P>After performing a braking test at the Bonneville Salt Flats in Utah, a test driver reported:
+
+``I accelerated smoothly from rest. After 15 seconds I was cruising at 60 mph. After 90 seconds I hit the brakes. The car decelerated (slowed down), but I couldn't stop in time. I hit the barrier 10 seconds later at 10 mph."
+
+<ol type='a'>
+<li> Sketch a plausible graph of the VELOCITY of the car's speed as a function of time.
+<li> Sketch a plausible graph of the POSITION the car as a function of time.
+<li> Sketch a plausible graph of the ACCELERATION the car as a function of time.
+</ol>
+
+</div>
+
+<h2>Example 4 - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<div id="ex4" class="collapse">
+
+<P>Find the tangent line to the graph of \( f(x) = 2x^2 + \cos (\pi x/ 2) \) when \(x = 1\).
+
+</div>
+
+
+<h2>Derivative review</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#derivatives">Derivative Review</button>
+  <div id="derivatives" class="collapse">
+<p>Find the derivatives for each of the functions below.
+<ol type="1">
+<li>\( \theta(y) = \sqrt{100 + y^2} \)
+
+<li>\( f(x) = \tan \left(\frac{10 + d}{x}\right)  \)
+
+<li>\( g(y) = \sin \left(\frac{10}{\sqrt{10^2+y^2}} \right) \)
+
+<li>\( h(z) = ze^{-4z} \)
+<li>\( j(x) = \left( x^2 + 4x^4 \right)^3  \)
+<li>\( k(x) = \cos(y^5)  \)
+<li>\( m(y) = \ln ( x+ y) \)
+<li>\( n(z) = \cos(z) e^{z^2} \left( z + y^2 \right)^2 \)
+<li>\( p(x) = \csc(x) x^3\)
+<li>Find \( \frac{dy}{dx} \) if \( x^2 + y^2 = z^2 \).
+</ol>
+</div>
+
+<h2>Integral review</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#integrals">Integral Review</button>
+  <div id="integrals" class="collapse">
+<p>Find the integrals for each of the functions below.
+<ol type="1">
+<li>\begin{equation*} \int_1^2 x^4 - 3x^2 dx  \end{equation*}
+<li>\begin{equation*} \int_0^x y^2 + 3y -1 dy  \end{equation*}
+<li>\begin{equation*} \int_{-1}^{1} \sin x dx \end{equation*}
+<li>\begin{equation*} \int_1^4 \frac{1}{\sqrt{x}} dx  \end{equation*}
+<li>\begin{equation*} \int x + x^{-1}  dx \end{equation*}
+<li>\begin{equation*} \int e^{2t} + e^{-2t} dt  \end{equation*}
+<li>\begin{equation*} \int_0^{\pi/4} \cos x + \sin 2x dx  \end{equation*}
+<li>\begin{equation*} \int_0^{\pi/6} \cos 2x + \sin x dx  \end{equation*}
+</ol>
+</div>
+
+<h2>Trig review</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#trig">Trig Review</button>
+  <div id="trig" class="collapse">
+<p> Evaluate each of the trigonometric expressions below. Be ready for other similar expressions throughout the course.
+<ol type="1">
+<li>\begin{equation*} \sin 0  \end{equation*}
+<li>\begin{equation*} \cos \pi/4  \end{equation*}
+<li>\begin{equation*} \tan \pi/3 \end{equation*}
+<li>\begin{equation*} \sin \pi/2 \end{equation*}
+<li>\begin{equation*} \cos \pi \end{equation*}
+<li>\begin{equation*} \cos 0 \end{equation*}
+<li>\begin{equation*} \tan \pi \end{equation*}
+<li>\begin{equation*} \cos 4\pi/3  \end{equation*}
+</ol>
+</div>
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2020</footer>
+</body>
+</html>
