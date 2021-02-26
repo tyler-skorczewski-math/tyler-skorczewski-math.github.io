@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154 integral examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 600px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Integral patterns</h1>
+
+<hr>
+
+<!--<h2>Example 1 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">-->
+    <P>In this lab you will use sage and techniques you have learned to calculate the antiderivatives of several functions in the same family of related functions in order to develop some intuition about the form of the antiderivatives of each family.
+
+    <div class="compute">
+    <script type="text/x-sage">
+    # everything following hash symbol is comment
+f = exp(x)
+
+@interact
+
+def _(f = input_box(f, label=' f(x) = ', width='20')):
+  pretty_print(html(r'$f(x) = %s$'%latex(f)))
+  fin = integral(f(x=x),x)
+  pretty_print(html(r'$\int f(x) dx = %s + C$'%latex(fin)))
+  </script>
+    </div>
+ <!--</div>-->
+ <ol type='1'>
+ <li>
+   <ol type='a'>
+   <li>Determine the antiderivatives of the following rational functions:
+     <ol type='i'>
+       <li>\(\displaystyle \int \frac{1}{(x+1)(x+2)}dx\)
+       <li>\(\displaystyle \int \frac{1}{(x+2)(x-7)}dx\)
+       <li>\(\displaystyle \int \frac{1}{x(x-2)}dx\)
+       <li>\(\displaystyle \int \frac{1}{(x-3)^2}dx\)
+       </ol>
+    <li>Based on the pattern of your answers above, determine an antiderivative for \(\displaystyle \int \frac{1}{(x+p)(x+q)}dx\) where \(p\neq q\).
+      What changes do you need to make in the case \(p=q\)?
+    <li>Use the method of partial fractions to confirm/check your answer above.
+    </ol>
+ <li>
+    <ol type='a'>
+    <li>Determine the antiderivatives of the following powers of \(x\) times the exponential function:
+        <ol type='i'>
+          <li>\(\displaystyle \int xe^xdx\)
+          <li>\(\displaystyle \int x^2e^xdx\)
+          <li>\(\displaystyle \int x^5e^xdx\)
+          <li>\(\displaystyle \int x^7e^xdx\)
+          </ol>
+    <li>From your answers above what do you think the form is for \(\displaystyle \int x^n e^x dx\)?
+    <li>Check your answer via integration by parts.
+    </ol>
+    <li>
+       <ol type='a'>
+       <li>Determine the antiderivatives of the following powers of \(x\) times the natural logarithm function:
+           <ol type='i'>
+             <li>\(\displaystyle \int \ln x dx\)
+             <li>\(\displaystyle \int x \ln x dx\)
+             <li>\(\displaystyle \int x^3 \ln x dx\)
+             <li>\(\displaystyle \int x^6 \ln x dx\)
+             </ol>
+      <li>From your answers above what do you think the form is for \(\displaystyle \int x^n \ln x dx\)?
+      <li>Check your answer via integration by parts.
+      </ol>
+  <li>
+     <ol type='a'>
+     <li>Determine the antiderivatives of the following powers of the cosine function:
+         <ol type='i'>
+           <li>\(\displaystyle \int \cos x dx\)
+           <li>\(\displaystyle \int \cos^3 x dx\)
+           <li>\(\displaystyle \int \cos^5 x dx\)
+           <li>\(\displaystyle \int \cos^2 x dx\)
+           </ol>
+    <li>From your answers i-iii above to  what do you think the form is for \(\displaystyle \int \cos^n x dx\) where \(n\) is an odd integer? Note that the pattern is different when \(n\) is an even integer.
+    <li>Check your answer via integration techniques and trigonometric identities.
+    </ol>
+    <li>
+     <ol type='a'>
+     <li>Determine the antiderivatives of the following functions:
+         <ol type='i'>
+           <li>\(\displaystyle \int \sin x  \sin 2x dx\)
+           <li>\(\displaystyle \int \sin 2x  \sin 5x dx\)
+           <li>\(\displaystyle \int \sin 6x  \sin 2x dx\)
+           </ol>
+    <li>From your answers i-iii above to  what do you think the form is for \(\displaystyle \int \sin (ax) \sin (bx) dx\)?
+    <li>Check your answer via integration techniques and trigonometric identities.
+    </ol>
+  </ol>
+</body>
+</html>
