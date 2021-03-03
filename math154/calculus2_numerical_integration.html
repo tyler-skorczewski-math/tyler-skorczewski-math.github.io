@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px;">
+
+  <h1>Numerical Integration</h1>
+
+<hr>
+
+<h4> The following sage applet can be used to calculate some definite integrals numerically.<br>
+
+	<div class="compute">
+	<script type="text/x-sage">
+	# everything following hash symbol is comment
+
+var('x')
+@interact
+def quadrature(f = input_box(default = sin(x), type = SR),
+    a = input_box(1.,width=6, label='left endpoint', type=SR),
+    b = input_box(2.,width=6, label='right endpoint', type=SR),
+    #interval= range_slider(0, 10, 1, default=(0, 1), label="Interval"),
+    number_of_subdivisions = slider(1, 20, 1, default=4, label="Number of boxes"),
+    endpoint_rule = selector(['Midpoint', 'Left', 'Right', 'Upper', 'Lower'], nrows=1, label="Endpoint rule")):
+
+    #a, b = map(QQ, interval)
+    t = var('t')
+    func = fast_callable(f(x=t), RDF, vars=[t])
+    dx = ZZ(b-a)/ZZ(number_of_subdivisions)
+
+    xs = []
+    ys = []
+    for q in range(number_of_subdivisions):
+        if endpoint_rule == 'Left':
+            xs.append(q*dx + a)
+        elif endpoint_rule == 'Midpoint':
+            xs.append(q*dx + a + dx/2)
+        elif endpoint_rule == 'Right':
+            xs.append(q*dx + a + dx)
+        elif endpoint_rule == 'Upper':
+            x = find_local_maximum(func, q*dx + a, q*dx + dx + a)[1]
+            xs.append(x)
+        elif endpoint_rule == 'Lower':
+            x = find_local_minimum(func, q*dx + a, q*dx + dx + a)[1]
+            xs.append(x)
+    ys = [ func(x) for x in xs ]
+
+    rects = Graphics()
+    for q in range(number_of_subdivisions):
+        xm = q*dx + dx/2 + a
+        x = xs[q]
+        y = ys[q]
+        rects += line([[xm-dx/2,0],[xm-dx/2,y],[xm+dx/2,y],[xm+dx/2,0]], rgbcolor = (1,0,0))
+        rects += point((x, y), rgbcolor = (1,0,0))
+    min_y = min(0, find_local_minimum(func,a,b)[0])
+    max_y = max(0, find_local_maximum(func,a,b)[0])
+
+    # html(r'<h3>Numerical integrals with the midpoint rule</h3>')
+    show(plot(func,a,b) + rects, xmin = a, xmax = b, ymin = min_y, ymax = max_y)
+
+    def cap(x):
+        # print only a few digits of precision
+        if x < 1e-4:
+            return 0
+        return RealField(20)(x)
+    sum_html = r"%s \cdot \left[ %s \right]" % (dx, ' + '.join([ "f(%s)" % cap(i) for i in xs ]))
+    num_html = r"%s \cdot \left[ %s \right]" % (dx, ' + '.join([ str(cap(i)) for i in ys ]))
+
+    numerical_answer = integral_numerical(func,a,b,max_points = 200)[0]
+    estimated_answer = dx * sum([ ys[q] for q in range(number_of_subdivisions)])
+
+    pretty_print(html(r'''
+    <div class="math">
+    \begin{align*}
+    \int_{a}^{b} {f(x) \, dx} & = %s \\\
+    \sum_{i=1}^{%s} {f(x_i) \, \Delta x} & = %s \\\
+    & = %s \\\
+    & = %s . \end{align*} </div>'''
+                      % (numerical_answer, number_of_subdivisions, sum_html, num_html, estimated_answer)))
+
+	</script>
+	</div>
+
+  </div>
+
+
+</body>
+</html>
