@@ -132,7 +132,7 @@ def trap(n = slider(1,100,1,4), f = input_box(default = "x^2", type = str), star
   func = sage_eval(f, locals={'x':x})
   dx = (b-a)/n
   trap_app = 0.5*func(x=a)
-  for q in range(n-1):
+  for q in range(1,n):
     trap_app = trap_app + func(x = a + dx*q)
   trap_app = trap_app + 0.5*func(x=b)
   trap_app = dx*trap_app
@@ -158,7 +158,7 @@ def simps(n = slider(2,100,2,4), f = input_box(default = "x^2", type = str), sta
   simps_app = 0.
   for q in range(0,n-1,2):
     simps_app = simps_app + func(x = a + dx*q) + 4.*func(x = a + dx*(q+1)) + func(x = a + dx*(q+2))
-  simps_app = dx*simps_app
+  simps_app = dx*simps_app/3.
 
   pretty_print(html('<h3>Numerical integrals with Simpsons rule</h3>'))
 
