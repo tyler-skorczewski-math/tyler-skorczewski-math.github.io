@@ -86,8 +86,8 @@ def midpoint(f = input_box(default = sin(x), type = SR),
   numerical_answer = integral_numerical(func,a,b,max_points = 200)[0]
   estimated_answer = dx * sum([ ys[q] for q in range(number_of_subdivisions)])
 
-  print "\n\nSage numerical answer: " + str(numerical_answer)
-  print "Our estimated answer: " + str(estimated_answer)
+  print ("Sage numerical answer: " + str(numerical_answer) )
+  print ("Our estimated answer: " + str(estimated_answer) )
 
 
 </script>
@@ -115,8 +115,8 @@ def midpoint(n = slider(1,100,1,4), f = input_box(default = "x^2", type = str), 
   max_y = max(0, find_local_maximum(func,a,b)[0])
   pretty_print(html('<h3>Numerical integrals with the midpoint rule</h3>'))
   pretty_print(html('$\int_{a}^{b}{f(x) dx} {\\approx} \sum_i{f(x_i) \Delta x}$'))
-  print "\n\nSage numerical answer: " + str(integral_numerical(func,a,b,max_points = 200)[0])
-  print "Midpoint estimated answer: " + str(RDF(dx*sum([midys[q] for q in range(n)])))
+  print ("Sage numerical answer: " + str(integral_numerical(func,a,b,max_points = 200)[0]))
+  print ("Midpoint estimated answer: " + str(RDF(dx*sum([midys[q] for q in range(n)]))))
   show(plot(func,a,b) + rects, xmin = a, xmax = b, ymin = min_y, ymax = max_y)
 
   </script></div>
@@ -133,14 +133,37 @@ def trap(n = slider(1,100,1,4), f = input_box(default = "x^2", type = str), star
   dx = (b-a)/n
   trap_app = 0.5*func(x=a)
   for q in range(n-1):
-    trap_app = trap_app + func(x = a + dx*(q+1))
+    trap_app = trap_app + func(x = a + dx*q)
   trap_app = trap_app + 0.5*func(x=b)
   trap_app = dx*trap_app
 
   pretty_print(html('<h3>Numerical integrals with the trapezoidal rule</h3>'))
 
-  print "\n\nSage numerical answer: " + str(integral_numerical(func,a,b,max_points = 200)[0])
-  print "Trapezoidal estimated answer: " + str(trap_app)
+  print ("Sage numerical answer: " + str(integral_numerical(func,a,b,max_points = 200)[0]))
+  print ("Trapezoidal estimated answer: " + str(trap_app))
+
+
+</script></div>
+
+<h2>Simpson's Rule</h2>
+<div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+var('x')
+@interact
+def simps(n = slider(2,100,2,4), f = input_box(default = "x^2", type = str), start = input_box(default = "0", type = str), end = input_box(default = "1", type = str)):
+  a = N(start)
+  b = N(end)
+  func = sage_eval(f, locals={'x':x})
+  dx = (b-a)/n
+  simps_app = 0.
+  for q in range(0,n-1,2):
+    simps_app = simps_app + func(x = a + dx*q) + 4.*func(x = a + dx*(q+1)) + func(x = a + dx*(q+2))
+  simps_app = dx*simps_app
+
+  pretty_print(html('<h3>Numerical integrals with Simpsons rule</h3>'))
+
+  print ("Sage numerical answer: " + str(integral_numerical(func,a,b,max_points = 200)[0]))
+  print ("Simpson'r rule estimated answer: " + str(simps_app))
 
 
 </script></div>
