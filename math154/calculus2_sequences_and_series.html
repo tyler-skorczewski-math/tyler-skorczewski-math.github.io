@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus II</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 600px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Sequences and Series Worksheet</h1>
+
+<hr>
+
+<h2>Example 1 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P>Determine if each of the series below converges. If it converges use the Sage code to give an estimate of the series value using the first 10, 20, & 40 terms.
+
+<ol type='A'>
+ <li>$$\sum_{n=1}^{\infty} \frac{n!}{(n+2)!}$$
+ <li>$$\sum_{n=1}^{\infty} \frac{1}{n!}$$
+ <li>$$\sum_{n=1}^{\infty} \frac{\sin^2(n)}{n^2}$$
+ <li>$$\sum_{n=1}^{\infty} \frac{\ln(1 + 1/n)}{n}$$
+ <li>$$\sum_{n=1}^{\infty} \frac{1}{4^n - 3^n}$$
+ <li>$$\sum_{n=1}^{\infty} \frac{1}{n^{1+1/n}}$$
+</ol>
+
+<div class="compute"><script type="text/x-sage">
+# everything following hash symbol is comment
+var('n')
+@interact
+def _(N = slider(1,200,1), f = input_box(default = "1/(n^2)", type = str)):
+  func = sage_eval(f, locals={'n':n})
+  ssum = 0
+  for q in [1..N]:
+    ssum = ssum + func(n=q)
+  print(r"Series Approximation: " + str(ssum))
+</script></div>
+
+
+
+  </div>
+
+
+  <h2>Example 1-X </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1x">Example 1-X</button>
+    <div id="ex1x" class="collapse">
+      <img src="./1xrobots.png" width=300><br>
+
+      <P>Determine if each of the series below converges. State the test you use.
+
+  <ol type='A'>
+   <li>$$\sum_{n=1}^{\infty} \frac{10^n}{n!}$$
+   <li>$$\sum_{n=1}^{\infty} \frac{n^8}{8^n}$$
+   <li>$$\sum_{n=1}^{\infty} \frac{(2n)!}{2^n(n!)^2}$$
+   <li>$$\sum_{n=1}^{\infty} n!e^{-6n}$$
+   <li>$$\sum_{n=1}^{\infty} \cos\left(\frac{4n^2 + 5}{n^3 + 2}\right)$$
+   <li>$$\sum_{n=1}^{\infty} \frac{(n!)^n}{(n^n)^{10}}$$
+   <li>$$\sum_{n=1}^{\infty} \left(\frac{10n^{1/n} - 1}{5n^{1/n} - 1}\right)^n$$
+   <li>$$\sum_{n=1}^{\infty} \frac{3n^{1/3}}{6n^{4/3}+3}$$
+  </ol>
+
+    </div>
+
+<h2>Example 2 - Kempner</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+<P> It may be surprising
+that a subseries of the harmonic series in which about one
+in every five terms is deleted might converge. A depleted
+harmonic series is a series obtained from \(\sum_{n=1}^{\infty}\frac{1}{n}\) by
+removing any term \(1/n\) if a given digit, say 9, appears
+in the decimal expansion of \(n\). We will argue that this depleted
+harmonic series converges by answering the following
+questions.
+<ol type='a'>
+<li> How many whole numbers \(n\) have \(d\) digits?
+<li> How many \(d\)-digit whole numbers \(h(d)\) do not
+contain 9 as one or more of their digits?
+<li> What is the smallest \(d\)-digit number \(m(d)\)?
+<li> Explain why the deleted harmonic series is
+bounded by $$\sum_{d=1}^{\infty} \frac{h(d)}{m(d)}.$$
+<li> Show that this series converges.
+  </div>
+
+
+<h2>Example 3  - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+<P> Evelyn has a perfect balancing scale, an
+unlimited number of 1 -kg weights, and one each of
+1/2 -kg, 1/4 -kg, 1/8 -kg, and so on weights. She
+wishes to weigh a meteorite of unspecified origin to
+arbitrary precision. Assuming the scale is big enough, can
+she do it? What does this have to do with infinite series?
+</div>
+
+<h2>Example 4 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+  <div id="ex4" class="collapse">
+<P> Show that if \(a_n \ge 0\) and \(\sum_{n=1}^{\infty} a_n^2\) converges, then \(\sum_{n=1}^{\infty} \sin^2(a_n) \) converges
+  </div>
+
+
+  <h2>Example 5 - Koch snowflake  </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+  <div id="ex5" class="collapse">
+  <img src="./images/Koch_snowflake.gif" width=300><br>
+  <P>The Koch snowflake is created through the following process:
+    <ol type='1'>
+      <li>Start with an equilateral triangle with each side having length 1.
+      <li>For each step in the creation replace each segment with 4 new segments of 1/3 of the previous segment's length a la the picture above.
+      <li>Repeat this step infinitely many times.
+      </ol><br>
+    <ol type='a'>
+      <li> What is the total length of the perimeter of the Koch snowflake?
+      <li> What is its total area?
+    </ol>
+  </div>
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>
