@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body style="width: 1000px;">
+  <body style="width: 600px; padding-left: 1cm" background="bg.jpg">
 
   <h1>Sequences and Series Worksheet</h1>
 
@@ -46,12 +46,12 @@
 # everything following hash symbol is comment
 var('n')
 @interact
-def _(N = slider(1,100,1), f = input_box(default = "1/(n^2)", type = str)):
+def _(N = slider(1,200,1), f = input_box(default = "1/(n^2)", type = str)):
   func = sage_eval(f, locals={'n':n})
   ssum = 0
   for q in [1..N]:
     ssum = ssum + func(n=q)
-  print "Series Approximation: " + str(ssum)
+  print(r"Series Approximation: " + str(ssum))
 </script></div>
 
 
@@ -135,5 +135,6 @@ she do it? What does this have to do with infinite series?
     </ol>
   </div>
 
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2021</footer>
 </body>
 </html>
