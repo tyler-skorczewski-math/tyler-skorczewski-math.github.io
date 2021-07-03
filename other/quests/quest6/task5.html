@@ -1,0 +1,72 @@
+<html>
+
+<head>
+<title>The Eleven Labours of Noracles</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='121336')
+window.location = 'task5a.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+
+</head>
+<body>
+
+<P>Find the next lock near where this picture was taken!<br>
+<img src="./grill.jpg" height=400 ><br><br><br><br><br><br>
+<P>Once there complete the magic square (magic # 34)<br><br><br>
+
+  <style type="text/css">
+  .tg  {border-collapse:collapse;border-spacing:0;}
+  .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+    overflow:hidden;padding:10px 5px;word-break:normal;}
+  .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+    font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+  .tg .tg-hrrh{background-color:#ffffff;border-color:#000000;color:#333333;text-align:left;vertical-align:top}
+  .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+  </style>
+  <table class="tg">
+  <thead>
+    <tr>
+      <th class="tg-hrrh"></th>
+      <th class="tg-0pky">2</th>
+      <th class="tg-0pky">16</th>
+      <th class="tg-0pky"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="tg-0pky"></td>
+      <td class="tg-0pky">13</td>
+      <td class="tg-0pky"></td>
+      <td class="tg-0pky"></td>
+    </tr>
+    <tr>
+      <td class="tg-0pky">1</td>
+      <td class="tg-0pky">8</td>
+      <td class="tg-0pky"></td>
+      <td class="tg-0pky">15</td>
+    </tr>
+    <tr>
+      <td class="tg-0pky">14</td>
+      <td class="tg-0pky"></td>
+      <td class="tg-0pky">5</td>
+      <td class="tg-0pky"></td>
+    </tr>
+  </tbody>
+  </table>
+
+  <form name="answerForm" onSubmit="solve(this); return false;">
+  <h2>Enter the 4 numbers from the second row (no spaces) : <input name="answer" type="text" size="10" maxlength="20"/>
+  <input value="Submit" type="submit" />
+  </form>
+
+<P>Use the key to rescue your Dig'em Up.
+<br><br>
+<form method="get" action="start.html">
+    <button type="submit"> Back to Menu</button>
+</form>
+</body>
+</html>

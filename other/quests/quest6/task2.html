@@ -1,0 +1,53 @@
+<html>
+
+<head>
+<title>The Eleven Labours of Noracles</title>
+<script type="text/javascript" language="javascript">
+function solve(f){
+if (f.answer.value.toLowerCase()=='pocket')
+window.location = 'n2.html';
+else
+document.getElementById('error').innerHTML='Try Again!';
+}
+</script>
+
+</head>
+<body>
+
+<P>Click the button to get a clue to the next key.<br>
+  <button id="ASong" onClick="playPause()">
+    <audio
+      src="hptheme.mp3"
+      autoplay
+      loop
+    ></audio>
+    CLUE
+  </button>
+
+  <script>
+    var aud = document.getElementById("ASong").children[0];
+    var isPlaying = false;
+    aud.pause();
+
+    function playPause() {
+      if (isPlaying) {
+        aud.pause();
+      } else {
+        aud.play();
+      }
+      isPlaying = !isPlaying;
+    }
+  </script><br>
+  <img src="./thinking.jpg" width=200><br><br><br><br><br>
+<P>Note that while books can hide keys, books can also be keys. Use the book to find this key's lock.<br><br>
+
+  <b>27-3-7, 15-11-15, 25-16-24, 10-1-18, 11-5-3, 11-2-14, 24-5-6, 68-2-11, 19-4-3  </b> <br><br>
+
+<P>(hint: page-sentence-word: 173-2-3 = 'first')
+<P>Use the key to rescue your Dig'em Up.
+<br><br>
+<form method="get" action="start.html">
+    <button type="submit"> Back to Menu</button>
+</form>
+</body>
+</html>
