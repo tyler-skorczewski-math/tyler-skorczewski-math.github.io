@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px; padding-left: 1cm; font-size: 175%;" background="bg.jpg">
+
+  <h1>Multivariable Calculus & Introduction to Linear and Multilinear Regression </h1>
+
+<hr>
+
+<h2>Definition</h2>
+<P> Consider the data below.
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-hrrh{background-color:#ffffff;border-color:#000000;color:#333333;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-hrrh">x</th>
+    <th class="tg-0pky">1</th>
+    <th class="tg-0pky">2</th>
+    <th class="tg-0pky">3</th>
+    <th class="tg-0lax">4</th>
+    <th class="tg-0lax">5</th>
+    <th class="tg-0lax">6</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">y</td>
+    <td class="tg-0pky">69.2</td>
+    <td class="tg-0pky">86.0</td>
+    <td class="tg-0pky">109.5</td>
+    <td class="tg-0lax">128.4</td>
+    <td class="tg-0lax">140.8</td>
+    <td class="tg-0lax">158.7</td>
+  </tr>
+</tbody>
+</table>
+<P>When we graph this data, we can see a linear trend so we might want to fit the data with a linear model in the form
+\(y = mx + b\).
+<br>
+<img src="./linreg1.png" width=400><br>
+The task for us is then to find the values of the parameters \(m\) and \(b\).
+<br><br>
+<P>There are many ways to do this, but here we are going to take a calculus approach.
+  We say the line of best fit is the line that minimizes the square error between the data points and the line.
+  $$E = \sum_{i=1}^n (mx_i + b - y_i)^2$$
+  <B>Questions</B>
+  <ol>
+    <li>In the formula for \(E\) above, what does the term \(mx_i + b\) represent?
+    <li>What does \(y_i\) represent?
+    <li>What is \(mx_i + b - y_i\)?
+    <li>Why is this squared?
+    </ol>
+  <P>Our approach to finding the values of the parameters in the line of best fit, \(m\) and \(b\), is to minimize \(E\).
+    To do this we will treat \(E \equiv E(m,b)\) as a function of \(m\) and \(b\).
+    Thus the parameters are now our variables. We will say the points \( (x_i,y_i) \) are the data.
+    <ul>
+      <li><B>Task 1</B> Find the gradient of \(E\) with respect to \(m\) and \(b\).
+  <li><b>Task 2</b> Set the gradient equal to the zero vector to get two equations for \(m\) and \(b\).
+  <li><b>Task 3</b> Solve these equations for \(m\) and \(b\) in terms of the data to get formulas for the parameters for the line of best fit.
+  It will help to use summation notation.
+  <li><b>Task 4</b> Find the line of best fit for the data above.
+  </ul>
+  <br>
+
+<h3>Examples using Technology</h3>
+Most often we use technology to find the parameters. Below are instructions to find a line of best fit using MS Excel or R.
+Use one of these to verify your parameter calculations using the formulas above.<br>
+
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#excellin">Excel</button>
+  <div id="excellin" class="collapse">
+    <a href="https://support.microsoft.com/en-us/office/load-the-analysis-toolpak-in-excel-6a63e598-cd6d-42e3-9317-6b40ba1a66b4">Get Data Analysis Toolpak for MS Excel</a><br><br>
+    The simplest way to do a one variable linear regression in MS Excel is to create a scatterplot (highlight data and select Insert->Charts->Scatterplot)
+    of the two variables in question and add a trendline to the plot. To add a trendline, highlight the data and right-click to see the menu with add trendline.
+    <br><img src="./linreg_excel1.png" width=700><br>
+    Once in the format trendline dialog box make sure to select 'linear' and 'display equation.' You will see the equation appear in the chart.
+    <br><img src="./linreg_excel2.png" width=700><br>
+
+  </div>
+
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Rlin">R</button>
+    <div id="Rlin" class="collapse">
+      <a href="https://www.rstudio.com/products/rstudio/download/">Get R/R studio</a><br><br>
+      There are many ways to do regression in R, here we show a simple way using the 'lm' function.
+      lm stands for linear models.
+      We enter two vectors, x and y, using the 'c' command and use lm to calculate the coefficient of x and the intercept in the formula \(y = mx + b\).
+      Note we don't enter the formula like this in R.
+      We are just telling R that we want a linear relationship between x and y.
+      <br><img src="./linregR1.png" width=400><br>
+    </div>
+
+<br><br><br>
+<h2>Multiple linear regression</h2>
+<P>The ideas above can be extended to more complicated data. Consider the data below.<br>
+  <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax">x</th>
+    <th class="tg-0lax">y</th>
+    <th class="tg-0lax">z</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">2.1</td>
+    <td class="tg-0lax">3.1</td>
+    <td class="tg-0lax">23.73101</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">4.5</td>
+    <td class="tg-0lax">5.4</td>
+    <td class="tg-0lax">40.11256</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">6.3</td>
+    <td class="tg-0lax">3.2</td>
+    <td class="tg-0lax">36.70953</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">7.8</td>
+    <td class="tg-0lax">5.4</td>
+    <td class="tg-0lax">50.00016</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">9.0</td>
+    <td class="tg-0lax">6.8</td>
+    <td class="tg-0lax">59.23336</td>
+  </tr>
+</tbody>
+</table>
+<P>Suppose we want to fit this with the linear form \(z = ax + by + c\). <!-- z = 3x + 4y + 5-->
+  <ul>
+    <li><B>Task 1</B>Use the ideas above to set up three equations for the parameters \(a, b\) and \(c\).
+  You do not need to solve these equations to find \(a, b\) and \(c\). (<i>yet</i>)
+</ul>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#excelml1">Excel</button>
+  <div id="excelml1" class="collapse">
+    <a href="https://support.microsoft.com/en-us/office/load-the-analysis-toolpak-in-excel-6a63e598-cd6d-42e3-9317-6b40ba1a66b4">Get Data Analysis Toolpak for MS Excel</a><br><br>
+    To do multiple linear regression in MS Excel, we first create a new column, or columns, associated with the terms in our proposed formula. In the example below
+    we are fitting the data to a form \(z = ax + by + cxy\) so we need columns for x,y,xy, and z. We have x,y, and z from the data given so we only need a new column for xy.
+    Then we want to use the regression module of the Data Analysis Toolpak. This is in the Data tab.
+    <br><img src="./linreg_excel3.png" width=500><br>
+    <br><img src="./linreg_excel4.png" width=500><br>
+    Once in the Regression form, the "Y-data" is our dependent/response data (z in this case) and the "X-data" is the independent/explanatory data (the x,y, and xy columns).
+    I like to make sure to include the column header and click the Label checkbox for ease in reading the results.
+    Note we can set the intercept to be zero by checking the appropriate box as well.
+    <br><img src="./linreg_excel5.png" width=500><br>
+    We can then read the regression results off the new worksheet.
+    <br><img src="./linreg_excel6.png" width=500><br>
+    There is much more information here that we'll leave for your statistics courses and unfortunately neglect for this basic introduction. For now R-squared closer to 1 means a better fit.
+  </div>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Rml1">R</button>
+    <div id="Rml1" class="collapse">
+      <P>The image below shows how to fit a function in the form \(z = ax + by + cxy + d\) using the 'lm' command in R.
+        First we enter the data vectors using the 'c' command and then call the lm function.
+        Note the use of the x:y for the product term. x*y may return terms you don't want.
+        Note that if we don't want a constant (intercept) term, or want it to equal zero, we can call the formula but explicity add the '+0' to force this.
+        <br><img src="./linregR2.png" width=500><br>
+        If we want to see the R-squared information we can wrap up the lm function call in the summary command, i.e. "summary(lm(z ~ x + y + x:y))."
+    </div>
+
+  <br><br><br>
+<h2>Quadratic fitting</h2>
+<P>Consider the data below.<br>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax">x</th>
+    <th class="tg-0lax">y</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">1</td>
+    <td class="tg-0lax">10.35331</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">2</td>
+    <td class="tg-0lax">24.74658</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">4</td>
+    <td class="tg-0lax">73.33762</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">6</td>
+    <td class="tg-0lax">148.3015</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">7</td>
+    <td class="tg-0lax">195.7026</td>
+  </tr>
+</tbody>
+</table>
+<P>Plotting this we see the trend isn't quite linear. <br>
+  <img src="./linreg2.png" width=400><br><br>
+  However, a quadratic polynomial appears to fit the data very well.<br> <!-- y=2.5 + 4.5x + 3.3x^2 -->
+  <img src="./linreg3.png" width=400><br><br>
+  <P>To create a fit in this form we want to find parameters \(a, b\) and \(c\)
+    that minimize the square error between the data and the regression function in the form
+    $$y = a + bx + cx^2.$$
+    Note that this is still considered linear regression since the functional form is still linear <i>in the parameters</i>.
+    This may also be called by other names such as quadratic regression or polynomial regression.
+    <ul>
+      <li><b>Question </b> How is this related to the case above?
+      <li><b>Task</b> Use the ideas from the previous situations to set up three equations for the parameters \(a, b\) and \(c\).
+    You do not need to solve these equations to find \(a, b\) and \(c\).
+      <li><b>Task</b> We can use MS Excel and/or R to find the values of parameters for this situation.
+        Follow the steps outlined below to find the values for the data above.
+  </ul>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#excelquad">Excel</button>
+    <div id="excelquad" class="collapse">
+      The quickest way to do regression in a polynomial form in MS Excel is very similar to the linear regression.
+      Create a scatterplot (highlight data and select Insert->Charts->Scatterplot)
+      of the two variables in question and add a trendline to the plot. To add a trendline, highlight the data and right-click to see the menu with add trendline.
+      Once in the format trendline dialog box make sure to select 'polynomial,' choose the desired degree, and 'display equation.'
+      You will see the equation appear in the chart. You can also display the R-squared value.
+    </div>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Rquad">R</button>
+      <div id="Rquad" class="collapse">
+        In R we can treat the \(x^2\) as its own object by wrapping it in the I command.
+        This prevents confusion in the coding between treating \(x^2\) as part of the formula and as part of the data.
+        <br><img src="./linregR3.png" width=300><br>
+        Wrapping the lm command in the summary command let's us see more information, including the R squared value.
+        <br><img src="./linregR4.png" width=400><br>
+      </div>
+
+<br><br><br>
+<h2>Further examples</h2>
+<ol>
+<li>Find parameters \(a,b,c\) and \(d\) to fit the data below with a form \(z = a + bx + cy + dxy\).<br>
+  table
+<li>Find parameters \(a,b,c\) and \(d\) to fit the data below with a form \(z = a + bx^2 + cy^2 + dxy\).<br>
+    table
+<li>Consider the data below.
+  <br>table<br>
+  Which form can be fit using linear regression? Why?
+  <ol type='a'><li>\(y = a\sin(2x) + b\sin(4x)\) or <li>\(y = \sin(ax) + \sin(bx)\)?</ol>
+    Fit the data with the appropriate form from above.
+</ol>
+
+<br><br><br><br>
+<h2>Closing and look ahead</h2>
+<P>This is just a very brief introduction to regression.
+  For more detailed and theoretical explorations of this topic consider taking more courses in mathematics including MATH 275 Linear Algebra, MATH 375 Numerical Linear Algebra, MSCS 335 Machine Learning, and statistics including STAT 331, 332 (Mathematical Statistics) and STAT 396 Advanced Regression.
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>
