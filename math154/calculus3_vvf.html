@@ -1,0 +1,150 @@
+<!DOCTYPE HTML> 
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 800px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Vector valued functions</h1>
+
+<hr>
+
+<h2>Example -  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex000">Example</button>
+  <div id="ex000" class="collapse">
+    <P>Consider the curve in 3D whose position is given by \(\displaystyle \vec{r}(t) = \begin{bmatrix}t \cos t \\ t \sin t \\ t \end{bmatrix}\) for \(t >0 \).
+    <ol>
+      <li> Draw the curve.
+      <li> Find \(\displaystyle \frac{d}{dt}\vec{r}(t)\). What does this represent? How is it related to the unit tangent vector?
+      <li> Calculate \(\displaystyle \int r(t)~dt\).
+      <li> If the particle starts out at the origin and travels along this curve, set up an integral that represents the distance traveled in time, \(T\).
+    </ol>
+ </div>
+
+<h2>Example - Unit tangent vector </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Example</button>
+  <div id="ex0" class="collapse">
+    <ol>
+      <li> Find the unit tangent vector to the curve \( \vec{r}(t) = \begin{bmatrix}1 + \cos(t)\\ 2- \sin(6t) \end{bmatrix}\) when \(t=\pi/6\).
+    </ol>
+ </div>
+
+ <h2>Example -  </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex00">Example</button>
+   <div id="ex00" class="collapse">
+     <P>Consider the vector-valued function \(\displaystyle \vec{r}(t) = \begin{bmatrix} \sqrt{2} t \\ e^t \\ e^{-t} \end{bmatrix}\) for \(0 <\leq t \leq 1 \).
+     <ol>
+       <li> What is \(\displaystyle \int \vec{r}~dt\)?
+       <li> How is above different from \(\displaystyle \int_0^1 |\vec{r}|~dt\)?
+       <li> Calculate \(\displaystyle \int_0^1 |\vec{r}'|~dt\)
+     </ol>
+  </div>
+ <h2>Derivative properties for vector valued functions </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#prop">Properties</button>
+   <div id="prop" class="collapse">
+       <ol type='a'>
+         <li>\(\displaystyle \frac{d}{dt} \left( \vec{u}(t) + \vec{v}(t) \right) = \frac{d\vec{u}}{dt} + \frac{d\vec{v}}{dt} = \vec{u}'(t)  + \vec{v}'(t)  \)
+         <li>\(\displaystyle \frac{d}{dt} \left( c \vec{u}(t) \right) = c \vec{u}'(t) \)
+         <li>\(\displaystyle \frac{d}{dt} \left( f(t) \vec{u}(t) \right) = f'(t) \vec{u}(t) + f(t) \vec{u}'(t) \)
+         <li>\(\displaystyle \frac{d}{dt} \left( \vec{u}(t) \cdot \vec{v}(t) \right) = \vec{u}' \cdot \vec{v} + \vec{u} \cdot \vec{v}' \)
+         <li>\(\displaystyle \frac{d}{dt} \left( \vec{u}(t) \times \vec{v}(t) \right) = \vec{u}' \times \vec{v} + \vec{u} \times \vec{v}' \)
+         <li>\(\displaystyle \frac{d}{dt} \left( \vec{u}(f(t)) \right) = \vec{u}'(f(t)) f'(t) \)
+         </ol>
+
+      <P>Questions.
+        <ol>
+          <li>True or False. The following always holds: \(\displaystyle \frac{d}{dt}(\vec{r} \times \vec{r}') = \vec{r} \times \vec{r}''\). Justify your answer.
+          <li>Let \(\displaystyle \vec{r}(t) = \begin{bmatrix}1 + \sin(t)\\ \cos(2t) \\ 3t\end{bmatrix}\). Calculate \(\vec{r} \times \vec{r}'\) when \(t=0\).
+          <li>Find an expression for \(\displaystyle \frac{d}{dt} \left( \vec{u}(t) \cdot \left( \vec{v}(t) \times \vec{w}(t)\right) \right) \).
+        </ol>
+ </div>
+
+
+<h2>Example - circular motion</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P>An object moves on a circular path given by<br><br>
+      \( \displaystyle \vec{r}(t) = a \cos (\omega t) \hat{x} + a \sin (\omega t) \hat{y},\) <br><br>
+      where \(\omega = \frac{d\theta}{dt}\) is angular velocity.
+      <ol type='a'>
+        <li>Show the velocity is orthogonal to position.
+        <li>Show the acceleration always points inward.
+        <li>True or False. The speed of the object is constant.
+        </ol>
+</div>
+
+<h2>Example 2 - spacecraft </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+  <P>A spacecraft is flying along a path described by \(\vec{r}(t) = (t^2 - t) \hat{x} + (2 + t) \hat{y} - (3/t) \hat{z}\) where \(t\) is in hours.
+    When \(t=3\) the engines are shut down and the ship continues to move. Where is the spacecraft two hours later?
+</div>
+
+<h2>Example 3 - ski park </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+  <img src="./images/skijump1.png" width="500"><br>
+<P> Ski resorts like to provide interesting courses for their guests. Often these courses include jumps and other obstacles.
+  These jumps must be designed safely or the resort can be held liable for injuries to skiers.
+  <ul>
+    <li><a href="https://www.parkrecord.com/news/park-city/hedge-fund-manager-injured-skiing-sues-deer-valley-for-60-million/">https://www.parkrecord.com/news/park-city/hedge-fund-manager-injured-skiing-sues-deer-valley-for-60-million/</a>
+    <li><a href="http://www.seattlepi.com/local/article/Are-some-ski-park-jumps-too-risky-1267313.php">http://www.seattlepi.com/local/article/Are-some-ski-park-jumps-too-risky-1267313.php</a>
+  </ul>
+  <P>Consider a ski jump where the skier takes off with an initial speed of 10 m/s at an angle of \(\theta = \pi/6\).
+    Assume the jump will be designed so that the skier travels 20 meters horizontally and only gravity is acting on the skier while in flight.
+    <ol>
+      <li>What should the drop in elevation be?
+      <li>At what angle should the slope be to provide a smooth landing?
+      <li>Now assume the take off angle is still \(\pi/6\), the gap is 20 meters, and the drop in elevation is 4 meters.
+        What should the initial speed be to clear the gap and what should the angle of the slope be at the other end of the gap?
+      </ol>
+      <br><img src="./images/skijump2.png" width="600"><br>
+      <br>
+      <div class="compute">
+      <script type="text/x-sage">
+from sage.plot.line import Line
+
+t = var('t')
+
+v0 = 10
+
+parrow = arrow((0,0),(2,sqrt(3)))
+pline1 = line([(0,0),(0,-10)])
+pline2 = line([(0,-10),(20,-10)])
+pline3 = line([(20,-10),(20,-4)])
+pline4 = line([(0,0),(-4,-2*sqrt(3))])
+pline5 = line([(20,-4),(25,-6)])
+pta = text(r"$\theta = \pi/6$",(1.8,0.25))
+ptg = text('gap = 20 m', (10,-9))
+
+@interact
+
+def _(v0=slider(1.,50.0,0.1,10.)):
+    #x = v0*sqrt(3)*t/2.
+    #y = 0.5*v0*t - 0.5*9.8*t*t
+    pp = parametric_plot((v0*sqrt(3)*t/2.,0.5*v0*t - 0.5*9.8*t*t),(t,0,40./v0/sqrt(3)),color='red',linestyle='dashed')
+
+    show(parrow+pline1+pline2+pline3+pline4+pline5+pp+pta+ptg)
+      </script>
+    </div>
+</div>
+
+</body>
+</html>

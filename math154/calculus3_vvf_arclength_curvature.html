@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Vector valued functions</h1>
+
+<hr>
+
+<h2>Warmup </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warm ups</button>
+  <div id="ex0" class="collapse">
+    <ol>
+      <li>
+    </ol>
+ </div>
+
+
+
+ <h2>Theorem</h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#thm">Theorem</button>
+   <div id="thm" class="collapse">
+     <P> Consider a curve given by \(\displaystyle \vec{r}(t) = \begin{bmatrix}f(t)\\g(t)\\h(t)\end{bmatrix}\) on interval, \(I\), given by \(a \leq t \leq b\).
+       Draw a picture and describe geometrically and physically why the arc length of this curve is given by the following terms.
+       <ol type='A'>
+         <li> \(\displaystyle L = \int_I dL\)
+         <li> \(\displaystyle L = \int_a^b |\vec{r}'|~dt\)
+         <li> \(\displaystyle L = \int_a^b \sqrt{f'^2 + g'^2 + h'^2}~dt\)
+         <li> \(\displaystyle L = \int_I \sqrt{dx^2 + dy^2 + dz^2}\)
+         <li> \(\displaystyle L = \int_a^b \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 + \left(\frac{dz}{dt}\right)^2}~dt\)
+         </ol>
+ </div>
+
+<h2>Example  - arc length</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P>Find the length of the curve given by \(\displaystyle \vec{r}(t) = \begin{bmatrix}\sqrt{2}t\\e^t\\e^{-t}\end{bmatrix}\) on interval, \(0 \leq t \leq 1\).
+</div>
+
+<h2>Example - reparameterization </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+  <P> Consider driving down a road where your position is given by \(\displaystyle \vec{r}(t) = \begin{bmatrix}\frac{2}{t^2+1} - 1\\ \frac{2t}{t^2+1}\end{bmatrix}, t\geq 0\).
+    <ol>
+      <li>What is your position at time 0?
+      <li>How far do you drive in time \(T\)?
+      <li>Invert this relationship to find time required as a function of arc length.
+      <li>Use the relationship above to rewrite your postion function as a function of the arc length variable and not time.
+      </ol>
+
+</div>
+
+<h2>Curvature </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Result </button>
+<div id="ex3" class="collapse">
+  <img src="./curve_unittangents.png" width=350><br>
+  <P>Consider the picture above showing a curve with several unit tangent vectors sketched.
+    The curvature of this path is given by \(\displaystyle \kappa = \left| \frac{dT}{ds}\right| where \(s\) is the arc length variable.
+    <ol>
+      <li>What is the formula above saying about curvature? (And no- you can't just claim it is describing how much the path is curved.)
+      <li>Rewrite this formula to only include derivatives with respect to time and not arc length.
+      <li>What are the units of curvature? (hint - see answer above)
+      <li>Use the fact that \(\displaystyle \vec{T} = \frac{\vec{r}'}{|\vec{r}'|}, |\vec{r}'| = \frac{ds}{dt}\) to find a formula for curvature that only relies on derivatives of \(\vec{r}\) with respect to time.
+      </ol>
+</div>
+
+<h2>Example - curvature </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example </button>
+<div id="ex4" class="collapse">
+  <P> Let \(\displaystyle \vec{r}(t) = \begin{bmatrix}t\\t^2\\t^3\end{bmatrix}, t\geq 0\).
+    Find the curvature when \(t=1\).
+
+</div>
+
+<h2>Example - planar curvature formulas </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example </button>
+<div id="ex5" class="collapse">
+  <P> Consider a curve in \(\mathbb{R}^2\) given parametrically by \(x=f(t), y=g(t)\).
+    <ol>
+      <li>Find a formula for curvature in terms of derivatives of \(f\) and \(g\).
+      <li>Can you find a formula for the curvature of the graph of a function \(y = f(x)\)?
+      </ol>
+
+</div>
+
+
+
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>

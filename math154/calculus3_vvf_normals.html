@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Vector valued functions</h1>
+
+<hr>
+
+<h2>Warmup </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warm ups</button>
+  <div id="ex0" class="collapse">
+    <ol>
+      <li>
+    </ol>
+ </div>
+
+
+
+ <h2>Unit tangent, normal and binormal vectors</h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#thm">Result</button>
+   <div id="thm" class="collapse">
+
+     <P> Consider a curve in \(\mathbb{R}^3\) given by \(\displaystyle \vec{r}(t)\).
+       If we wanted to describe this curve to a person looking from the outside, we could use \(x,y,z\) coordinates.
+       However, if we want to describe what is happening to a person walking along the curve the standard coordinate directions probably don't mean much.
+       Instead we use three other directions, the tangent, normal and binormal vectors.
+       <br><img src="./curve_tangent_normal_binormal.png" width=350><br>
+
+       <ul >
+         <li> \(\displaystyle \vec{T} = \frac{\vec{r}'}{|\vec{r}'|}\)
+         <li> \(\displaystyle \vec{N} = \frac{\vec{T}'}{|\vec{T}'|}\)
+         <li> \(\displaystyle \vec{B} = \vec{T} \times \vec{N}\)
+         <li> Note: \(\displaystyle \frac{d\vec{T}}{ds} = \kappa \vec{N} \)
+         </ul>
+         <P> Explain why these are orthogonal to each other.
+ </div>
+
+<h2>Example  - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example </button>
+  <div id="ex1" class="collapse">
+    <P>Consider the curve given by \(\displaystyle \vec{r}(t) = \begin{bmatrix}2\sin(t)\\5t\\2\cos(t)\end{bmatrix}\).
+      <ol>
+        <li>Draw a picture of this curve and describe it.
+        <li>Calculate the unit tangent vector at time \(t)\).
+        <li>Calculate the unit normal vector at time \(t)\).
+        <li>Calculate the curvature at time \(t)\).
+        <li>Make sure you can interpret and explain your results geometrically.
+        </ol>
+</div>
+
+<h2>Example - decomposing acceleration </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example </button>
+<div id="ex2" class="collapse">
+  <P> We know through Newton's Second Law (\(F=ma\)) that force and acceleration are related.
+    <P> We can break the acceleration (force) of a particle's motion down into tangential and normal components.
+      This is often important when considering quantities like work (\(W = \vec{F}\cdot \vec{r}\)) and power (\(P = \vec{F}\cdot \vec{v})\).
+      <P>Breaking apart a quantity into pieces is often called decomposition.
+        <p>We can decompose acceleration into tangential and normal components with \(\vec{a} = |\vec{v}|'\vec{T} + \kappa |\vec{v}|^2 \vec{N}\).
+    <ol>
+      <li>Explain the decomposition above using the definitions/formulas for the unit tangent vector, unit normal vector, and curvature.
+      <li>What are the tangential and normal components of acceleration for a body moving on the curve given by \(\displaystyle \vec{r}(t) = \begin{bmatrix}-0.5 t^2\\t\end{bmatrix}\)?
+      </ol>
+
+</div>
+
+<h2>Example - train </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example </button>
+<div id="ex4" class="collapse">
+  <P> Suppose a train track weaves through a valley on a sinusoidal center-path
+    \(\vec{r} (s) = \langle s, A \sin(2\pi s), 0 \rangle \), where \(s\) is in kilometers.
+    On each turn, the track must be banked on an angle \(\theta\) appropriately so that
+    passengers in the dining car won't experience lateral forces from cornering that
+    would cause passengers to sway sideways, and their coffee cups to slosh (lawsuits!).
+    That is, the force from each turn that is experienced by passengers (and their beverages)
+    must be matched by the lateral component of the normal force from the floor of the train.
+    The train's speed \(v\) must remain constant at all times.
+
+    <P>In order to determine the banking angle, \(\theta\), consider the plane normal to $\vec{r}'(s)$ for each \(s\).
+      We can create local coordinate unit vectors \(\vec{u}\) (horizontal) and \(\vec{w}\) (vertical).
+      Each passenger car experiences a gravitational force \(\vec{F}_g = -mg \vec{w}\).
+      The normal force vector  \(\vec{F}_n\) from the track onto the passenger car vector balances \(\vec{F}_g\)
+       so that there is no vertical motion on the track center. The normal vector \(\vec{F}_n\) is oriented normal
+       to the bank of the track at an angle \(\theta\) so \(\vec{F}_n = \langle -mg\tan(\theta),  mg \rangle \).
+       The train's acceleration is characterized as \(\vec{a} = \kappa v^2 \vec{N} \) because \(dv/dt = 0\).
+       The normal \(\vec{N}\) is pointing in the \(\vec{u}\) direction because there is no vertical acceleration
+       and no forward-backward track acceleration. To achieve no-slosh, the \(\vec{w}\) normal force must match the
+       centripetal force, that is \(m v^2 \kappa \vec{w} = mg\tan(\theta) \vec{w}\).
+
+       <ol>
+         <li>Determine the train track angle \(\theta\) for the track for every location \(s\) on the track.
+           Note that \(\vec{r} (s)\) describes the physical location of the path of the train track center,
+           but does NOT describe the motion of the train (the derivative of \(\vec{r} (s)\) with respect to \(s\)
+            is not the velocity of the train---\(||\vec{r}'|| \neq v\)).
+
+          <li> Suppose a train is moving at 100 km/h, and \(A = 1/32\) [km].
+            What will be the peak bank angle? Where does it occur?
+          </ol>
+
+          <P>Hints: Solve for \(\theta\), for each \(s\), by computing the net force from gravity \(\vec{F}_g\)
+             and the normal force from the floor \(\vec{F}_n\) and equating it to the centripetal force obtained
+             from the curve \(\vec{N}\). Note also the acceleration vector of the train lies in the osculating plane, w
+             hich is decomposed into forward acceleration \(\vec{T}\), and centripetal acceleration \(\vec{N}\) according to
+             \(\vec{a} = |\vec{v}|'\vec{T} + \kappa |\vec{v}|^2 \vec{N}\). One way to think about the physical situation is
+             that the bank angle would make the coffee cup slide off the table angled at \(\theta\), but the turning train
+             is also constantly moving to perfectly position the table underneath cup, thereby making the cup stationary on
+             the table. Also recall that curvature is in units of inverse distance. Also, it may be useful to use a Taylor
+             approximation to estimate window seat vertical motion to be
+             \(z_{vert}(t) = 1.5 \sin(\theta(t)) \approx 1.5 \tan(\theta(t))\)
+              for small angles, once \(\theta(t)\) is found.
+
+
+</div>
+
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>
