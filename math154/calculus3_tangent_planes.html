@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MV Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm; padding-bottom: 5cm;" background="bg.jpg">
+
+  <h1>Tangent Planes & Linear Approximation</h1>
+
+<hr>
+
+<h2>Warmup </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">Warm up</button>
+  <div id="wu" class="collapse">
+
+    <ol type='A'>
+      <li>True or False. There exists a function \(f(x, y)\) with \(f_x = 2y\) and \(f_y = 2x\).<br><br>
+      <li>True or False. If \( \frac{\partial f}{\partial x} = \frac{\partial f}{\partial y}\) everywhere, then \(f(x, y)\) is constant.<br><br>
+      <li>True or False. \(f = x^{0.4}y^{0.6}\) solves Euler's equation \(xf_x + yf_y = f\).<br><br>
+      <li>True or False. \(f = x+y+1\) solves Euler's equation \(xf_x + yf_y = f\).<br><br>
+      <li><img src="./tangentplane_graphs.png" width=800><br><br>
+    </ol>
+
+    </div>
+
+
+ <h2>Tangent Planes </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#idea">Idea</button>
+   <div id="idea" class="collapse">
+       $$z - z_0 = f_x(x_0,y_0) (x-x_0) + f_y(x_0,y_0) (y-y_0)$$
+ </div>
+
+ <h2>Examples</h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+   <div id="ex1" class="collapse">
+     Find tangent planes for the functions below at the specified points.
+     <ol type='a'>
+         <li>\( \displaystyle z = g(x,y) = \sqrt{4-x^2 - y^2}\) at point \((1,1,\sqrt{2})\)
+         <li>\( \displaystyle z = f(x,y) = 32 - 3x^2 - 4y^2\) at point (2,1,16)
+     </ol>
+ </div>
+
+ <h2>Linear Approximation in 2D </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+ <div id="ex2" class="collapse">
+   <P>Let \(\displaystyle f(x,y) = \frac{5}{x^2 + y^2}\).
+     <ol>
+       <li>What is the tangent plane at (-1,2)?
+       <li>Use a linear approximation to estimate \(f(-1.05,2.1)\) using \(f(-1,2)\).
+       </ol>
+ </div>
+
+ <h2>Differential Definition</h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#thm">Definition</button>
+   <div id="thm" class="collapse">
+     <P> Let \(z = f(x,y)\) be a function of two variables with \( (x_0,y_0) \) in the domain of \(f\). Then the total differential of \(z\) is given <body>
+       $$dz = f_x(x_0,y_0) dx + f_y(x_0,y_0)dy.$$
+
+ </div>
+
+
+
+<h2>Example - Resistors </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exigl">Example </button>
+<div id="exigl" class="collapse">
+  <img src="./resistors_parallel.png" width=200><br>
+  <P>Consider 3 resistors in parallel. The total resistance is given by
+    $$\frac{1}{R_{tot}} = \frac{1}{R_{1}} + \frac{1}{R_{2}} + \frac{1}{R_{3}}.$$
+    Let \(R_1 = 20 \Omega \pm 1 \Omega\),  \(R_2 = 10 \Omega \pm 0.5 \Omega\), and  \(R_1 = 2 \Omega \pm 0.2 \Omega\).
+
+    <ol>
+      <li>Calculate \(R_{tot}\).
+      <li>Calculate the total differential \( dR_{tot}\)
+      <li>Use your answer above to estimate the error in \(R_{tot}\).
+      </ol>
+</div>
+
+<h2>Example - Platelet Volume </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
+<div id="ex3" class="collapse">
+    <P>Platelets are small ellipsoidal nonnucleated cells which are important for blood clotting.
+      Assume a platelet has an ellipsoidal shape (like an M&M or a Skittle) with diameters 2, 8, and 8 microns(\(\mu m\)).
+      The tolerance in each of these measurements is \(\pm 100 nm\). Estimate the volume (\(\pm\) tolerance) of this platelet using ideas of differentials.
+
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>
