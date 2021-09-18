@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MV Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 800px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Limits of functions of two or three variables</h1>
+
+<hr>
+
+<h2>Limits </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Definition & Examples</button>
+  <div id="ex1" class="collapse">
+
+<P><b>Informal Definition</b> Let \(f:\mathbb{R}^2 \to \mathbb{R}\). We say the \( \lim_{(x,y)\to(a,b)} f(x,y) = L\) iff we can make \(f(x,y)\) as close to \(L\) as we like by putting \( (x,y) \) close enough to \( (a,b) \), but not exactly \( (a,b)\).
+
+<P>Find the following limits or explain why the do not exist (DNE):<br><br>
+  <ol type='a'>
+    <li>\(\displaystyle \lim_{(x,y)\to(0,0)} \frac{xy \cos(y)}{3x^2 + y^2} \)<br><br>
+    <li>\(\displaystyle \lim_{(x,y)\to(0,0)} \frac{xy^2}{x^2 + y^4} \)<br><br>
+    <li>\(\displaystyle \lim_{(x,y)\to(0,0)} \frac{x^2 \sin^2(y)}{x^2 + 2y^2} \)<br><br>
+    <li>\(\displaystyle \lim_{(x,y)\to(0,0)} (x^2 + y^2) \ln (x^2 + y^2) \)<br><br>
+    </ol>
+  </div>
+
+<h2>Continuity questions </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Questions</button>
+  <div id="ex2" class="collapse">
+  <ol type='A'>
+    <li>Where is \(f(x,y) = \tan (2x + \sqrt{y})\) continuous?<br><br>
+    <li>Let \(f:\mathbb{R}^2\to\mathbb{R}\) be given below. What value of \(c\) makes \(f\) continuous at \((0,0)\)?
+      $$f(x,y) = \begin{cases} \frac{x^2 \sin^2(y)}{x^2 + 2y^2}, & (x,y) \neq (0,0)\\
+      c, & (x,y) = (0,0) \end{cases}
+      $$
+    <li>Let \(f:\mathbb{R}^2\to\mathbb{R}\) be given below. What value of \(c\) makes \(f\) continuous at \((0,0)\)?
+      $$f(x,y) = \begin{cases} \frac{x^2 + y^2}{\sqrt{x^2 + y^2 + 1} -1}, & (x,y) \neq (0,0)\\
+      c, & (x,y) = (0,0) \end{cases}
+      $$
+    </ol>
+    </div>
+
+    <br>
+    <h2>WW Examples  </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">WW Example</button>
+    <div id="ex9" class="collapse">
+    <iframe width="800" height="300" src="https://demo.webwork.rochester.edu/webwork2/html2xml?&answersSubmitted=0&sourceFilePath=Library/Rochester/setVmultivariable2Limits/UR_VC_5_5.pg&problemSeed=123567&courseID=daemon_course&userID=daemon&course_password=daemon&showSummary=0&displayMode=MathJax&problemIdentifierPrefix=102&language=en&outputformat=sticky"></iframe>
+    <iframe width="800" height="300" src="https://demo.webwork.rochester.edu/webwork2/html2xml?&answersSubmitted=0&sourceFilePath=Library/Rochester/setVmultivariable2Limits/UR_VC_5_8.pg&problemSeed=1&courseID=daemon_course&userID=daemon&course_password=daemon&showSummary=0&displayMode=MathJax&problemIdentifierPrefix=102&language=en&outputformat=sticky"></iframe>
+    </div>
+<br>
+<br>
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>
