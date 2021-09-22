@@ -42,7 +42,7 @@ f = x^2 + y
 @interact
 
 def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
-  pretty_print(html('$z = f(x,y)\;=\;%s$'%latex(f)))
+  pretty_print(html('$z = f(x,y)=%s$'%latex(f)))
   w = plot3d(f,(x,-3,3),(y,-2,2), frame=True, color='purple', opacity=0.8)
   show(w)
   </script>
