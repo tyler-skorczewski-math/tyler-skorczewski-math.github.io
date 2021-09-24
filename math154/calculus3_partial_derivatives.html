@@ -32,7 +32,7 @@
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">Warm up</button>
   <div id="wu" class="collapse">
     <img src="./contourmap_pd.png" width=300><br>
-    Using the contour plot of \(f(x, y)\) above, which of the following is closest to the partial derivative of \(f\) with respect to \(x\) at (4,2)?
+    Using the contour plot of \(f(x, y)\) above, which of the following is closest to the partial derivative of \(f\) with respect to \(x\) at (4,1)?
     <ol type='A'>
       <li>40
       <li>20
@@ -59,7 +59,7 @@ R = 50.
 @interact
 def _(T = input_box(T, label='T = ', width='30'),R = input_box(R, label='R = ', width='30')):
   H = -42.379 + 2.04901523*T + 10.14333127*R - .22475541*T*R - .00683783*T*T - .05481717*R*R + .00122874*T*T*R + .00085282*T*R*R - .00000199*T*T*R*R
-  pretty_print(html('$HI \;=\;%s$'%latex(H)))
+  pretty_print(html('$HI =%s$'%latex(H)))
 
 </script>
 </div>
