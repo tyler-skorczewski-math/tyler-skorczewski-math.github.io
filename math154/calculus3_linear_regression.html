@@ -6,7 +6,7 @@
 </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>MATH 250</title>
+    <title>Calculus Examples</title>
     <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
     <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
     <script>$(function () {
@@ -169,7 +169,13 @@ Use one of these to verify your parameter calculations using the formulas above.
   <ul>
     <li><B>Task 1</B>Use the ideas above to set up three equations for the parameters \(a, b\) and \(c\).
   You do not need to solve these equations to find \(a, b\) and \(c\). (<i>yet</i>)
+    <li><B>Task 2</B>Use technology to find \(a, b\) and \(c\). Examples for a different multilinear regression are provided by clicking the buttons below.
 </ul>
+<P>Here we will use the \(R^2\) value to measure how good the model fit is.
+  For now \(R^2\) closer to 1 means a better fit.
+  For these examples you should see \(R^2 \approx 1\) if you've done it correctly.
+  There is much more information on this topic that we'll leave for your statistics courses and unfortunately neglect for this basic introduction.<br>
+
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#excelml1">Excel</button>
   <div id="excelml1" class="collapse">
     <a href="https://support.microsoft.com/en-us/office/load-the-analysis-toolpak-in-excel-6a63e598-cd6d-42e3-9317-6b40ba1a66b4">Get Data Analysis Toolpak for MS Excel</a><br><br>
@@ -186,6 +192,7 @@ Use one of these to verify your parameter calculations using the formulas above.
     <br><img src="./linreg_excel6.png" width=500><br>
     There is much more information here that we'll leave for your statistics courses and unfortunately neglect for this basic introduction. For now R-squared closer to 1 means a better fit.
   </div>
+
   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#Rml1">R</button>
     <div id="Rml1" class="collapse">
       <P>The image below shows how to fit a function in the form \(z = ax + by + cxy + d\) using the 'lm' command in R.
@@ -410,6 +417,7 @@ font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 </tr>
 </tbody>
 </table>
+<!--
 <li>Consider the data below.
   <br>table<br>
   Which form can be fit using linear regression? Why?
@@ -456,7 +464,7 @@ font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
     <td class="tg-7zrl">5.73</td>
   </tr>
 </tbody>
-</table>
+</table>-->
 </ol>
 
 <br><br><br><br>
