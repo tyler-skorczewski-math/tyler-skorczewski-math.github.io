@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Multivariable Optimization</h1>
+
+<hr>
+
+<h2>Motivating Questions and Examples</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#idea">Motivation</button>
+  <div id="idea" class="collapse">
+<div class="mycell">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+var('x y')
+f = x^2 + y
+@interact
+
+def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
+  pretty_print(html('$z = f(x,y)=%s$'%latex(f)))
+  w = plot3d(f,(x,-3,3),(y,-2,2), frame=True, color='purple', opacity=0.8)
+  show(w)
+</script>
+</div>
+    <ul>
+      <li>Plot the surface \(z = e^{-(x^2 + y^2)}\). What is the gradient of \(z\) at (0,0) (no calculation)? Describe the point \( (0,0,z(0,0))\).
+      <li>Plot the surface \(z = y^2 - x^2\). What is the gradient of \(z\) at (0,0) (no calculation)? Describe the point \( (0,0,z(0,0))\).
+      <li>How do we optimize functions in 1-D (calculus I style)?
+      <li>How do you think this could translate to many dimensions?
+      </ul>
+</div>
+
+<h2>Second Derivative Test </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#sdt">Thm</button>
+  <div id="sdt" class="collapse">
+
+    <P> Consider \(f(x,y)\). Let \(f_x\) and \(f_y\) be continuous on an open set containing the point \((a,b)\) with \(\nabla f(a,b) = \vec{0}\). Let \(D(x,y) = f_{xx}f_{yy} - f_{xy}^2\).
+      Then we have the following:
+      <ol type='1'>
+        <li>If \(D(a,b) >0\) and \(f_{xx} < 0\) then \(f(a,b)\) is a local max.
+        <li>If \(D(a,b) >0\) and \(f_{xx} > 0\) then \(f(a,b)\) is a local min.
+        <li>If \(D(a,b) < 0\) then \(f(a,b)\) is a saddle point.
+        <li>If \(D(a,b) = 0\) and then the test is inconclusive.
+        </ol>
+
+    </div>
+
+
+ <h2>Examples</h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Examples</button>
+   <div id="ex1" class="collapse">
+     Find and classify the critical points of the functions below.<br>
+<div class="mycell">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+var('x y')
+f = x^2 + y
+@interact
+
+def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
+ pretty_print(html('$z = f(x,y)=%s$'%latex(f)))
+ w = plot3d(f,(x,-5,5),(y,-5,5), frame=True, color='purple', opacity=0.8)
+ show(w)
+</script>
+</div>
+     <ol type='A'>
+         <li>\( \displaystyle z = f(x,y) = xy(x-2)(y+3)\)<br><br>
+         <li>\( \displaystyle z = f(x,y) = 2x^4 + y^4\)<br><br>
+     </ol>
+ </div>
+
+ <h2>Shipping boxes </h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+ <div id="ex2" class="collapse">
+   <P>A shipping company ships requires that the rectangular boxes they ship have the sum of the length, width, and height is at most 96 inches.
+     What is the box with the largest volume able to be shipped? (Yes - it is a cube. Show this using the ideas from multivariable optimization.)
+   </div>
+
+<h2>Global Max/Mins </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exigl">Example </button>
+<div id="exigl" class="collapse">
+  <P>Find the global maximum and minimum of th function \(f(x,y) = x^2 + y^2 + x^2 y + 4\) on the set \(S = \left\{ (x,y) | |x| \le 1, |y| \le 1 \right\} \).
+</div>
+
+<h2>Blood Types </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
+<div id="ex3" class="collapse">
+    <P> People have one of four blood types: A, B, O, or AB. These four types come from three alleles, one each for A, B, and O.
+      A person gets one allele from each parent. If the person is AA or AO they are blood type A. If the person is BB or BO they are blood type B.
+      If the person is AB then they are blood type AB, and if they are OO then they are type O. Let \(p\) be the fraction of A alleles in a population,
+      \(q\) the fraction of B alleles and \(r\) the fraction of O alleles. The Hardy-Weinberg Law states the fraction of the population with 2 different alleles is
+      \(P = 2pq + 2pr + 2rq\). We know \(p + q + r = 1\) (why?). Use this to eliminate \(p\) and other constraints to find the maximum of \(P\) on the set of feasible \((q,r)\) values.
+</div>
+
+<h3>Contour plots</h3>
+
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+
+x,y = var('x,y')
+
+f = x^2 + y^2 - x*y + x + y + 1.
+
+@interact
+
+def _(f=input_box(f,label="f(x,y) = "),
+xmin=input_box(-2,label="min x"),
+xmax=input_box(2,label="max x"),
+ymin=input_box(-2,label="min y"),
+ymax=input_box(2,label="max y"),
+ifilled = checkbox(False,label='filled?'),
+ptype = selector(['jet','hsv','rainbow','Greys','GnBu', 'PuBu', 'YlGnBu'],buttons=False,label='color map') ):
+  cp = contour_plot(f, (x,xmin,xmax), (y,ymin,ymax),contours=11, cmap=ptype,fill=ifilled,colorbar=true);
+  cp.show()
+</script>
+</div>
+
+<br><br><br>
+
+<h3>Contour plots with a constraint</h3>
+
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+
+x,y = var('x,y')
+
+f = x^2 + y^2 - x*y + x + y + 1.
+g = x^2 + y^2 -1 ==0
+
+@interact
+
+def _(f=input_box(f,label="f(x,y) = "),
+g=input_box(g,label="constraint: "),
+xmin=input_box(-2,label="min x"),
+xmax=input_box(2,label="max x"),
+ymin=input_box(-2,label="min y"),
+ymax=input_box(2,label="max y"),
+ifilled = checkbox(False,label='filled?'),
+ptype = selector(['jet','hsv','rainbow','Greys','GnBu', 'PuBu', 'YlGnBu'],buttons=False,label='color map') ):
+  cp = contour_plot(f, (x,xmin,xmax), (y,ymin,ymax),contours=11, cmap=ptype,fill=ifilled,colorbar=true);
+  ip = implicit_plot(g, (x,xmin,xmax), (y,ymin,ymax),plot_points=500,color='black');
+  show(cp + ip)
+</script>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+</body>
+</html>
