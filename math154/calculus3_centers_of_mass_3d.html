@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MV Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm; padding-bottom:10cm">
+
+  <h1>Centers of Mass 3D </h1>
+
+<hr>
+
+<h2>Formulas</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">formulas</button>
+  <div id="wu" class="collapse">
+    <P>Explain each formula below.
+      <ol type='1'>
+        <li>\(\bar{x} = \frac{\iint_R x\rho (x,y,z)~dV}{\iint_R \rho (x,y,z)~dV} \)<br><br>
+        <li>\(\bar{y} = \frac{\iint_R y\rho (x,y,z)~dV}{\iint_R \rho (x,y,z)~dV} \)<br><br>
+        <li>\(\bar{z} = \frac{\iint_R z\rho (x,y,z)~dV}{\iint_R \rho (x,y,z)~dV} \)<br><br>
+        </ol>
+
+</div>
+
+
+<h2>Voting questions - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Voting</button>
+  <div id="ex0" class="collapse">
+
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq1">Question 1</button>
+          <div id="vq1" class="collapse">
+            <img src="./mass_vq1.png" width=400><br>
+            <!--
+        <P> Which of the following is equivalent to the integral \(\displaystyle \int_{-5}^5 \int_0^3 \int_{-\sqrt{25-x^2}}^{\sqrt{25-x^2}} x~dy~dz~dx\)?
+          <ol type='1'>
+            <li> \(\displaystyle \int_0^3 \int_0^3 \int_0^{\pi} r^2 \cos \theta~d\theta~dz~dr\)<br>
+            <li> \(\displaystyle \int_0^5 \int_0^3 \int_0^{\pi} r^2 \cos \theta~d\theta~dz~dr\)<br>
+            <li> \(\displaystyle \int_0^3 \int_0^5 \int_0^{2\pi} r \cos \theta~d\theta~dz~dr\)<br>
+            <li> \(\displaystyle \int_0^5 \int_0^3 \int_0^{2\pi} r^2 \cos \theta~d\theta~dz~dr\)<br>
+            <li> none of the above
+            </ol>
+          -->
+          </div><br>
+
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq2">Question 2</button>
+            <div id="vq2" class="collapse">
+              <img src="./mass_vq2.png" width=400><br>
+              <!--
+          <P> Which of the following gives the volume of the unit sphere?
+            <ol type='1'>
+              <li> \(\displaystyle \int_0^{2\pi} \int_0^{2\pi} \int_0^{1} d\rho~d\theta~d\phi\)<br>
+              <li> \(\displaystyle \int_0^{\pi} \int_0^{2\pi} \int_0^{1} d\rho~d\theta~d\phi\)<br>
+              <li> \(\displaystyle \int_0^{\pi} \int_0^{2\pi} \int_0^{1} \rho^2 \sin\phi d\rho~d\theta~d\phi\)<br>
+              <li> \(\displaystyle \int_0^{\pi} \int_0^{2\pi} \int_0^{1} \rho^2 \sin\phi d\rho~d\phi~d\theta\)<br>
+              <li> \(\displaystyle \int_0^{\pi} \int_0^{2\pi} \int_0^{1} \rho d\rho~d\theta~d\phi\)<br>
+              <li> none of the above
+              </ol>
+            -->
+            </div><br>
+
+          <!--
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq4">Question 4</button>
+            <div id="vq4" class="collapse">
+          <img src="polar_int_unit_circle_voting.png" width=400><br>
+            </div>
+          -->
+</div>
+
+
+<h2>Example - doorstop</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example">Example</button>
+  <div id="example" class="collapse">
+      <P> Find the centroid of the solid bounded by the surfaces \(y = x^2, y+z = 1,\) and \(z = 0\).
+
+</div>
+
+<h2>Example - cube case</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#examplecc">Example</button>
+  <div id="examplecc" class="collapse">
+      <ol>
+        <li>Find the center of mass of the cube \( [0,1] \times [0,1] \times [0,1]\) with density \(\rho(x,y,z) = xy\).<br>
+        <li>Find the moment of inertia about the \(z\)-axis for the cube above.<br>
+          Note that \(I_z = \iiint_C (x^2 + y^2) \, \rho (x,y,z) \, dV\)<br>
+        <li>Find the radius of gyration about the \(z\)-axis for the cube above.
+        </ol>
+
+</div>
+
+
+<h2>Example - Moments of Inertia </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example0">Example</button>
+  <div id="example0" class="collapse">
+    <p>The moment of inertia is related to the rotation of the mass.
+       Specifically, it measures the tendency of the mass to resist a change in rotational motion about an axis.
+       The moment of inertia of a particle of mass  \(m\)  about an axis is  \(I = mr^2\)  where  \(r\)  is the distance of the particle from the axis.
+       When we have solids that are not simple point masses we use integrals to calculate moments of interia. \(I_x\) refers to the moment of inertia about the \(x\)-axis.
+      <ul>
+        <li>\(I_x = \iiint_Q (y^2 + z^2) \, \rho (x,y,z) \, dV\)<br>
+        <li>\(I_y = \iiint_Q (x^2 + z^2) \, \rho (x,y,z) \, dV\)<br>
+        <li>\(I_z = \iiint_Q (x^2 + y^2) \, \rho (x,y,z) \, dV\)<br>
+      </ul>
+      <ol>
+        <li>Find the moments of intertia about each coordinate axis for the box of constant density, \(k\), with length, width, and height \(a,b,c\) in the \(x,y,z\) directions, respectively.
+        <li>The radius of gyration (kind of like a rotational center of mass) is given by \(\displaystyle R = \sqrt{\frac{I}{m}} \). Find \(R_x\) for the above box.
+      </ol>
+
+
+<!--
+<div class="mycell">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+theta = var('theta')
+r = 2*cos(theta)
+tstart = 0
+tend = 2*pi
+print("Enter the radius,r, as a function of angle, theta")
+@interact
+def _(r=input_box(r,label="r(theta) =  "),tstart=input_box(tstart,label="theta start = "),tend=input_box(tend,label="theta end = ")):
+    pp = polar_plot(r, (theta,tstart,tend) )
+    pp.show()
+</script>
+</div>
+-->
+</div>
+
+
+
+<h2>Example - Set up Integrals</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#examplesph">Example</button>
+  <div id="examplesph" class="collapse">
+      <P> Set up integrals representing the following quantities below.
+        <ol type='1'>
+          <li>The moment of inertia about the \(z\)-axis for the solid cylinder with density \(k\) with \(x^2 + y^2 \leq a^2\) and \(0 \leq z \leq h\).<br>
+          <li>The center of mass of the hemisphere \(x^2 + y^2 + z^2 \leq 1, z\geq 0\) with density \(k\).<br>
+          <li>The moment of inertia about the \(z\)-axis for the hemisphere above.<br>
+          <li>The center of mass of solid \(E\) with density \(\rho = 2\).
+            \(E\) lies under the plane \(z = 1 + x + y\) and above the region in the \(xy\)-plane bounded by the curves \(y = \sqrt{x}, y=0, x=1\).<br>
+          <li>The centroid of the shape \(F\) where \(F\) is bounded by the surfaces \(z = 1-y^2, x+z=1, x=0\), and \(z=0\).<br>
+          </ol>
+</div>
+
+
+
+<br>
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>

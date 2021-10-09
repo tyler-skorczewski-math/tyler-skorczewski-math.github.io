@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MV Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm; padding-bottom:10cm">
+
+  <h1>Triple Integrals</h1>
+
+<hr>
+
+<h2>Warmups</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">warmups</button>
+  <div id="wu" class="collapse">
+      <ol type='1'>
+        <li>Set up a triple integral representing the volume of a half cylinder with radius 1 and length 10.
+          Assume the cylinder's axis is along the \(x\)-axis.<br><br>
+        <!--
+        <li> Transform the following equations from polar to rectangular coordinates.
+          <ol type='a'>
+            <li> \( r\cos \theta = 2 \)
+            <li> \( \tan \theta = 1 \)
+            <li> \( r = 2\cos \theta \)
+            </ol>
+          -->
+
+        </ol>
+
+
+</div>
+
+<h2>Voting questions - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Voting</button>
+  <div id="ex0" class="collapse">
+
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq1">Question 1</button>
+      <div id="vq1" class="collapse">
+    <img src="./triple_int_vq1.png" width=400><br>
+  </div><br><br>
+
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq2">Question 2</button>
+        <div id="vq2" class="collapse">
+      <img src="./triple_int_vq2.png" width=400><br>
+    </div><br><br>
+
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq3">Question 3</button>
+          <div id="vq3" class="collapse">
+        <P> The region of integration for the integral \(\displaystyle \int_{-4}^4 \int_{-\sqrt{16-x^2}}^{\sqrt{16-x^2}} \int_0^{16} f(x,y,z)~dz~dy~dx\) is a
+          <ol type='1'>
+            <li> sphere
+            <li> cylinder
+            <li> cone
+            <li> circle
+            <li> none of the above
+            </ol>
+          </div><br><br>
+
+          <!--
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq4">Question 4</button>
+            <div id="vq4" class="collapse">
+          <img src="polar_int_unit_circle_voting.png" width=400><br>
+            </div>
+          -->
+</div>
+
+
+<h2>Example - Cube Mass</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example">Example</button>
+  <div id="example" class="collapse">
+      <P> A cube with variable density has 1 corner at the origin and side length 4 cm.
+        The density is \(\rho(x,y,z) = 1 + xyz\) gm/cm\(^3\). What is the mass?
+</div>
+
+<h2>Example - volume</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex00">Example</button>
+  <div id="ex00" class="collapse">
+      <ol type='A'>
+        <li>Show that the volume, \(V\), of the region between the surfaces \(z=x^2 + y^2\) and \(z = 4\) is \(8\pi\).<br>
+        <li>Calculate \(\displaystyle \iiint_V z~dV \) where \(V\) is defined above.
+        </ol>
+</div>
+
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example0">Example</button>
+  <div id="example0" class="collapse">
+      <ol type='A'>
+        <li> Set up an integral representing the mass of the solid bounded above by \(z=3\) and below by
+        \(z = \sqrt{x^2 + y^2}\) with density \(\rho(x,y,z) = z\).<br>
+        <li> Calculate the mass. What is the best way to do this? (hint: think about Calc II vs. Calc III techniques) <br>
+        <li> What if the density were \(\rho(x,y,z) = xz\)? Set up integral for mass.
+        </ol>
+<!--
+<div class="mycell">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+theta = var('theta')
+r = 2*cos(theta)
+tstart = 0
+tend = 2*pi
+print("Enter the radius,r, as a function of angle, theta")
+@interact
+def _(r=input_box(r,label="r(theta) =  "),tstart=input_box(tstart,label="theta start = "),tend=input_box(tend,label="theta end = ")):
+    pp = polar_plot(r, (theta,tstart,tend) )
+    pp.show()
+</script>
+</div>
+-->
+</div>
+
+ <h2>Examples</h2>
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example</button>
+   <div id="ex1" class="collapse">
+     <ol type='A'>
+      <li>Set up an integral representing the mass of the solid bounded by the planes
+        <ol type='1'>
+          <li>\( z = 1+x\)
+          <li>\(z = 1- x\)
+          <li>\(z=0\)
+          </ol>
+          with \(y \in [0,3]\) and density \(\rho(x,y,z) = 10-z\) gm/cm\(^3\).<br><br>
+      <li> Show \( \displaystyle \iiint_T z~dV = \frac{1}{12} \) where \(T\) is the solid region in the first octant bounded by the graphs of \(z=1-x^2\) and \(y=x\).<br><br>
+      <li> Show \( \displaystyle \iiint_T \sqrt{x^2 + z^2}~dV = \frac{4\pi}{3} \) where \(T\) is the solid region bounded by the cylinder \(x^2 + z^2 = 1\) and the planes \(y + z = 2,\) and \( y = 0\).<br><br>
+      </ol>
+ </div>
+
+
+<h2>Example - Sketching regions</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exampletri">Example</button>
+  <div id="exampletri" class="collapse">
+      <P> Let \(f(x,y,z) = \frac{1}{x}\). Suppose \(\displaystyle I = \iiint_V f~dV\) where \(V\) is the region bounded by the plane \(x=1\),
+        and the surfaces \(x=e^z, y = z,\) and \(y^2 + z^2 = 9\). Sketch \(V\) and set up the triple integral for \(I\).
+</div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exampleci2">Example</button>
+  <div id="exampleci2" class="collapse">
+      <P> Let \(V\) be the region such that \(z^2 \leq x \leq z\) and \(y^2 + z^2 \leq 1\). Set up an integral representing the volume of \(V\).
+</div>
+
+
+
+<br>
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>
