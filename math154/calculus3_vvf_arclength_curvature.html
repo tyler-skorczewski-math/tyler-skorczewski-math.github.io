@@ -30,7 +30,19 @@ $(function () {
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warm ups</button>
   <div id="ex0" class="collapse">
     <ol>
-      <li>
+      <li>True or False: If the speed of a particle is zero, its velocity must be zero.
+      <li>True or False: A particle with constant speed must have zero acceleration.
+      <li>True or False: A particle with zero acceleration must have constant speed.
+      <li>The functions \(x(t)\) and \(y(t)\) describe the coordinates of a jeep in
+        miles as it drives around the desert from noon (t = 0 hrs) until 2 pm (t = 2 hrs),
+        when the jeep returns to its starting location. Which of the following must be true?
+        <ol type='A'>
+          <li>\(\displaystyle \int_0^2 x~dt = 0\)<br>
+          <li>\(\displaystyle \int_0^2 x'~dt = 0\)<br>
+          <li>\(\displaystyle \int_0^2 x''~dt = 0\)<br>
+          <li>More than one above<br>
+          <li>None of the above
+        </ol>
     </ol>
  </div>
 
@@ -69,15 +81,29 @@ $(function () {
 
 </div>
 
+<h2>Lines?</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#lines">Example </button>
+<div id="lines" class="collapse">
+<P>Which of the following paths describe particles that are not traveling along
+a straight line in 3-space?
+<ol type='A'>
+<li>\( \displaystyle \vec{r}(t) = \begin{bmatrix}1 − t \\ 2 + 2t\\ 3 − t \end{bmatrix} \)
+<li>\( \displaystyle \vec{r}(t) =\begin{bmatrix}1 − t^2 \\ 2+2t^2 \\ 3-t^2\end{bmatrix} \)
+<li>\( \displaystyle \vec{r}(t) =\begin{bmatrix}1  \\ 2 \\ 1 − t \end{bmatrix} \)
+<li>\( \displaystyle \vec{r}(t) =\begin{bmatrix}1  \\ t\\ 1 − t^2 \end{bmatrix} \)
+<li>more than one of the above
+</ol>
+</div>
+
 <h2>Curvature </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Result </button>
 <div id="ex3" class="collapse">
   <img src="./curve_unittangents.png" width=350><br>
   <P>Consider the picture above showing a curve with several unit tangent vectors sketched.
-    The curvature of this path is given by \(\displaystyle \kappa = \left| \frac{dT}{ds}\right| where \(s\) is the arc length variable.
+    The curvature of this path is given by \(\displaystyle \kappa = \left| \frac{dT}{ds}\right|\) where \(s\) is the arc length variable.
     <ol>
       <li>What is the formula above saying about curvature? (And no- you can't just claim it is describing how much the path is curved.)
-      <li>Rewrite this formula to only include derivatives with respect to time and not arc length.
+      <li>Rewrite this formula to only include derivatives with respect to a time-like variable and not arc length.
       <li>What are the units of curvature? (hint - see answer above)
       <li>Use the fact that \(\displaystyle \vec{T} = \frac{\vec{r}'}{|\vec{r}'|}, |\vec{r}'| = \frac{ds}{dt}\) to find a formula for curvature that only relies on derivatives of \(\vec{r}\) with respect to time.
       </ol>
