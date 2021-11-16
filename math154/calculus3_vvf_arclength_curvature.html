@@ -78,6 +78,12 @@ $(function () {
       <li>Invert this relationship to find time required as a function of arc length.
       <li>Use the relationship above to rewrite your postion function as a function of the arc length variable and not time.
       </ol>
+    <P><details><summary>-</summary>
+      <object width="700" height="550" data="./reparam_notes.pdf" type="application/pdf">
+        Your browser does not support pdfs, <a href="filename.pdf">click here to
+          download the file.</a>
+      </object>
+      </details>
 
 </div>
 
@@ -107,6 +113,24 @@ a straight line in 3-space?
       <li>What are the units of curvature? (hint - see answer above)
       <li>Use the fact that \(\displaystyle \vec{T} = \frac{\vec{r}'}{|\vec{r}'|}, |\vec{r}'| = \frac{ds}{dt}\) to find a formula for curvature that only relies on derivatives of \(\vec{r}\) with respect to time.
       </ol>
+      <details><summary>-</summary>
+        <ul>
+          <li>We have that curvature is \(\displaystyle \kappa = \left| \frac{d\vec{T}}{ds} \right| \).<br><br>
+          <li>We want a formula that uses derivatives with respect to \(t\).
+          <li>\( \displaystyle \kappa = \left| \frac{d\vec{T}}{ds} \right| = \left| \frac{\frac{d\vec{T}}{dt}}{\frac{ds}{dt}} \right| = \frac{| \vec{T}' |}{|\vec{r}'|} \)<br><br>
+          <li>We know that \(\displaystyle \vec{T} = \frac{\vec{r}'}{|\vec{r}'|}, |\vec{r}'| = \frac{ds}{dt}\) so we have the following.<br>
+          <li>\(\displaystyle \vec{r}' = |\vec{r}'|\vec{T} = \frac{ds}{dt}\vec{T}\)<br><br>
+            \(\displaystyle \vec{r}'' = \frac{d^2s}{dt^2}\vec{T} + \frac{ds}{dt}\vec{T}'\)<br><br>
+            \(\displaystyle \vec{r}' \times \vec{r}'' = (\vec{r}' \times \frac{d^2s}{dt^2}\vec{T}) + (\vec{r}' \times \frac{ds}{dt}\vec{T}') \) <br><br>
+          <li>Note that the first term is zero (why?) and \(\displaystyle \vec{r}' = \frac{ds}{dt}\vec{T}\) so <br><br>
+          \(\displaystyle \vec{r}' \times \vec{r}'' = \left(\frac{ds}{dt}\right)^2 \left( \vec{T} \times \vec{T}' \right) \).<br><br>
+          <li>Now since \( |\vec{T}| = 1 \) (constant) we know \(\vec{T} \perp \vec{T}'\) so \( \vec{T} \times \vec{T}' = |\vec{T}| |\vec{T}'|\).<br><br>
+          <li>Putting everything together we can get our result:<br><br>
+            \(\displaystyle |\vec{r}' \times \vec{r}'' | = \left(\frac{ds}{dt}\right)^2 |\vec{T}'| \)<br><br>
+            \(\displaystyle |\vec{T}'| = \frac{|\vec{r}' \times \vec{r}'' |}{\vec{r}'|^2}\)<br><br><br>
+            \(\displaystyle \kappa = \frac{| \vec{T}' |}{|\vec{r}'|} = \frac{|\vec{r}' \times \vec{r}'' |}{\vec{r}'|^3}\)
+
+          </ul>
 </div>
 
 <h2>Example - curvature </h2>
@@ -123,7 +147,32 @@ a straight line in 3-space?
   <P> Consider a curve in \(\mathbb{R}^2\) given parametrically by \(x=f(t), y=g(t)\).
     <ol>
       <li>Find a formula for curvature in terms of derivatives of \(f\) and \(g\).
+        <ol type='a'>
+          <li>Use this formula to find the curvature of the path described by an ellipse
+            with radius 3 in the \(x\) direction and 2 in the \(y\) direction.
+            <details><summary>-</summary>
+              <ul>
+                <li>\(\displaystyle \vec{r} = \begin{bmatrix}f\\g\end{bmatrix} \Rightarrow f(t) = 3\cos(t), g(t) = 2\sin(t) \)<br><br>
+                <li>\(\displaystyle \kappa = \frac{|f'g'' - f''g'|}{ \left[ f'^2 + g'^2 \right] ^{3/2}} \)<br><br>
+                <li>\(\displaystyle f' = -3\sin t, f'' = -3 \cos t\)<br><br>
+                <li>\(\displaystyle g' = 2 \cos t, g'' = -2 \sin t\)<br><br>
+                <li>\(\displaystyle \kappa = \frac{|6\sin t \cos t + 6 \sin t \cos t|}{\left[ 9 \sin^2 t + 4 \cos^2 t \right]^{3/2}} = \frac{|6\sin (2t) |}{\left[ 9 \sin^2 t + 4 \cos^2 t \right]^{3/2}} \)<br><br>
+              </ul>
+              </details>
+          </ol>
       <li>Can you find a formula for the curvature of the graph of a function \(y = f(x)\)?
+        <ol type='a'>
+          <li>What is the curvature of the graph of \(y = x^2\)?
+          <details><summary>-</summary>
+            <ul>
+              <li>\(\displaystyle \kappa = \frac{|f''(x)|}{ \left[ 1 + f'(x)^2 \right] ^{3/2}} \)<br><br>
+              <li>\(\displaystyle f'(x) = 2x, f''(x) = 2\)<br><br>
+              <li>\(\displaystyle \kappa = \frac{2}{\left[ 1 + 4x^2 \right]^{3/2}} \)<br><br>
+            </ul>
+            </details>
+
+            </div>
+          </ol>
       </ol>
 
 </div>
