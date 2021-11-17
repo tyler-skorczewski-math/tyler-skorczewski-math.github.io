@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm; padding-bottom:8cm" background="">
+
+  <h1>Vector Fields </h1>
+
+<hr>
+
+<div class="mycell">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+var('x y')
+xmin=-4
+xmax=4
+ymin=-4
+ymax=4
+funx = -y
+funy = x
+@interact
+def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
+      xmin=input_box(xmin,label="xmin = "),xmax=input_box(xmax,label="xmax = "),
+      ymin=input_box(ymin,label="ymin = "),ymax=input_box(ymax,label="ymax = ")):
+    vfp = plot_vector_field((funx,funy), (x,xmin,xmax), (y,ymin,ymax))
+    vfp.show()
+</script>
+</div>
+<!--
+Need to cover - sketching; recognizing fields/flow lines; gradient fields; potential functions; convservative fields; mixed partials theorem.
+-->
+
+<h2>Warmup - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">warmups</button>
+  <div id="wu" class="collapse">
+    <ol>
+      <li>What is the difference between a vector field and a scalar field? Give an example of each.
+      <li>Sketch \(\displaystyle \vec{F}:\mathbb{R}^2 \to \mathbb{R}^2\) where \(\displaystyle \vec{F}(x,y) = y \hat{x} -x \hat{y}\).
+      <li>Match each vector field with its associated figure.<br>
+    <img src="./vecfield4.png" width=600><br>
+    <table width=80%><tr><td>(a) \(\displaystyle \vec{F}_1 = \frac{\vec{r}}{||\vec{r}||} \)</td>
+      <td>(b) \(\displaystyle \vec{F}_2 = \vec{r} \)</td>
+      <td>(c) \(\displaystyle \vec{F}_3 = y \hat{x} - x \hat{y} \)</td>
+      <td>(d) \(\displaystyle \vec{F}_4 = x\hat{y} \)</td>
+    </tr></table>
+  </ol>
+  </div>
+
+<!--<h2>Voting questions - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Voting</button>
+  <div id="ex0" class="collapse">
+
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq1">Question 1</button>
+          <div id="vq1" class="collapse">
+
+
+        <P> Which of the following is equivalent to the integral \(\displaystyle \int_{-5}^5 \int_0^3 \int_{-\sqrt{25-x^2}}^{\sqrt{25-x^2}} x~dy~dz~dx\)?
+          <ol type='1'>
+            <li> \(\displaystyle \int_0^3 \int_0^3 \int_0^{\pi} r^2 \cos \theta~d\theta~dz~dr\)<br>
+            <li> \(\displaystyle \int_0^5 \int_0^3 \int_0^{\pi} r^2 \cos \theta~d\theta~dz~dr\)<br>
+            <li> \(\displaystyle \int_0^3 \int_0^5 \int_0^{2\pi} r \cos \theta~d\theta~dz~dr\)<br>
+            <li> \(\displaystyle \int_0^5 \int_0^3 \int_0^{2\pi} r^2 \cos \theta~d\theta~dz~dr\)<br>
+            <li> none of the above
+            </ol>
+
+          </div><br>
+
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq2">Question 2</button>
+            <div id="vq2" class="collapse">
+
+
+          <P> Which of the following gives the volume of the unit sphere?
+            <ol type='1'>
+              <li> \(\displaystyle \int_0^{2\pi} \int_0^{2\pi} \int_0^{1} d\rho~d\theta~d\phi\)<br>
+              <li> \(\displaystyle \int_0^{\pi} \int_0^{2\pi} \int_0^{1} d\rho~d\theta~d\phi\)<br>
+              <li> \(\displaystyle \int_0^{\pi} \int_0^{2\pi} \int_0^{1} \rho^2 \sin\phi d\rho~d\theta~d\phi\)<br>
+              <li> \(\displaystyle \int_0^{\pi} \int_0^{2\pi} \int_0^{1} \rho^2 \sin\phi d\rho~d\phi~d\theta\)<br>
+              <li> \(\displaystyle \int_0^{\pi} \int_0^{2\pi} \int_0^{1} \rho d\rho~d\theta~d\phi\)<br>
+              <li> none of the above
+              </ol>
+
+            </div><br>
+
+
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq4">Question 4</button>
+            <div id="vq4" class="collapse">
+          <img src="polar_int_unit_circle_voting.png" width=400><br>
+            </div>
+
+</div>-->
+
+
+<h2>Example - Flow lines </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example">Example</button>
+  <div id="example" class="collapse">
+      <P><b>Definition</b> A flow line of a vector field \(\vec{F}: X \subset \mathbb{R}^n \to \mathbb{R}^n\) is a differentiable path \(\vec{r}: I \to \mathbb{R}^n\)
+        such that \(\vec{r}'(t) = \vec{F}(\vec{r}(t))\).
+
+        <ol>
+          <li>Find the flow lines of \(\displaystyle \vec{F}(x,y) = y \hat{x} -x \hat{y}\).
+          <li>Which curve is not a flow line of the vector field \( \displaystyle \vec{F}(x,y) = x \hat{x} + y \hat{y}\)?
+            <ol type='a'>
+              <li>\(\displaystyle \vec{r}(t) = e^t \hat{x} + e^t \hat{y}\) <br><br>
+              <li>\(\displaystyle \vec{r}(t) = e^t \hat{x} + 2e^t \hat{y}\) <br><br>
+              <li>\(\displaystyle \vec{r}(t) = 3e^t \hat{x} + 3e^t \hat{y}\) <br><br>
+              <li>\(\displaystyle \vec{r}(t) = 2e^t \hat{x} + e^{2t} \hat{y}\) <br><br>
+            </ol><br>
+          <li>The function that best describes the distance of a particle from the \(y\)-axis as it follows a flow line in the figure below is:<br>
+            <img src="./vecfield3.png" width=300><br>
+            <table width=80%><tr><td>(a) linear</td>
+              <td>(b) exponential</td>
+              <td>(c) sinusoidal</td>
+              <td>(d) logarithmic</td>
+            </tr></table>
+          </ol>
+</div>
+
+<h2>Example -Gradient fields </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#examplecc">Example</button>
+  <div id="examplecc" class="collapse">
+    <P><b>Definition</b> If a vector field is of the form \(\displaystyle \vec{F} = \nabla f \) for some scalar
+      function \(f\), we say \(\vec{F}\) is a conservative field (or gradient field), and \(f\) is a potential function for \(\vec{F}\).<br>
+    <P><b>Note</b> In physics it is common to have \(\displaystyle \vec{F} = -\nabla f \).
+
+      <ol>
+        <li>Let \(f(x,y) = \cos(3x^2) + ye^y\). Find \(\vec{F} = \nabla f\).
+        <li>What is the potential function for the vector field \(\vec{F} = 2y\hat{x} + 2x\hat{y}\)?
+          <ol type='a'>
+            <li>\( f(x, y) = 4xy\)<br>
+            <li>\( f(x, y) = 2x^2 + 2y^2\)<br>
+            <li>\( f(x, y) = 2xy\)<br>
+            <li>This is not a conservative vector field.
+            </ol>
+          <li>Is \(\vec{F} = x^2y \hat{x} - 2xy \hat{y}\) a conservative field?
+          <li>Which field below cannot be a gradient field?<br>
+            <img src="./vecfield2.png" width=600><br>
+        </ol>
+
+</div>
+
+
+<h2>Example - Theorem</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example0">Example</button>
+  <div id="example0" class="collapse">
+    <P><b>Theorem</b> Let \(\vec{F}\) be a vector field in \(\mathbb{R}^2\) such that the component functions of \(\vec{F}\) have continuous second order mixed partial derivatives
+      on the domain of \(\vec{F}\). If \(\displaystyle \vec{F} = \begin{bmatrix} P(x,y) \\ Q(x,y) \end{bmatrix}\) is a conservative field then \(P_y = Q_x\).
+      <ul>
+        <li>Show this theorem holds for \(\vec{F} = 2y\hat{x} + 2x\hat{y}\).<br>
+        <li>What are the converse, inverse, and contrapositive of this statement?<br>
+
+      </ul>
+
+
+
+<!--
+<div class="mycell">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+var('x y')
+xmin=-4
+xmax=4
+ymin=-4
+ymax=4
+funx = -y
+funy = x
+@interact
+def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
+      xmin=input_box(xmin,label="xmin = "),xmax=input_box(xmax,label="xmax = "),
+      ymin=input_box(ymin,label="ymin = "),ymax=input_box(ymax,label="ymax = ")):
+    vfp = plot_vector_field((funx,funy), (x,xmin,xmax), (y,ymin,ymax))
+    pp.show()
+</script>
+</div>
+-->
+</div>
+
+
+
+
+
+
+
+<br>
+
+<footer style="text-align: center; padding-top: 5cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>

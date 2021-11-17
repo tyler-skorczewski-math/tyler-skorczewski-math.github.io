@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm; padding-bottom:6cm" background="">
+
+  <h1>Conservative Fields and Green's Theorem </h1>
+
+<hr>
+
+<div class="mycell">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+var('x y')
+xmin=-4
+xmax=4
+ymin=-4
+ymax=4
+funx = -y
+funy = x
+@interact
+def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
+      xmin=input_box(xmin,label="xmin = "),xmax=input_box(xmax,label="xmax = "),
+      ymin=input_box(ymin,label="ymin = "),ymax=input_box(ymax,label="ymax = ")):
+    vfp = plot_vector_field((funx,funy), (x,xmin,xmax), (y,ymin,ymax))
+    vfp.show()
+</script>
+</div>
+<!--
+Need to cover - sketching; recognizing fields/flow lines; gradient fields; potential functions; convservative fields; mixed partials theorem.
+-->
+
+<h2>Warmup - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">warmups</button>
+  <div id="wu" class="collapse">
+    <ol type='A'>
+      <li>True or False. \(\displaystyle \vec{F} = x^2y \hat{x} - 2xy \hat{y}\) is a conservative field.
+      <li>The figure shows a curve \(C\) broken into two pieces \(C_1\) and \(C_2\). Which of the following
+statements are true for any vector field \(\vec{F}\)? <br>
+ <img src="./line_int_path.png" width=240><br>
+ <ol type='i'>
+   <li>\(\displaystyle \int_C \vec{F}\cdot d\vec{r} = \int_{C_1} \vec{F}\cdot d\vec{r} + \int_{C_2} \vec{F}\cdot d\vec{r}\)<br>
+   <li>\(\displaystyle \int_C \vec{F}\cdot d\vec{r} = \int_{C_1} \vec{F}\cdot d\vec{r} - \int_{C_2} \vec{F}\cdot d\vec{r}\)<br>
+   <li>\(\displaystyle \int_{C_1} \vec{F}\cdot d\vec{r} = \int_{C_2} \vec{F}\cdot d\vec{r}\)<br>
+   <li>\(\displaystyle \int_C \vec{F}\cdot d\vec{r} = 0\)<br>
+   <ol>
+  </ol>
+  </div>
+
+<!--<h2>Voting questions - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Voting</button>
+  <div id="ex0" class="collapse">
+
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq1">Question 1</button>
+          <div id="vq1" class="collapse">
+
+
+        <P> Which of the following is equivalent to the integral \(\displaystyle \int_{-5}^5 \int_0^3 \int_{-\sqrt{25-x^2}}^{\sqrt{25-x^2}} x~dy~dz~dx\)?
+          <ol type='1'>
+            <li> \(\displaystyle \int_0^3 \int_0^3 \int_0^{\pi} r^2 \cos \theta~d\theta~dz~dr\)<br>
+            <li> \(\displaystyle \int_0^5 \int_0^3 \int_0^{\pi} r^2 \cos \theta~d\theta~dz~dr\)<br>
+            <li> \(\displaystyle \int_0^3 \int_0^5 \int_0^{2\pi} r \cos \theta~d\theta~dz~dr\)<br>
+            <li> \(\displaystyle \int_0^5 \int_0^3 \int_0^{2\pi} r^2 \cos \theta~d\theta~dz~dr\)<br>
+            <li> none of the above
+            </ol>
+
+          </div><br>
+
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq2">Question 2</button>
+            <div id="vq2" class="collapse">
+
+
+          <P> Which of the following gives the volume of the unit sphere?
+            <ol type='1'>
+              <li> \(\displaystyle \int_0^{2\pi} \int_0^{2\pi} \int_0^{1} d\rho~d\theta~d\phi\)<br>
+              <li> \(\displaystyle \int_0^{\pi} \int_0^{2\pi} \int_0^{1} d\rho~d\theta~d\phi\)<br>
+              <li> \(\displaystyle \int_0^{\pi} \int_0^{2\pi} \int_0^{1} \rho^2 \sin\phi d\rho~d\theta~d\phi\)<br>
+              <li> \(\displaystyle \int_0^{\pi} \int_0^{2\pi} \int_0^{1} \rho^2 \sin\phi d\rho~d\phi~d\theta\)<br>
+              <li> \(\displaystyle \int_0^{\pi} \int_0^{2\pi} \int_0^{1} \rho d\rho~d\theta~d\phi\)<br>
+              <li> none of the above
+              </ol>
+
+            </div><br>
+
+
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq4">Question 4</button>
+            <div id="vq4" class="collapse">
+          <img src="polar_int_unit_circle_voting.png" width=400><br>
+            </div>
+
+</div>-->
+
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example">Example</button>
+  <div id="example" class="collapse">
+      <P>Show \(\displaystyle \vec{F} = \begin{bmatrix} 2xy + \cos 2y \\ x^2 - 2x\sin 2y \end{bmatrix} \) is conservative and
+        use this to calculate \(\displaystyle \int_C \vec{F} \cdot d\vec{r} \) where \(C\) is the path from \( (1,\pi/2)\) to \( (2, \pi) \).
+</div>
+
+<h2>A question, a definition, and a theorem </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#examplecc">Example</button>
+  <div id="examplecc" class="collapse">
+    <P><b>Question</b> How do we know when \(\vec{F}\) is a conservative field, i.e. \(\vec{F} = \nabla f\) ?<br><br>
+    <P><b>Definition</b> If \(C\) is an oriented closed curve the line integral of \(\vec{F}\) around \(C\) is
+      called the circulation \( \int_C \vec{F} \cdot d\vec{r} = \oint_C \vec{F} \cdot d\vec{r}\).<br><br>
+    <P><b>Theorem</b> A vector field is path-independent (conservative) if and only if \( \oint_C \vec{F} \cdot d\vec{r} = 0\) for any closed curve \(C\). <br><br>
+
+    <P>Prove this theorem.
+
+</div>
+
+
+<h2>Example - scalar curl</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example0">Example</button>
+  <div id="example0" class="collapse">
+      <ul>
+        <li>Does \(\displaystyle \vec{F}=\begin{bmatrix}2xy \\ xy\end{bmatrix}\) have a potential function?<br>
+        <li>Is there a better way to determine this beyond trying to calculate the potential?
+          Assume \(\vec{F} = F_1 \hat{x} + F_2 \hat{y} =\nabla \phi\) and see if you can build a result using partial derivatives.<br>
+        <li><b>Definition</b> We will call \(\displaystyle \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}\) the scalar curl of \(\vec{F}\).<br>
+        <li>Calculate the scalar curl of example above.
+
+      </ul>
+
+</div>
+
+<h2>Green's Theorem</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#green">Example</button>
+  <div id="green" class="collapse">
+    <P>We have seen two ways to determine if \(\vec{F} = F_1 \hat{x} + F_2 \hat{y} \) is not a conservative field,
+      if \( \oint_C \vec{F} \cdot d\vec{r} \neq 0\) and/or \(\displaystyle \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} \neq 0\).<br>
+    <P><b>Question</b> Are these quantities related?
+
+    <P><b>Theorem (Green's Theorem)</b> Suppose \(C\) is a piecewise smooth simple closed curve that is a boundary of a region \(R\) in the plane and oriented
+      so that \(R\) is on the left as we traverse \(C\).
+      Let \(\vec{F} = F_1 \hat{x} + F_2 \hat{y}\) be a smooth vector field on an open region containing \(R\) and \(C\).
+      Then \(\displaystyle \oint_C \vec{F} \cdot d\vec{r} = \iint_R \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}~dA\).<br><br>
+
+      <ul>
+        <li>What is a simple closed curve?<br>
+        <li>How is this related to the Fundamental Theorem of Calculus?
+        </ul>
+</div>
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example1">Example</button>
+  <div id="example1" class="collapse">
+    <P>Evaluate \(\displaystyle \oint_C (y^2 \hat{x} + x \hat{y}) \cdot d\vec{r} = \oint_C y^2 dx + x dy\) where \(C\) is the counter-clockwise
+      path around the perimeter of the rectangle \(0 \leq x \leq 2, 0 \leq y \leq 3\).
+
+</div>
+
+<h2>Example - Curl Test</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#curltest">Example</button>
+  <div id="curltest" class="collapse">
+    <P><b>Theorem (Curl Test in 2D)</b> Let \(\vec{F} = F_1 \hat{x} + F_2 \hat{y}\) be a vector field with continuous partial derivatives
+      such that
+      <ol>
+        <li>the domain of \(\vec{F}\) has the property that every closed curve in it encloses a region that lies entirely in the domain of \(\vec{F}\), i.e. no holes, and,
+        <li>curl \(\vec{F} = 0\).
+        </ol>
+        <P>Then \(\vec{F}\) is a conservative field and \(\vec{F} = \nabla \phi\).<br><br>
+
+    <h3>Example</h3>
+    <P>Let \(\displaystyle \vec{F}(x,y) = \begin{bmatrix} -y \\ x\end{bmatrix} \frac{1}{x^2 + y^2} \).
+      <ol>
+        <li>Calculate \(\displaystyle \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} \).<br><br>
+        <li>Calculate \(\displaystyle \oint_C \vec{F} \cdot d\vec{r}\) where \(C\) is the unit circle counter-clockwise.<br><br>
+        <li>Do your results above make sense? Why or why not?
+        </ol>
+
+</div>
+
+
+
+<br>
+
+<footer style="text-align: center; padding-top: 4cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>

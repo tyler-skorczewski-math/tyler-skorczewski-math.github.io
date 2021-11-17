@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:600px; padding-left: 1cm; padding-bottom:5cm" background="">
+
+  <h1>Divergence and Curl </h1>
+
+<hr>
+
+<div class="mycell">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+var('x y')
+xmin=-4
+xmax=4
+ymin=-4
+ymax=4
+funx = -y
+funy = x
+@interact
+def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
+      xmin=input_box(xmin,label="xmin = "),xmax=input_box(xmax,label="xmax = "),
+      ymin=input_box(ymin,label="ymin = "),ymax=input_box(ymax,label="ymax = ")):
+    vfp = plot_vector_field((funx,funy), (x,xmin,xmax), (y,ymin,ymax))
+    vfp.show()
+</script>
+</div>
+
+
+
+<h2>Warmup - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">warmups</button>
+  <div id="wu" class="collapse">
+    <ol type='A'>
+      <li>If \(\vec{F}(x,y,z)\) is a vector field and \(f(x, y, z)\) is a scalar function, which of the following
+is not defined?<br>
+          <ol type='a'>
+          <li> \(\nabla f\)
+          <li> \(\nabla \cdot \vec{F} + f\)
+          <li> \(\vec{F} + \nabla f\)
+          <li> \(\nabla \cdot \vec{F} + \nabla f\)
+          <li> More than one of the above
+          </ol> <br>
+
+  </ol>
+  </div>
+
+<h2>Voting questions - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Voting</button>
+  <div id="ex0" class="collapse">
+
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq1">Question 1</button>
+          <div id="vq1" class="collapse">
+
+
+        <P> True or False? If all the flow lines of a vector field \(\vec{F}\) are straight lines, then \( \nabla \cdot \vec{F} = 0 \).
+          <ol type='a'>
+            <li>True, and I am very confident
+            <li>True, but I am not very confident
+            <li>False, but I am not very confident
+            <li>False, and I am very confident
+            </ol>
+          </div><br>
+
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq2">Question 2</button>
+            <div id="vq2" class="collapse">
+
+
+              <P> True or False? If all the flow lines of a vector field \(\vec{F}\) are straight lines, then \( \nabla \times \vec{F} = \vec{0}\).
+                <ol type='a'>
+                  <li>True, and I am very confident
+                  <li>True, but I am not very confident
+                  <li>False, but I am not very confident
+                  <li>False, and I am very confident
+                  </ol>
+
+            </div><br>
+
+
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq3">Question 3</button>
+            <div id="vq3" class="collapse">
+
+          <P>Moving from the picture on the left to the picture on the right, what are the signs of \( \nabla \cdot \vec{F}  \)?<br>
+            <img src="divergence_signs.png" width=400><br>
+            <ol type='a'>
+              <li> positive, positive, negative
+              <li> zero, positive, negative
+              <li> positive, negative, zero
+              <li> zero, negative, positive
+              </ol>
+            </div><br>
+
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vq4">Question 4</button>
+              <div id="vq4" class="collapse">
+
+            <P>The pictures below show top views of three vector fields, all of which have no \(z\) component. Which one has the curl pointing in the positive
+\(\hat{z}\) direction at the origin?<br>
+              <img src="curl_signs.png" width=400><br>
+              <ol type='a'>
+                <li> the one on the left
+                <li> the one in the middle
+                <li> the one on the right
+                <li> none of them
+                </ol>
+              </div>
+
+</div>
+
+
+<h2>Example - divergence </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example">Example</button>
+  <div id="example" class="collapse">
+      <P> Let \(\displaystyle \vec{F} = \begin{bmatrix} x^2 y \\ xy \\ xyz \end{bmatrix}\). Find \(\nabla \cdot \vec{F}\).
+</div>
+
+<h2>Pictures </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#examplecc">Example</button>
+  <div id="examplecc" class="collapse">
+    <P>Sketch each of the 2D vector fields below and calculate the divergence.<br>
+    <ol type='A'>
+      <li>\( \displaystyle \vec{F} = \begin{bmatrix} x\\y\end{bmatrix} \)
+      <li>\( \displaystyle \vec{G} = -\begin{bmatrix} x\\y\end{bmatrix} \)
+      <li>\( \displaystyle \vec{H} = \begin{bmatrix} y\\-x\end{bmatrix} \)
+      </ol><br>
+
+    <P>What does divergence measure? What does it mean when a vector field is solenoidal?
+
+</div>
+
+
+<h2>Example - curl</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example0">Example</button>
+  <div id="example0" class="collapse">
+      <ol type='A'>
+        <li>Calculate the curl of \(\vec{F}\), i.e. \(\nabla \times \vec{F}\) if  \(\displaystyle \vec{F}=\begin{bmatrix}x^2y \\ -2xz \\ x + y - z\end{bmatrix}\).<br>
+        <li>What does curl measure?<br>
+        <li>Calculate \(\nabla \times \vec{F}\) if  \(\displaystyle \vec{F}=\begin{bmatrix}y \\ -x \\ 0\end{bmatrix}\).<br>
+        <li>What do we say when \(\nabla \times \vec{F} = \vec{0}\)?
+
+      </ol>
+
+</div>
+
+
+<h2>Example - Mix and Match </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example1">Example</button>
+  <div id="example1" class="collapse">
+    <P> Let \(\vec{F}, \vec{G}\) be vector fields and \(f\) be a scalar field.<br>
+    <ol type='A'>
+      <li> What is \( \nabla \times (\nabla f) \)?<br>
+      <li> Assume \(\vec{F}: \mathbb{R}^3 \to \mathbb{R}^3\) has continuous second partial derivatives. Then \(\nabla \cdot (\nabla \times \vec{F}) = 0\). Prove this.<br>
+      <li> Prove \(\nabla \cdot (f \vec{F}) = f \nabla \cdot \vec{F} + \nabla f \cdot \vec{F}\).<br>
+      <li> Prove \(\nabla \times (f \vec{G}) = f \nabla \times \vec{G} + \nabla f \times \vec{G}\).<br>
+      <li> Prove \(\nabla \cdot (\vec{F} \times \vec{G}) = \vec{G} \cdot (\nabla \times \vec{F}) - \vec{F} \cdot (\nabla \times \vec{G})\).<br>
+    </ol>
+
+</div>
+
+<h2>Example - Cylindrical coords </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example2">Example</button>
+  <div id="example2" class="collapse">
+    <P> Consider a vector field given in cylindrical coordinates \(\vec{F}(r,\theta,z) = F_1 \hat{r} + F_2 \hat{\theta} + F_3 \hat{z}\).<br><br>
+    <P> \(\displaystyle \nabla \cdot \vec{F} = \frac{1}{r} \frac{\partial (rF_1)}{\partial r} + \frac{1}{r} \frac{\partial F_2}{\partial \theta} + \frac{\partial F_3}{\partial z}\).<br><br>
+    <p> Find the divergence of \(\vec{F} = 2\theta \hat{r} + 3z \hat{\theta} + 4r \hat{z}\).
+
+</div>
+
+<h2>Example - Solenoidal Field </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example3">Example</button>
+  <div id="example3" class="collapse">
+    <P> Let \(\vec{r} = x\hat{x} + y \hat{y} + z\hat{z}\). For what values of \(p\), if any, is \(\displaystyle \vec{F} = \frac{\vec{r}}{||\vec{r}||^p} \) solenoidal?
+
+</div>
+
+
+<br>
+
+<footer style="text-align: center; padding-top: 5cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>
