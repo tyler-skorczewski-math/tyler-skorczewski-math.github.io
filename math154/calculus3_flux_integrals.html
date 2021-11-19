@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm; padding-bottom:8cm" background="">
+
+  <h1>Surface Integrals and Flux</h1>
+
+<hr>
+
+<div class="mycell">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+var('x y')
+xmin=-4
+xmax=4
+ymin=-4
+ymax=4
+funx = -y
+funy = x
+@interact
+def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
+      xmin=input_box(xmin,label="xmin = "),xmax=input_box(xmax,label="xmax = "),
+      ymin=input_box(ymin,label="ymin = "),ymax=input_box(ymax,label="ymax = ")):
+    vfp = plot_vector_field((funx,funy), (x,xmin,xmax), (y,ymin,ymax))
+    vfp.show()
+</script>
+</div>
+
+<h2>Example - Flux integral in 2D </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">Example</button>
+  <div id="wu" class="collapse">
+    <ol type='A'>
+      <li> Sketch (or use software to visualize) the vector field \(\displaystyle \vec{F} = \begin{bmatrix} x^2 \\ y \end{bmatrix} \).
+      <li> Add the curve \(C\) represented by \(\displaystyle \vec{r}(t) = \begin{bmatrix} 3 \cos t \\ 3 \sin t \end{bmatrix}\) to your sketch. Describe this curve.
+      <li> Let \(\hat{n}\) be the unit normal to the curve and \(s\) represent arc length. What is represented by \(\displaystyle \oint_C \vec{F} \cdot \hat{n}~ds \)?
+      <li> Calculate the integral above.
+
+
+  </ol>
+  </div>
+
+
+<h2>Example - surface integral </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example">Example</button>
+  <div id="example" class="collapse">
+      <P> Let \(\vec{F} = -3\hat{x} - 1\hat{y} + 2\hat{z}\).
+        Let \(S\) be the paraboloid \(z = 9 - x^2 - y^2\) defined above the disk in the \(xy\) plane with radius 3.
+        Evaluate the surface integral \(\displaystyle \iint_S \vec{F} \cdot d\vec{S} \).<br><br>
+
+        <P>Note \(\displaystyle \iint_S \vec{F} \cdot d\vec{S} = \iint_D \vec{F}(\vec{r}) \cdot \vec{N}~dA\)
+</div>
+
+<br>
+
+<footer style="text-align: center; padding-top: 5cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>

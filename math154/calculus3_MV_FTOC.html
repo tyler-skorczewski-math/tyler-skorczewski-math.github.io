@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:600px; padding-left: 1cm; padding-bottom:10cm" background="bg.jpg">
+
+  <h1>Fundamental Theorems of Calculus </h1>
+
+<hr>
+
+<div class="mycell">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+var('x y')
+xmin=-4
+xmax=4
+ymin=-4
+ymax=4
+funx = -y
+funy = x
+@interact
+def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
+      xmin=input_box(xmin,label="xmin = "),xmax=input_box(xmax,label="xmax = "),
+      ymin=input_box(ymin,label="ymin = "),ymax=input_box(ymax,label="ymax = ")):
+    vfp = plot_vector_field((funx,funy), (x,xmin,xmax), (y,ymin,ymax))
+    vfp.show()
+</script>
+</div>
+
+
+
+
+<h2>Fundamental Theorems of Calculus </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ftoc">FTOC</button>
+  <div id="ftoc" class="collapse">
+    <P><br>
+    <ol type='A'>
+      <li>\( \displaystyle \int_a^b f'(x)~dx = f(b)- f(a) \) <br><br>
+      <li>\( \displaystyle \int_C \nabla f \cdot d\vec{r} = f(Q) - f(P) \) where \(C\) begins at \(P\) and ends at \(Q\) <br><br>
+      <li>\( \displaystyle \iint_R \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y}~dA = \oint_C \vec{F} \cdot d\vec{r}  \) where \(\vec{F} = F_1 \hat{x} + F_2 \hat{y}\) <br><br>
+      <li> (Stoke's Theorem) Let \(S\) be a bounded, piecewise smooth oriented surface in \(\mathbb{R}^3\).
+        Suppose that \(\partial S\) consists of finitely many piecewise differentiable, simple, closed curves each of which is oriented consistently with \(S\).
+        Let \(\vec{F}\) be continously differentiable vector field whose domain includes \(S\). Then \(\displaystyle \iint_S \nabla \times \vec{F} \cdot d\vec{S} = \oint_{\partial S} \vec{F} \cdot d\vec{r}\).<br><br>
+      <li> (Divergence Theorem or Gauss's Theorem) Let \(\Omega\) be a bounded solid region in \(\mathbb{R}^3\) whose boundary \(\partial \Omega\) consists of finitely many piecewise smooth, closed, oriented surfaces
+        each of which is oriented by normals that point away from \(\Omega\). Let \(\vec{F}\) be continously differentiable vector field whose domain includes \(\Omega\).
+        Then \(\displaystyle \oint \hspace{-4.mm}\int_{\partial \Omega} \vec{F} \cdot d\vec{S} = \iiint_{\Omega} \nabla \cdot \vec{F}~dV\).
+      </ol><br>
+
+
+</div>
+
+
+<h2>Example - Using Stoke's Theorem</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example0">Example</button>
+  <div id="example0" class="collapse">
+    <P>Let \(S\) be the paraboloid \(z = 9 - x^2 - y^2\) defined above the disk in the \(xy\) plane with radius 3.
+      Then \(\partial S\) is the circle \(C = \{ (x,y,z) \in \mathbb{R}^3 \mid x^2 + y^2 = 9, z = 0\).
+      Let \(\vec{F}= 2z - y \hat{x} + x+z \hat{y} + 3x - 2y \hat{z}\).
+      Show Stoke's Theorem holds by evaulting each side of the equation \(\displaystyle \oint_C \vec{F} \cdot d\vec{r} = \iint_S \nabla \times \vec{F} \cdot d\vec{S}\).
+
+</div>
+
+<h2>Example - More Stoke's Theorem</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example00">Example</button>
+  <div id="example00" class="collapse">
+    <P>Let \(S\) be the surface \(z = e^{-x^2 - y^2}\) for \(z \geq 1/e\).
+      Let \(\vec{F}= (e^{y+z} - 2y) \hat{x} + (xe^{y+z} + y) \hat{y} + e^{x+y} \hat{z}\).
+      Calculate \(\displaystyle \iint_S \nabla \times \vec{F} \cdot d\vec{S}\).
+
+</div>
+
+
+<h2>Example - Applying Divergence Theorem </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example1">Example</button>
+  <div id="example1" class="collapse">
+ <P> Let \( \vec{F} = \vec{r} \) and let \(\Omega\) be the cylinder with radius \(a\) and height \(b\) centered at the origin with one base on the \(xy\) plane extending up.
+   Calculate \( \oint \hspace{-2.5mm}\int_{\partial \Omega} \vec{F} \cdot d\vec{S}\).
+
+</div>
+
+<h2>Example - More Divergence Theorem </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example11">Example</button>
+  <div id="example11" class="collapse">
+ <P> Let \( \vec{F} = (e^y \cos(z)) \hat{x} + \sqrt{x^3 + 1} \sin(z) \hat{y} + (x^2 + y^2 + 3)\hat{z} \) and
+   let \(S\) be the bell-shaped surface \(z = (1-x^2 -y^2)e^{1-x^2-3y^2}\) for \(z \geq 0\).
+   Calculate \( \iint_{S} \vec{F} \cdot d\vec{S}\).
+
+</div>
+
+<h2>Example - Green's Theorem </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#examplegt">Example</button>
+  <div id="examplegt" class="collapse">
+    <img src="greens_thm_w_hole.jpg" width=250><br>
+    <P> Suppose \( \displaystyle \oint_{C_2} \vec{F} \cdot d\vec{r} = 12\) and \(\displaystyle \frac{\partial F_2}{\partial x} - \frac{\partial F_1}{\partial y} = -3\) everywhere in \(D\).
+      Find \( \displaystyle \oint_{C_1} \vec{F} \cdot d\vec{r}\).
+</div>
+
+
+<br>
+
+
+</body>
+</html>
