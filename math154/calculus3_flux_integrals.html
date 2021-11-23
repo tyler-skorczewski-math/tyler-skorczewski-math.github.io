@@ -47,6 +47,123 @@ def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
 </script>
 </div>
 
+<h2>Parametric surfaces </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#para">Motivation</button>
+  <div id="para" class="collapse">
+    <P>So far in the course we've seen surfaces represented two ways:
+        <ol>
+          <li> as a function \(\displaystyle z = f(x,y)\)
+            <ul>
+              <li>example: \(\displaystyle z = \sqrt{x^2 + y^2}\) is a cone.
+              <li>problem: Not every surface can be written as a function.
+              </ul>
+          <li> as a level set \(F(x,y,z) = c\)
+            <ul>
+              <li>example: \(\displaystyle F(x,y,z) = x^2 + y^2 + z^2 = 4\) is a sphere.
+              <li>problem: Hard to define; may not work for all values of \(c\).
+              </ul>
+          </ol>
+          <br>
+      <P>What can we do to describe surfaces more generally?
+      <br><br>
+      <P><b>Definition</b>: Let \(D\) be a region in \(\mathcal{R}^2\) that consists of a connected
+        open set, possibly containing some or all of it boundary \(\displaystyle \partial D\).
+        A parameteritized surface in \(\mathcal{R}^3\) is a continuous function \(\vec{X}: D \subseteq \mathcal{R}^2 \to \mathcal{R}^3\) that is one-to-one on \(D\), except possibly at \(\partial D\). We say \(\vec{X}(D)=\vec{S}\) and \(\vec{S}\) is called the surface.
+        <br>
+      <P>Think about parametric equations or vector valued functions, but with two parameters.
+        \(\displaystyle \vec{S}(s,t) = \begin{bmatrix}x(s,t)\\y(s,t)\\z(s,t)\end{bmatrix}\)
+
+        <h3>Examples</h3>
+        <ol type='A'>
+          <li>\(\displaystyle \vec{X}(s,t) = s(\hat{x}-\hat{y}) + t(\hat{x} + 2\hat{z}) + 3\hat{y}\)
+            <br>What shape is this surface?<br><br>
+          <li>What is the parametric representation for a sphere of radius \(a\)?<br><br>
+          <li>\(\displaystyle \vec{S}(s,t) = \begin{bmatrix} (4 + 1\cos(t))\cos(s)\\ (4 + 1\cos(t))\sin(s) \\ \sin (t)\end{bmatrix}, \hspace{1cm} s,t \in [0,2\pi]\)
+        </ol>
+<details><summary>Sage plot script</summary>
+<div class="compute">
+  <script type="text/x-sage">
+from sage.plot.plot3d.parametric_surface import ParametricSurface
+var('s t')
+
+def func(s,t): return s+t, 3-s, 2*t
+
+P = ParametricSurface(func, (srange(0,3,0.1), srange(0,3,0.1)))
+
+show(P)
+  </script>
+</div>
+</details>
+</div>
+
+<h2>Tangent planes and normal vectors </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#tpn">Example</button>
+<div id="tpn" class="collapse">
+<P>What does it mean to be tangent to a surface? <details><summary>more</summary>
+
+<P>We define the normal vector as \(\displaystyle \vec{N} = \vec{T}_s \times \vec{T}_t\) provided \(\vec{T}_s, \vec{T}_t\) exist and \(\vec{T}_s \times \vec{T}_t \neq \vec{0}\).<details><summary>Example</summary>What is the normal vector for the torus \(\displaystyle \vec{S}(s,t) = \begin{bmatrix} (4 + 1\cos(t))\cos(s)\\ (4 + 1\cos(t))\sin(s) \\ \sin (t)\end{bmatrix}, \hspace{1cm} s,t \in [0,2\pi]\)?
+</details>
+</details>
+</div>
+
+<h2>Example cone </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#excone">Example</button>
+<div id="excone" class="collapse">
+<P>Consider the cone \(z^2 = x^2 + y^2\).
+  <ol>
+    <li>Find a parameterization of this surface.
+    <li>Compute a normal vector.
+    <li>When is the normal vector not defined? Does this make sense?
+    </ol>
+</div>
+
+<h2>Area elements </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#areas">Area</button>
+<div id="areas" class="collapse">
+<P><b>Question</b>: What does an area element look like for a parametric surface?
+  <br>
+  \(\displaystyle \Delta A \approx || \vec{T}_s \Delta s \times \vec{T}_t \Delta t || = ||\vec{T}_s \times \vec{T}_t || \Delta s \Delta t = ||\vec{N}|| \Delta s \Delta t \)
+  <br><br>
+  As \( \Delta s, \Delta t \to 0, \Delta A \to dS\).
+  <br><br>
+  Surface area of \( \displaystyle S = \iint_{S} ~dS = \iint_D ||\vec{T}_s \times \vec{T}_t || dsdt \)
+  <br><br>
+  <P><details><summary><b>Example</b>: Calculate surface area of a sphere of radius \(R\)</summary>
+    It is an exercise for the student to fill in the gaps as needed here.<br>
+    <ul>
+      <li>\(\displaystyle \vec{X}(s,t) = \begin{bmatrix}R \cos s  \sin t \\ R \sin s \sin t \\ R \cos t \end{bmatrix} \) <br><br>
+      <li>\(\displaystyle \vec{T}_s = \begin{bmatrix}-R \sin s  \sin t \\ R \cos s \sin t \\ 0 \end{bmatrix},
+        \vec{T}_t = \begin{bmatrix}R \cos s  \cos t \\ R \sin s \cos t \\ -R \sin t \end{bmatrix} \) <br><br>
+      <li>\(\displaystyle \vec{N} = \vec{T}_s \times \vec{T}_t = \begin{bmatrix}
+        R \cos s \sin t (-R \sin t) - 0 \\
+        0 - (-R \sin s \sin t)( -R \sin t) \\
+        -R \sin s \sin t(R \sin s \cos t) - R \cos s \sin t R \cos s \cos t
+         \end{bmatrix}\)<br><br>
+      <li>\(\displaystyle \vec{N} = \begin{bmatrix} \cos s \sin t\\ \sin s \sin t \\ \cos t\end{bmatrix} \left(-R^2 \sin t \right)\)<br><br>
+      <li>\(\displaystyle ||\vec{N} || = R^2 \sin t\)<br><br>
+      <li>\(\displaystyle SA = \int_0^{\pi} \int_0^{2\pi} R^2 \sin t ~ds~dt = 4\pi R^2\)
+
+    </ul>
+  </details>
+
+</div>
+
+<h2>Scalar surface integrals </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ssi">Example</button>
+<div id="ssi" class="collapse">
+<P>Consider a thin shell in the shape of a paraboloid \(z = 4-x^2-y^2\) above the \(xy\)-plane with mass density \(\rho = 1\). What is the center of mass of this shape?
+</div>
+
+<h2>Vector surface integrals </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#vsi">Example</button>
+<div id="vsi" class="collapse">
+<P>Let \(\displaystyle \vec{F} = \begin{bmatrix}x\\y\\z-2y\end{bmatrix}\) and \(\displaystyle \vec{X}(s,t) = \begin{bmatrix}s \cos t \\ s \sin t \\ t \end{bmatrix}\) for \(0 \leq s \leq 1, 0 \leq t \leq 2 \pi\).
+  <br>
+<P>Evaluate \(\displaystyle \iint_{\vec{X}} \vec{F} \cdot ~d\vec{S}\).
+  <br>
+<P>Make sure you understand the difference between \(dS\) and \(d\vec{S}\).
+</div>
+
 <h2>Example - Flux integral in 2D </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">Example</button>
   <div id="wu" class="collapse">
@@ -72,6 +189,38 @@ def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
 </div>
 
 <br>
+
+<!--
+from sage.plot.plot3d.parametric_surface import ParametricSurface
+var('s t')
+
+def func(s,t): return (1+t*cos(s/2.))*cos(s), (1+t*cos(s/2.))*sin(s), t*sin(s/2.)
+
+P = ParametricSurface(func, (srange(0,2*pi,0.01), srange(-0.5,0.5,0.01)))
+
+show(P)
+-->
+<h2>Example surface </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exmob">Example</button>
+<div id="exmob" class="collapse">
+<P>Consider the surface \(\displaystyle \vec{X}(s,t) = \begin{bmatrix} (1 + t \cos (s/2)) \cos (s) \\ (1 + t \cos (s/2)) \sin (s) \\ t \sin (s/2) \end{bmatrix}, \hspace{1cm} 0 \leq s \leq 2\pi, -0.5 \leq t \leq 0.5\)
+  <br><br>
+  <P>Consider the normal vector \(\vec{N}(s,t)\). Calculate \(\vec{N}(0,t)\) and \(\vec{N}(2\pi,t)\).<br><br>
+
+<details><summary>Sage plot script</summary>
+<div class="compute">
+  <script type="text/x-sage">
+from sage.plot.plot3d.parametric_surface import ParametricSurface
+var('s t')
+
+def func(s,t): return (1+t*cos(s/2.))*cos(s), (1+t*cos(s/2.))*sin(s), t*sin(s/2.)
+
+P = ParametricSurface(func, (srange(0,2*pi,0.01), srange(-0.5,0.5,0.01)))
+
+show(P)
+  </script>
+</div>
+<div>
 
 <footer style="text-align: center; padding-top: 5cm;">copyright Tyler Skorczewski 2021</footer>
 </body>
