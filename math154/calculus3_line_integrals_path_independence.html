@@ -109,9 +109,9 @@ Need to cover - sketching; recognizing fields/flow lines; gradient fields; poten
 <h2>Example - FTOC Line Integrals</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#exampleftoc">Theorem</button>
   <div id="exampleftoc" class="collapse">
-    <P>Recall the Fundamental Theorem of Calculus from Calculus 1: \(\displaystyle \int_a^b f'(t) dt = F(b) - F(a)\).<br><br>
+    <P>Recall the Fundamental Theorem of Calculus from Calculus 1: \(\displaystyle \int_a^b f'(t) dt = f(b) - f(a)\).<br><br>
 
-      <P><b>Theorem (Fundamental Theorem of Line Integrals)</b> \(\displaystyle \int_C \nabla f \cdot \vec{dr} = F(Q) - F(P)\) where \(P\) and \(Q\) are the starting and ending points of a smooth oriented curve \(C\).
+      <P><b>Theorem (Fundamental Theorem of Line Integrals)</b> \(\displaystyle \int_C \nabla f \cdot \vec{dr} = f(Q) - f(P)\) where \(P\) and \(Q\) are the starting and ending points of a smooth oriented curve \(C\).
       <br><br>
       <P><b>Question</b>: What does this mean if the path is a closed curve?
 
@@ -133,7 +133,7 @@ Need to cover - sketching; recognizing fields/flow lines; gradient fields; poten
     <br>
     <P><details><summary><b>Theorem</b></summary> A continuous vector field \(\vec{F} \) defined on an open region is path independent if and only if \(\vec{F}\) is a gradient field.</details>
       <br>
-    <P><details><summary><b>Example</b></summary> Show \(\displaystyle \vec{F} = \begin{bmatrix}y \cos (x) \\ \sin (x) + y\end{bmatrix}\) is path idependent by finding a potential function.</details>
+    <P><details><summary><b>Example</b></summary> Show \(\displaystyle \vec{F} = \begin{bmatrix}y \cos (x) \\ \sin (x) + y\end{bmatrix}\) is path independent by finding a potential function.</details>
 
 
   </div>
@@ -167,7 +167,7 @@ Need to cover - sketching; recognizing fields/flow lines; gradient fields; poten
       <ol>
       <li>Consider the path \(C_1\) parameterized by \(\vec{r}_1(t) = \cos t\hat{x} + \sin t \hat{y}, 0 \leq t \leq 2\pi\), and \(C_2\) parameterized by \(\vec{r}_2(t) = 2\cos t\hat{x} + 2\sin t \hat{y}, 0 \leq t \leq 2\pi\)\). Let \(\vec{F}\) be a vector field. True or False:
         \(\displaystyle \int_{C_2} \vec{F}\cdot d\vec{r} = 2 \int_{C_1} \vec{F}\cdot d\vec{r} \).<br><br>
-      <li>Consider the path \(C_1\) parameterized by \(\vec{r}_1(t) = \cos t\hat{x} + \sin t \hat{y}, 0 \leq t \leq 2\pi\), and \(C_2\) parameterized by \(\vec{r}_2(t) = \cos (2t) \hat{x} + \sin (2t) \hat{y}, 0 \leq t \leq 2\pi\)\). Let \(\vec{F}\) be a vector field. True or False:
+      <li>Consider the path \(C_1\) parameterized by \(\vec{r}_1(t) = \cos t\hat{x} + \sin t \hat{y}, 0 \leq t \leq 2\pi\), and \(C_2\) parameterized by \(\vec{r}_2(t) = \cos (2t) \hat{x} + \sin (2t) \hat{y}, 0 \leq t \leq 2\pi\). Let \(\vec{F}\) be a vector field. True or False:
         \(\displaystyle \int_{C_2} \vec{F}\cdot d\vec{r} = 2 \int_{C_1} \vec{F}\cdot d\vec{r} \).
       </ol></details>
     </ol>
