@@ -193,6 +193,31 @@ is not defined?<br>
 
 </div>
 
+<h2>Example - Laplacian </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#examplelap">Example</button>
+  <div id="examplelap" class="collapse">
+    <P> The Laplacian operator is defined as \(\displaystyle \nabla^2 f = \Delta f = \nabla \cdot \nabla f\).
+      <ol>
+        <li>Let \(f \equiv f(x,y,z)\). Find a simplified expression for \(\displaystyle \nabla^2 \).
+          <br><details><summary>Solution</summary>
+            \(\displaystyle \nabla^2 f = \nabla \cdot \nabla f\)<br><br>
+            \(\displaystyle \nabla f = \begin{bmatrix}f_x \\ f_y \\ f_z\end{bmatrix}\)<br><br>
+            \(\displaystyle \nabla^2 f = \frac{\partial}{\partial x} f_x + \frac{\partial}{\partial y} f_y + \frac{\partial}{\partial z} f_z \)<br><br>
+            \(\displaystyle \nabla^2 f = f_{xx} + f_{yy} + f_{zz}\)
+          </details><br><br><br>
+
+        <li>Show \( u(x,y,z,t) = e^{-t} \sin(x)\sin(y)\sin(z)\) solves the heat equation \(u_t = (1/3)\nabla^2 u\).
+          <br><details><summary>Solution</summary>
+            \(\displaystyle u_t = -e^{-t} \sin(x)\sin(y)\sin(z) = -u \)<br><br>
+            \(\displaystyle \nabla^2 u = e^{-t}(-\sin(x))\sin(y)\sin(z) + e^{-t}\sin(x)(-\sin(y))\sin(z) + e^{-t}\sin(x)\sin(y)(-\sin(z)) = -3u \)<br><br>
+            Plugging the above terms into the PDE yields<br>
+            <br>
+            \(\displaystyle u_t = -u = \frac{1}{3} \nabla^2 u = -u.\)
+          </details>
+        </ol>
+
+
+</div>
 
 <br>
 
