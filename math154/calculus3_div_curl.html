@@ -62,7 +62,7 @@ is not defined?<br>
           <li> \(\nabla \cdot \vec{F} + \nabla f\)
           <li> More than one of the above
           </ol> <br>
-
+      <li>Imagine a fluid flowing through a surface. The flow field can be described with the vector field \( <\rho u, \rho v, \rho w >\) where \(\rho\) is density, and \(u,v,w\) are the flow velocities in the \(x,y,z\) directions. What are the dimensions of the flux of this fluid flowing through the surface? What are the dimensions of the divergence of the vector field? How are these quantities related?
   </ol>
   </div>
 
@@ -220,6 +220,27 @@ is not defined?<br>
 </div>
 
 <br>
+
+<h2>Example - Flux dimensions </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#fd">Example</button>
+  <div id="fd" class="collapse">
+<P>Imagine a fluid flowing through a surface. Recall that divergence measures flux density.
+  <br><br><br>
+<P>Consider a vector field \(\vec{F}\) where \( \nabla \cdot \vec{F} = x+y-z\). Estimate/approximate the flux out of the cube with side length 0.5 centered at (4,2,3).
+</div>
+
+<h2>Example - Flux integral in 2D </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#flxit">Example</button>
+  <div id="flxit" class="collapse">
+    <ol type='A'>
+      <li> Sketch (or use software to visualize) the vector field \(\displaystyle \vec{F} = \begin{bmatrix} x^2 \\ y \end{bmatrix} \).
+      <li> Add the curve \(C\) represented by \(\displaystyle \vec{r}(t) = \begin{bmatrix} 3 \cos t \\ 3 \sin t \end{bmatrix}\) to your sketch. Describe this curve.
+      <li> Let \(\hat{n}\) be the unit normal to the curve and \(s\) represent arc length. What is represented by \(\displaystyle \oint_C \vec{F} \cdot \hat{n}~ds \)?
+      <li> Calculate the integral above.
+
+
+  </ol>
+  </div>
 
 <footer style="text-align: center; padding-top: 5cm;">copyright Tyler Skorczewski 2021</footer>
 </body>
