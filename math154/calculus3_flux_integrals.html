@@ -72,14 +72,14 @@ def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
         <br>
         <img src="./surf_integral_def.png" width=400><br><br>
       <P>Think about parametric equations or vector valued functions, but with two parameters.
-        \(\displaystyle \vec{S}(s,t) = \begin{bmatrix}x(s,t)\\y(s,t)\\z(s,t)\end{bmatrix}\)
+        \(\displaystyle \vec{X}(s,t) = \begin{bmatrix}x(s,t)\\y(s,t)\\z(s,t)\end{bmatrix}\)
 
         <h3>Examples</h3>
         <ol type='A'>
           <li>\(\displaystyle \vec{X}(s,t) = s(\hat{x}-\hat{y}) + t(\hat{x} + 2\hat{z}) + 3\hat{y}\)
             <br>What shape is this surface?<br><br>
           <li>What is the parametric representation for a sphere of radius \(a\)?<br><br>
-          <li>\(\displaystyle \vec{S}(s,t) = \begin{bmatrix} (4 + 1\cos(t))\cos(s)\\ (4 + 1\cos(t))\sin(s) \\ \sin (t)\end{bmatrix}, \hspace{1cm} s,t \in [0,2\pi]\)
+          <li>\(\displaystyle \vec{X}(s,t) = \begin{bmatrix} (4 + 1\cos(t))\cos(s)\\ (4 + 1\cos(t))\sin(s) \\ \sin (t)\end{bmatrix}, \hspace{1cm} s,t \in [0,2\pi]\)
         </ol>
 <details><summary>Sage plot script</summary>
 <div class="compute">
@@ -223,6 +223,20 @@ show(P)
   </script>
 </div>
 <div>
+
+<h2>Example cylinder </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#excylinder">Example</button>
+<div id="excylinder" class="collapse">
+<P>Consider the closed cylinder \( x^2 + y^2  =  4\) from \(z=0\) to \(z=5\).
+  Calculate the flux of the vector field \(\vec{F} = x^3 \hat{x} + y^3 \hat{y}\).
+  <ol>
+    <li>Sketch a picture of the surface. How many surfaces comprise the surface of this cylinder?
+    <li>What are parameterizations for these surfaces?
+    <li>Compute the normal vectors of each surface.
+    <li>Which surfaces will contribute zero flux? Why?
+    <li>Calculate the flux through the surfaces that contribute nonzero flux.
+    </ol>
+</div>
 
 <footer style="text-align: center; padding-top: 5cm;">copyright Tyler Skorczewski 2021</footer>
 </body>
