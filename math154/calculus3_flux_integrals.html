@@ -66,9 +66,9 @@ def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
           <br>
       <P>What can we do to describe surfaces more generally?
       <br><br>
-      <P><b>Definition</b>: Let \(D\) be a region in \(\mathcal{R}^2\) that consists of a connected
+      <P><b>Definition</b>: Let \(D\) be a region in \(\mathbb{R}^2\) that consists of a connected
         open set, possibly containing some or all of it boundary \(\displaystyle \partial D\).
-        A parameteritized surface in \(\mathcal{R}^3\) is a continuous function \(\vec{X}: D \subseteq \mathcal{R}^2 \to \mathcal{R}^3\) that is one-to-one on \(D\), except possibly at \(\partial D\). We say \(\vec{X}(D)=\vec{S}\) and \(\vec{S}\) is called the surface.
+        A parameteritized surface in \(\mathbb{R}^3\) is a continuous function \(\vec{X}: D \subseteq \mathbb{R}^2 \to \mathbb{R}^3\) that is one-to-one on \(D\), except possibly at \(\partial D\). We say \(\vec{X}(D)=\vec{S}\) and \(\vec{S}\) is called the surface.
         <br>
         <img src="./surf_integral_def.png" width=400><br><br>
       <P>Think about parametric equations or vector valued functions, but with two parameters.
@@ -121,12 +121,12 @@ show(P)
 <h2>Area elements </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#areas">Area</button>
 <div id="areas" class="collapse">
-<P><b>Question</b>: What does an area element look like for a parametric surface?
+<P><b>Question</b>: What does a surface area element \(dS\) look like for a parametric surface?
   <br>
   <img src="./surf_integral_area_element.png" width=400><br><br>
-  \(\displaystyle \Delta A \approx || \vec{T}_s \Delta s \times \vec{T}_t \Delta t || = ||\vec{T}_s \times \vec{T}_t || \Delta s \Delta t = ||\vec{N}|| \Delta s \Delta t \)
+  \(\displaystyle \Delta S \approx || \vec{T}_s \Delta s \times \vec{T}_t \Delta t || = ||\vec{T}_s \times \vec{T}_t || \Delta s \Delta t = ||\vec{N}|| \Delta s \Delta t \)
   <br><br>
-  As \( \Delta s, \Delta t \to 0, \Delta A \to dS\).
+  As \( \Delta s, \Delta t \to ds, dt, \Delta S \to dS\).
   <br><br>
   Surface area of \( \displaystyle S = \iint_{S} ~dS = \iint_D ||\vec{T}_s \times \vec{T}_t || dsdt \)
   <br><br>
