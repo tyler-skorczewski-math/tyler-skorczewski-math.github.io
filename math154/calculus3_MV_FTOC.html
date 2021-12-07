@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body style="width:600px; padding-left: 1cm; padding-bottom:10cm" background="bg.jpg">
+  <body style="width:600px; padding-left: 1cm; padding-bottom:10cm" background="">
 
   <h1>Fundamental Theorems of Calculus </h1>
 
@@ -47,8 +47,26 @@ def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
 </script>
 </div>
 
+<h2>Warmup</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">Example</button>
+<div id="wu" class="collapse">
+  <details><summary><b>Question 1</b></summary>
+  <P>Consider working in spherical coordinate. The flux of the vector field \(\vec{F} = 4 \hat{r}\) through the surface of the sphere of radius 2 centered at the origin is:
+  <table width=500><tr><td>A) 0 </td><td>B) \(8 \pi \)</td><td>C) \(16 \pi \)</td><td>D) \(32 \pi \)</td><td>E) \(64 \pi \)</td><td>F) None of other answers.</td></tr></table>
+</details>
+<br>
+<details><summary><b>Question 2</b></summary>
+  <P>All but one of the flux calculations below can be done with just multiplication, but
+one requires an integral. Which one? (Let \(r\) be appropriate for spherical or cylindrical coords as required.)
+<ol type='a'>
+<li>\(\vec{F} = 3 \hat{r} + 2 \hat{\phi}\) through a sphere of radius 4.<br>
+<li>\(\vec{F} = r \hat{r} + \theta \hat{\phi}\) through a sphere of radius 3.<br>
+<li>\(\vec{F} = r \hat{r} + r \hat{z}\) through a disk of radius 2 centered on the \(z\) axis in the \(z=2\) plane.<br>
+<li>\(\vec{F} = r^2 \hat{r} + z \hat{\theta}\) through a cylinder of radius 1 between \(z=1\) and \(z=3\).<br>
+</ol>
+</details>
 
-
+</div>
 
 <h2>Fundamental Theorems of Calculus </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ftoc">FTOC</button>
@@ -75,7 +93,7 @@ def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
   <div id="example0" class="collapse">
     <P>Let \(S\) be the paraboloid \(z = 9 - x^2 - y^2\) defined above the disk in the \(xy\) plane with radius 3.
       Then \(\partial S\) is the circle \(C = \{ (x,y,z) \in \mathbb{R}^3 \mid x^2 + y^2 = 9, z = 0\).
-      Let \(\vec{F}= 2z - y \hat{x} + x+z \hat{y} + 3x - 2y \hat{z}\).
+      Let \(\vec{F}= (2z - y) \hat{x} + (x+z) \hat{y} + (3x - 2y) \hat{z}\).
       Show Stoke's Theorem holds by evaulting each side of the equation \(\displaystyle \oint_C \vec{F} \cdot d\vec{r} = \iint_S \nabla \times \vec{F} \cdot d\vec{S}\).
 
 </div>
@@ -104,7 +122,10 @@ def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
  <P> Let \( \vec{F} = (e^y \cos(z)) \hat{x} + \sqrt{x^3 + 1} \sin(z) \hat{y} + (x^2 + y^2 + 3)\hat{z} \) and
    let \(S\) be the bell-shaped surface \(z = (1-x^2 -y^2)e^{1-x^2-3y^2}\) for \(z \geq 0\).
    Calculate \( \iint_{S} \vec{F} \cdot d\vec{S}\).
-
+<!--
+<details><summary>Video</summary>
+  <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_oncj628w&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_sbsxn0vn" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+</details>-->
 </div>
 
 <h2>Example - Green's Theorem </h2>
