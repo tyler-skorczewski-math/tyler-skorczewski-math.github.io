@@ -163,8 +163,9 @@ xmax=input_box(2,label="max x"),
 ymin=input_box(-2,label="min y"),
 ymax=input_box(2,label="max y"),
 ifilled = checkbox(False,label='filled?'),
+ilbls = checkbox(False,label='labels?'),
 ptype = selector(['jet','hsv','rainbow','Greys','GnBu', 'PuBu', 'YlGnBu'],buttons=False,label='color map') ):
-  cp = contour_plot(f, (x,xmin,xmax), (y,ymin,ymax),contours=11, cmap=ptype,fill=ifilled,colorbar=true);
+  cp = contour_plot(f, (x,xmin,xmax), (y,ymin,ymax),contours=11, cmap=ptype,fill=ifilled,colorbar=true,labels=ilbls,label_fontsize=11, label_colors='black', label_inline=True, label_inline_spacing=3, label_fmt='%1.2f');
   cp.show()
 </script>
 </div>
@@ -246,6 +247,34 @@ def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
   show(w+S+tx+ty+tz)
 </script>
 </div>
+
+
+<h3>Slope fields for differential equations</h3>
+Plot slope field for DE in the form \(\displaystyle \frac{dy}{dt} = y' = f(t,y)\).
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+var('t y')
+f = t^2 + y
+tmin=-4
+tmax=4
+ymin=-4
+ymax=4
+
+@interact
+
+def _(f = input_box(f, label='dy/dt=', width='20'),
+  tmin=input_box(tmin,label="tmin = ", width='20'),
+  tmax=input_box(tmax,label="tmax = ", width='20'),
+  ymin=input_box(ymin,label="ymin = ", width='20'),
+  ymax=input_box(ymax,label="ymax = ", width='20')):
+  
+  pretty_print(html(r'$\frac{dy}{dt} = f(t,y)=%s$'%latex(f)))
+  w = plot_slope_field(f,(t,tmin,tmax),(y,ymin,ymax) )
+  show(w)
+</script>
+</div>
+
 
 <footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2021</footer>
 </body>
