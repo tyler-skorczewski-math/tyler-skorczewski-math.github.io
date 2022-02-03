@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.evaluate',
+                        evalButtonText: 'Evaluate'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calculus Plotting Tools</h1>
+
+<hr>
+<br><br><br>
+
+<h3>Plots</h3>
+
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+
+var('x')
+f = x^2 -4
+a = -2
+b = 4
+
+@interact
+
+def _(f = input_box(f,label='f(x) = '),
+a=input_box(a,label='x min',width=5),
+b=input_box(b,label='x max',width=5)):
+    p=plot(f,a,b)
+    p.show()
+</script>
+</div>
+
+<br><br><br>
+
+<h3>Implicit plots</h3>
+<div class="compute">
+<script type="text/x-sage">
+var('x y')
+f = x^2 + y^2 == 1
+x0=5
+
+@interact
+
+def _(f=input_box(f,label="equation: "),
+xmin=input_box(-2,label="min x"),
+xmax=input_box(2,label="max x"),
+ymin=input_box(-2,label="min y"),
+ymax=input_box(2,label="max y"), ):
+  p = implicit_plot(f, (x,xmin,xmax), (y,ymin,ymax),plot_points=500)
+  p.show()
+
+</script>
+</div>
+
+<br><br><br>
+
+<h3>Polar plots</h3>
+<div class="compute">
+<script type="text/x-sage">
+var('r t')
+f = cos(t)
+
+
+@interact
+
+def _(f=input_box(f,label="r = f(t) = "),
+theta_min=input_box(0,label="min t"),
+theta_max=input_box(2*pi,label="max t")):
+  p = polar_plot(f, (t, theta_min, theta_max), color='blue')
+  p.show()
+</script>
+</div>
+
+<br><br><br>
+
+<h3>Parametric plots</h3>
+<div class="compute">
+<script type="text/x-sage">
+var('x y t')
+f = cos(t)
+g = sin(t)
+
+
+@interact
+
+def _(f=input_box(f,label="x(t) = "),
+g=input_box(g,label="y(t) = "),
+theta_min=input_box(0,label="min t"),
+theta_max=input_box(2*pi,label="max t")):
+  p = parametric_plot( (f,g), (t, theta_min, theta_max), color='blue')
+  p.show()
+</script>
+</div>
+
+<br><br><br>
+
+<h3>Logscale plots</h3>
+
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+
+var('x')
+f = x^2 -4
+a = -2
+b = 4
+
+@interact
+
+def _(f = input_box(f,label='f(x) = '),
+a=input_box(a,label='x min',width=5),
+b=input_box(b,label='x max',width=5),
+ptype = selector(['plot','semilog x','semilog y','log log'],buttons=True,label='plot type'),
+auto_update=False):
+
+  if ptype=='plot':
+    p=plot(f,a,b)
+  elif ptype =='semilog x':
+    p=plot_semilogx(f,a,b)
+  elif ptype =='semilog y':
+    p=plot_semilogy(f,a,b)
+  elif ptype =='log log':
+    p=plot_loglog(f,a,b)
+  show(p)
+</script>
+</div>
+
+<br><br><br>
+
+<h3>Contour plots</h3>
+
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+
+x,y = var('x,y')
+
+f = x^2 + y^2 - x*y + x + y + 1.
+
+@interact
+
+def _(f=input_box(f,label="f(x,y) = "),
+xmin=input_box(-2,label="min x"),
+xmax=input_box(2,label="max x"),
+ymin=input_box(-2,label="min y"),
+ymax=input_box(2,label="max y"),
+ifilled = checkbox(False,label='filled?'),
+ilbls = checkbox(False,label='labels?'),
+ptype = selector(['jet','hsv','rainbow','Greys','GnBu', 'PuBu', 'YlGnBu'],buttons=False,label='color map') ):
+  cp = contour_plot(f, (x,xmin,xmax), (y,ymin,ymax),contours=11, cmap=ptype,fill=ifilled,colorbar=true,labels=ilbls,label_fontsize=11, label_colors='black', label_inline=True, label_inline_spacing=3, label_fmt='%1.2f');
+  cp.show()
+</script>
+</div>
+
+<br><br><br>
+
+<h3>Contour plots with a constraint</h3>
+
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+
+x,y = var('x,y')
+
+f = x^2 + y^2 - x*y + x + y + 1.
+g = x^2 + y^2 -1 ==0
+
+@interact
+
+def _(f=input_box(f,label="f(x,y) = "),
+g=input_box(g,label="constraint: "),
+xmin=input_box(-2,label="min x"),
+xmax=input_box(2,label="max x"),
+ymin=input_box(-2,label="min y"),
+ymax=input_box(2,label="max y"),
+ifilled = checkbox(False,label='filled?'),
+ptype = selector(['jet','hsv','rainbow','Greys','GnBu', 'PuBu', 'YlGnBu'],buttons=False,label='color map') ):
+  cp = contour_plot(f, (x,xmin,xmax), (y,ymin,ymax),contours=11, cmap=ptype,fill=ifilled,colorbar=true);
+  ip = implicit_plot(g, (x,xmin,xmax), (y,ymin,ymax),plot_points=500,color='black');
+  show(cp + ip)
+</script>
+</div>
+
+<br><br><br>
+
+<h3>vector fields</h3>
+$$\vec{F} = \begin{bmatrix} f(x,y) \\ g(x,y) \end{bmatrix}$$
+
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+var('x y')
+xmin=-4
+xmax=4
+ymin=-4
+ymax=4
+funx = -y
+funy = x
+@interact
+def _(funx=input_box(funx,label="f =  "),funy=input_box(funy,label="g =  "),
+      xmin=input_box(xmin,label="xmin = "),xmax=input_box(xmax,label="xmax = "),
+      ymin=input_box(ymin,label="ymin = "),ymax=input_box(ymax,label="ymax = ")):
+    vfp = plot_vector_field((funx,funy), (x,xmin,xmax), (y,ymin,ymax))
+    vfp.show()
+</script>
+</div>
+
+<br><br><br>
+
+<h3>3D Surfaces</h3>
+
+<div class="compute">
+<script type="text/x-sage">
+from sage.manifolds.utilities import set_axes_labels
+from sage.plot.plot3d.plot3d import axes
+# everything following hash symbol is comment
+var('x y')
+f = x^2 + y
+@interact
+
+def _(f = input_box(f, label='z = f(x,y) = ', width='20')):
+  pretty_print(html('$z = f(x,y)=%s$'%latex(f)))
+  w = plot3d(f,(x,-5,5),(y,-5,5), frame=True, color='purple', opacity=0.8)
+  set_axes_labels(w,'x','y','z')
+  S = axes(2,0.5)
+  tx = text3d('x',(2,0,0))
+  ty = text3d('y',(0,2,0))
+  tz = text3d('z',(0,0,2))
+  show(w+S+tx+ty+tz)
+</script>
+</div>
+
+
+<h3>Slope fields for differential equations</h3>
+Plot slope field for DE in the form \(\displaystyle \frac{dy}{dt} = y' = f(t,y)\).
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+var('t y')
+f = t^2 + y
+tmin=-4
+tmax=4
+ymin=-4
+ymax=4
+
+@interact
+
+def _(f = input_box(f, label='dy/dt = ', width='20'), tmin=input_box(tmin,label="tmin = ", width='20'),tmax=input_box(tmax,label="tmax = ", width='20'), ymin=input_box(ymin,label="ymin = ", width='20'),ymax=input_box(ymax,label="ymax = ", width='20')):
+  pretty_print(html(r'$\frac{dy}{dt} = f(t,y)=%s$'%latex(f)))
+  w = plot_slope_field(f,(t,tmin,tmax),(y,ymin,ymax) )
+  show(w)
+</script>
+</div>
+
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2021</footer>
+</body>
+</html>
