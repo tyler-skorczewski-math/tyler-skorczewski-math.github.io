@@ -27,6 +27,27 @@
   <h1>Math 250</h1>
 
 <hr>
+<h3>Slope fields for differential equations</h3>
+Plot slope field for DE in the form \(\displaystyle \frac{dy}{dt} = y' = f(t,y)\).
+<div class="compute">
+<script type="text/x-sage">
+# everything following hash symbol is comment
+var('t y')
+f = t^2 + y
+tmin=-4
+tmax=4
+ymin=-4
+ymax=4
+
+@interact
+
+def _(f = input_box(f, label='dy/dt = ', width='20'), tmin=input_box(tmin,label="tmin = ", width='20'),tmax=input_box(tmax,label="tmax = ", width='20'), ymin=input_box(ymin,label="ymin = ", width='20'),ymax=input_box(ymax,label="ymax = ", width='20')):
+  pretty_print(html(r'$\frac{dy}{dt} = f(t,y)=%s$'%latex(f)))
+  w = plot_slope_field(f,(t,tmin,tmax),(y,ymin,ymax) )
+  show(w)
+</script>
+</div>
+
 
 <h2>Warmups </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
@@ -159,7 +180,7 @@ the error 10 times smaller. For Euler's method making \(h\) 10 times smaller als
 <li><b>Taylor's Theorem</b> Let \(f\) be a function with \(n\) derivatives on the interval \([a,b]\) (\(f \in C^n[a,b]\) ) and let \(f^{(n+1)}\) exist on \( (a,b) \).
 Let  \(x_0 \in [a,b]\). For every \(x \in [a,b]\) there exists a \(\xi (x)\) between \(x_0\) and \(x\) such that \(f(x) = T_n (x) + R(x)\). \(T_n\) is the \(n^{th}\)
 order Taylor polynomial and \(R(x)\) is the remainder term.
-$$T_n(x) = f(x_0) + \sum_{k=1}^{n} \frac{f^(k)(x_0)}{k!} (x-x_0)^k$$
+$$T_n(x) = f(x_0) + \sum_{k=1}^{n} \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k$$
 $$R(x) = \frac{f^{(n+1)}(\xi (x))}{(n+1)!} (x-x_0)^{n+1}$$
 <br>
 <br>
