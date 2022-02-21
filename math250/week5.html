@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-  <body style="width: 1000px; padding-left: 1cm; font-size: 200%;" background="bg.jpg">
+  <body style="width: 1000px; padding-left: 1cm; font-size: 200%;" background="">
 
   <h1>Math 250 - Intro to Linear Algebra</h1>
 
@@ -140,15 +140,15 @@ $$L = \begin{bmatrix}
 <h2>Example 4 - Computer graphics </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
 <div id="ex4" class="collapse">
-<p> Consider working on a computer graphics application where you need to transform the vector \(v = \begin{bmatrix}3\\4\end{bmatrix}\).
+<p> Consider working on a computer graphics application where you need to transform the vector \(\vec{v} = \begin{bmatrix}3\\4\end{bmatrix}\). Note this vector points from the origin (0,0) to the point with coordinates (3,4).
 
 <P> Consider the matrices below.
   $$M = \begin{bmatrix}3 & 0\\0 & 3\\\end{bmatrix} \hspace{1cm} N = \begin{bmatrix} \cos (2\pi /3)& -\sin(2\pi/3) \\ \sin(2\pi/3) & \cos(2\pi/3) \end{bmatrix} \hspace{1cm} B= \begin{bmatrix} 0 & 1\\ 1 & 0\end{bmatrix}$$
 
 <ol type='1'>
- <li> What is the effect of applying \(M\) to \(v\), i.e. \(Mv\)? Calculate the product and sketch both \(v\) and \(Mv\) on the same axes.
- <li> What is the effect of \(Nv\)? Sketch both \(v\) and \(Nv\) on the same axes.
- <li> What are the effects of \(MNv\) and \(NMv\)? Does your result make sense?
+ <li> What is the effect of applying \(M\) to \(\vec{v}\), i.e. what is \(M\vec{v}\)? Calculate the product and sketch both \(\vec{v}\) and \(M\vec{v}\) on the same axes.
+ <li> What is the effect of \(N\vec{v}\)? Sketch both \(\vec{v}\) and \(N\vec{v}\) on the same axes.
+ <li> What are the effects of \(MN\vec{v}\) and \(NM\vec{v}\)? Does your result make sense?
  <li> Before evaluating, can you guess the inverses of \(M\) and \(N\)? Calculate the inverses of \(M\) and \(N\) and compare to your guess.
  <li> Calculate \(N^3\). What do you notice? Does this make sense? What does this mean about the inverse of \(N\)?
  <li> What is the effect of the matrix \(B\)?
