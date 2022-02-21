@@ -110,10 +110,10 @@
 One way to model a population is to consider the number of individuals in certain stages of development.
 In <a href="./Crouse_etal_1987_ecology.pdf">Crouse et al.</a> they break up the loggerhead turtle population into seven distinct stages.
 They are eggs & hatchlings (together), small juveniles, large juveniles, subadults, novice breeders, 1st year remigrants, and mature breeders.
-We can then keep track of the population in year \(n\) with the vector \(x_n = [x_1, x_2, ..., x_7]^T\) where \(x_1\) are eggs & hatchlings, \(x_2\) are small juveniles, up through \(x_7\) as the mature breeders.
+We can then keep track of the population in year \(n\) with the vector \(\vec{x}_n = [x_1, x_2, ..., x_7]^T\) where \(x_1\) are eggs & hatchlings, \(x_2\) are small juveniles, up through \(x_7\) as the mature breeders.
 
 <P> The matrix,\(L\), below is called a <a href="https://en.wikipedia.org/wiki/Leslie_matrix">Leslie matrix</a>. It can be used to model the dynamics of the population.
-  We say the population behaves so that \(x_{n+1} = Lx_n\).
+  We say the population behaves so that \(\vec{x}_{n+1} = L\vec{x}_n\).
 $$L = \begin{bmatrix}
 0& 0& 0& 0& 127& 4& 80\\
 0.6747& 0.7370& 0& 0& 0& 0& 0\\
@@ -124,7 +124,8 @@ $$L = \begin{bmatrix}
 0& 0& 0& 0& 0& 0.8091& 0.8089\end{bmatrix}$$
 
 <ol type='1'>
-  <li> How many equations are represented with \(x_{n+1} = Lx_n\)?
+  <li> How many equations are represented with \(\vec{x}_{n+1} = L\vec{x}_n\)?
+  <li> Are \( \vec{x}_1\) and \(x_1\) related? Are they the same? different? how so?
   <li> Write the equation for eggs & hatchlings. Can you interpret it using common language?
   <li> What does the number 127 represent in entry (1,5)?
   <li> What does the number 0.0486 represent in the entry (3,2)?
