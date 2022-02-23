@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 250</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width: 1000px; padding-left: 1cm; font-size: 200%;" background="">
+
+  <h1>Math 250 - Intro to Linear Algebra</h1>
+
+<hr>
+
+<h2>Warmups </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Warmups</button>
+  <div id="ex0" class="collapse">
+    <ol type='A'>
+    <li> Calculate the matrix products \(AB, AC, BC, CB, A^2\) if possible.
+      $$ A = \begin{bmatrix} 1 & 0 & 1  \\
+                             1 & 1 & 0   \end{bmatrix} \hspace{1cm}
+         B = \begin{bmatrix} 1 & 0 & 0  \\
+                               0 & 1 & 1 \\
+                               4 & 3& 2  \end{bmatrix} \hspace{1cm}
+         C = \begin{bmatrix} 1 & 1  \\
+                               0 & 1 \\
+                               5 & 3 \end{bmatrix} $$
+
+    <li> What is the relationship between \(\vec{v}\) and \( A\vec{v}\), where
+      $$\vec{v} = \begin{bmatrix}1\\-1\end{bmatrix} \hspace{1cm} A = \begin{bmatrix}0 & 1\\-2 & -3\end{bmatrix}?$$
+    <li> What is the inverse of \( M = \begin{bmatrix} 1 & 3\\ 5 & 4 \end{bmatrix}\)?
+    <li> Calculate the determinant of
+      $$A = \begin{bmatrix} 4 & 6\\ 3 & 8 \end{bmatrix} $$
+    <li> Calculate the determinant of
+      $$B = \begin{bmatrix} 1& 2 & 3\\1 & -4 & 1\\  0 & 3 & -1\end{bmatrix}$$
+    </ol>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0ans">Answers</button>
+      <div id="ex0ans" class="collapse">
+        <ol type='A'>
+          <li>\(AB = \begin{bmatrix} 5&3&2\\1&1&1\end{bmatrix}, AC = \begin{bmatrix} 6&4\\1&2\end{bmatrix}, BC = \begin{bmatrix} 1&1\\5&4\\14&13\end{bmatrix}\)
+          <li>\(A\vec{v} = -\vec{v}\)
+          <li>\( M^{-1} = \frac{1}{-11}\begin{bmatrix} 4 & -3\\ -5 & 1 \end{bmatrix}\)?
+          <li>14
+          <li>12
+      </div>
+
+ </div>
+
+<!--$$begin{bmatrix} a & b\\ c & d \end{bmatrix}-->
+
+<h2>Example 1 - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+
+  <P> Consider the system
+    $$ 4 x_1 + 5x_2 = -7$$
+    $$ x_1 + 2x_2 = 3$$
+<ol type='1'>
+<li> Solve this system using elimination, subsitution, or Gaussian elimination of an augemented matrix.
+<li> Write the system in matrix-vector form. \(A\vec{x}=\vec{b}\)
+<li> Calculate the inverse of \(A\).
+<li> Calculate the solution as \(\vec{x} = A^{-1}\vec{b}\). Does it agree with your solution above?
+<li> Solve \(A\vec{x} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}\).
+<li> Solve \(A\vec{x} = \begin{bmatrix} 3 \\ 5 \end{bmatrix}\).
+</ol>
+</div>
+
+<h2>Example 2 - Car ownership </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+
+<P> Car owners can be grouped into classes bases on the vehicles they own. A study of owners of sedans, minivans, and SUVs shows
+  that the likelihood that an owner of one of these types of vehicles will replace it with another of the same or different type is given by the table below.
+  <table>
+    <tr><td>Future (down)\current(across)</td><td>sedan (%)</td><td>minivan (%)</td><td>SUV (%)</td></tr>
+    <tr><td>sedan</td><td>91</td><td>3</td><td>2</td></tr>
+    <tr><td>minivan</td><td>7</td><td>95</td><td>8</td></tr>
+    <tr><td>SUV</td><td>2</td><td>2</td><td>90</td></tr>
+  </table>
+
+  <ol type='1'>
+    <li>If there are 100 000 sedans, 60 000 minivans, and 80 000 SUVs currently among the owners being studied.
+      How many of each type of car will be on the road after each owner replaces his/her car? What assumptions are we making here?
+    <li>Can you determine the distribution of vehicle types among the population before each current owner replaced his/her car? If so, do it. If not, why not?
+  </ol>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_4ukfbi5i&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_d9e3cuez" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+</div>
+
+<h2>Example 3 - Turtle populations</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+<a href="./Crouse_etal_1987_ecology.pdf"><img src="./loggerhead_turtle.jpg" width=300></a><br>
+
+One way to model a population is to consider the number of individuals in certain stages of development.
+In <a href="./Crouse_etal_1987_ecology.pdf">Crouse et al.</a> they break up the loggerhead turtle population into seven distinct stages.
+They are eggs & hatchlings (together), small juveniles, large juveniles, subadults, novice breeders, 1st year remigrants, and mature breeders.
+We can then keep track of the population in year \(n\) with the vector \(\vec{x}_n = [x_1, x_2, ..., x_7]^T\) where \(x_1\) are eggs & hatchlings, \(x_2\) are small juveniles, up through \(x_7\) as the mature breeders.
+
+<P> The matrix,\(L\), below is called a <a href="https://en.wikipedia.org/wiki/Leslie_matrix">Leslie matrix</a>. It can be used to model the dynamics of the population.
+  We say the population behaves so that \(\vec{x}_{n+1} = L\vec{x}_n\).
+$$L = \begin{bmatrix}
+0& 0& 0& 0& 127& 4& 80\\
+0.6747& 0.7370& 0& 0& 0& 0& 0\\
+0& 0.0486& 0.6610& 0& 0& 0& 0\\
+0& 0& 0.0147& 0.6907& 0& 0& 0\\
+0& 0& 0& 0.0518& 0& 0& 0\\
+0& 0& 0 &0& 0.8091& 0& 0\\
+0& 0& 0& 0& 0& 0.8091& 0.8089\end{bmatrix}$$
+
+<ol type='1'>
+  <li> How many equations are represented with \(\vec{x}_{n+1} = L\vec{x}_n\)?
+  <li> Are \( \vec{x}_1\) and \(x_1\) related? Are they the same? different? how so?
+  <li> Write the equation for eggs & hatchlings. Can you interpret it using common language?
+  <li> What does the number 127 represent in entry (1,5)?
+  <li> What does the number 0.0486 represent in the entry (3,2)?
+  <li> What does the number 0.8089 represent in entry (7,7)?
+  <li> Write and explain the equation for mature breeders.
+  <li> Why do rows 5 and 6 only have one nonzero entry when the others have more than one?
+  <li> If there are 10,4,7,5,1,1,3 turtles in stages 1-7 respectively (in thousands) this year, how many will there be next year? Is the population growing?
+</ol>
+
+</div>
+
+
+<h2>Example 4 - Computer graphics </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<div id="ex4" class="collapse">
+<p> Consider working on a computer graphics application where you need to transform the vector \(\vec{v} = \begin{bmatrix}3\\4\end{bmatrix}\). Note this vector points from the origin (0,0) to the point with coordinates (3,4).
+
+<P> Consider the matrices below.
+  $$M = \begin{bmatrix}3 & 0\\0 & 3\\\end{bmatrix} \hspace{1cm} N = \begin{bmatrix} \cos (2\pi /3)& -\sin(2\pi/3) \\ \sin(2\pi/3) & \cos(2\pi/3) \end{bmatrix} \hspace{1cm} B= \begin{bmatrix} 0 & 1\\ 1 & 0\end{bmatrix}$$
+
+<ol type='1'>
+ <li> What is the effect of applying \(M\) to \(\vec{v}\), i.e. what is \(M\vec{v}\)? Calculate the product and sketch both \(\vec{v}\) and \(M\vec{v}\) on the same axes.
+ <li> What is the effect of \(N\vec{v}\)? Sketch both \(\vec{v}\) and \(N\vec{v}\) on the same axes.
+ <li> What are the effects of \(MN\vec{v}\) and \(NM\vec{v}\)? Does your result make sense?
+ <li> Before evaluating, can you guess the inverses of \(M\) and \(N\)? Calculate the inverses of \(M\) and \(N\) and compare to your guess.
+ <li> Calculate \(N^3\). What do you notice? Does this make sense? What does this mean about the inverse of \(N\)?
+ <li> What is the effect of the matrix \(B\)?
+</ol>
+
+</div>
+
+<h2>Example 5 - 3x3 inverse calculation </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<div id="ex5" class="collapse">
+<P> Consider the matrix below.
+  $$A = \begin{bmatrix} 2 & 1 & -2\\1 & 1 & -1\\-2 & -1 & 3\end{bmatrix}$$
+
+  <ol type='1'>
+    <li>Use an augmented matrix and Gaussian elimination (row operations) to calculate the inverse of \(A\).
+    <li>Go to <a href="https://octave-online.net/" target="_blank">octave-online.net</a> and enter the matrix \(A\). Then use the command inv(A) to calculate its inverse. Do your calculations agree?
+    <li>Use this information to solve \(A x = \begin{bmatrix}1 & 1 & 1\end{bmatrix}^T\).
+  </ol>
+  <details><summary>video</summary>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_55s21gj1&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_3dihi3md" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+</details>
+</div>
+
+<h2>Example 6 - zero determinant</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+<div id="ex6" class="collapse">
+
+Let \(A = \begin{bmatrix}2 & 1\\1&2\end{bmatrix}\) and \(I\) be the 2x2 identity matrix.
+For what values of the scalar, \(\lambda\), does the matrix \(A - \lambda I\) have determinant zero?
+
+
+</div>
+
+<h2>Example 7 - More determinants </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
+<div id="ex7" class="collapse">
+
+<P> Consider the two matrices below.
+  $$ A = \begin{bmatrix}1&2&3\\1&0&1\\3&4&7\end{bmatrix}  \hspace{1cm} B = \begin{bmatrix}2& -2& 5\\0 & 4& -2\\0 & 0 & 1\end{bmatrix}$$
+
+<ol type='1'>
+<li> Show \(x_1 = \begin{bmatrix} 1\\1\\-1 \end{bmatrix}\) and \(x_2 = \begin{bmatrix} -2\\-2 \\2 \end{bmatrix}\) solve \(Ax=0\).
+<li> Show \(c_1 x_1 + c_2 x_2 \) also solves \(Ax = 0\).
+<li> Solve the system \(A x = 0\) generally, using substitution, row operations, or technology.
+<li> What is the determinant of \(A\)?
+<li> What is the solution to \(A x = \begin{bmatrix}1& 1& 1\end{bmatrix}^T\)?
+<li> Solve \(Bx = 0\) generally,  using substitution, row operations, or technology.
+<li> What is the determinant of \(B\)?
+<li> What is the solution to \(B x = \begin{bmatrix}1& 1& 1\end{bmatrix}^T\)?
+<li> Calculate \(A^{-1}\) and \(B^{-1}\) if possible.
+<li> How do these results relate to any theorems from your reading this week?
+</ol>
+
+</div>
+
+<h2>Example 8 - Even more determinants</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example 8</button>
+<div id="ex8" class="collapse">
+
+<P> Consider the matrices
+  $$A = \begin{bmatrix}1 & 4 & 0\\1 & 0 & 2\\0 & 1 & 0\end{bmatrix} \hspace{1cm} B =  \begin{bmatrix}1 & 2 & 0\\0 & 1 & 1\\1 & 3 & 0\end{bmatrix}.$$
+
+  <ol type='1'>
+  <li> Find \(|A|\) and \(|B|\).
+  <li> Calculate \(AB\).
+  <li> Calculate \(|AB|\). What do you notice from your results above?
+  <li> Write down \(A^T\) and calculate \(|A^T|\). How is it related to \(|A|\)? Explain why this makes sense.
+  </ol>
+  <details><summary>video</summary>
+  <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_edi8ouzc&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_zagay4ff" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+</video>
+</div>
+
+
+<h2>Example 9 - Law of Cosines </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example 9</button>
+<div id="ex9" class="collapse">
+
+Consider the figure below.<br>
+<img src="./lawofcosines.jpg" width=350><br>
+By dropping a perpendicular from each vertex to the opposite side, derive the equations below.
+$$c \cos B + b \cos C = a$$
+$$c \cos A + a \cos C = b$$
+$$a \cos B + b \cos A = c$$
+<P>Rewrite these as three linear equations for the unknowns \(\cos A, \cos B\), and \(\cos C\). Row reduce this system to derive the <a href="https://en.wikipedia.org/wiki/Law_of_cosines">Law of Cosines</a>.
+<br>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_lq6ej3s4&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_ro5uhp59" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+</div>
+
+<h2>Example 10 - Wheatstone Bridge </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example 10</button>
+<div id="ex10" class="collapse">
+
+The circuit diagram below is called a <a href="https://en.wikipedia.org/wiki/Wheatstone_bridge">Wheatsone bridge</a>. It is useful for determining an unknown resistance of an object.
+When using the bridge to find resistance \(R_x\), resistances \(R_1\) and \(R_3\) are known, while \(R_2\) is adjustable.
+\(R_2\) is adjusted until the current through the middle branch (from junctions B to D) is equal to zero. Then the resistance \(R_x\) can be found from
+$$R_x  = \frac{R_2 R_3}{R_1}.$$
+We will derive this formula.<br>
+<img src="./wheatstonebridge.png" width=350><br>
+
+<ol type='1'>
+<li> Use Kirchoff's current law to write equations for the currents \(I_1, I_2, I_3, I_x, I_G\) in junctions B and D.
+<li> Use Kirchoff's voltage law to write equations for the currents in loops ABD and BCD.
+<li> When the bridge is balanced so \(I_G = 0\) we have 4 linear equations in the unknowns \(I_1, I_2, I_3, I_x\). Use these to derive the formula above.
+</ol>
+</div>
+
+<h2>Example - EP 3.4 number 22 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example</button>
+<div id="ex11" class="collapse">
+<P>Write the solution to the system below in vector form.
+  $$x_1 - x_2 + 7x_4 + 3x_5 = 0$$
+  $$x_3 - x_4 - 2x_5 =0$$
+  <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_7rgzy0pg&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_7p53v53u" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+</div>
+
+<h2>Example - EP 3.6 number 11 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex12">Example</button>
+<div id="ex12" class="collapse">
+<P>Find the determinant of the matrix \(A = \begin{bmatrix} 1 & 2 & 3 & 4\\0&5&6&7\\0&0&8&9\\2&4&6&9\end{bmatrix}\).
+  <br>
+  <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_y1o6uxf3&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_wr0imd4z" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+</div>
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2022</footer>
+</body>
+</html>
