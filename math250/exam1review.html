@@ -114,55 +114,26 @@ $$\frac{dx}{dt} = \frac{x}{t^2 + 5t + 4} + 4xt\sin(3t)$$
 
 </div>
 
-<!--
-<h2>Example 8 - Even more determinants</h2>
+
+<h2>Example 8 - More questions</h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example 8</button>
 <div id="ex8" class="collapse">
 
-<P> Consider the matrices
-  $$A = \begin{bmatrix}1 & 4 & 0\\1 & 0 & 2\\0 & 1 & 0\end{bmatrix} \hspace{1cm} B =  \begin{bmatrix}1 & 2 & 0\\0 & 1 & 1\\1 & 3 & 0\end{bmatrix}.$$
-
   <ol type='1'>
-  <li> Find \(|A|\) and \(|B|\).
-  <li> Calculate \(AB\).
-  <li> Calculate \(|AB|\). What do you notice from your results above?
-  <li> Write down \(A^T\) and calculate \(|A^T|\). How is it related to \(|A|\)? Explain why this makes sense.
+  <li> Find a basis for the solution space of the system below.
+  $$x_1 - 2x_2 + 3x_3 = 0$$
+  $$2x_1 - 3x_2 - 3x_3 = 0$$<br><br>
+  <li> True or False. \(\vec{w} = \begin{bmatrix}-7\\7\\11\end{bmatrix}\) is in span\(\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}\). Justify your answer.
+  $$\vec{v}_1 = \begin{bmatrix}1\\2\\1\end{bmatrix}, \vec{v}_2 = \begin{bmatrix}-4\\-1\\2\end{bmatrix},\vec{v}_3 = \begin{bmatrix}-3\\1\\3\end{bmatrix}$$<br><br>
+  <li>Consider a population, \(P\), that grows with dynamics \( \frac{dP}{dt} = kP\). If the
+population is 790 in the year 1750, and 1260 in the year 1850, how big is it in 1950? Let \(t = 0\)
+correspond to the year 1750.<br><br>
+  <li>Find the general solution to \( \frac{dy}{dx} = 6x(y-1)^{2/3}\).<br><br>
+  <li>Find any equilibrium solutions to \( \frac{dy}{dx} = \ln(|x|) (x^2 - 4)\).<br><br>
   </ol>
 </div>
 
-
-<h2>Example 9 - Law of Cosines </h2>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example 9</button>
-<div id="ex9" class="collapse">
-
-Consider the figure below.<br>
-<img src="./lawofcosines.jpg" width=350><br>
-By dropping a perpendicular from each vertex to the opposite side, derive the equations below.
-$$c \cos B + b \cos C = a$$
-$$c \cos A + a \cos C = b$$
-$$a \cos B + b \cos A = c$$
-<P>Rewrite these as three linear equations for the unknowns \(\cos A, \cos B\), and \(\cos C\). Row reduce this system to derive the <a href="https://en.wikipedia.org/wiki/Law_of_cosines">Law of Cosines</a>.
-
-</div>
-
-<h2>Example 10 - Wheatstone Bridge </h2>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example 10</button>
-<div id="ex10" class="collapse">
-
-The circuit diagram below is called a <a href="https://en.wikipedia.org/wiki/Wheatstone_bridge">Wheatsone bridge</a>. It is useful for determining an unknown resistance of an object.
-When using the bridge to find resistance \(R_x\), resistances \(R_1\) and \(R_3\) are known, while \(R_2\) is adjustable.
-\(R_2\) is adjusted until the current through the middle branch (from junctions B to D) is equal to zero. Then the resistance \(R_x\) can be found from
-$$R_x  = \frac{R_2 R_3}{R_1}.$$
-We will derive this formula.<br>
-<img src="./wheatstonebridge.png" width=350><br>
-
-<ol type='1'>
-<li> Use Kirchoff's current law to write equations for the currents \(I_1, I_2, I_3, I_x, I_G\) in junctions B and D.
-<li> Use Kirchoff's voltage law to write equations for the currents in loops ABD and BCD.
-<li> When the bridge is balanced so \(I_G = 0\) we have 4 linear equations in the unknowns \(I_1, I_2, I_3, I_x\). Use these to derive the formula above.
-</ol>
-</div>
--->
+<footer style="text-align: center; padding-top: 5cm;">copyright Tyler Skorczewski 2022</footer>
 
 </body>
 </html>
