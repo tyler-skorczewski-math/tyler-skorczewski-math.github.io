@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script type="text/javascript" async
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CALCULUS I</title>
+  <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+  <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+  <script>
+$(function () {
+  // Make *any* div with class 'compute' a Sage cell
+  sagecell.makeSagecell({inputLocation: 'div.compute',
+        template:       sagecell.templates.minimal,
+                         evalButtonText: 'Launch Sage Code'});
+});
+  </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Calc I limits</h1>
+
+<hr>
+
+<h2>True/False</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cv">Voting</button>
+  <div id="cv" class="collapse">
+<ol type='A'>
+<li>True or False. If \(f(x) = \frac{x^2 - 4}{x-2}\) and \(g(x) = x + 2\), then we can say the functions
+\(f\) and \(g\) are equal.<br><br>
+<li>True or False. As \(x\) increases to \(100, f(x) = 1/x\) gets closer and closer to 0, so
+the limit as \(x\) goes to 100 of \(f(x)\) is 0. Be prepared to justify your answer.<br><br>
+<li>True or False. \(\displaystyle \lim_{x\to a}f(x) = L\) means that if \(x_1\) is closer to a than \(x_2\) is, then
+  \(f(x_1)\) will be closer to \(L\) than \(f(x_2)\) is. Be prepared to justify your answer.<br><br>
+<li>True or False. Whether or not \(\displaystyle \lim_{x\to a}f(x)\)exists, depends on how \(f(a)\) is defined.<br><br>
+<li>True or False. If \(|k(x) - 2| < 0.01\) for all \(x\) sufficiently close to 3, then \(\displaystyle \lim_{x \to 3} k(x) = 2\).<br><br>
+</ol>
+</div>
+
+<h2>Definition - Limit </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#def">Definition</button>
+  <div id="def" class="collapse">
+    <P><b>Definition</b> Let \(f\) be a function defined on an open interval containing point \(a\), but not neccessarily at \(a\).
+      Then the limit of \(f(x)\) as \(x\) approaches \(a\) is \(L\) written \(\displaystyle \lim_{x\to a}f(x) = L\) if \(f(x)\) can
+       be made as close to \(L\) as we like by taking \(x\) sufficiently close to \(a\).<br><br><br><br>
+
+       <img src="./limit_graph1.png" width=300><br><br>
+       <P>What is the limit of \(g(x)\) shown in the graph above at \(x=1,2,3,4\)?
+</div>
+
+
+<h2>Example </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example</button>
+  <div id="ex1" class="collapse">
+<P> True or False. Even though \(\frac{1}{x}\) doesn't exist when \(x=0\) the limit \(\displaystyle \lim_{x \to 0}\sin \left( \frac{1}{x} \right) = 0\).<br><br>
+  <img src="./limits_sin1overx.png" width=450><br>
+  </div>
+
+<h2>Example </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example</button>
+  <div id="ex2" class="collapse">
+    <P>Consider the function \(\displaystyle f(t) = (1+t)^{1/t}\). We want to know what is happening as \(t\) approaches 0.
+    <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-cly1{text-align:left;vertical-align:middle}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-cly1">\(t\)</th>
+    <th class="tg-cly1">-.2</th>
+    <th class="tg-cly1">-.0015</th>
+    <th class="tg-cly1">-.00027</th>
+    <th class="tg-0lax">0</th>
+    <th class="tg-0lax">.00002</th>
+    <th class="tg-0lax">.008</th>
+    <th class="tg-0lax">.01</th>
+    <th class="tg-0lax">.5</th>
+  </tr>
+  <tr>
+    <td class="tg-cly1">\((1+t)^{1/t}\)</td>
+    <td class="tg-cly1">3.05176</td>
+    <td class="tg-cly1">2.72032</td>
+    <td class="tg-cly1">2.71865</td>
+    <td class="tg-0lax">***</td>
+    <td class="tg-0lax">2.71826</td>
+    <td class="tg-0lax">2.70749</td>
+    <td class="tg-0lax">2.70481</td>
+    <td class="tg-0lax">2.25</td>
+  </tr>
+</table>
+<br>
+<P>What do think the value is of \(\displaystyle \lim_{t \to 0} f(t)\)?
+  </div>
+
+<h2>Example </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example</button>
+  <div id="ex3" class="collapse">
+    <P>You’re trying to guess \(\displaystyle \lim_{x \to 0} f(x)\). You plug in \(x = 0.1, 0.01, 0.001, ...\) and get
+    \(f(x) = 0\) for all these values. In fact, you’re told that for all \(n = 1, 2, ... , f(10^{-n})= 0\).<br><br>
+    <P>True or False: Since the sequence \(0.1, 0.01, 0.001, ...\) goes to 0, we know \(\displaystyle \lim_{x \to 0} f(x)=0\).
+
+  </div>
+
+<h2>Example - One sided limits</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example</button>
+  <div id="ex4" class="collapse">
+    <img src="./limit_graph2.gif" width=450><br>
+    <P>Find the following limits using the graph above. If they do not exist, explain why.
+      <ol>
+        <li>\(\displaystyle \lim_{x \to 1} f(x)\)<br><br>
+        <li>\(\displaystyle \lim_{x \to 2} f(x)\)<br><br>
+        <li>\(\displaystyle \lim_{x \to 3} f(x)\)<br><br>
+        <li>\(\displaystyle \lim_{x \to 0} f(x)\)<br><br>
+        <li>\(\displaystyle \lim_{x \to 1^+} f(x)\)<br><br>
+        <li>\(\displaystyle \lim_{x \to 1^-} f(x)\)<br><br>
+        <li>\(\displaystyle \lim_{x \to -2} f(x)\)<br><br>
+        <li>\(\displaystyle \lim_{x \to -2^+} f(x)\)<br><br>
+      </ol>
+      <details><summary>video</summary>
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_vrw4uklo&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_wx4ptvw8" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe></details>
+  </div>
+
+<h2>Limit Laws</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#laws">Theorem</button>
+  <div id="laws" class="collapse">
+    <img src="./limitlaws.png" width=500>
+    <br><br><br>
+    <table width=850><tr><td><img src="./twographs_limits.png" width=600></td><td>Find the limits below if they exist.
+    <ol>
+      <li>\(\displaystyle \lim_{x \to 0} f(x) + g(x)\)
+      <li>\(\displaystyle \lim_{x \to 1} f(x)g(x)\)
+      <li>\(\displaystyle \lim_{x \to 2} f(x)g(x)\)
+      <li>\(\displaystyle \lim_{x \to 4} g(-2f(x))\)
+      <li>\(\displaystyle \lim_{x \to -2^-} \frac{g(x)}{f(x)}\)
+      <li>\(\displaystyle \lim_{x \to -6} f\left( \frac{g(x)}{2} \right)\)
+      <li>\(\displaystyle \lim_{x \to -4}  g(f(x))\)
+        <li>\(\displaystyle \lim_{x \to -2^+} \frac{g(x)}{f(x)}\)
+          <li>\(\displaystyle \lim_{x \to -2^+} g(3f(x))\)
+    </ol></td></tr></table>
+    <!--
+    <img src="./twographs_limits.png" width=600><br>
+    Find the limits below if they exist.
+    <ol>
+      <li>\(\displaystyle \lim_{x \to 0} f(x) + g(x)\)
+      <li>\(\displaystyle \lim_{x \to 1} f(x)g(x)\)
+      <li>\(\displaystyle \lim_{x \to 2} f(x)g(x)\)
+      <li>\(\displaystyle \lim_{x \to 4} g(-2f(x))\)
+      <li>\(\displaystyle \lim_{x \to -2^-} \frac{g(x)}{f(x)}\)
+      <li>\(\displaystyle \lim_{x \to -6} f\left( \frac{g(x)}{2} \right)\)
+      <li>\(\displaystyle \lim_{x \to -4}  g(f(x))\)
+        <li>\(\displaystyle \lim_{x \to -2^+} \frac{g(x)}{f(x)}\)
+          <li>\(\displaystyle \lim_{x \to -2^+} g(3f(x))\)
+    </ol>-->
+    <details><summary>video</summary>
+    <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_14vvqla7&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_v1aveul4" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe></details>
+  </div>
+
+
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example</button>
+  <div id="ex5" class="collapse">
+    <P>Find the following limits.
+      <ol>
+        <li>\(\displaystyle \lim_{x \to 1} \frac{x^2-16}{x-4}\)<br><br>
+        <li>\(\displaystyle \lim_{x \to 2} \frac{x-2}{x^2-2x}\)<br><br>
+        <li>\(\displaystyle \lim_{x \to 9} \frac{x-9}{\sqrt{x}-3}\)<br><br>
+        <li>\(\displaystyle \lim_{x \to 0} \frac{1}{1 + \sin x}\)<br>
+          <details><summary>video</summary>
+          <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_mbgij79n&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_06cy8to6" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe><br><br></details>
+        <li>\(\displaystyle \lim_{h \to 0} \frac{(1+h)^2 - 1}{h}\)<br>
+          <details><summary>video</summary>
+          <br><iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_5vjbf5xf&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_pgkir75b" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe> <br><br></details>
+        <li>\(\displaystyle \lim_{x \to 7} \frac{\sqrt{x+2}-3}{x-7}\)<br>
+          <details><summary>video</summary>
+          <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_05o70jod&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_r7u3sz01" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe><br><br></details>
+        <li>\(\displaystyle \lim_{x \to 1/2} \frac{2x^2 + 3x - 2}{2x-1}\)<br>
+          <details><summary>video</summary>
+          <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_7papgadg&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_mb9lw320" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe><br><br></details>
+      </ol>
+  </div>
+
+  <h2>Example - Some trig limits </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example</button>
+    <div id="ex8" class="collapse">
+      <ol type='A'>
+        <li>Draw the first quarter of unit circle \( 0 \leq \theta \leq \pi/2 \). Draw triangles that show \(\sin \theta, \cos \theta, \tan \theta\).
+        <li>Show \( \sin \theta < \theta < \tan \theta \) for these values using your picture.
+        <li>Show \( 1 > \frac{\sin \theta}{\theta} > \cos \theta\).
+        <li>Show \(\displaystyle \lim_{\theta \to 0} \frac{\sin \theta}{\theta} = 1\).
+        <li>Evaluate \(\displaystyle \lim_{\theta \to 0}\frac{1 - \cos \theta}{\sin \theta}\).
+      </ol>
+      <details><summary>video</summary>
+      <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_xu4imrub&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_8mp20ive" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe></details>
+    </div>
+
+
+
+<h2>Example - </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example</button>
+  <div id="ex7" class="collapse">
+    <ol type="A">
+      <li>The reason that \(\displaystyle \lim_{x \to 0}\sin \left( \frac{1}{x} \right) \) does not exist is:
+        <ol type='a'>
+          <li> because no matter how close \(x\) gets to 0, there are \(x\)’s near 0 for which \(\sin \left( \frac{1}{x} \right) =1\), and some for which \(\sin \left( \frac{1}{x} \right) =-1\).
+          <li> because the function values oscillate around 0
+          <li> because 1/0 is undefined
+          <li> all of the above
+          </ol><br><br>
+      <li>\(\displaystyle \lim_{x\to 0} x^2 \sin(1/x)\)
+        <ol type='a'>
+          <li> does not exist because no matter how close \(x\) gets to 0, there are \(x\)’s near 0 for which \(\sin \left( \frac{1}{x} \right) =1\), and some for which \(\sin \left( \frac{1}{x} \right) =-1\).
+          <li> does not exist because the function values oscillate around 0
+          <li> does not exist because 1/0 is undefined
+          <li> equals 0
+          <li> equals 1
+          </ol>
+        </ol>
+  </div>
+
+  <h2>Example - </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example</button>
+    <div id="ex6" class="collapse">
+      <img src="./limits__squeeze_cv1.png" width=600><br>
+    </div>
+
+
+</body>
+</html>
