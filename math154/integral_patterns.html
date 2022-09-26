@@ -39,9 +39,9 @@ f = exp(x)
 @interact
 
 def _(f = input_box(f, label=' f(x) = ', width='20')):
-  pretty_print(html('$f(x)\;=\;%s$'%latex(f)))
+  pretty_print(html(r'$f(x) = %s$'%latex(f)))
   fin = integral(f(x=x),x)
-  pretty_print(html('$\int f(x) dx \;=\;%s + C$'%latex(fin)))
+  pretty_print(html(r'$\int f(x) dx = %s + C$'%latex(fin)))
   </script>
     </div>
  <!--</div>-->
