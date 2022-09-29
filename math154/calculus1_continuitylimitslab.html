@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus Lab</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute1',
+          template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Experiment 1'});
+});
+    </script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute2',
+          template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Experiment 2'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body  style="width: 1000px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Continuity & Limits Lab</h1>
+
+<hr>
+
+<h2>Exercise 1 - Neuron activation </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P>
+      <img src="./neuro.jpg" width=400><br>
+      Consider an experiment where we stimulate a single neuron with an applied current \(I_{C} \) and measure the electrical signal from the neuron, \(p\).
+      In these experiments the signal is shown in the graph on an oscilloscope. For the experiments below, we will let the slider adjust the applied current,
+      and the graph will show the waveform of the signal over time.
+
+      <ol>
+        <li>First let's find when the applied current is enough to induce a signal. We'll start with no current and increase the current.
+          Make a plot of the period of the signal as a function of applied current. If there is no signal consider the period 0.
+          What do you find is the behavior of the system here?
+          How would you describe your graph in the language of limits \& calculus?</li>
+
+    <div class="compute1">
+    <script type="text/x-sage">
+    # everything following hash symbol is comment
+IC=0.
+
+@interact
+
+def _(IC = slider(0.,4.)):
+  p = 0.
+  ps = plot(0.*x, (0.,10.),axes_labels=['$t$', '$p_{signal}$'])
+  if (IC > 3.):
+    p = 2. + 1.0*sqrt(IC-3)
+    ps =plot(sin(2.*pi*x/p),(0.,10.),axes_labels=['$t$', '$p_{signal}$'])
+  show(ps)
+
+  </script>
+    </div>
+
+    <li>Now let's consider the reverse situation and see how small we can make the applied current before we stop the oscillation.
+      We'll start with a large current and decrease the current.
+      Make a plot of the period of the signal as a function of applied current. Again, if there is no signal consider the period 0.
+       What do you find is the behavior of the system here?
+        How would you describe your graph in the language of limits \& calculus?
+    </li>
+
+    <div class="compute2">
+    <script type="text/x-sage">
+    # everything following hash symbol is comment
+IC=5.
+
+@interact
+
+def _(IC = (IC,(0.,5.))):
+  p = 0.
+  ps = plot(0.*x, (0.,10.),axes_labels=['$t$', '$p_{signal}$'])
+  if (IC > 2.):
+    p = 1. + sqrt(2)*0.5*sqrt(IC-2)
+    ps =plot(sin(2.*pi*x/p),(0.,10.),axes_labels=['$t$', '$p_{signal}$'])
+  show(ps)
+
+  </script>
+    </div>
+
+    <li>Explain what is happening. Use the language of functions, limits, and calculus. Plot both experiments on one set of axes.</li>
+    <li>Bonus: find the functional form of \(p(I_{applied})\) for one of the experiments.
+    </ol>
+  </div>
+
+
+  <h2>Exercise 2 - mortar launch </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+    <div id="ex2" class="collapse">
+
+      <P>Consider the trench warfare of WWI. The mortar was an important piece of artillery.
+        Hitting a target early on was important because armies didn't want to give away the position of their artillery.
+        In this example, we will look at a small piece of this problem. Keep in mind when working on this that modern computers did not exist during WWI!
+        <br><img src="./mortar.gif" width=300><br>
+
+        We can use Newton's Second Law (F=ma) to describe the forces on the mortar shell.
+        In many introductory classes we neglect air resistance or drag, but not today.
+
+        From Newton's Second Law we have the following system of equations that describe the motion of a mortar shell under the influence of gravity and air resistance:
+
+$$ \begin{bmatrix}x''\\y''\end{bmatrix} = \begin{bmatrix}0\\-g\end{bmatrix} - \alpha \sqrt{x'^2 + y'^2} \begin{bmatrix}x'\\y'\end{bmatrix}.$$
+
+These types of equations are differential equations. That may sound fancy, but a differential equation is just an equation with a derivative, or rate.
+We can rewrite these two coupled second order differential equations as a coupled system of four first order differntial equations:
+
+$$\begin{bmatrix}x'\\y'\\xv'\\yv'\end{bmatrix} = \begin{bmatrix}xv\\yv\\-\alpha \sqrt{xv^2 + yv^2} xv \\-g -\alpha \sqrt{xv^2 + yv^2} xv\end{bmatrix},$$
+
+where \(xv,yv\) represent the horizontal and vertical velocities in the \(x,y\) horizontal and vertical directions, respectively.
+
+Here we let \(\alpha = 0.002\) be a coefficient for drag that accounts for air denisty, shape, and mass. If we further assume the mortar launches at 1500 m/s, the initial conditions that complete the initial value problem are
+
+$$\begin{bmatrix}x\\y\\xv\\yv\end{bmatrix}(0) = \begin{bmatrix}0\\0\\100\cos(\theta)\\100\sin(\theta)\end{bmatrix}.$$
+
+Our task is to find the launch angle, \(\theta_i\), that allows us to hit a target 1500 meters away.
+
+These types of equations don't have solutions that can be written down with elementary functions, so we need numerical solutions.
+We don't know how to solve these types of equations numerically yet (we learn in Math 250, MSCS 351, MSCS 446),
+but we can do some experiments that let us explore the material we are learning now.<br>
+
+<img src="./mortardud.gif" width=200><br>
+
+<P> The code below will solve the equations above for us numerically, if we tell it the launch angle \(\theta_i \).
+  It will then plot the trajectory in the \(xy\)-plane.
+  First play around a little with the code to get a sense of what it does, and then consider the prompts below to find the correct launch angle.
+
+  <ol>
+    <li>What is the range if the launch angle is 1.0 radians? 0.5 radians?</li>
+    <li>Consider the idea of the range of the projectile as a function of launch angle. What can we assume about this function (domain, properties, etc.)?
+    <li>Can you write an equation using this function and the launch angle that represents hitting the target 1500 meters away?
+    <li>Are we guaranteed to hit a target 1500 meters away if we launch between 0.5 and 1.0 radians? Why or why not?
+    <li>What is the range if we launch at angle 0.75 radians? What can we say about the correct launch angle now (between 0.5 and 0.75, or between 0.75 and 1.0 radians)?
+    <li>Pick the midpoint of your new interval and calculate the range. Update the interval where the correct launch angle lies. Why are we guaranteed to have a correct launch angle in this interval?
+    <li>Continue this idea of picking the midpoint and updating your interval until you are close enough to hitting the target. What is your launch angle?
+    </ol>
+      <br>
+    <div class="compute">
+    <script type="text/x-sage">
+    # everything following hash symbol is comment
+from sage.calculus.desolvers import desolve_odeint
+var('x y xv yv')
+thetai = pi/6.
+c = 0.002
+vi=1500.
+
+@interact
+
+def _(thetai = (thetai,(0.,pi/2.))):
+  des = [xv,yv,-c*sqrt(xv*xv+yv*yv)*xv,-9.8-c*sqrt(xv*xv+yv*yv)*yv]
+  sol = desolve_odeint(des,[0.,0.,vi*cos(thetai),vi*sin(thetai)],srange(0,40,0.1),[x,y,xv,yv])
+  ps = line(zip(sol[:,0],sol[:,1]),ymin=-1.,ymax=1500.,xmax=2010.,axes_labels=['$x$','$y$'])
+  show(ps)
+
+  </script>
+    </div>
+
+ <P>This numerical method of finding a solution to an equation is called the <underline>bisection method</underline>.
+   This is because we repeatedly bisect an interval until we find a reasonable approximate solution.
+   <br><br>
+
+<P>Use this method to find a launch angle that will hit a target 1000 meters away. Is \(1.0 \leq \theta_i \leq 1.5 \) an appropriate starting interval?
+<br><br><br>
+
+<P>Boring example: we've seen in prior class lessons there is a solution to \(x^3 - x = 1\) in the interval \( [1,2] \). Verify why we know this.
+  Use the bisection method to approximate this solution.
+
+  </div>
+
+<footer style="padding-top: 3cm;">Copyright Tyler Skorczewski 2022</footer>
+    </body>
+    </html>
