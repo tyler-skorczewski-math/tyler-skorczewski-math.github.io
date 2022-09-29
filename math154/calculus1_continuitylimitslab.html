@@ -93,7 +93,7 @@ def _(IC = (IC,(0.,5.))):
   p = 0.
   ps = plot(0.*x, (0.,10.),axes_labels=['$t$', '$p_{signal}$'])
   if (IC > 2.):
-    p = 1. + sqrt(2)*0.5*sqrt(IC-2)
+    p = 1. + sqrt(2)*sqrt(IC-2)
     ps =plot(sin(2.*pi*x/p),(0.,10.),axes_labels=['$t$', '$p_{signal}$'])
   show(ps)
 
