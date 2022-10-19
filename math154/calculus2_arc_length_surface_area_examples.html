@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calculus 2 integral examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Integral examples</h1>
+
+<hr>
+
+<P>Plotting tool</p><br>
+
+<div class="compute">
+<script type="text/x-sage">
+var('x y')
+f = x^2 + y^2 ==1
+g = x^2 - y^2 ==1
+
+xmin = -2
+xmax = 2
+ymin = -2
+ymax = 2
+
+print("Enter equations below. Use == for an equals sign")
+
+@interact
+
+def _(f=input_box(f,label="Equation 1 (blue)"),g=input_box(g,"Equation 2 (red)"),
+     xmin = input_box(xmin,label="xmin "),
+     xmax = input_box(xmax,label="xmax "),
+     ymin = input_box(ymin,label="ymin "),
+     ymax = input_box(ymax,label="ymax ")):
+    p1 = implicit_plot(f, (x,xmin,xmax),(y,ymin,ymax))
+    p2 = implicit_plot(g, (x,xmin,xmax),(y,ymin,ymax),color='red')
+    px = implicit_plot(y==0, (x,xmin,xmax),(y,ymin,ymax),color='black')
+    py = implicit_plot(x==0, (x,xmin,xmax),(y,ymin,ymax),color='black')
+
+    show(p1+p2+px+py)
+
+</script>
+</div>
+
+<h2>Example  - arc length </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex00">Example </button>
+  <div id="ex00" class="collapse">
+    <P>Find the length of the line segment given by \(y = 4x + 6 \) from \(x=1\) to \(x = 6\).
+      <ol>
+        <li>First draw the graph.<br>
+        <li>Calculate the length without integration using known formulas from geometry.<br>
+        <li>Set up an integral that calculates this length.<br>
+        <li>Evaluate your integral and verify your integral reproduces the geometric formula calculation.
+        </ol>
+  </div>
+
+<h2>Example  - arc length #2</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+
+<P>Set up an integral that represents the arc length of the curve \(y = \frac{1}{2}x^2 + \frac{1}{3}x^3 \) in quadrant II of the Cartesian plane.
+  Make sure to draw a picture and include any calculations required to set up your integral.
+  You do not need to evaluate your integral as it will not be possible with analytical methods.
+
+
+</div>
+
+<h2>Example  - arc length #3 </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+  <P>Set up an integral representing the arc length of the curve \(x = y - y^2\) in quadrant I of the Cartesian plane.
+    Make sure to draw a picture and include any calculations required to set up your integral.
+    You do not need to evaluate your integral as it will not be possible with analytical methods.
+</div>
+
+<h2>Example  - Catenary </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+<P> The shape of a hanging cable between two supports is called a catenary. It looks like a parabola, but it is slightly different.
+  Consider a cable hanging between two poles 100 feet apart. We'll put the origin in the middle of the poles.
+  The shape of the cable is given by \( \displaystyle h(x) = 250 \cosh (0.004 x) - 225 \).
+  Then we see \(h(0) = 25\) and \(h(\pm 50) \approx 30\), so there is about a 5 foot sag in the cable.
+  Calculate the length of the cable.
+
+  <br>
+  <br>
+  <br>
+  <details><summary>Hyperbolic trig functions</summary>
+    <ul>
+      <li>\(\displaystyle \cosh(bx) = \frac{e^{bx} + e^{-bx}}{2} \)<br><br>
+      <li>\(\displaystyle \sinh(bx) = \frac{e^{bx} - e^{-bx}}{2} \)<br><br>
+      <li>Show \(\displaystyle \frac{d}{dx}\cosh(bx) = b\sinh(bx) \)<br><br>
+      <li>Show \(\displaystyle \frac{d}{dx}\sinh(bx) = b\cosh(bx) \)<br><br>
+      <li>Show \(\displaystyle \cosh^2(bx) - \sinh^2(bx) = 1\)
+    </ul>
+  </details>
+</div>
+
+<h2>Example - surface area of a sphere  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+<div id="ex4" class="collapse">
+<P> Use the ideas of surface areas of revolution to show the surface area of a sphere with radius \(R\) is \(SA = 4\pi R^2\).
+  Make sure to draw a picture and start with the idea that \(\displaystyle SA = \int_a^b~dSA\).
+</div>
+
+<h2>Example - surface area  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+<div id="ex5" class="collapse">
+
+<P> Find the surface area of the shape made by revolving the graph of \(y = \sqrt{x}\) about the \(x\)-axis from \(x=0\) to \(x=2\).
+</div>
+
+<h2>Example - surface area of funnel 2 ways  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+<div id="ex6" class="collapse">
+  <P> Determine the surface area of the funnel shape made by rotating the curve \(y = x^{1/3}\) about the \(y\)-axis.
+    <ol>
+      <li>Draw a picture of the situation.<br>
+      <li>Find the surface area by setting up and evaluating an integral with respect to \(x\).<br>
+      <li>Next set up and evaluate an integral with respect to \(y\).<br>
+      <li>Verify you calculate the same value for surface area in each case.<br>
+      <li>Which way was easier to calculate, easier to set up, or easier to understand? Why?
+      </ol>
+      <br>
+      <details><summary>video</summary>
+        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_qs9ubrtj&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_usuavd8r" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="surface area of revolution example"></iframe>
+      </details>
+</div>
+
+<h2>Example - arc length problem  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex15">Example </button>
+<div id="ex15" class="collapse">
+<P> Find the arc length of the curve \(\displaystyle y = 2 \ln \left( \frac{4}{4-x^2} \right) \) from (0,0) to \( (1,2 \ln(4/3) ) \).
+
+  <details><summary>video</summary>
+    <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_tsxi0ris&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_76uuwtpa" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="arc length using partial fractions"></iframe>
+  </details>
+</div>
+
+<h2>Example - arc length again </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex18">Example </button>
+<div id="ex18" class="collapse">
+<P> Show the arc length of the graph of \(f(x) = \frac{1}{12} x^3 + \frac{1}{x}\) over the interval [1,3] is 17/6.
+  Make sure to draw a picture and show all your work.
+</div>
+
+<footer style="text-align: center; padding-top: 1cm;">copyright Tyler Skorczewski 2022</footer>
+</body>
+</html>
