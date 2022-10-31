@@ -33,6 +33,8 @@ $(function () {
     <ol type='A'>
       <li> Find the work required to move a particle along a straight line from \(x=0\) to \(x=2\) with force \(F(x) = xe^{-3x}\).
       <li> A spring has a 20 cm natural length. What is the work required to stretch the spring to 30 cm long if \(k=2\) N/m?
+        <li> Work of 3 Joules done in stretching a spring from its natural length to 14 cm beyond its natural length. What is the force (in Newtons) that holds the spring stretched at the same distance (14 cm)?
+        <li> Find the hydrostatic force on a circular plate of radius 2 that is submerged 6 meters in the water.
       <!--<li> Set up an integral representing the fluid force on the end of a (full) trough with -->
     </ol>
 
@@ -113,6 +115,7 @@ $(function () {
     <li>Determine the work required to pull the chain up to the top of the platform.
     <li>Determine the work required to move the mass 30 feet to the platform.
     <li>What is the total work required for the task?
+    <li>The conversion between foot-pounds and calories is 1 foot-pound = 0.00032405 calories. How many calories are required to complete the Heavy Metal challenge?
   </ul>
 </div>
 
@@ -129,6 +132,24 @@ $(function () {
       <li> How far from the top of the cylinder is the slice?
     </ul>
 </div>
+
+<h2>Example 6a - Spherical tank  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6a">Example 6a</button>
+<div id="ex6a" class="collapse">
+  <P> A spherical tank with radius \(R\) meters is filled with water.
+    The density of water is \(\delta = 1000\) kg/m\(^3\) and the acceleration due to gravity near the surface of the Earth is \(g=9.8\)m/sec\(^2\).
+    What is the work done pumping the water out of the top?
+
+  <p>Some questions to consider:
+    <ul>
+      <li> Let's place the origin of our coordinate system at the origin of the sphere. Why does this make sense?
+      <li> What is the equation of a circle with radius \(R\) centered at the origin?
+      <li> What is the relationship between density, gravity, volume, and force?
+      <li> What does a slice across the sphere look like?
+      <li> How far from the top of the sphere is the slice?
+    </ul>
+</div>
+
 
 <h2>Example 7 - Triangular trough  </h2>
 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex7">Example 7</button>
@@ -167,6 +188,49 @@ $(function () {
     <li> What if the plate above is oriented vertically? Should it be greater or less than the force on the horizontal plate?
     <li> Set up an integral representing the total force due to hydrostatic pressure on a circular porthole with diameter 2 feet in the middle of the vertical plate above.
   </ol>
+</div>
+
+<h2>Example 10 - satellite  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex10">Example 10</button>
+<div id="ex10" class="collapse">
+
+  <P>Consider launching a 1000 kg satellite out of Earth's gravitational field.
+    We know the magnitude of the force of gravity between two objects is given by Newton's Law of Gravitation \(\displaystyle F = G\frac{M_1M_2}{r^2}\), where
+    \(M_1\) and \(M_2\) are the masses of the objects, \(r\) is the distance between them, and \(G=6.67\times 10^{-11} Nm^2/kg^2\) is the gravitational constant.
+    We want to know how much work is required to do this.
+    <br>
+    <table width=600>
+      <tr><td>Quantity</td><td>Symbol</td><td>Value</td></tr>
+      <tr><td>Mass of Earth</td><td>\(M_1\)</td><td>\(5.98 \times 10^{24}\) kg</td></tr>
+      <tr><td>Mass of satellite</td><td>\(M_2\)</td><td>\(1000 \) kg</td></tr>
+      <tr><td>Radius of Earth</td><td>\(R_E\)</td><td>\(6.37 \times 10^{6}\) m</td></tr>
+      <tr><td>Newton's Gravitational Constant</td><td>\(G\)</td><td>\(6.67 \times 10^{-11} Nm^2/kg^2\) kg</td></tr>
+    </table><br><br>
+
+    <ol>
+      <li>Draw a schematic of this situation.<br>
+      <li>We want to set up an integral to calculate work. What are the limits of integration here? Why?<br>
+      <li>Set up your integral. What kind of integral is this?<br>
+      <li>Can you evaluate your integral? Why or why not?<br>
+      </il>
+</div>
+
+
+<h2>Example - more pumping  </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example</button>
+<div id="ex11" class="collapse">
+  <P> Consider emptying a trough full of water. the trough is 8 ft long and the ends are in the shape of a semicircle with radius 2 ft.
+    We'll empty the tank by pumping the water out of a pipe extending 1 foot above the top of the trough.
+
+  <p>Some tasks to think about:
+    <ul>
+      <li> Draw a picture of this situation.
+      <li> Where should we place the origin in our coordinate system. Why?
+      <li> What is the equation of a circle with radius \(R\) centered at the origin?
+      <li> What direction should we slice to set up an integral? What is the thickness and shape of this slice?
+      <li> Set up an integral representing the work done to empty the tank. (Note water has weight density 62.4 lbs/cubic ft. )
+      <li> How would you go about evaluating this integral analytically? What strategies or techniques would you try?
+    </ul>
 </div>
 <br>
 <br>
