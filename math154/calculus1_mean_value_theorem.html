@@ -36,15 +36,13 @@ $(function () {
       <P>Consider driving across Wyoming on Interstate 80, about 420 miles long. Let's assume the speed limit on I-80 is 70 mph.
         If it takes more than 6 hrs to get across, what can you say about your speed? What assumptions are you making?
         <br><br><br>
-        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cva">ans</button>
-          <div id="cva" class="collapse">
+        <details><summary>-</summary>
         <P>If we assume continuous driving and no stops/going backwards, the average speed is less than 70 mph.
           <br><br><br>
           <P>Let's go the other way: assume we drive less than 70 mph without any stops. Then the trip will take longer than 6 hours.
             <br><br><br>
-          </div>
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cvm">more</button>
-            <div id="cvm" class="collapse">
+          </details>
+          <details><summary>+</summary>
             <P>How is this related to the idea of the derivative?
               The position function tells us our position along I-80.
               The derivative tells us our velocity (positive -> going forward, negative -> going backward). Speed is the magnitude of velocity.
@@ -55,17 +53,17 @@ $(function () {
                    \(\Rightarrow t_{stop}-t_{start} \geq \frac{f(t_{stop}) - f(t_{start})}{70} = \frac{420}{70} = 6\).
                   <br><br>
                   <br>
-                </div>
+                </details>
                 <br><br>
 
-      <P><b>Theorem (Speed limit law):</b> Let \(f\) be a function defined for \(x \in [a,b]\) and let \(M\) be any real number.
+      <P><details><summary><b>Theorem</b></summary> <b>(Speed limit law):</b> Let \(f\) be a function defined for \(x \in [a,b]\) and let \(M\) be any real number.
         If \(f'(x) \leq M\) for all \(x \in [a,b]\) then \(f(b) - f(a) \leq M (b-a)\).
 
         <br>
         <P>Why is this called the speed limit law?
         <br>
         <P>Remark: a similar theorem is true using the \( \geq \).
-
+        </details>
     </div>
 
 <h2>Example</h2>
@@ -134,10 +132,8 @@ $(function () {
         Note that \(f\) is a polynomial, so it is both continuous and differentiable everywhere.
         Find the number \(c \in (0,1)\) that shows the consequence of the Mean Value Theorem holds.
         <br>
-        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#gex331a">ans</button>
-          <div id="gex331a" class="collapse">
-            <details><summary>video</summary>
-        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_bx7fkdar&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_0olnf7um" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe></div></details>
+        <details><summary>video</summary>
+        <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_bx7fkdar&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_0olnf7um" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe></details>
     </div>
 
     <h2>Multiple Choice Questions -  </h2>
