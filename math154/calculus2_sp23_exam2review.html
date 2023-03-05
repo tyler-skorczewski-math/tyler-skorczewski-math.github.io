@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 154</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+    <body  style="width: 700px; padding-left: 1cm; padding-bottom: 10cm">
+
+  <h1>Spring 2023 Applications of the definite integral exam review</h1>
+
+<hr>
+
+<h2>Warmup</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#wu">Warmup</button>
+  <div id="wu" class="collapse">
+    <P>Take a moment and write down the topics we've covered since the exam 1.
+
+  </div>
+
+<h2>Example - Rocket</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#example1">Example 1</button>
+  <div id="example1" class="collapse">
+
+<!--Tan section 5.5 exercise 31-->
+
+<P> Newton's Law of Gravitation states that two bodies having masses \(m_1\) and \(m_2\) attract each other with a force
+$$ F = G\frac{m_1m_2}{r^2}$$
+where \(G\) is the gravitational constant and \(r\) is the distance between the two bodies. Assume that the mass of the earth is \(5.97 \times 10^{24}\) kg and is concentrated at the center of the earth,
+the radius of the earth is \(6.37 \times 10^6\) m, and \(G = 6.67 \times 10^{-11}\) Nm\(^2\)/kg\(^2\).
+<ul>
+  <li>Set up an integral that represents the work required to launch a rocket of mass 500,000 kg vertically upwards to a height of 10,000 km.
+  <li>Since gravity acts between two objects at any distance, what is the work required to for the rocket to escape Earth's gravitational field?
+  </ul>
+</div>
+
+<h2>Example - Astroid</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+<div id="ex2" class="collapse">
+
+<!--Tan section 5.4 exercise 29-->
+<P> The graph of the equation \(x^{2/3} + y^{2/3} = a^{2/3}, a \geq 0\) is called an astroid. Find the arc length of this graph.<br>
+  (hint: exploit symmetry)<br>
+  <img src="./images/astroid_700.gif"><img src="./images/astroid.gif">
+
+</div>
+
+<!--
+<h2>Example 3 - Clepsydra</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+<div id="ex3" class="collapse">
+
+<P>A container having the shape of a solid of revolution obtained by revolving the graph of \(y= kx^4, k>0,\) about the \(y\)-axis is made with a transparent material.
+  A small hole is drilled in the bottom to allow water to flow out.
+  <ol type='a'>
+    <li>Find the volume \(V(h)\) of water in the container as a function of \(h\), the height of the water at time \(t)\).
+    <li>Use the chain rule and Torricelli's Law - which states that the rate of flow of water is \(dV/dt = \alpha A\sqrt{h}\), where \(\alpha\) is a negative constant, \(A\) is the area of the hole at the bottom of the container, and \(h\) is the height of the water- to show that the water level in the container drops at a constant rate.
+    <li>Explain why this property allows us to construct a <a href="https://en.wikipedia.org/wiki/Water_clock">water clock</a>.
+  </ol>
+
+</div>
+-->
+
+<h2>Example  - volumes of revolution </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex23">Example </button>
+<div id="ex23" class="collapse">
+  <P>Consider the region bounded by \(x=0,y=0,x=2,\) and \(y = x^2 + 2\).
+    Set up integrals that represent the volume created by rotating this region about the
+    <ol>
+      <li>\(x\) axis?
+      <li>line \(y=6\)?
+      <li>line \(x = 5\)?
+      </ol>
+    <br><br>
+    <P>Make sure to include a picture when setting up your integrals.
+
+</div>
+
+<h2>Example  - work to pump tank </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex24">Example </button>
+<div id="ex24" class="collapse">
+  <P> Consider a tank in the shape of an inverted cone with radius 5m and height 10m filled with water.
+    What is the work required to pump all the water in this tank out a spout 2 m above the top of the tank?
+    Remember to show all your work that includes:
+    <ul>
+      <li>a picture
+      <li>a slice in your picture
+      <li>a coordinate system
+      <li>the integral set up
+      <li>the calculation
+    </ul>
+  </div>
+
+  <h2>Example  - force on plate </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex25">Example </button>
+  <div id="ex25" class="collapse">
+    <P> Let \(F\) be the fluid force on a side of a semicircular plate of radius \(r\) meters submerged in water
+      so the diameter is level with the water surface. Calculate \(F\) as a function of \(r\).
+    </div>
+
+
+    <h2>Example - more pumping  </h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex11">Example</button>
+    <div id="ex11" class="collapse">
+      <P> Consider emptying a trough full of water. The trough is 8 ft long and the ends are in the shape of a semicircle with radius 2 ft.
+        We'll empty the tank by pumping the water out of a pipe extending 1 foot above the top of the trough.
+
+      <p>Some tasks to think about:
+        <ul>
+          <li> Draw a picture of this situation.
+          <li> Where should we place the origin in our coordinate system. Why?
+          <li> What is the equation of a circle with radius \(R\) centered at the origin?
+          <li> What direction should we slice to set up an integral? What is the thickness and shape of this slice?
+          <li> Set up an integral representing the work done to empty the tank. (Note water has weight density 62.4 lbs/cubic ft. )
+          <li> How would you go about evaluating this integral analytically? What strategies or techniques would you try?
+        </ul>
+    </div>
+
+    <h2>Other Examples</h2>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex0">Others</button>
+    <div id="ex0" class="collapse">
+      <ol type='A'>
+        <li> Find the work required to move a particle along a straight line from \(x=0\) to \(x=2\) with force \(F(x) = x\sin(2x)\).
+        <li> A spring has a 20 cm natural length. What is the work required to stretch the spring to 30 cm long if \(k=2\) N/m?
+        <li> Find the hydrostatic force on a circular plate of radius 2 that is submerged 6 meters in the water.
+        <li> What is the average value of \(g(x) = x^4\) over the interval \([1,2]\)?
+        <li> Find the area between \(x = y^2 - 1\) and \(y = -1 + x\).
+        <li> Set up integrals for the coordinates of the center of mass of the shape above with constant density.
+      </ol>
+
+
+    </div>
+
+    <h2>Example - metal sheet</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex19">Example </button>
+<div id="ex19" class="collapse">
+<P> Consider stamping a flat metal sheet into a corrugated pattern 28 inches long with shape given by \(y = \sin(\pi x/7) \).
+  Set up an integral for the length of the original flat sheet.
+</div>
+
+
+
+</body>
+</html>
