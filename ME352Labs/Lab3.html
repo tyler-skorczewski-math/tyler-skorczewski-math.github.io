@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 3. Numpy arrays and plotting Lab/HW &#8212; ME 352 Labs book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lab3';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lab 4. Root Finding Lab/HW" href="Lab4.html" />
+    <link rel="prev" title="Lab 2. Python Basics Lab/HW" href="Lab2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/StoutFlame.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/StoutFlame.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ME 352 Labs Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lab1.html">Lab 1. First Jupyter notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab2.html">Lab 2. Python Basics Lab/HW</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 3. Numpy arrays and plotting Lab/HW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab4.html">Lab 4. Root Finding Lab/HW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab5.html">Lab 5. Interpolation Lab/HW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab6.html">Lab 6. Regression Lab/HW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab7.html">Lab 7. Nonlinear Regression Lab/HW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab8.html">Lab 8. Linear Algebra Lab/HW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab9.html">Lab 9. Numerical Integration Lab/HW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab10.html">IVP Lab/HW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab11.html">Systems of ODEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lab12.html">Lab 12. BVP example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exam1.html">ME 352 Exam 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Exam2.html">ME 352 Exam 2</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLab3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lab3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 3. Numpy arrays and plotting Lab/HW</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">Task 6.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8">Task 8.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-9-save-your-notebook-as-both-a-pdf-and-a-ipynb-file-and-upload-to-canvas">Task 9. Save your notebook as both a pdf and a ipynb file and upload to Canvas.</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-3-numpy-arrays-and-plotting-lab-hw">
+<h1>Lab 3. Numpy arrays and plotting Lab/HW<a class="headerlink" href="#lab-3-numpy-arrays-and-plotting-lab-hw" title="Permalink to this headline">#</a></h1>
+<p>The objective here are to understand how to work with numpy arrays and make plots using numpy and matplotlib. Make sure to include a text cell with your name at the top.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<section id="task-1">
+<h2>Task 1.<a class="headerlink" href="#task-1" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Use the numpy <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">linspace</a> function to create a numpy array with values from 5 to 15 using 11 elements. Assign this array to variable v.</p></li>
+<li><p>Print the 4th through 8th elements of v.</p></li>
+<li><p>Print the odd-indexed elements.</p></li>
+</ul>
+</section>
+<section id="task-2">
+<h2>Task 2.<a class="headerlink" href="#task-2" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Let array_a be a numpy array [-1, 0, 1, 2, 0, 3]. Write a command that will return an array consisting of all the elements of array_a that are larger than zero. Hint: Use logical expression as the index of the array.</p></li>
+<li><p>Use the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.zeros.html">zeros</a> function to create a <span class="math notranslate nohighlight">\(2\times 3\)</span> matrix of zeros. Print this matrix.</p></li>
+<li><p>Let array_a be a numpy array [-1, 0, 1, 2, 0, 3] and array_b be a numpy array [5,4,3,2,1,0].</p></li>
+<li><p>Print the sum of the two arrays.</p></li>
+<li><p>Print 1 + array_b</p></li>
+</ul>
+</section>
+<section id="task-3">
+<h2>Task 3.<a class="headerlink" href="#task-3" title="Permalink to this headline">#</a></h2>
+<p>One task we often want to accoplish with arrays is looping over the elements to do something. Note that arrays are indexed starting at zero, so the first element of an array a is called a[0], not a[1].</p>
+<p>Consider a simple array</p>
+<blockquote>
+<div><p>ps = np.array([1.1,2.2,3.3,4.4]</p>
+</div></blockquote>
+<p>Write a for loop that loops over the array and accesses the array by index</p>
+<blockquote>
+<div><p>for i in range(0,len(ps)).</p>
+</div></blockquote>
+<p>Inside the loop plot the function <span class="math notranslate nohighlight">\(y = x^p\)</span>, <span class="math notranslate nohighlight">\(x \in [0,1]\)</span> where <span class="math notranslate nohighlight">\(p\)</span> is the element of array ps. Note</p>
+<blockquote>
+<div><p>len(ps)</p>
+</div></blockquote>
+<p>is a function that returns the length of the array ps.</p>
+</section>
+<section id="task-4">
+<h2>Task 4.<a class="headerlink" href="#task-4" title="Permalink to this headline">#</a></h2>
+<p>Note we don’t have to loop over integers in the index of an array. We can also loop over the elements directly with a for loop code like</p>
+<blockquote>
+<div><p>for p in ps:</p>
+</div></blockquote>
+<p>This lets us directly get at the elements of ps without needing a line of code like</p>
+<blockquote>
+<div><p>p = ps[i].</p>
+</div></blockquote>
+<p>Rewrite your task above and show you get the same output.</p>
+</section>
+<section id="task-5">
+<h2>Task 5.<a class="headerlink" href="#task-5" title="Permalink to this headline">#</a></h2>
+<p>Sometimes we need to add on to an array during our code because we don’t know how long it will be at the start. We can do this with the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.append.html#numpy.append">append</a> command.</p>
+<p>Make a simple array</p>
+<blockquote>
+<div><p>arr = np.array([2,4,6,8])</p>
+</div></blockquote>
+<p>Print the array</p>
+<blockquote>
+<div><p>print(arr)</p>
+</div></blockquote>
+<p>Append the number 10 to this array using append and print the output.</p>
+</section>
+<section id="task-6">
+<h2>Task 6.<a class="headerlink" href="#task-6" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Make an array called x that uses the linspace command to make an array from 0 to 10.</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(\displaystyle y = \frac{15}{3 + x}\)</span>.</p></li>
+<li><p>Make a plot of the function that uses a red line. Make sure to label axes.</p></li>
+</ul>
+</section>
+<section id="task-7">
+<h2>Task 7.<a class="headerlink" href="#task-7" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Make an array called x that uses the linspace command to make an array from <span class="math notranslate nohighlight">\(-\pi/2\)</span> to <span class="math notranslate nohighlight">\(\pi/2\)</span> with 10 elements.</p></li>
+<li><p>Plot <span class="math notranslate nohighlight">\(\cos(x)\)</span>, <span class="math notranslate nohighlight">\(\sin(x)\)</span>, and <span class="math notranslate nohighlight">\(\tan(x)\)</span> in one figure.</p>
+<ul>
+<li><p>Use a red line for <span class="math notranslate nohighlight">\(\cos(x)\)</span>, a green line for <span class="math notranslate nohighlight">\(\sin(x)\)</span>, and a black line for <span class="math notranslate nohighlight">\(\tan(x)\)</span>.</p></li>
+<li><p>Use diamonds for <span class="math notranslate nohighlight">\(\cos(x)\)</span>, triangles for <span class="math notranslate nohighlight">\(\sin(x)\)</span>, and circles for <span class="math notranslate nohighlight">\(\tan(x)\)</span>.</p></li>
+<li><p>Label axes and show a legend in your figure.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="task-8">
+<h2>Task 8.<a class="headerlink" href="#task-8" title="Permalink to this headline">#</a></h2>
+<p>We can make parametric plots easily using python. We just need an array to keep track of the parameter and then make arrays for the dependent variables, like <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. Then just plot <span class="math notranslate nohighlight">\(x\)</span> versus <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>One example where we might want to plot something using parameteric equations is in the design of a <a class="reference external" href="https://mechdrafting.net/en/portfolio-item/peritrochoid-curve">Wankel</a> engine. In such engines a rotor moves through a housing rotating entirely in one direction, as opposed to having pistons moving up and down like in conventional engines.</p>
+<p>The rotor housing can be generated with a peritrochoid curve given parametrically by</p>
+<div class="math notranslate nohighlight">
+\[x(t) = \epsilon \cos(t) + R\cos\left(\frac{t}{3} \right)\]</div>
+<div class="math notranslate nohighlight">
+\[y(t) = \epsilon \sin(t) + R\sin\left(\frac{t}{3} \right)\]</div>
+<div class="math notranslate nohighlight">
+\[0 \leq t \leq 6\pi.\]</div>
+<p>Make a plot of the housing for <span class="math notranslate nohighlight">\(R=2\)</span> and <span class="math notranslate nohighlight">\(\epsilon = 0.5\)</span>. You should let <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(\epsilon\)</span> be variables in the code and assign them before you make <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> so R=2 appears in one line then x and y depend on R, not 2. Then to change the plot, just change the <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(\epsilon\)</span> assignment lines of code.</p>
+</section>
+<section id="task-9-save-your-notebook-as-both-a-pdf-and-a-ipynb-file-and-upload-to-canvas">
+<h2>Task 9. Save your notebook as both a pdf and a ipynb file and upload to Canvas.<a class="headerlink" href="#task-9-save-your-notebook-as-both-a-pdf-and-a-ipynb-file-and-upload-to-canvas" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lab2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 2. Python Basics Lab/HW</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lab4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 4. Root Finding Lab/HW</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1">Task 1.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2">Task 2.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3">Task 3.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4">Task 4.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5">Task 5.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6">Task 6.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-7">Task 7.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-8">Task 8.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-9-save-your-notebook-as-both-a-pdf-and-a-ipynb-file-and-upload-to-canvas">Task 9. Save your notebook as both a pdf and a ipynb file and upload to Canvas.</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tyler Skorczewski
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
