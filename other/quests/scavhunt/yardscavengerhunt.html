@@ -2,8 +2,30 @@
 <html>
 <head>
     <title>Yard Scavenger Hunt</title>
+    <script>
+    function checkAllCheckboxes() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var allChecked = true;
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (!checkboxes[i].checked) {
+                allChecked = false;
+                break;
+            }
+        }
+
+        if (allChecked) {
+            window.location.href = 'winner.html'; // Replace 'newpage.html' with the URL of the webpage you want to load
+        } else {
+            alert('Looks like you still have a few things left to find!');
+        }
+    }
+    </script>
 </head>
 <body>
+  <h1>Yard Scavenger Hunt</h1>
+  <P>Below is a list of items around the yard you can try to find. Can you find them all?
+
     <table>
         <tr>
             <th>Found it?</th>
@@ -30,7 +52,7 @@
             <td><img src="./globe.jpg" alt="Red globe" width=300></td>
         </tr>
         <tr>
-            <td><input type="checkbox" name="item8"></td>
+            <td><input type="checkbox" name="item8" width=40></td>
             <td><img src="./toads.jpg" alt="Toads" width=300></td>
         </tr>
         <tr>
@@ -42,5 +64,6 @@
             <td><img src="./pinwheel.jpg" alt="Pinwheel" width=300></td>
         </tr>
     </table>
+    <button onclick="checkAllCheckboxes()" width=200>I found everything!</button>
 </body>
 </html>

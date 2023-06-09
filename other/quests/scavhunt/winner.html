@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yard Scavenger Hunt</title>
+    <script>
+    function checkAllCheckboxes() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var allChecked = true;
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (!checkboxes[i].checked) {
+                allChecked = false;
+                break;
+            }
+        }
+
+        if (allChecked) {
+            window.location.href = 'winner.html'; // Replace 'newpage.html' with the URL of the webpage you want to load
+        } else {
+            alert('Looks like you still have a few things left to find!');
+        }
+    }
+    </script>
+</head>
+<body>
+  <h1>Good Job!</h1>
+  <img src="./pokemonwinner.jpg" width=500><br>
+  <button onclick="window.location.href = 'yardscavengerhunt.html';" width=200>Back to scavenger hunt list</button>
+</body>
+</html>
