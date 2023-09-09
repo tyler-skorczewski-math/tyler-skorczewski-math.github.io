@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm;">
+
+  <h1>Break Even Analysis and other applications</h1>
+
+<hr>
+
+<h2>Formulas</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#formula">Formulas </button>
+  <div id="formula" class="collapse">
+    <ul>
+      <li><b>Slope intercept form of a line</b>: \( y = mx + b\)
+      <li><b>Point slope form of a line</b>: \( y - y_0 = m (x - x_0) \)
+      <li><b>Standard form of a line</b>: \( a x + b y  = c \)
+    </ul>
+</div>
+
+<h2>Example 1 - Computers</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P>A computer manufacturer sells tablets. Its shop has fixed costs of $500 per week.
+    Costs for parts and labor is $649 for each tablet. It sells its tablets for $899 each.
+    Assume it sells every tablet it makes, and that it makes \(x\) tablets each week.
+      <ol>
+        <li>What is the cost function for each week?
+        <li>How much revenue is collected each week?
+        <li>How many tablets does the company need to sell to make a profit?
+        </ol>
+  </div>
+
+<h2>Example 2 - bagels </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+    <P>Tony plans to open a bagel shop. They estimate weekly costs are
+    <ul>
+    <li>rent: $300
+    <li>utilities: $130
+    <li>salaries: $1800
+    <li>insurance: $90
+    </ul>
+    Relevant per bagel values are
+    <ul>
+    <li>bagel ingredients: $0.32 per bagel
+    <li>bagel price: $0.95 per bagel
+    </ul>
+
+    <P>How many bagels do they need to sell to make a profit?
+  </div>
+
+
+<h2>Example 3 - tickets</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+  <div id="ex3" class="collapse">
+    <P>The Student Center plans to bring a musical group in for a concert.
+    It expects a sellout crowd of 1200 attendees.
+    The group will come for $3000 or $1000 and 30% of the gate.
+
+    <P>The Student Center decides on $1000 plus 30% of the gate. How much should they charge for a ticket?
+  </div>
+
+<h2>Example 4 - credit cards</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+  <div id="ex4" class="collapse">
+    <P>Credit card companies aggressively compete for card holders. The percentage of Americans having a credit card has increased with the data shown in the table below.
+      <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax">year</th>
+    <th class="tg-0lax">% with cc</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">1989</td>
+    <td class="tg-0lax">56</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">1992</td>
+    <td class="tg-0lax">62.4</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">1995</td>
+    <td class="tg-0lax">66.4</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">1998</td>
+    <td class="tg-0lax">67.5</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">2001</td>
+    <td class="tg-0lax">72.7</td>
+  </tr>
+</tbody>
+</table>
+    <P>Consider the following questions:
+          <ol>
+            <li>Can you estimate the percentage with credit cards in 1980, 2000, 2005?
+            <li>How can you make a line of best fit (use Excel)?
+            <li>When will 100% of Americans have a credit card?
+            <li>Is this reasonable?
+            </ol>
+
+  </div>
+
+<h2>Example 5 - higher ed expenditures</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+  <div id="ex5" class="collapse">
+    <P>The US Department of Commerce provides an estimate of expenditures on higher education expenses
+      for 1999-2003.
+      <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax">year</th>
+    <th class="tg-0lax">expenditure (in billions)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">1999</td>
+    <td class="tg-0lax">80.0</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">2000</td>
+    <td class="tg-0lax">86.4</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">2001</td>
+    <td class="tg-0lax">95.1</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">2002</td>
+    <td class="tg-0lax">103.9</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">2003</td>
+    <td class="tg-0lax">112.2</td>
+  </tr>
+</tbody>
+</table>
+
+<ol type='A'>
+  <li>Make a line of best fit.
+  <li>Estimate the expenditures in 2008.
+  <li>When are expenditures estimated to reach 175 billion?
+  </ol>
+
+  </div>
+
+
+
+
+
+<footer style="padding-top: 3cm;">Copyright 2023 Tyler Skorczewski</footer>
+</body>
+</html>
