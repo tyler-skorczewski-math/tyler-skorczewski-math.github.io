@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH 123</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>
+$(function () {
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+    			template:       sagecell.templates.minimal,
+                           evalButtonText: 'Launch Sage Code'});
+});
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm;">
+
+  <h1>Linear Systems of Equations</h1>
+
+<hr>
+
+
+
+<h2>Example 1 - Laboratory Diets</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex1">Example 1</button>
+  <div id="ex1" class="collapse">
+    <P>You are working in a laboratory that does experiments with animals.
+      The animals in one particular experiment are to be kept on a strict diet of 20 grams of protein and 6 grams of fat each day.
+      There are two food mixes the lab uses. Mix \(A\) has 10% protein and 6% fat.
+      Mix \(B\) has 20% protein and 2% fat.
+      Your task is to determine how many grams of each mix should be used to obtain the right diet for a single animal.
+
+      <ol>
+        <li>What are the unknowns in this problem?
+        <li>How many equations do you need? What do they represent? Units?
+        <li>What are the equations?
+        <li>Draw the graphs for these equations in one figure.
+        <li>Solve the equations you've set up.
+        </ol>
+  </div>
+
+<h2>Example 2 - basics </h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex2">Example 2</button>
+  <div id="ex2" class="collapse">
+    <P>Solve the systems below if possible.
+    <ol type='A'>
+    <li>$$2x - y = 1$$
+      $$2x + y = -3$$
+    <li>$$6x - 9y = 8$$
+      $$10x - 15y = -20$$
+    <li>$$8x + 10y = 18$$
+      $$20x + 25y = 45$$
+    </ol>
+
+  </div>
+
+
+<h2>Example 3 - Gifts Galore</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex3">Example 3</button>
+  <div id="ex3" class="collapse">
+    <P>Gifts Galore Catalogue Company estimates the demand for TVs to be
+      $$p = -10x + 640,$$
+      where \(x\) is demand quantity and \(p\) is price.
+      The supply equation is
+      $$p = 12.5x + 325,$$
+      where \(x\) is supply quantity and \(p\) is price.
+      <ul>
+        <li>Explain the supply and demand trends exhibited by the equations.
+        <li>Find the equilibrium price.
+        </ul>
+  </div>
+
+<h2>Example 4 - GG part 2</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex4">Example 4</button>
+  <div id="ex4" class="collapse">
+    <P>What if the Gifts Galore company saw demand for a waffle iron <ins>
+    $$p = -2.5x + 148,$$
+    and the supply is
+    $$p = 1.7x  + 43.$$
+    What is the equilibrium point?
+  </div>
+
+<h2>Example 5 - GG part 3</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex5">Example 5</button>
+  <div id="ex5" class="collapse">
+    <P>Now the Gifts Galore company has data indicating that when the
+      price is $138, the demand is 72 and the supply 96.
+      The equilibrium point occurs when the price is $120 and the quantity is 88.
+      Find the equations for the supply and demand.
+
+  </div>
+
+  <h2>Example 6 - Lean manufacturing</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex6">Example 6</button>
+  <div id="ex6" class="collapse">
+
+  <P><a href="https://en.wikipedia.org/wiki/Lean_Six_Sigma">Lean</a> <a href="https://www.leanproduction.com/">manufacturing</a> is a corporate philosophy or operation strategy built around eliminating waste. This includes waste in inventory, production, and labor.
+
+  <P>Consider a factory that makes down jackets, vests, and comforters. A jacket requires 3 lbs of down, a vest 2 lbs, and a comforter 4 lbs.
+    A jacket takes 2 hours of labor to make, a vest requires 1 hour of labor, and a comforter also requires 1 hour.
+    The profit from jackets and vests are $6 each, and the profit from a comforter is $2.
+
+  <P>Each week the factory has exactly 600 pounds of down, 275 available manhours and wants a weekly profit of $1150. How many jackets, vests, and comforters should it produce in order to eliminate any excesses in down and labor hours?
+  <br>
+  <details><summary>video</summary>
+  <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_q67i6znm&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_tg42gy92" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+  </details>
+  </div>
+
+  <h2>Example 8 - movie theater </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex8">Example 8</button>
+  <div id="ex8" class="collapse">
+
+  <P> A 350 seat movie theater charges \(\$10.50\) admission for adults and \(\$7.50\) for children.
+    If the theatre is full for a show and \(\$3411\) is collected, determine how many of each type of ticket was sold.
+    <ol type='1'>
+      <li> Identify the variables/unknowns that we need to find.
+      <li> Write a system of equations that govern this problem.
+      <li> How many possible ways are there to sell the tickets that earn the revenue given above?
+    </ol>
+    <details><summary>video</summary>
+    <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2370711/sp/237071100/embedIframeJs/uiconf_id/42909941/partner_id/2370711?iframeembed=true&playerId=kaltura_player&entry_id=1_627kho7z&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=1_hxfukat4" width="608" height="342" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="Kaltura Player"></iframe>
+    <details>
+  </div>
+
+  <h2>Example 9 - Library </h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ex9">Example 9</button>
+  <div id="ex9" class="collapse">
+
+  <P> The public libary is budgeted for fiction, nonfiction, and reference books as follows:
+    <ul>
+      <li>Purchase 500 books a month for a total of \(\$19,500\).
+      <li>Purchase 50 more fiction than reference books.
+      <li>The average cost of fiction books is \(\$30\); nonfiction books are \(\$40\); and reference books are \(\$50\).
+    </ul>
+    <P>How many of each type of book should the library acquire each month?
+      <ol type='1'>
+        <li>Identify the unknowns.
+        <li>Write as a system of linear equations.
+        <li>Use substitution, elimination, or row operations to solve the system.
+        <li>How many ways are there to satisfy the budget above?
+      </ol>
+  </div>
+
+
+
+
+
+<footer style="padding-top: 3cm;">Copyright 2023 Tyler Skorczewski</footer>
+</body>
+</html>
