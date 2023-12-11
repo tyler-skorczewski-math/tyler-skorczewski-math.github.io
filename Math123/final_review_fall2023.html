@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Math examples</title>
+    <script src="https://sagecell.sagemath.org/static/jquery.min.js"></script>
+    <script src="https://sagecell.sagemath.org/embedded_sagecell.js"></script>
+    <script>$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  'div.mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    });
+    </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body style="width:750px; padding-left: 1cm" background="bg.jpg">
+
+  <h1>Final exam review</h1>
+
+<hr>
+
+
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ch12">Chapters 1 & 2 exercises</button>
+  <div id="ch12" class="collapse">
+<ol type='A'>
+  <li> What is the equation of the line through the points (2,3) and (9,24)?<br><br>
+  <li> Raul is on a carefully supervised diet that causes weight loss of 3 pounds per week.
+    After 14 weeks, his weight is 196 pounds. Does the information provided give two points or a point and a slope?
+    Write Raul's weight as a linear function of weeks on the diet.<br><br>
+  <li> Gabby starts a flower shop with fixed costs of $600 per month. Bouquets sell for an average of $20 each and cost $10 to produce.
+    How many does she need to sell to make a profit?<br><br>
+  <li> Solve
+    $$2x + 3y = 6$$
+    $$5x - 6y = 10$$
+    
+  </ol>
+</div>
+<br>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ch3">Chapter 3 exercises</button>
+  <div id="ch3" class="collapse">
+<ol type='A'>
+<li> Graph the solution set to the system:<br>
+  \(x - 3y \geq 6\)<br>
+  \(x - y \leq 4\)<br>
+  \(y \geq -5\)<br><br>
+<li> Maximize \(z = 5x + 4y\) <br>subject to<br>
+  \(3x + 2y \leq 12\)<br>
+  \(x + y \leq 5\)<br>
+  \( x\geq 0, y \geq 0\)<br><br>
+<li> The Hoover Steel Mill produces two grades of stainless steel, which is sold in 100-pound bars.
+  The standard grade is 90% steel and 10% chromium by weight, and the premium grade is 80% steel and 20% chromium.
+  The company has 80,000 pounds of steel and 12,000 pounds of chromium on hand.
+  If the price per bar is $90 for the standard grade and $100 for the premium grade, set up a linear programming problem to determine
+  how much of each grade should it produce to maximize revenue? You do not need to solve this.<br><br>
+<li> A school cafeteria serves three foods for lunch: A, B, and C.
+  There is pressure on the cafeteria director to reduce lunch costs.
+  Help the director by finding the quantities of each food that will minimize costs and still maintain the desired nutritional level.
+  The three foods have the following nutritional characteristics:<br>
+  <img src="./cafeteria_table.png" width=350><br>
+  A lunch must contain at least 80 grams of protein, 95 grams of carbohydrates, and 800 calories.
+  How many units of each food should be served to minimize cost? Set up the problem. Do not solve.
+</ol>
+</div>
+<br>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ch5">Chapter 5 exercises</button>
+  <div id="ch5" class="collapse">
+    <ol type='A'>
+<li>The price of an automobile is now $15,000.
+  What would be the anticipated price of that automobile in 2 years’ time if prices are expected to increase at an annual rate of 8%?<br><br>
+<li>Anticipating college tuition for their child in 10 years, the Heggens want to deposit a lump sum of money into an
+  account that will provide $96,000 at the end of that 10-year period.
+  The account selected pays 6.2%, compounded semiannually. How much should they deposit?<br><br>
+
+</ol>
+</div>
+<br>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ch6">Chapter 6 exercises</button>
+  <div id="ch6" class="collapse">
+    <ol type='A'>
+<li>\(A\) and \(B\) are sets in a universe \(U\) with \(n(U) =42, n(A) = 15, n(B) = 24\), and \(n(A \cup B)^c = 8\). Find \(n(A \cup B)\) and \(n(A \cap B)\).<br><br>
+  <li>The freshman class traditionally guards the school mascot the night before homecoming.
+    There are five key locations where a freshman is posted. Nine freshmen volunteer for the 2:00 A.M. assignment.
+    In how many different ways can they be assigned?<br><br>
+  <li>A program consists of four musical numbers and three speeches.
+    In how many ways can the program be arranged so that it begins and ends with a musical number?<br><br>
+  </ol>
+</div>
+<br>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#ch7">Chapter 7 exercises</button>
+  <div id="ch7" class="collapse">
+    <ol type='A'>
+    <li>Three numbers are drawn from {1, 2, 3, 4, 5, 6, 7} and placed in a row in the order drawn to form a three-digit number.
+      What is the probability that <br>
+      <ol type='a'>
+        <li>the number is 456?
+        <li>the first digit is 2, 4, or 6?
+        <li>it is larger than 600?
+        <li>it is less than 326?
+      </ol>
+      <br><br>
+    <li>Consider owning a landscaping company and bidding on 3 projects. You estimate the chances of winning the bid
+      on projects A, B, and C to be 0.7, 0.6, and 0.5, respectively. You also know the chances of winning each are independent.
+      Draw a tree diagram to help you determine the probabilty that you win:
+      <ol>
+        <li>all three bids?<br>
+        <li>exactly two bids?<br>
+        <li>exactly one bid?<br>
+        <li>no bids?
+        </ol>
+      <li>Lauren attended her 10th high school reunion.
+        Of the 65 people present, she observed that 31 were married and in their first marriage,
+        22 were married and in their second marriage, and 12 were currently single. (a)  (b)  (c)
+        <ol>
+          <li>If one person is selected at random from the group, find the probability that it is a single person.
+          <li>If two people are selected at random, find the probability that both are in their second marriage.
+          <li>If three people are selected at random, find the probability that two are in their first marriage and one is single.
+          </ol>
+      </ol>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+</body>
+</html>
