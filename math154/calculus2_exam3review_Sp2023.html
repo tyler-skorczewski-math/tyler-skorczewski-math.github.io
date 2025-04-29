@@ -80,18 +80,18 @@ $(function () {
 
            <div class="compute">
            <script type="text/x-sage">
-   # everything following hash symbol is comment
-   theta = var('theta')
-   r = 2*cos(3*theta)
-   tstart = 0
-   tend = 2*pi
-   print("Enter the radius,r, as a function of angle, theta")
-   @interact
+# everything following hash symbol is comment
+theta = var('theta')
+r = 2*cos(3*theta)
+tstart = 0
+tend = 2*pi
+print("Enter the radius,r, as a function of angle, theta")
+@interact
 
-   def _(r=input_box(r,label="r(theta) =  "),tstart=input_box(tstart,label="theta start = "),tend=input_box(tend,label="theta end = ")):
-     pp = polar_plot(r, (theta,tstart,tend) )
-     ppf = polar_plot(r, (theta,-pi/6,pi/6), fill=true)
-     (pp+ppf).show()
+def _(r=input_box(r,label="r(theta) =  "),tstart=input_box(tstart,label="theta start = "),tend=input_box(tend,label="theta end = ")):
+ pp = polar_plot(r, (theta,tstart,tend) )
+ ppf = polar_plot(r, (theta,-pi/6,pi/6), fill=true)
+ (pp+ppf).show()
 
            </script>
            </div>
